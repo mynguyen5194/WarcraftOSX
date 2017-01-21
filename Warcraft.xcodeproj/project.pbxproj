@@ -15,6 +15,10 @@
 		FE1D064C1E27365100944E5E /* WarcraftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1D064B1E27365100944E5E /* WarcraftUITests.swift */; };
 		FE1D065B1E277EF800944E5E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE1D065A1E277EF800944E5E /* AVFoundation.framework */; };
 		FE1D42581E299498002181AD /* Splash.png in Resources */ = {isa = PBXBuildFile; fileRef = FE1D42571E299498002181AD /* Splash.png */; };
+		FE2B12211E30A98400881A4D /* intro.mid in Resources */ = {isa = PBXBuildFile; fileRef = FE2B12201E30A98400881A4D /* intro.mid */; };
+		FE2B12231E30A9E200881A4D /* menu.mid in Resources */ = {isa = PBXBuildFile; fileRef = FE2B12221E30A9E200881A4D /* menu.mid */; };
+		FE2B12251E30A9F600881A4D /* game1.mid in Resources */ = {isa = PBXBuildFile; fileRef = FE2B12241E30A9F600881A4D /* game1.mid */; };
+		FE838E951E2F25C900E15154 /* mouseEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE838E941E2F25C900E15154 /* mouseEvents.swift */; };
 		FEC733D11E2D5ECC00C84C65 /* intro.wav in Resources */ = {isa = PBXBuildFile; fileRef = FEC733D01E2D5ECC00C84C65 /* intro.wav */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +54,11 @@
 		FE1D064D1E27365100944E5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE1D065A1E277EF800944E5E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		FE1D42571E299498002181AD /* Splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Splash.png; sourceTree = "<group>"; };
+		FE2B12201E30A98400881A4D /* intro.mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = intro.mid; sourceTree = "<group>"; };
+		FE2B12221E30A9E200881A4D /* menu.mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = menu.mid; sourceTree = "<group>"; };
+		FE2B12241E30A9F600881A4D /* game1.mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = game1.mid; sourceTree = "<group>"; };
+		FE2B12261E30AEDD00881A4D /* generalsoundfont.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = generalsoundfont.sf2; sourceTree = "<group>"; };
+		FE838E941E2F25C900E15154 /* mouseEvents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mouseEvents.swift; sourceTree = "<group>"; };
 		FEC733D01E2D5ECC00C84C65 /* intro.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = intro.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,6 +115,7 @@
 				FE1D06631E27908100944E5E /* Startup Files */,
 				FE1D062E1E27365000944E5E /* AppDelegate.swift */,
 				FE1D06301E27365000944E5E /* ViewController.swift */,
+				FE838E941E2F25C900E15154 /* mouseEvents.swift */,
 				FE1D06321E27365000944E5E /* Assets.xcassets */,
 				FE1D06341E27365000944E5E /* Main.storyboard */,
 				FE1D06371E27365000944E5E /* Info.plist */,
@@ -143,7 +153,11 @@
 			isa = PBXGroup;
 			children = (
 				FE1D42571E299498002181AD /* Splash.png */,
+				FE2B12201E30A98400881A4D /* intro.mid */,
+				FE2B12221E30A9E200881A4D /* menu.mid */,
+				FE2B12241E30A9F600881A4D /* game1.mid */,
 				FEC733D01E2D5ECC00C84C65 /* intro.wav */,
+				FE2B12261E30AEDD00881A4D /* generalsoundfont.sf2 */,
 			);
 			name = "Startup Files";
 			sourceTree = "<group>";
@@ -256,10 +270,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE2B12251E30A9F600881A4D /* game1.mid in Resources */,
 				FE1D06331E27365000944E5E /* Assets.xcassets in Resources */,
 				FEC733D11E2D5ECC00C84C65 /* intro.wav in Resources */,
 				FE1D42581E299498002181AD /* Splash.png in Resources */,
+				FE2B12231E30A9E200881A4D /* menu.mid in Resources */,
 				FE1D06361E27365000944E5E /* Main.storyboard in Resources */,
+				FE2B12211E30A98400881A4D /* intro.mid in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +302,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE1D06311E27365000944E5E /* ViewController.swift in Sources */,
+				FE838E951E2F25C900E15154 /* mouseEvents.swift in Sources */,
 				FE1D062F1E27365000944E5E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

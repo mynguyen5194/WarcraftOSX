@@ -658,7 +658,7 @@
                 <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Warcraft" customModuleProvider="target"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="0.0"/>
+            <point key="canvasLocation" x="50" y="26"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
@@ -689,17 +689,61 @@
                             <imageView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5P0-sb-pa3">
                                 <rect key="frame" x="0.0" y="-62" width="720" height="1206"/>
                                 <autoresizingMask key="autoresizingMask"/>
+                                <gestureRecognizers>
+                                    <clickGestureRecognizer numberOfClicksRequired="1" id="2Fg-yh-PaA" userLabel="Left Click Recognizer">
+                                        <buttonMask key="buttonMask"/>
+                                        <connections>
+                                            <action selector="primaryMouse:" target="XfG-lQ-9wD" id="DPs-jm-8gS"/>
+                                        </connections>
+                                    </clickGestureRecognizer>
+                                    <clickGestureRecognizer delaysPrimaryMouseButtonEvents="YES" numberOfClicksRequired="1" id="gxi-yE-Ra0" userLabel="Right Click Recognizer">
+                                        <connections>
+                                            <action selector="secondaryMouse:" target="XfG-lQ-9wD" id="uQs-Le-k0P"/>
+                                        </connections>
+                                    </clickGestureRecognizer>
+                                </gestureRecognizers>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" image="Splash" id="kyp-Hv-Wqs"/>
+                                <connections>
+                                    <action selector="mouseEvents:" target="XfG-lQ-9wD" id="yXl-nY-esH"/>
+                                </connections>
                             </imageView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pP7-I5-AuO">
+                                <rect key="frame" x="250" y="488" width="221" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" title="No Input Received" placeholderString="" id="UbS-Ci-2ZR">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    <connections>
+                                        <action selector="mouseInput:" target="XfG-lQ-9wD" id="GY4-ZC-D6s"/>
+                                    </connections>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cHX-dh-4QB">
+                                <rect key="frame" x="250" y="456" width="221" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" title="Mouse Not Detected" drawsBackground="YES" id="eO1-By-ICj">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="clickRecognizer" destination="2Fg-yh-PaA" id="mKd-pb-5ce"/>
+                        <outlet property="leftClickRecognizer" destination="2Fg-yh-PaA" id="23H-Lo-RH7"/>
+                        <outlet property="mouseTextLabel" destination="cHX-dh-4QB" id="Sr0-5R-yOc"/>
+                        <outlet property="rightClickRecognizer" destination="gxi-yE-Ra0" id="0Gt-Dg-V7H"/>
                         <outlet property="splashScreen" destination="5P0-sb-pa3" id="24K-DD-BxA"/>
+                        <outlet property="textLabel" destination="pP7-I5-AuO" id="UQh-9r-4h4"/>
+                        <outlet property="viewController" destination="m2S-Jp-Qdl" id="h7P-FN-Gdb"/>
+                        <outlet property="viewControllerOutlet" destination="m2S-Jp-Qdl" id="8WR-jf-oKC"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="795"/>
+            <point key="canvasLocation" x="75" y="812"/>
         </scene>
     </scenes>
     <resources>
