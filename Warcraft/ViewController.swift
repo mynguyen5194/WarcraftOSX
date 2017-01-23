@@ -14,8 +14,10 @@ class ViewController: NSViewController {
     
     @IBOutlet weak var splashScreen: NSImageView!
     @IBOutlet var viewControllerOutlet: NSView!
+    @IBOutlet weak var loadTile: NSImageView!
     @IBOutlet weak var textLabel: NSTextField!
     @IBOutlet weak var mouseTextLabel: NSTextField!
+    @IBOutlet weak var loadTileButton: NSButton!
     @IBOutlet weak var leftClickRecognizer: NSClickGestureRecognizer!
     @IBOutlet weak var rightClickRecognizer: NSClickGestureRecognizer!
     
@@ -24,6 +26,7 @@ class ViewController: NSViewController {
     var startupSound = AVAudioPlayer()
     
     //splash screen
+    
     let startupAnimationURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "Splash", ofType: "png"))!)
     var startupAnimation = NSImage()
     
@@ -32,16 +35,23 @@ class ViewController: NSViewController {
     let menuSoundBankURL = Bundle.main.url(forResource: "generalsoundfont", withExtension: "sf2")
     var menuSound = AVMIDIPlayer()
     
+    //load tile
+    let tileURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "tile", ofType: "png"))!)
+    var singleTile = NSImage()
+    
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
         //setup
         startupAnimation = NSImage(byReferencing: startupAnimationURL)
+        singleTile = NSImage(byReferencing: tileURL)
         splashScreen.image = startupAnimation
         textLabel.stringValue = "No Input Received"
         mouseTextLabel.stringValue = "Mouse not detected"
         mouseTextLabel.isSelectable = false
+        loadTileButton.title = "Click to Load Tile"
         
         
         //mouse tracking
@@ -83,6 +93,11 @@ class ViewController: NSViewController {
     
     @IBAction func primaryMouse(_ sender: Any) {
         textLabel.stringValue = "Primary Mouse"
+    }
+    
+    @IBAction func loadTileButtonAction(_ sender: Any){
+        splashScreen.image = nil
+        loadTile.image = singleTile
     }
     
     @IBAction func secondaryMouse(_ sender: Any) {

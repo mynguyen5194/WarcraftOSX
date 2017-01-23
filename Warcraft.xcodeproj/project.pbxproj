@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FE1B2D591E35953800C72F89 /* tile.png in Resources */ = {isa = PBXBuildFile; fileRef = FE1B2D581E35953800C72F89 /* tile.png */; };
 		FE1D062F1E27365000944E5E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1D062E1E27365000944E5E /* AppDelegate.swift */; };
 		FE1D06311E27365000944E5E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1D06301E27365000944E5E /* ViewController.swift */; };
 		FE1D06331E27365000944E5E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE1D06321E27365000944E5E /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 		FE2B12251E30A9F600881A4D /* game1.mid in Resources */ = {isa = PBXBuildFile; fileRef = FE2B12241E30A9F600881A4D /* game1.mid */; };
 		FE838E951E2F25C900E15154 /* mouseEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE838E941E2F25C900E15154 /* mouseEvents.swift */; };
 		FEC733D11E2D5ECC00C84C65 /* intro.wav in Resources */ = {isa = PBXBuildFile; fileRef = FEC733D01E2D5ECC00C84C65 /* intro.wav */; };
+		FEDFC2821E341B3200C3AF34 /* Terrain.png in Resources */ = {isa = PBXBuildFile; fileRef = FEDFC2811E341B3200C3AF34 /* Terrain.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FE1B2D581E35953800C72F89 /* tile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tile.png; sourceTree = "<group>"; };
 		FE1D062B1E27365000944E5E /* Warcraft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Warcraft.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE1D062E1E27365000944E5E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FE1D06301E27365000944E5E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +63,7 @@
 		FE2B12261E30AEDD00881A4D /* generalsoundfont.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = generalsoundfont.sf2; sourceTree = "<group>"; };
 		FE838E941E2F25C900E15154 /* mouseEvents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mouseEvents.swift; sourceTree = "<group>"; };
 		FEC733D01E2D5ECC00C84C65 /* intro.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = intro.wav; sourceTree = "<group>"; };
+		FEDFC2811E341B3200C3AF34 /* Terrain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Terrain.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +162,8 @@
 				FE2B12241E30A9F600881A4D /* game1.mid */,
 				FEC733D01E2D5ECC00C84C65 /* intro.wav */,
 				FE2B12261E30AEDD00881A4D /* generalsoundfont.sf2 */,
+				FEDFC2811E341B3200C3AF34 /* Terrain.png */,
+				FE1B2D581E35953800C72F89 /* tile.png */,
 			);
 			name = "Startup Files";
 			sourceTree = "<group>";
@@ -272,7 +278,9 @@
 			files = (
 				FE2B12251E30A9F600881A4D /* game1.mid in Resources */,
 				FE1D06331E27365000944E5E /* Assets.xcassets in Resources */,
+				FE1B2D591E35953800C72F89 /* tile.png in Resources */,
 				FEC733D11E2D5ECC00C84C65 /* intro.wav in Resources */,
+				FEDFC2821E341B3200C3AF34 /* Terrain.png in Resources */,
 				FE1D42581E299498002181AD /* Splash.png in Resources */,
 				FE2B12231E30A9E200881A4D /* menu.mid in Resources */,
 				FE1D06361E27365000944E5E /* Main.storyboard in Resources */,

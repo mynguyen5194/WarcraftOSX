@@ -728,11 +728,29 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6wL-Et-fRg">
+                                <rect key="frame" x="282" y="420" width="157" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="PG4-Qy-O2R">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="loadTileButtonAction:" target="XfG-lQ-9wD" id="TwI-Ra-zTz"/>
+                                </connections>
+                            </button>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4nv-7G-oJZ">
+                                <rect key="frame" x="336" y="247" width="48" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="YTJ-H1-aU7"/>
+                            </imageView>
                         </subviews>
                     </view>
                     <connections>
                         <outlet property="clickRecognizer" destination="2Fg-yh-PaA" id="mKd-pb-5ce"/>
                         <outlet property="leftClickRecognizer" destination="2Fg-yh-PaA" id="23H-Lo-RH7"/>
+                        <outlet property="loadTile" destination="4nv-7G-oJZ" id="BhI-0G-XSX"/>
+                        <outlet property="loadTileButton" destination="6wL-Et-fRg" id="RLV-HN-Jfy"/>
                         <outlet property="mouseTextLabel" destination="cHX-dh-4QB" id="Sr0-5R-yOc"/>
                         <outlet property="rightClickRecognizer" destination="gxi-yE-Ra0" id="0Gt-Dg-V7H"/>
                         <outlet property="splashScreen" destination="5P0-sb-pa3" id="24K-DD-BxA"/>
