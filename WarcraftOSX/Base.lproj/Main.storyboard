@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2657" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="jGA-0Y-lOj">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="jGA-0Y-lOj">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
@@ -688,6 +688,13 @@
                         <subviews>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vgU-v0-inn">
                                 <rect key="frame" x="0.0" y="0.0" width="529" height="441"/>
+                                <gestureRecognizers>
+                                    <clickGestureRecognizer delaysPrimaryMouseButtonEvents="YES" numberOfClicksRequired="1" id="xWJ-WH-S3e">
+                                        <connections>
+                                            <action selector="primaryMouse:" target="5gI-5U-AMq" id="u66-Gd-aQj"/>
+                                        </connections>
+                                    </clickGestureRecognizer>
+                                </gestureRecognizers>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="xKk-8l-GmM"/>
                             </imageView>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xqp-DU-7aJ">
@@ -704,6 +711,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="primaryMouseOutlet" destination="xWJ-WH-S3e" id="q0F-Pc-T0u"/>
                         <outlet property="splashScreen" destination="vgU-v0-inn" id="QY1-JB-iRs"/>
                         <outlet property="tileEX" destination="xqp-DU-7aJ" id="wUf-hV-ryc"/>
                     </connections>

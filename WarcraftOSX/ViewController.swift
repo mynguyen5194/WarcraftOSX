@@ -13,7 +13,7 @@ class ViewController: NSViewController {
 
     @IBOutlet weak var splashScreen: NSImageView!
     @IBOutlet weak var tileEX: NSImageView!
-
+    @IBOutlet weak var primaryMouseOutlet: NSClickGestureRecognizer!
     
     let splashURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/img/Splash", ofType:"png"))!)
     
@@ -21,6 +21,10 @@ class ViewController: NSViewController {
     let menuSoundURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/snd/music/menu", ofType: "mid"))!)
     let menuSoundBankURL = Bundle.main.url(forResource: "data/snd/generalsoundfont", withExtension: "sf2")
     var menuSound = AVMIDIPlayer()
+    
+    //load wave file for mouse click
+    let acknowledge1URL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/snd/basic/acknowledge1", ofType: "wav"))!)
+    var acknowledgeSound = AVAudioPlayer()
     
     
     override func viewDidLoad() {
@@ -55,8 +59,11 @@ class ViewController: NSViewController {
         }
         //menuSound.prepareToPlay()
         //menuSound.play()
-        menuSound.prepareToPlay()
-        menuSound.play()
+        //menuSound.prepareToPlay()
+        //menuSound.play()
+        
+        //Set bit mask for clicks
+        primaryMouseOutlet.buttonMask = 0x1
     }
 
     /*func map(){
@@ -68,6 +75,17 @@ class ViewController: NSViewController {
         didSet {
         // Update the view, if already loaded.
         }
+    }
+    @IBAction func primaryMouse(_ sender: Any) {
+        //play wav file
+        do {
+            try acknowledgeSound = AVAudioPlayer(contentsOf: acknowledge1URL)
+        }
+        catch {
+            NSLog("Error: Can't play sound file intro.wav")
+        }
+        acknowledgeSound.prepareToPlay()
+        acknowledgeSound.play()
     }
 
 
