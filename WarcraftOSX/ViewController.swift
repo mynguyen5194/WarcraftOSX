@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import AVFoundation
 
 class ViewController: NSViewController {
 
@@ -15,6 +16,12 @@ class ViewController: NSViewController {
 
     
     let splashURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/img/Splash", ofType:"png"))!)
+    
+    //menu sound midi
+    let menuSoundURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/snd/music/menu", ofType: "mid"))!)
+    let menuSoundBankURL = Bundle.main.url(forResource: "data/snd/generalsoundfont", withExtension: "sf2")
+    var menuSound = AVMIDIPlayer()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +45,18 @@ class ViewController: NSViewController {
         
         let parseDat = GraphicTileset()
         parseDat.viewDidLoad()
+        
+        //play mid file
+        do {
+            try menuSound = AVMIDIPlayer(contentsOf: menuSoundURL, soundBankURL: menuSoundBankURL)
+        }
+        catch {
+            NSLog("Error: Can't play sound file menu.mid")
+        }
+        //menuSound.prepareToPlay()
+        //menuSound.play()
+        menuSound.prepareToPlay()
+        menuSound.play()
     }
 
     /*func map(){
