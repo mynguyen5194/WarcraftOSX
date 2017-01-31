@@ -698,7 +698,7 @@
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="xKk-8l-GmM"/>
                             </imageView>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xqp-DU-7aJ">
-                                <rect key="frame" x="233" y="197" width="48" height="48"/>
+                                <rect key="frame" x="240" y="197" width="48" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="xbq-rm-2KZ"/>
                             </imageView>
@@ -714,6 +714,7 @@
                         <outlet property="primaryMouseOutlet" destination="xWJ-WH-S3e" id="q0F-Pc-T0u"/>
                         <outlet property="splashScreen" destination="vgU-v0-inn" id="QY1-JB-iRs"/>
                         <outlet property="tileEX" destination="xqp-DU-7aJ" id="wUf-hV-ryc"/>
+                        <outlet property="viewOfViewController" destination="ERx-hH-rdd" id="Dzd-8t-rSi"/>
                     </connections>
                 </viewController>
                 <customObject id="2Tp-Fl-jBw" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

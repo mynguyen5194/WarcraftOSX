@@ -17,6 +17,7 @@
 		A93DF60E1E3D78140047BA86 /* data in Resources */ = {isa = PBXBuildFile; fileRef = A93DF60D1E3D78140047BA86 /* data */; };
 		A93DF6101E3D84DE0047BA86 /* MapRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93DF60F1E3D84DE0047BA86 /* MapRenderer.swift */; };
 		A93DF6121E3D96A40047BA86 /* GraphicTileset.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93DF6111E3D96A40047BA86 /* GraphicTileset.swift */; };
+		FEA803251E3FEBB0002D4E8B /* SoundProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA803241E3FEBB0002D4E8B /* SoundProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		A93DF60D1E3D78140047BA86 /* data */ = {isa = PBXFileReference; lastKnownFileType = folder; path = data; sourceTree = "<group>"; };
 		A93DF60F1E3D84DE0047BA86 /* MapRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapRenderer.swift; sourceTree = "<group>"; };
 		A93DF6111E3D96A40047BA86 /* GraphicTileset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphicTileset.swift; sourceTree = "<group>"; };
+		FEA803241E3FEBB0002D4E8B /* SoundProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundProperties.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,8 +107,9 @@
 			children = (
 				A93DF5E01E3D77E90047BA86 /* AppDelegate.swift */,
 				A93DF5E21E3D77E90047BA86 /* ViewController.swift */,
-				A93DF60F1E3D84DE0047BA86 /* MapRenderer.swift */,
+				FEA803241E3FEBB0002D4E8B /* SoundProperties.swift */,
 				A93DF6111E3D96A40047BA86 /* GraphicTileset.swift */,
+				A93DF60F1E3D84DE0047BA86 /* MapRenderer.swift */,
 				A93DF5E41E3D77E90047BA86 /* Document.swift */,
 				A93DF5E61E3D77E90047BA86 /* Assets.xcassets */,
 				A93DF60D1E3D78140047BA86 /* data */,
@@ -272,6 +275,7 @@
 				A93DF5E31E3D77E90047BA86 /* ViewController.swift in Sources */,
 				A93DF6121E3D96A40047BA86 /* GraphicTileset.swift in Sources */,
 				A93DF5E11E3D77E90047BA86 /* AppDelegate.swift in Sources */,
+				FEA803251E3FEBB0002D4E8B /* SoundProperties.swift in Sources */,
 				A93DF5E51E3D77E90047BA86 /* Document.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -512,6 +516,7 @@
 				A93DF6061E3D77E90047BA86 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A93DF6071E3D77E90047BA86 /* Build configuration list for PBXNativeTarget "WarcraftOSXTests" */ = {
 			isa = XCConfigurationList;
@@ -520,6 +525,7 @@
 				A93DF6091E3D77E90047BA86 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A93DF60A1E3D77E90047BA86 /* Build configuration list for PBXNativeTarget "WarcraftOSXUITests" */ = {
 			isa = XCConfigurationList;
@@ -528,6 +534,7 @@
 				A93DF60C1E3D77E90047BA86 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

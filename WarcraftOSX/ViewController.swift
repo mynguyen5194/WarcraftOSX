@@ -11,21 +11,12 @@ import AVFoundation
 
 class ViewController: NSViewController {
 
+    @IBOutlet var viewOfViewController: NSView!
     @IBOutlet weak var splashScreen: NSImageView!
     @IBOutlet weak var tileEX: NSImageView!
     @IBOutlet weak var primaryMouseOutlet: NSClickGestureRecognizer!
     
     let splashURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/img/Splash", ofType:"png"))!)
-    
-    //menu sound midi
-    let menuSoundURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/snd/music/menu", ofType: "mid"))!)
-    let menuSoundBankURL = Bundle.main.url(forResource: "data/snd/generalsoundfont", withExtension: "sf2")
-    var menuSound = AVMIDIPlayer()
-    
-    //load wave file for mouse click
-    let acknowledge1URL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/snd/basic/acknowledge1", ofType: "wav"))!)
-    var acknowledgeSound = AVAudioPlayer()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +30,8 @@ class ViewController: NSViewController {
         let splashImage = splashCG?.cropping(to: splashRect)
         
         //splash screen: convert to NSImage to display
-        splashScreen.image = NSImage(cgImage: splashImage!, size: NSZeroSize)
+        //splashScreen.image = NSImage(cgImage: splashImage!, size: NSZeroSize)
+        splashScreen.image = nil
         
         let map = MapRenderer()
         map.viewDidLoad()
@@ -50,20 +42,22 @@ class ViewController: NSViewController {
         let parseDat = GraphicTileset()
         parseDat.viewDidLoad()
         
-        //play mid file
-        do {
-            try menuSound = AVMIDIPlayer(contentsOf: menuSoundURL, soundBankURL: menuSoundBankURL)
-        }
-        catch {
-            NSLog("Error: Can't play sound file menu.mid")
-        }
-        //menuSound.prepareToPlay()
-        //menuSound.play()
-        //menuSound.prepareToPlay()
-        //menuSound.play()
+        //Play Menu Sound
+        //SoundProperties().playMenuSound()
         
         //Set bit mask for clicks
         primaryMouseOutlet.buttonMask = 0x1
+        
+        //map
+        let mapDisplay = CGContext.init(data: nil, width: 50, height: 50, bitsPerComponent: 8, bytesPerRow: 0, space: CGColorSpaceCreateDeviceRGB(), bitmapInfo: CGImageAlphaInfo.noneSkipFirst.rawValue)
+        
+        //Display Map
+        mapDisplay?.draw(map.tileArray[100], in: viewOfViewController.bounds, byTiling: true)
+        
+        
+        var context = CGContext()
+        context.setFill()
+        
     }
 
     /*func map(){
@@ -77,15 +71,7 @@ class ViewController: NSViewController {
         }
     }
     @IBAction func primaryMouse(_ sender: Any) {
-        //play wav file
-        do {
-            try acknowledgeSound = AVAudioPlayer(contentsOf: acknowledge1URL)
-        }
-        catch {
-            NSLog("Error: Can't play sound file intro.wav")
-        }
-        acknowledgeSound.prepareToPlay()
-        acknowledgeSound.play()
+        SoundProperties().playClickSound()
     }
 
 
