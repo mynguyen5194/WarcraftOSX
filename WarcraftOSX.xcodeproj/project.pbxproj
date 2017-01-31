@@ -18,6 +18,7 @@
 		A93DF6101E3D84DE0047BA86 /* MapRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93DF60F1E3D84DE0047BA86 /* MapRenderer.swift */; };
 		A93DF6121E3D96A40047BA86 /* GraphicTileset.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93DF6111E3D96A40047BA86 /* GraphicTileset.swift */; };
 		FEA803251E3FEBB0002D4E8B /* SoundProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA803241E3FEBB0002D4E8B /* SoundProperties.swift */; };
+		FEA8032A1E406ECF002D4E8B /* VisualElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA803291E406ECF002D4E8B /* VisualElements.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		A93DF60F1E3D84DE0047BA86 /* MapRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapRenderer.swift; sourceTree = "<group>"; };
 		A93DF6111E3D96A40047BA86 /* GraphicTileset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphicTileset.swift; sourceTree = "<group>"; };
 		FEA803241E3FEBB0002D4E8B /* SoundProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundProperties.swift; sourceTree = "<group>"; };
+		FEA803291E406ECF002D4E8B /* VisualElements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VisualElements.swift; path = ../VisualElements.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,14 +109,12 @@
 			children = (
 				A93DF5E01E3D77E90047BA86 /* AppDelegate.swift */,
 				A93DF5E21E3D77E90047BA86 /* ViewController.swift */,
-				FEA803241E3FEBB0002D4E8B /* SoundProperties.swift */,
-				A93DF6111E3D96A40047BA86 /* GraphicTileset.swift */,
-				A93DF60F1E3D84DE0047BA86 /* MapRenderer.swift */,
 				A93DF5E41E3D77E90047BA86 /* Document.swift */,
-				A93DF5E61E3D77E90047BA86 /* Assets.xcassets */,
-				A93DF60D1E3D78140047BA86 /* data */,
 				A93DF5E81E3D77E90047BA86 /* Main.storyboard */,
 				A93DF5EB1E3D77E90047BA86 /* Info.plist */,
+				A93DF5E61E3D77E90047BA86 /* Assets.xcassets */,
+				A93DF60D1E3D78140047BA86 /* data */,
+				FEA803261E4061E1002D4E8B /* Supporting Files */,
 			);
 			path = WarcraftOSX;
 			sourceTree = "<group>";
@@ -135,6 +135,17 @@
 				A93DF6011E3D77E90047BA86 /* Info.plist */,
 			);
 			path = WarcraftOSXUITests;
+			sourceTree = "<group>";
+		};
+		FEA803261E4061E1002D4E8B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FEA803241E3FEBB0002D4E8B /* SoundProperties.swift */,
+				A93DF6111E3D96A40047BA86 /* GraphicTileset.swift */,
+				A93DF60F1E3D84DE0047BA86 /* MapRenderer.swift */,
+				FEA803291E406ECF002D4E8B /* VisualElements.swift */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,6 +286,7 @@
 				A93DF5E31E3D77E90047BA86 /* ViewController.swift in Sources */,
 				A93DF6121E3D96A40047BA86 /* GraphicTileset.swift in Sources */,
 				A93DF5E11E3D77E90047BA86 /* AppDelegate.swift in Sources */,
+				FEA8032A1E406ECF002D4E8B /* VisualElements.swift in Sources */,
 				FEA803251E3FEBB0002D4E8B /* SoundProperties.swift in Sources */,
 				A93DF5E51E3D77E90047BA86 /* Document.swift in Sources */,
 			);

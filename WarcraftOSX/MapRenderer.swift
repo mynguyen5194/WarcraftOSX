@@ -8,17 +8,12 @@
 
 import Cocoa
 
-class MapRenderer: NSViewController {
+class MapRenderer {
 
     var tileArray = [CGImage]()
+    let terrainURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/img/Terrain", ofType:"png"))!)
     
-    override func viewDidLoad() {           //treating this like initalizer
-        super.viewDidLoad()
-        
-        print("enter MapRenderer class")
-        
-        let terrainURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/img/Terrain", ofType:"png"))!)
-        
+    init() {
         //terrain png to CGimage
         let terrainData = CGDataProvider(url: terrainURL as CFURL)
         let terrainCG = CGImage(pngDataProviderSource: terrainData!, decode: nil, shouldInterpolate: false, intent: CGColorRenderingIntent.defaultIntent)
@@ -31,18 +26,21 @@ class MapRenderer: NSViewController {
         var tileYCoord = 0
         
         //storing each individual tile in tileArray
-        for _ in 0..<293{
+        for _ in 0..<293 {
             tileOrigin = CGPoint(x: 0, y: tileYCoord)
             tileRect = CGRect(origin: tileOrigin, size: tileSize)
             let tile = terrainCG?.cropping(to: tileRect)
             tileArray.append(tile!.copy()!)
-            
             tileYCoord += tileHeight
         }
-    }   //end viewDidLoad()
-    
+}
     func drawMap(){
         
+    }
+    
+    func getTile(tilePosition: Int) -> CGImage {
+        let location = tileArray[tilePosition]
+        return location
     }
     
 }

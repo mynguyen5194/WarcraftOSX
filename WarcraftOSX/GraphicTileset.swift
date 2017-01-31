@@ -8,32 +8,25 @@
 
 import Cocoa
 
-class GraphicTileset: NSViewController {
+class GraphicTileset {
     
     var tileHash = [String: Int]()      //DMapping
+    var index = 0;
+    let terrainDat = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/img/Terrain", ofType: "dat"))!)
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        let terrainDat = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/img/Terrain", ofType: "dat"))!)
-        
-        do{
+    init(){
+        do {
             let terrainString = try String(contentsOf: terrainDat)
             let tileNames = terrainString.components(separatedBy: .newlines)
-            
-            
-            var index = 0;
             for i in 2..<295{
                 tileHash[ tileNames[i] ] = index
                 index += 1
             }
-            
-            
-        } catch{
-            print(error)
+        } catch {
+            NSLog("Error: terrainDat failed to load")
         }
     }
- 
+    
     //CGraphicTileset::FindTile
     func findTile(tilename: String) -> Int{
         if tileHash[tilename] != nil {
@@ -43,3 +36,6 @@ class GraphicTileset: NSViewController {
         }
     }
 }
+ 
+
+
