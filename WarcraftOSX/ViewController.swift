@@ -9,12 +9,15 @@
 import Cocoa
 import AVFoundation
 
+
+
 class ViewController: NSViewController {
 
     @IBOutlet var viewOfViewController: NSView!
     @IBOutlet weak var splashScreen: NSImageView!
     @IBOutlet weak var tileEX: NSImageView!
     @IBOutlet weak var primaryMouseOutlet: NSClickGestureRecognizer!
+    var acknowledgeSound = AVAudioPlayer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,13 +30,19 @@ class ViewController: NSViewController {
         //load map tile
         let map = MapRenderer()
         tileEX.image = NSImage(cgImage: map.getTile(tilePosition: 100), size: NSZeroSize)
+        //Get Sound
+        let acknowledge1URL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/snd/basic/acknowledge1", ofType: "wav"))!)
+        
+        do {
+            try acknowledgeSound = AVAudioPlayer(contentsOf: acknowledge1URL)
+        } catch {
+            NSLog("Error: Unable to load acknowledge1.wav")
+        }
         //Display Map
         
-        //map
-        //let mapDisplay = CGContext.init(data: nil, width: 50, height: 50, bitsPerComponent: 8, bytesPerRow: 0, space: CGColorSpaceCreateDeviceRGB(), bitmapInfo: CGImageAlphaInfo.noneSkipFirst.rawValue)
+        let mapDisplay = CGContext.init(data: nil, width: 50, height: 50, bitsPerComponent: 8, bytesPerRow: 0, space: CGColorSpaceCreateDeviceRGB(), bitmapInfo: CGImageAlphaInfo.noneSkipFirst.rawValue)
+        mapDisplay?.draw(map.tileArray[100], in: viewOfViewController.bounds, byTiling: true)
         
-        //Display Map
-        //mapDisplay?.draw(map.tileArray[100], in: viewOfViewController.bounds, byTiling: true)
         
     }
     override var representedObject: Any? {
@@ -43,8 +52,8 @@ class ViewController: NSViewController {
     }
     
     @IBAction func primaryMouse(_ sender: Any) {
-        let sound = SoundProperties()
-        sound.acknowledgeSound.play()
+        acknowledgeSound.prepareToPlay()
+        acknowledgeSound.play()
     }
 
 
