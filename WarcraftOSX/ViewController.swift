@@ -15,6 +15,16 @@ class ViewController: NSViewController {
     @IBOutlet weak var tileEX: NSImageView!
     @IBOutlet weak var primaryMouseOutlet: NSClickGestureRecognizer!
     
+    // Added from here
+    @IBOutlet var viewControllerOutlet: NSView!
+    //    @IBOutlet var viewScreen: NSView!
+    @IBOutlet weak var textLabel: NSTextField!
+    @IBOutlet weak var mouseTextLabel: NSTextField!
+    @IBOutlet weak var leftClickRecognizer: NSClickGestureRecognizer!
+    @IBOutlet weak var rightClickRecognizer: NSClickGestureRecognizer!
+    @IBOutlet weak var scrollView: NSScrollView!
+    @IBOutlet weak var keyTest: NSTextField!
+    
     let splashURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/img/Splash", ofType:"png"))!)
     
     //menu sound midi
@@ -87,6 +97,84 @@ class ViewController: NSViewController {
         acknowledgeSound.prepareToPlay()
         acknowledgeSound.play()
     }
+    @IBAction func secondaryMouse(_ sender: Any) {
+        textLabel.stringValue = "Secondary Mouse"
+    }
+    
+    override func mouseMoved(with event: NSEvent) {
+        textLabel.stringValue = "Mouse Moving"
+        
+        var point = scrollView.contentView.bounds.origin
+        
+        if (Int(NSEvent.mouseLocation().y) > 600) {
+            point.y += 10
+            scrollView?.documentView?.scroll(point)
+        }
+        else if (Int(NSEvent.mouseLocation().y) < 200) {
+            point.y -= 10
+            scrollView?.documentView?.scroll(point)
+        }
+    }
+    
+    override func mouseEntered(with event: NSEvent) {
+        mouseTextLabel.stringValue = "Mouse Entered"
+    }
+    
+    override func mouseExited(with event: NSEvent) {
+        mouseTextLabel.stringValue = "Mouse Exited"
+    }
+    
+    //implement scrolling with mouse drag
+    override func mouseDragged(with event: NSEvent){
+        
+        let point = scrollView?.contentView.bounds.origin
+        
+        if var point = point {
+            point.y += event.deltaY
+            point.x -= event.deltaX
+            scrollView?.documentView?.scroll(point)
+        }
+        
+    }
+    
+    //pan with arrow keys
+    override func keyDown(with event: NSEvent) {
+        
+        var point = scrollView.contentView.bounds.origin
+        
+        //left arrow
+        if event.keyCode == 123 {
+            keyTest.stringValue = "Left"
+            point.x -= 25
+            scrollView?.documentView?.scroll(point)
+        }
+            //right arrow
+        else if event.keyCode == 124 {
+            keyTest.stringValue = "Right"
+            point.x += 25
+            scrollView?.documentView?.scroll(point)
+        }
+            //down arrow
+        else if event.keyCode == 125 {
+            keyTest.stringValue = "Down"
+            point.y -= 25
+            scrollView?.documentView?.scroll(point)
+        }
+            //up arrow
+        else if event.keyCode == 126 {
+            keyTest.stringValue = "Up"
+            point.y += 25
+            scrollView?.documentView?.scroll(point)
+        }
+        
+    }
+    
+    override func keyUp(with event: NSEvent) {
+        
+        keyTest.stringValue = "Key Not Pressed"
+        
+    }
+
 
 
 }
