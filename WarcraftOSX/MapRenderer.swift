@@ -7,10 +7,12 @@
 //
 
 import Cocoa
+import Foundation
 
 class MapRenderer {
 
     var tileArray = [CGImage]()
+    var tileDimensions:CGSize
     let terrainURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/img/Terrain", ofType:"png"))!)
     
     init() {
@@ -33,10 +35,8 @@ class MapRenderer {
             tileArray.append(tile!.copy()!)
             tileYCoord += tileHeight
         }
+        tileDimensions = tileSize
 }
-    func drawMap(){
-        
-    }
     
     func getTile(tilePosition: Int) -> CGImage {
         let location = tileArray[tilePosition]

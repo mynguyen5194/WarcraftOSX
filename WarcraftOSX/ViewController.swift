@@ -16,32 +16,28 @@ class ViewController: NSViewController {
     @IBOutlet var viewOfViewController: NSView!
     @IBOutlet weak var splashScreen: NSImageView!
     @IBOutlet weak var tileEX: NSImageView!
-    @IBOutlet weak var primaryMouseOutlet: NSClickGestureRecognizer!
     var acknowledgeSound = AVAudioPlayer()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Set bit mask for clicks
-        primaryMouseOutlet.buttonMask = 0x1
         //set splash screen
-        let visualElements = VisualElements()
-        splashScreen.image = visualElements.getSplashImage()
+        //let visualElements = VisualElements()
+        //splashScreen.image = visualElements.getSplashImage()
+        
         //load map tile
-        let map = MapRenderer()
-        tileEX.image = NSImage(cgImage: map.getTile(tilePosition: 100), size: NSZeroSize)
+        //let map = MapRenderer()
+        //tileEX.image = NSImage(cgImage: map.getTile(tilePosition: 100), size: NSZeroSize)
+        
         //Get Sound
         let acknowledge1URL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/snd/basic/acknowledge1", ofType: "wav"))!)
-        
         do {
             try acknowledgeSound = AVAudioPlayer(contentsOf: acknowledge1URL)
         } catch {
             NSLog("Error: Unable to load acknowledge1.wav")
         }
-        //Display Map
-        
-        let mapDisplay = CGContext.init(data: nil, width: 50, height: 50, bitsPerComponent: 8, bytesPerRow: 0, space: CGColorSpaceCreateDeviceRGB(), bitmapInfo: CGImageAlphaInfo.noneSkipFirst.rawValue)
-        mapDisplay?.draw(map.tileArray[100], in: viewOfViewController.bounds, byTiling: true)
+        acknowledgeSound.prepareToPlay()
         
         
     }
@@ -50,12 +46,8 @@ class ViewController: NSViewController {
         // Update the view, if already loaded.
         }
     }
-    
-    @IBAction func primaryMouse(_ sender: Any) {
-        acknowledgeSound.prepareToPlay()
+    override func mouseDown(with event: NSEvent) {
         acknowledgeSound.play()
     }
-
-
 }
 

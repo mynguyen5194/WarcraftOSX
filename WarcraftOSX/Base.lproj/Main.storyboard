@@ -682,19 +682,12 @@
         <scene sceneID="hIz-AP-VOD">
             <objects>
                 <viewController id="5gI-5U-AMq" customClass="ViewController" customModule="WarcraftOSX" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" wantsLayer="YES" id="ERx-hH-rdd">
+                    <view key="view" wantsLayer="YES" id="ERx-hH-rdd" customClass="CustomView" customModule="WarcraftOSX" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="515" height="441"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vgU-v0-inn">
                                 <rect key="frame" x="0.0" y="0.0" width="529" height="441"/>
-                                <gestureRecognizers>
-                                    <clickGestureRecognizer delaysPrimaryMouseButtonEvents="YES" numberOfClicksRequired="1" id="xWJ-WH-S3e">
-                                        <connections>
-                                            <action selector="primaryMouse:" target="5gI-5U-AMq" id="u66-Gd-aQj"/>
-                                        </connections>
-                                    </clickGestureRecognizer>
-                                </gestureRecognizers>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="xKk-8l-GmM"/>
                             </imageView>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xqp-DU-7aJ">
@@ -711,7 +704,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="primaryMouseOutlet" destination="xWJ-WH-S3e" id="q0F-Pc-T0u"/>
                         <outlet property="splashScreen" destination="vgU-v0-inn" id="QY1-JB-iRs"/>
                         <outlet property="tileEX" destination="xqp-DU-7aJ" id="wUf-hV-ryc"/>
                         <outlet property="viewOfViewController" destination="ERx-hH-rdd" id="Dzd-8t-rSi"/>
