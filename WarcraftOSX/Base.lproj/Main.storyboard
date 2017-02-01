@@ -690,11 +690,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="529" height="441"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="xKk-8l-GmM"/>
                             </imageView>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xqp-DU-7aJ">
-                                <rect key="frame" x="240" y="197" width="48" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="xbq-rm-2KZ"/>
-                            </imageView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="vgU-v0-inn" firstAttribute="leading" secondItem="ERx-hH-rdd" secondAttribute="leading" id="MF9-ir-H0Y"/>
@@ -705,7 +700,6 @@
                     </view>
                     <connections>
                         <outlet property="splashScreen" destination="vgU-v0-inn" id="QY1-JB-iRs"/>
-                        <outlet property="tileEX" destination="xqp-DU-7aJ" id="wUf-hV-ryc"/>
                         <outlet property="viewOfViewController" destination="ERx-hH-rdd" id="Dzd-8t-rSi"/>
                     </connections>
                 </viewController>

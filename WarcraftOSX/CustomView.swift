@@ -18,9 +18,19 @@ class CustomView: NSView {
     }
     
     func mapSetup() {
+        
         let map = MapRenderer()
-        let context = NSGraphicsContext.current()?.cgContext
-        context?.draw(map.getTile(tilePosition: 100), in: self.bounds, byTiling: true)
+        let mainContext = NSGraphicsContext.current()?.cgContext
+        
+        //create initial layer
+        let baseLayer = CGLayer.init(mainContext!, size: map.getTileWidthAndHeight(), auxiliaryInfo: nil)
+        let baseLayerContext = baseLayer?.context
+        baseLayerContext?.draw(map.getTile(tilePosition: 100), in: self.bounds)
+        let xPosition = CGFloat.init(0)
+        let yPosition = CGFloat.init(50)
+        let startingPoint = CGPoint.init(x: xPosition, y: yPosition)
+        mainContext?.draw(baseLayer!, at: startingPoint)
+
     }
     
 }

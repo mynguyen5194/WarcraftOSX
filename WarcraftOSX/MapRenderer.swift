@@ -13,6 +13,7 @@ class MapRenderer {
 
     var tileArray = [CGImage]()
     var tileDimensions:CGSize
+    var tileSize:CGSize
     let terrainURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/img/Terrain", ofType:"png"))!)
     
     init() {
@@ -22,7 +23,7 @@ class MapRenderer {
         
         //initalize tile specifications
         let tileHeight = (terrainCG!.height / 293)
-        let tileSize = CGSize(width: terrainCG!.width, height: tileHeight)
+            tileSize = CGSize(width: terrainCG!.width, height: tileHeight)
         var tileOrigin = CGPoint()
         var tileRect = CGRect()
         var tileYCoord = 0
@@ -41,6 +42,11 @@ class MapRenderer {
     func getTile(tilePosition: Int) -> CGImage {
         let location = tileArray[tilePosition]
         return location
+    }
+    
+    func getTileWidthAndHeight() -> CGSize {
+        let sizeOfLayer = tileSize
+        return sizeOfLayer
     }
     
 }
