@@ -12,25 +12,34 @@ import AVFoundation
 
 class CustomView: NSView {
     
+    let map = MapRenderer()
+    var mainContext:CGContext?
+    var baseLayerContext:CGContext?
+    
     override func draw(_ dirtyRect: NSRect) {
         mapSetup()
-        
     }
     
     func mapSetup() {
-        
-        let map = MapRenderer()
-        let mainContext = NSGraphicsContext.current()?.cgContext
+
+        mainContext = NSGraphicsContext.current()?.cgContext
         
         //create initial layer
         let baseLayer = CGLayer.init(mainContext!, size: map.getTileWidthAndHeight(), auxiliaryInfo: nil)
-        let baseLayerContext = baseLayer?.context
-        baseLayerContext?.draw(map.getTile(tilePosition: 100), in: self.bounds)
-        let xPosition = CGFloat.init(0)
-        let yPosition = CGFloat.init(50)
-        let startingPoint = CGPoint.init(x: xPosition, y: yPosition)
-        mainContext?.draw(baseLayer!, at: startingPoint)
-
+        baseLayerContext = baseLayer?.context
+        
+        drawTile(xPos:50, yPos: 50, tileIndex: 200, layer: baseLayer!)
+        drawTile(xPos:82, yPos: 82, tileIndex: 100, layer: baseLayer!)
     }
+    
+    //drawing the specified tile (given by tileIndex) at specified position (xPos, yPos) on layer (layer)
+    func drawTile(xPos: Int, yPos: Int, tileIndex: Int, layer: CGLayer){
+        baseLayerContext?.draw(map.getTile(tilePosition: tileIndex), in: self.bounds)
+        let xPosition = CGFloat(xPos)
+        let yPosition = CGFloat(yPos)
+        let startingPoint = CGPoint(x: xPosition, y: yPosition)
+        mainContext?.draw(layer, at: startingPoint)
+    }
+    
     
 }
