@@ -10,9 +10,13 @@ import Cocoa
 import Foundation
 import AVFoundation
 
-class CustomView: NSView {
+class OSXCustomView: NSView {
     
-    let map = MapRenderer()
+    //let map = MapRenderer(configuration: <#T##DataSource#>, tileset: <#T##GraphicTileset#>, map: <#T##TerrainMap#>)
+    
+    
+    
+    let map = OSXMapRenderer()
     var mainContext:CGContext?
     var baseLayerContext:CGContext?
     
@@ -21,7 +25,12 @@ class CustomView: NSView {
     }
     
     func mapSetup() {
-
+        
+        
+        
+        
+    //ORIGINAL BELOW THIS---------
+        
         mainContext = NSGraphicsContext.current()?.cgContext
         
         //create initial layer

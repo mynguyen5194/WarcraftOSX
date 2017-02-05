@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class VisualElements {
+class OSXVisualElements {
     
     var splash:NSImage
     

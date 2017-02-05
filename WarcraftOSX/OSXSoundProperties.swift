@@ -9,7 +9,7 @@
 import AVFoundation
 import Cocoa
 
-class SoundProperties {
+class OSXSoundProperties {
     
     var menuSound = AVMIDIPlayer()
     var acknowledgeSound = AVAudioPlayer()

@@ -25,6 +25,18 @@ class ViewController: NSViewController {
         //let visualElements = VisualElements()
         //splashScreen.image = visualElements.getSplashImage()
         
+        let mapRenderingDat = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/img/MapRendering", ofType: "dat"))!)
+        do{
+            let mapRenderingString = try String(contentsOf: mapRenderingDat)
+            let mapRenderingArr = mapRenderingString.components(separatedBy: " ")
+            
+            var map = TerrainMap()
+            
+            
+        } catch {
+            print(error)
+        }
+        
     }
     override var representedObject: Any? {
         didSet {
