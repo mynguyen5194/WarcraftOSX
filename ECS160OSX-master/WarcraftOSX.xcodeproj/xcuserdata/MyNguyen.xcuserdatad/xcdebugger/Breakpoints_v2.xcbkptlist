@@ -10,13 +10,120 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WarcraftOSX/ViewController.swift"
-            timestampString = "507939184.234613"
+            timestampString = "507954927.539097"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "ViewController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WarcraftOSX/SplashScreenViewController.swift"
+            timestampString = "507955362.716657"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "12"
             endingLineNumber = "12"
-            landmarkName = "ViewController"
+            landmarkName = "SplashScreenViewController"
             landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WarcraftOSX/SinglePlayerViewController.swift"
+            timestampString = "508018119.973588"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "10"
+            endingLineNumber = "10">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WarcraftOSX.SinglePlayerViewController.__deallocating_deinit"
+                  moduleName = "WarcraftOSX"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MyNguyen/Desktop/ECS160OSX-master/WarcraftOSX/SinglePlayerViewController.swift"
+                  timestampString = "508018121.653978"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WarcraftOSX.SinglePlayerViewController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; Swift.Optional&lt;WarcraftOSX.SinglePlayerViewController&gt;"
+                  moduleName = "WarcraftOSX"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MyNguyen/Desktop/ECS160OSX-master/WarcraftOSX/SinglePlayerViewController.swift"
+                  timestampString = "508018121.722939"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "70">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WarcraftOSX.SinglePlayerViewController.__allocating_init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; Swift.Optional&lt;WarcraftOSX.SinglePlayerViewController&gt;"
+                  moduleName = "WarcraftOSX"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MyNguyen/Desktop/ECS160OSX-master/WarcraftOSX/SinglePlayerViewController.swift"
+                  timestampString = "508018121.726082"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "23">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WarcraftOSX.SinglePlayerViewController.__allocating_init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;WarcraftOSX.SinglePlayerViewController&gt;"
+                  moduleName = "WarcraftOSX"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MyNguyen/Desktop/ECS160OSX-master/WarcraftOSX/SinglePlayerViewController.swift"
+                  timestampString = "508018121.729459"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WarcraftOSX.SinglePlayerViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;WarcraftOSX.SinglePlayerViewController&gt;"
+                  moduleName = "WarcraftOSX"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MyNguyen/Desktop/ECS160OSX-master/WarcraftOSX/SinglePlayerViewController.swift"
+                  timestampString = "508018121.731567"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "31">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="ugu-Bd-BaH">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="jGA-0Y-lOj">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
@@ -663,11 +663,11 @@
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
-                <windowController storyboardIdentifier="Document Window Controller" id="jGA-0Y-lOj" sceneMemberID="viewController">
+                <windowController storyboardIdentifier="Document Window Controller" showSeguePresentationStyle="single" id="jGA-0Y-lOj" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="Ckk-yw-fiv">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="480" height="270"/>
+                        <rect key="contentRect" x="196" y="240" width="577" height="335"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                     </window>
                     <connections>
@@ -676,51 +676,23 @@
                 </windowController>
                 <customObject id="6f7-a7-6o1" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="250"/>
+            <point key="canvasLocation" x="123.5" y="282.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Splash Screen-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="5gI-5U-AMq" customClass="ViewController" customModule="WarcraftOSX" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Splash Screen" showSeguePresentationStyle="single" id="5gI-5U-AMq" customClass="SplashScreenViewController" customModule="WarcraftOSX" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" misplaced="YES" id="ERx-hH-rdd">
-                        <rect key="frame" x="0.0" y="0.0" width="515" height="441"/>
+                        <rect key="frame" x="0.0" y="0.0" width="592" height="441"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vgU-v0-inn">
-                                <rect key="frame" x="0.0" y="0.0" width="529" height="441"/>
-                                <gestureRecognizers>
-                                    <clickGestureRecognizer delaysPrimaryMouseButtonEvents="YES" numberOfClicksRequired="1" id="xWJ-WH-S3e">
-                                        <connections>
-                                            <action selector="primaryMouse:" target="5gI-5U-AMq" id="u66-Gd-aQj"/>
-                                        </connections>
-                                    </clickGestureRecognizer>
-                                </gestureRecognizers>
+                                <rect key="frame" x="32" y="0.0" width="529" height="441"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Splash" id="xKk-8l-GmM"/>
-                            </imageView>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xqp-DU-7aJ">
-                                <rect key="frame" x="435" y="132" width="48" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="xbq-rm-2KZ"/>
-                            </imageView>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0h9-YE-zZW">
-                                <rect key="frame" x="427" y="353" width="66" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Play" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="jSf-Zf-qYX">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                            </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0LR-ah-LGv">
-                                <rect key="frame" x="423" y="353" width="66" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Play" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="30g-Ez-k9p">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
                                 <connections>
-                                    <segue destination="KEP-Td-rXt" kind="show" id="Rj3-mZ-hg5"/>
+                                    <segue destination="wgi-bq-wOU" kind="show" identifier="showMenuSegue" id="mzp-Vj-1PZ"/>
                                 </connections>
-                            </button>
+                            </imageView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="vgU-v0-inn" firstAttribute="leading" secondItem="ERx-hH-rdd" secondAttribute="leading" id="MF9-ir-H0Y"/>
@@ -730,67 +702,178 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="primaryMouseOutlet" destination="xWJ-WH-S3e" id="q0F-Pc-T0u"/>
                         <outlet property="splashScreen" destination="vgU-v0-inn" id="QY1-JB-iRs"/>
-                        <outlet property="tileEX" destination="xqp-DU-7aJ" id="wUf-hV-ryc"/>
                     </connections>
                 </viewController>
                 <customObject id="2Tp-Fl-jBw" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="76" y="771"/>
+            <point key="canvasLocation" x="123" y="872"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="xyd-Bd-sy9">
+        <!--Main Menu View Controller-->
+        <scene sceneID="8RO-At-G8a">
             <objects>
-                <viewController id="KEP-Td-rXt" sceneMemberID="viewController">
-                    <view key="view" id="DhW-Fu-4D8">
-                        <rect key="frame" x="0.0" y="0.0" width="617" height="441"/>
+                <viewController id="wgi-bq-wOU" customClass="MainMenuViewController" customModule="WarcraftOSX" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="1OM-Qh-yC3">
+                        <rect key="frame" x="0.0" y="0.0" width="563" height="441"/>
                         <autoresizingMask key="autoresizingMask"/>
-                    </view>
-                </viewController>
-                <customObject id="Z16-xS-O4r" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="770.5" y="770.5"/>
-        </scene>
-        <!--Show Splash Screen-->
-        <scene sceneID="eLP-kf-RE8">
-            <objects>
-                <viewController id="ugu-Bd-BaH" customClass="ShowSplashScreen" customModule="WarcraftOSX" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" wantsLayer="YES" misplaced="YES" id="iY4-so-HHJ">
-                        <rect key="frame" x="0.0" y="0.0" width="515" height="441"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zxc-Mn-R0O">
-                                <rect key="frame" x="0.0" y="0.0" width="529" height="441"/>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5xg-ht-hqe">
+                                <rect key="frame" x="192" y="258" width="150" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Multi Player Game" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" sound="Bottle" inset="2" id="3SW-TR-C4s">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="multiPlayerGameButton:" target="wgi-bq-wOU" id="AHc-Uo-Qhl"/>
+                                    <segue destination="DE1-Vq-CtG" kind="show" identifier="multiPlayerGameSegue" id="Gk6-WH-GVf"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FOe-yY-yzS">
+                                <rect key="frame" x="220" y="111" width="102" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Exit Game" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" sound="Funk" inset="2" id="RnZ-w7-tg0">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="exitGameButton:" target="wgi-bq-wOU" id="Ps7-R8-FEm"/>
+                                </connections>
+                            </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Plh-2F-5eK">
+                                <rect key="frame" x="216" y="395" width="111" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="The Game" id="zq6-GM-IHz">
+                                    <font key="font" size="20" name="MarkerFelt-Wide"/>
+                                    <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mMS-bp-0W7">
+                                <rect key="frame" x="189" y="321" width="157" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Single Player Game" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ePC-Sy-Yma">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="singlePlayerGameButton:" target="wgi-bq-wOU" id="3wb-sZ-bdn"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7fj-5f-Axh">
+                                <rect key="frame" x="227" y="203" width="88" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Options" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="MQb-F8-IGY">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="optionsButton:" target="wgi-bq-wOU" id="x6K-0w-xS7"/>
+                                    <segue destination="1uz-6V-dh0" kind="show" identifier="optionsSegue" id="w6u-vV-CXO"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <segue destination="gtw-S4-sfi" kind="show" identifier="singlePlayerGameSegue" id="pmj-Hx-0ZT"/>
+                    </connections>
+                </viewController>
+                <customObject id="ua5-dv-pOC" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="862.5" y="871.5"/>
+        </scene>
+        <!--Single Player Game Window-->
+        <scene sceneID="XfB-Ia-AhJ">
+            <objects>
+                <viewController title="Single Player Game Window" id="gtw-S4-sfi" customClass="SinglePlayerViewController" customModule="WarcraftOSX" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="Svt-fr-CbM">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="se9-Ud-sW1">
+                                <rect key="frame" x="70" y="210" width="121" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Single Player Game" id="HXV-Wb-A4h">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WUk-Pk-pw8">
+                                <rect key="frame" x="201" y="126" width="48" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <gestureRecognizers>
-                                    <clickGestureRecognizer delaysPrimaryMouseButtonEvents="YES" numberOfClicksRequired="1" id="drH-mj-ayb">
+                                    <clickGestureRecognizer delaysPrimaryMouseButtonEvents="YES" numberOfClicksRequired="1" id="oZ6-xg-uc3">
                                         <connections>
-                                            <action selector="primaryMouse:" target="ugu-Bd-BaH" id="eSM-Gi-4Zu"/>
+                                            <action selector="mouseClickOnTile:" target="gtw-S4-sfi" id="wWe-4H-heY"/>
                                         </connections>
                                     </clickGestureRecognizer>
                                 </gestureRecognizers>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Splash" id="ukQ-3A-zM7"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Farm" id="nyh-4f-bfc"/>
                             </imageView>
                         </subviews>
-                        <constraints>
-                            <constraint firstItem="Zxc-Mn-R0O" firstAttribute="top" secondItem="iY4-so-HHJ" secondAttribute="top" id="PXv-Lk-OCE"/>
-                            <constraint firstAttribute="bottom" secondItem="Zxc-Mn-R0O" secondAttribute="bottom" id="bB7-Jw-pU2"/>
-                            <constraint firstItem="Zxc-Mn-R0O" firstAttribute="leading" secondItem="iY4-so-HHJ" secondAttribute="leading" id="rnj-30-8Td"/>
-                            <constraint firstAttribute="trailing" secondItem="Zxc-Mn-R0O" secondAttribute="trailing" id="uBE-ih-8Uj"/>
-                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="primaryMouseOutlet" destination="drH-mj-ayb" id="Iow-bH-Pwh"/>
-                        <outlet property="splashScreen" destination="Zxc-Mn-R0O" id="aw2-Ms-q0X"/>
-                        <segue destination="jGA-0Y-lOj" kind="show" identifier="showSplashScreen" id="YP1-dN-TFU"/>
+                        <outlet property="tile" destination="nyh-4f-bfc" id="dy3-ve-84j"/>
                     </connections>
                 </viewController>
-                <customObject id="P8o-SN-EMU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <customObject id="gfl-kN-GZ0" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-516" y="251"/>
+            <point key="canvasLocation" x="1483" y="485"/>
+        </scene>
+        <!--Multi Player Game Window-->
+        <scene sceneID="Ww9-aO-9zW">
+            <objects>
+                <viewController title="Multi Player Game Window" id="DE1-Vq-CtG" sceneMemberID="viewController">
+                    <view key="view" id="MV0-DA-NBe">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="45D-9f-DyH">
+                                <rect key="frame" x="103" y="148" width="114" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Multi Player Game" id="upT-he-B51">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                    </view>
+                </viewController>
+                <customObject id="rCH-bg-GDK" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1483" y="864"/>
+        </scene>
+        <!--Options Window-->
+        <scene sceneID="UfD-i4-u3J">
+            <objects>
+                <viewController title="Options Window" id="1uz-6V-dh0" sceneMemberID="viewController">
+                    <view key="view" id="y4c-fU-5Jq">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yWk-bE-BPw">
+                                <rect key="frame" x="111" y="141" width="52" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Options" id="FE8-TL-xTL">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                    </view>
+                </viewController>
+                <customObject id="CUB-e0-8vo" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1483" y="1238"/>
         </scene>
     </scenes>
     <resources>
+        <image name="Farm" width="64" height="256"/>
         <image name="Splash" width="800" height="1200"/>
+        <sound name="Bottle"/>
+        <sound name="Funk"/>
     </resources>
 </document>
