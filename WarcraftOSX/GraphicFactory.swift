@@ -1,7 +1,7 @@
 
 //EDIT FOR OSX
 
-
+import Cocoa
 import Foundation
 import CoreGraphics
 
@@ -10,7 +10,7 @@ import CoreGraphics
 //import UIKit
 // HACK - END
 
-class GraphicFactory {
+class GraphicFactory: NSView {
     static func createSurface(width: Int, height: Int, format: GraphicSurfaceFormat) -> GraphicSurface? {
         guard let colorSpace = CGColorSpace(name: CGColorSpace.sRGB) else {
             return nil
@@ -25,17 +25,22 @@ class GraphicFactory {
         fatalError("This method is not yet implemented.")
     }
 
-    // FIXME: MAKE TILESET GREAT AGAIN
-    // HACK - START
     static func loadTerrainTilesetSurface() -> GraphicSurface {
 //        let image = UIImage(named: "Terrain.png")!
 //        UIGraphicsBeginImageContext(image.size)
 //        let layer = CGLayer(UIGraphicsGetCurrentContext()!, size: image.size, auxiliaryInfo: nil)!
 //        layer.context!.draw(image.cgImage!, in: CGRect(origin: .zero, size: image.size))
 //        UIGraphicsEndImageContext()
-//        return layer
+        
+        let mapContext = NSGraphicsContext.current()?.cgContext
+        
+        //create initial layer
+        let mapSize = CGSize(width: 32, height: 32)
+        let mapLayer = CGLayer(mapContext!, size: mapSize, auxiliaryInfo: nil)
+        var mapLayerContext = mapLayer?.context
+        
+        return mapLayer!
         fatalError("This method is not yet implemented.")
         
     }
-    // HACK - END
 }

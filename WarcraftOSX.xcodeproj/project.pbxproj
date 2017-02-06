@@ -45,6 +45,7 @@
 		A980E16B1E471EF800DFA4BD /* UnitActionRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A980E16A1E471EF800DFA4BD /* UnitActionRenderer.swift */; };
 		A980E16D1E471EFB00DFA4BD /* VisibilityMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = A980E16C1E471EFB00DFA4BD /* VisibilityMap.swift */; };
 		A980E16F1E47201900DFA4BD /* GraphicTileset.swift in Sources */ = {isa = PBXBuildFile; fileRef = A980E16E1E47201900DFA4BD /* GraphicTileset.swift */; };
+		A980E1711E48A48F00DFA4BD /* AssetDecoratedMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = A980E1701E48A48F00DFA4BD /* AssetDecoratedMap.swift */; };
 		FEA803251E3FEBB0002D4E8B /* OSXSoundProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA803241E3FEBB0002D4E8B /* OSXSoundProperties.swift */; };
 		FEA8032A1E406ECF002D4E8B /* OSXVisualElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA803291E406ECF002D4E8B /* OSXVisualElements.swift */; };
 		FEA8032C1E412AB9002D4E8B /* OSXCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA8032B1E412AB9002D4E8B /* OSXCustomView.swift */; };
@@ -112,6 +113,7 @@
 		A980E16A1E471EF800DFA4BD /* UnitActionRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitActionRenderer.swift; sourceTree = "<group>"; };
 		A980E16C1E471EFB00DFA4BD /* VisibilityMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisibilityMap.swift; sourceTree = "<group>"; };
 		A980E16E1E47201900DFA4BD /* GraphicTileset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphicTileset.swift; sourceTree = "<group>"; };
+		A980E1701E48A48F00DFA4BD /* AssetDecoratedMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetDecoratedMap.swift; sourceTree = "<group>"; };
 		FEA803241E3FEBB0002D4E8B /* OSXSoundProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSXSoundProperties.swift; sourceTree = "<group>"; };
 		FEA803291E406ECF002D4E8B /* OSXVisualElements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OSXVisualElements.swift; path = ../OSXVisualElements.swift; sourceTree = "<group>"; };
 		FEA8032B1E412AB9002D4E8B /* OSXCustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSXCustomView.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 		FEA803261E4061E1002D4E8B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A980E1701E48A48F00DFA4BD /* AssetDecoratedMap.swift */,
 				A980E1361E471DC800DFA4BD /* Bevel.swift */,
 				A980E1381E471DD800DFA4BD /* DataContainer.swift */,
 				A980E13C1E471DF800DFA4BD /* DataSource.swift */,
@@ -402,6 +405,7 @@
 				A980E1471E471E1800DFA4BD /* GraphicFactory.swift in Sources */,
 				A980E1411E471E0500DFA4BD /* FileDataSource.swift in Sources */,
 				A980E1451E471E0D00DFA4BD /* GameModel.swift in Sources */,
+				A980E1711E48A48F00DFA4BD /* AssetDecoratedMap.swift in Sources */,
 				A980E1691E471EF300DFA4BD /* Tokenizer.swift in Sources */,
 				A980E1551E471EAE00DFA4BD /* PeriodicTimeout.swift in Sources */,
 				A980E14D1E471E2500DFA4BD /* GraphicSurface.swift in Sources */,

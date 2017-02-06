@@ -12,9 +12,6 @@ import AVFoundation
 
 class OSXCustomView: NSView {
     
-    //let map = MapRenderer(configuration: <#T##DataSource#>, tileset: <#T##GraphicTileset#>, map: <#T##TerrainMap#>)
-    
-    
     
     let map = OSXMapRenderer()
     var mainContext:CGContext?
@@ -34,7 +31,7 @@ class OSXCustomView: NSView {
         mainContext = NSGraphicsContext.current()?.cgContext
         
         //create initial layer
-        let baseLayer = CGLayer.init(mainContext!, size: map.getTileWidthAndHeight(), auxiliaryInfo: nil)
+        let baseLayer = CGLayer(mainContext!, size: map.getTileWidthAndHeight(), auxiliaryInfo: nil)
         baseLayerContext = baseLayer?.context
         
         drawTile(xPos:50, yPos: 50, tileIndex: 200, layer: baseLayer!)
