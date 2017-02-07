@@ -678,18 +678,29 @@
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
         </scene>
-        <!--View Controller-->
+        <!--Launch View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="5gI-5U-AMq" customClass="ViewController" customModule="WarcraftOSX" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" wantsLayer="YES" id="ERx-hH-rdd" customClass="OSXCustomView" customModule="WarcraftOSX" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="515" height="441"/>
+                <viewController title="Launch View Controller" id="5gI-5U-AMq" customClass="LaunchViewController" customModule="WarcraftOSX" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" wantsLayer="YES" id="ERx-hH-rdd" customClass="GraphicFactory" customModule="WarcraftOSX" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="658" height="466"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vgU-v0-inn">
-                                <rect key="frame" x="0.0" y="0.0" width="529" height="441"/>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vgU-v0-inn">
+                                <rect key="frame" x="0.0" y="0.0" width="658" height="466"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="xKk-8l-GmM"/>
                             </imageView>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zdf-Nf-GGV">
+                                <rect key="frame" x="209" y="215" width="240" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qns-u1-vlm">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <segue destination="NXk-fe-dIt" kind="modal" id="SQe-rX-KOU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="vgU-v0-inn" firstAttribute="leading" secondItem="ERx-hH-rdd" secondAttribute="leading" id="MF9-ir-H0Y"/>
@@ -699,13 +710,27 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="loadMapButton" destination="Zdf-Nf-GGV" id="mPq-pH-wcl"/>
                         <outlet property="splashScreen" destination="vgU-v0-inn" id="QY1-JB-iRs"/>
                         <outlet property="viewOfViewController" destination="ERx-hH-rdd" id="Dzd-8t-rSi"/>
                     </connections>
                 </viewController>
                 <customObject id="2Tp-Fl-jBw" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="771"/>
+            <point key="canvasLocation" x="-25" y="814"/>
+        </scene>
+        <!--Game View Controller-->
+        <scene sceneID="K4H-QS-TcK">
+            <objects>
+                <viewController title="Game View Controller" id="NXk-fe-dIt" customClass="GameViewController" customModule="WarcraftOSX" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="ZFr-Tl-ysb">
+                        <rect key="frame" x="0.0" y="0.0" width="653" height="466"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="PRY-P4-TTK" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="801" y="814"/>
         </scene>
     </scenes>
 </document>

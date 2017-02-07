@@ -26,32 +26,35 @@ class GraphicFactory: NSView {
     }
 
     static func loadTerrainTilesetSurface() -> GraphicSurface {
-//        let image = UIImage(named: "Terrain.png")!
-//        UIGraphicsBeginImageContext(image.size)
-//        let layer = CGLayer(UIGraphicsGetCurrentContext()!, size: image.size, auxiliaryInfo: nil)!
-//        layer.context!.draw(image.cgImage!, in: CGRect(origin: .zero, size: image.size))
-//        UIGraphicsEndImageContext()
         
+        //IOS
+        /*
+        let image = UIImage(named: "Terrain.png")!
+        UIGraphicsBeginImageContext(image.size)
+        let layer = CGLayer(UIGraphicsGetCurrentContext()!, size: image.size, auxiliaryInfo: nil)!
+        layer.context!.draw(image.cgImage!, in: CGRect(origin: .zero, size: image.size))
+        UIGraphicsEndImageContext()
+        */
+        
+        //macOS
         //terrain png to CGImage
         let terrainURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/img/Terrain", ofType:"png"))!)
         let terrainData = CGDataProvider(url: terrainURL as CFURL)
         let terrainCG = CGImage(pngDataProviderSource: terrainData!, decode: nil, shouldInterpolate: false, intent: CGColorRenderingIntent.defaultIntent)
         let terrainSize = CGSize(width: terrainCG!.width, height: terrainCG!.height)
         
+        let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.premultipliedLast.rawValue)
+        let mapContext = CGContext(data: nil, width: 32, height: 32, bitsPerComponent: 8, bytesPerRow: 0, space: CGColorSpaceCreateDeviceRGB(), bitmapInfo: bitmapInfo.rawValue)
         
-        let mapContext = NSGraphicsContext.current()?.cgContext
         
         //create initial layer
         let mapSize = CGSize(width: 32, height: 32)
         let mapLayer = CGLayer(mapContext!, size: terrainSize, auxiliaryInfo: nil)
-        var mapLayerContext = mapLayer?.context
+        let mapLayerContext = mapLayer?.context
         let mapOrigin = CGPoint(x: 0, y: 0)
         let mapRect = CGRect(origin: mapOrigin, size: mapSize)
         mapLayerContext?.draw(terrainCG!, in: mapRect)
-        //mapLayerContext?.draw(terrainCG!, in: CGRect(origin: mapOrigin, size: terrainSize))
-        
+
         return mapLayer!
-        fatalError("This method is not yet implemented.")
-        
     }
 }

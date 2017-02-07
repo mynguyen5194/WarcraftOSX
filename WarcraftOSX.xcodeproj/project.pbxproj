@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		A93DF5E11E3D77E90047BA86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93DF5E01E3D77E90047BA86 /* AppDelegate.swift */; };
-		A93DF5E31E3D77E90047BA86 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93DF5E21E3D77E90047BA86 /* ViewController.swift */; };
 		A93DF5E51E3D77E90047BA86 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93DF5E41E3D77E90047BA86 /* Document.swift */; };
 		A93DF5E71E3D77E90047BA86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A93DF5E61E3D77E90047BA86 /* Assets.xcassets */; };
 		A93DF5EA1E3D77E90047BA86 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A93DF5E81E3D77E90047BA86 /* Main.storyboard */; };
@@ -46,6 +45,10 @@
 		A980E16D1E471EFB00DFA4BD /* VisibilityMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = A980E16C1E471EFB00DFA4BD /* VisibilityMap.swift */; };
 		A980E16F1E47201900DFA4BD /* GraphicTileset.swift in Sources */ = {isa = PBXBuildFile; fileRef = A980E16E1E47201900DFA4BD /* GraphicTileset.swift */; };
 		A980E1711E48A48F00DFA4BD /* AssetDecoratedMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = A980E1701E48A48F00DFA4BD /* AssetDecoratedMap.swift */; };
+		FE7C9F761E4A4E0A00A32B85 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7C9F751E4A4E0A00A32B85 /* LaunchViewController.swift */; };
+		FE7C9F781E4A509B00A32B85 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7C9F771E4A509B00A32B85 /* GameViewController.swift */; };
+		FE7C9F7A1E4A54D700A32B85 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7C9F791E4A54D700A32B85 /* GameScene.swift */; };
+		FE7C9F7D1E4A554900A32B85 /* TerrainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7C9F7C1E4A554900A32B85 /* TerrainManager.swift */; };
 		FEA803251E3FEBB0002D4E8B /* OSXSoundProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA803241E3FEBB0002D4E8B /* OSXSoundProperties.swift */; };
 		FEA8032A1E406ECF002D4E8B /* OSXVisualElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA803291E406ECF002D4E8B /* OSXVisualElements.swift */; };
 		FEA8032C1E412AB9002D4E8B /* OSXCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA8032B1E412AB9002D4E8B /* OSXCustomView.swift */; };
@@ -71,7 +74,6 @@
 /* Begin PBXFileReference section */
 		A93DF5DD1E3D77E90047BA86 /* WarcraftOSX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WarcraftOSX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A93DF5E01E3D77E90047BA86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A93DF5E21E3D77E90047BA86 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A93DF5E41E3D77E90047BA86 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
 		A93DF5E61E3D77E90047BA86 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A93DF5E91E3D77E90047BA86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -114,6 +116,10 @@
 		A980E16C1E471EFB00DFA4BD /* VisibilityMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisibilityMap.swift; sourceTree = "<group>"; };
 		A980E16E1E47201900DFA4BD /* GraphicTileset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphicTileset.swift; sourceTree = "<group>"; };
 		A980E1701E48A48F00DFA4BD /* AssetDecoratedMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetDecoratedMap.swift; sourceTree = "<group>"; };
+		FE7C9F751E4A4E0A00A32B85 /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		FE7C9F771E4A509B00A32B85 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		FE7C9F791E4A54D700A32B85 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		FE7C9F7C1E4A554900A32B85 /* TerrainManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerrainManager.swift; sourceTree = "<group>"; };
 		FEA803241E3FEBB0002D4E8B /* OSXSoundProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSXSoundProperties.swift; sourceTree = "<group>"; };
 		FEA803291E406ECF002D4E8B /* OSXVisualElements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OSXVisualElements.swift; path = ../OSXVisualElements.swift; sourceTree = "<group>"; };
 		FEA8032B1E412AB9002D4E8B /* OSXCustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSXCustomView.swift; sourceTree = "<group>"; };
@@ -167,10 +173,12 @@
 		A93DF5DF1E3D77E90047BA86 /* WarcraftOSX */ = {
 			isa = PBXGroup;
 			children = (
-				A93DF5E01E3D77E90047BA86 /* AppDelegate.swift */,
-				A93DF5E21E3D77E90047BA86 /* ViewController.swift */,
+				FE7C9F691E4A3F7500A32B85 /* AppDelegate */,
+				FE7C9F6C1E4A405700A32B85 /* Models */,
+				FE7C9F6B1E4A3FC100A32B85 /* ViewControllers */,
+				FE7C9F7B1E4A54F400A32B85 /* Scene */,
+				FE7C9F741E4A46AE00A32B85 /* Views */,
 				A93DF5E41E3D77E90047BA86 /* Document.swift */,
-				A93DF5E81E3D77E90047BA86 /* Main.storyboard */,
 				A93DF5EB1E3D77E90047BA86 /* Info.plist */,
 				A93DF5E61E3D77E90047BA86 /* Assets.xcassets */,
 				A93DF60D1E3D78140047BA86 /* data */,
@@ -197,38 +205,135 @@
 			path = WarcraftOSXUITests;
 			sourceTree = "<group>";
 		};
+		FE7C9F691E4A3F7500A32B85 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				A93DF5E01E3D77E90047BA86 /* AppDelegate.swift */,
+			);
+			name = AppDelegate;
+			sourceTree = "<group>";
+		};
+		FE7C9F6B1E4A3FC100A32B85 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				FE7C9F751E4A4E0A00A32B85 /* LaunchViewController.swift */,
+				FE7C9F771E4A509B00A32B85 /* GameViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		FE7C9F6C1E4A405700A32B85 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A980E1441E471E0D00DFA4BD /* GameModel.swift */,
+				FE7C9F6D1E4A408900A32B85 /* DataContainer */,
+				FE7C9F6E1E4A434200A32B85 /* Map */,
+				FE7C9F6F1E4A43A700A32B85 /* Graphic */,
+				FE7C9F701E4A444A00A32B85 /* GameType */,
+				FE7C9F711E4A448400A32B85 /* Player */,
+				FE7C9F721E4A452D00A32B85 /* Render */,
+				FE7C9F731E4A456E00A32B85 /* Utilities */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		FE7C9F6D1E4A408900A32B85 /* DataContainer */ = {
+			isa = PBXGroup;
+			children = (
+				A980E1381E471DD800DFA4BD /* DataContainer.swift */,
+				A980E13C1E471DF800DFA4BD /* DataSource.swift */,
+				A980E13A1E471DDD00DFA4BD /* DataSink.swift */,
+				A980E1401E471E0500DFA4BD /* FileDataSource.swift */,
+				A980E14E1E471E7F00DFA4BD /* LineDataSource.swift */,
+			);
+			name = DataContainer;
+			sourceTree = "<group>";
+		};
+		FE7C9F6E1E4A434200A32B85 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				A980E1341E471D6E00DFA4BD /* TerrainMap.swift */,
+				A980E1621E471EC900DFA4BD /* RouterMap.swift */,
+				A980E16C1E471EFB00DFA4BD /* VisibilityMap.swift */,
+				A980E1701E48A48F00DFA4BD /* AssetDecoratedMap.swift */,
+			);
+			name = Map;
+			sourceTree = "<group>";
+		};
+		FE7C9F6F1E4A43A700A32B85 /* Graphic */ = {
+			isa = PBXGroup;
+			children = (
+				A980E1361E471DC800DFA4BD /* Bevel.swift */,
+				A980E14A1E471E2100DFA4BD /* GraphicResourceContext.swift */,
+				A980E14C1E471E2500DFA4BD /* GraphicSurface.swift */,
+				A980E1461E471E1800DFA4BD /* GraphicFactory.swift */,
+				A980E1481E471E1E00DFA4BD /* GraphicRecolorMap.swift */,
+				A980E16E1E47201900DFA4BD /* GraphicTileset.swift */,
+			);
+			name = Graphic;
+			sourceTree = "<group>";
+		};
+		FE7C9F701E4A444A00A32B85 /* GameType */ = {
+			isa = PBXGroup;
+			children = (
+				A980E1421E471E0900DFA4BD /* GameDataTypes.swift */,
+				A980E1561E471EB400DFA4BD /* PixelType.swift */,
+				A980E1601E471EC600DFA4BD /* Rectangle.swift */,
+				A980E15C1E471EBE00DFA4BD /* Position.swift */,
+			);
+			name = GameType;
+			sourceTree = "<group>";
+		};
+		FE7C9F711E4A448400A32B85 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				A980E1581E471EB800DFA4BD /* PlayerAsset.swift */,
+				A980E15A1E471EBB00DFA4BD /* PlayerCommand.swift */,
+			);
+			name = Player;
+			sourceTree = "<group>";
+		};
+		FE7C9F721E4A452D00A32B85 /* Render */ = {
+			isa = PBXGroup;
+			children = (
+				A980E1501E471E8300DFA4BD /* MapRenderer.swift */,
+				A980E16A1E471EF800DFA4BD /* UnitActionRenderer.swift */,
+			);
+			name = Render;
+			sourceTree = "<group>";
+		};
+		FE7C9F731E4A456E00A32B85 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				A980E13E1E471DFD00DFA4BD /* Debug.swift */,
+				A980E1541E471EAE00DFA4BD /* PeriodicTimeout.swift */,
+				A980E15E1E471EC200DFA4BD /* RandomNumberGenerator.swift */,
+				A980E1681E471EF300DFA4BD /* Tokenizer.swift */,
+				A980E1661E471EEF00DFA4BD /* TextFormatter.swift */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		FE7C9F741E4A46AE00A32B85 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A93DF5E81E3D77E90047BA86 /* Main.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		FE7C9F7B1E4A54F400A32B85 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				FE7C9F791E4A54D700A32B85 /* GameScene.swift */,
+			);
+			name = Scene;
+			sourceTree = "<group>";
+		};
 		FEA803261E4061E1002D4E8B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				A980E1701E48A48F00DFA4BD /* AssetDecoratedMap.swift */,
-				A980E1361E471DC800DFA4BD /* Bevel.swift */,
-				A980E1381E471DD800DFA4BD /* DataContainer.swift */,
-				A980E13C1E471DF800DFA4BD /* DataSource.swift */,
-				A980E13E1E471DFD00DFA4BD /* Debug.swift */,
-				A980E13A1E471DDD00DFA4BD /* DataSink.swift */,
-				A980E1401E471E0500DFA4BD /* FileDataSource.swift */,
-				A980E1421E471E0900DFA4BD /* GameDataTypes.swift */,
-				A980E1441E471E0D00DFA4BD /* GameModel.swift */,
-				A980E1461E471E1800DFA4BD /* GraphicFactory.swift */,
-				A980E1481E471E1E00DFA4BD /* GraphicRecolorMap.swift */,
-				A980E14A1E471E2100DFA4BD /* GraphicResourceContext.swift */,
-				A980E14C1E471E2500DFA4BD /* GraphicSurface.swift */,
-				A980E16E1E47201900DFA4BD /* GraphicTileset.swift */,
-				A980E14E1E471E7F00DFA4BD /* LineDataSource.swift */,
-				A980E1501E471E8300DFA4BD /* MapRenderer.swift */,
-				A980E1541E471EAE00DFA4BD /* PeriodicTimeout.swift */,
-				A980E1561E471EB400DFA4BD /* PixelType.swift */,
-				A980E15A1E471EBB00DFA4BD /* PlayerCommand.swift */,
-				A980E15C1E471EBE00DFA4BD /* Position.swift */,
-				A980E1581E471EB800DFA4BD /* PlayerAsset.swift */,
-				A980E15E1E471EC200DFA4BD /* RandomNumberGenerator.swift */,
-				A980E1601E471EC600DFA4BD /* Rectangle.swift */,
-				A980E1621E471EC900DFA4BD /* RouterMap.swift */,
-				A980E1341E471D6E00DFA4BD /* TerrainMap.swift */,
-				A980E1661E471EEF00DFA4BD /* TextFormatter.swift */,
-				A980E1681E471EF300DFA4BD /* Tokenizer.swift */,
-				A980E16A1E471EF800DFA4BD /* UnitActionRenderer.swift */,
-				A980E16C1E471EFB00DFA4BD /* VisibilityMap.swift */,
+				FE7C9F7C1E4A554900A32B85 /* TerrainManager.swift */,
 				FEA8032B1E412AB9002D4E8B /* OSXCustomView.swift */,
 				A93DF6111E3D96A40047BA86 /* OSXGraphicTileset.swift */,
 				A93DF60F1E3D84DE0047BA86 /* OSXMapRenderer.swift */,
@@ -380,11 +485,12 @@
 				A980E14B1E471E2100DFA4BD /* GraphicResourceContext.swift in Sources */,
 				FEA8032C1E412AB9002D4E8B /* OSXCustomView.swift in Sources */,
 				A980E13D1E471DF800DFA4BD /* DataSource.swift in Sources */,
+				FE7C9F781E4A509B00A32B85 /* GameViewController.swift in Sources */,
 				A980E16B1E471EF800DFA4BD /* UnitActionRenderer.swift in Sources */,
 				A980E15D1E471EBE00DFA4BD /* Position.swift in Sources */,
 				A980E1631E471EC900DFA4BD /* RouterMap.swift in Sources */,
-				A93DF5E31E3D77E90047BA86 /* ViewController.swift in Sources */,
 				A980E13F1E471DFD00DFA4BD /* Debug.swift in Sources */,
+				FE7C9F761E4A4E0A00A32B85 /* LaunchViewController.swift in Sources */,
 				A980E1371E471DC800DFA4BD /* Bevel.swift in Sources */,
 				A980E1431E471E0900DFA4BD /* GameDataTypes.swift in Sources */,
 				A93DF6121E3D96A40047BA86 /* OSXGraphicTileset.swift in Sources */,
@@ -392,6 +498,7 @@
 				A93DF5E11E3D77E90047BA86 /* AppDelegate.swift in Sources */,
 				FEA8032A1E406ECF002D4E8B /* OSXVisualElements.swift in Sources */,
 				A980E1491E471E1E00DFA4BD /* GraphicRecolorMap.swift in Sources */,
+				FE7C9F7A1E4A54D700A32B85 /* GameScene.swift in Sources */,
 				A980E1671E471EEF00DFA4BD /* TextFormatter.swift in Sources */,
 				A980E15F1E471EC200DFA4BD /* RandomNumberGenerator.swift in Sources */,
 				A980E16D1E471EFB00DFA4BD /* VisibilityMap.swift in Sources */,
@@ -401,6 +508,7 @@
 				A980E1391E471DD800DFA4BD /* DataContainer.swift in Sources */,
 				FEA803251E3FEBB0002D4E8B /* OSXSoundProperties.swift in Sources */,
 				A93DF5E51E3D77E90047BA86 /* Document.swift in Sources */,
+				FE7C9F7D1E4A554900A32B85 /* TerrainManager.swift in Sources */,
 				A980E15B1E471EBB00DFA4BD /* PlayerCommand.swift in Sources */,
 				A980E1471E471E1800DFA4BD /* GraphicFactory.swift in Sources */,
 				A980E1411E471E0500DFA4BD /* FileDataSource.swift in Sources */,
