@@ -11,7 +11,7 @@ import AVFoundation
 
 
 fileprivate func tileset(with name: String) throws -> GraphicMulticolorTileset {
-    let tilesetURL = Bundle.main.url(forResource: name, withExtension: "dat")!
+    let tilesetURL = Bundle.main.url(forResource: "/data/img/\(name)", withExtension: "dat")!
     let tilesetSource = try FileDataSource(url: tilesetURL)
     let tileset = GraphicMulticolorTileset()
     try tileset.loadTileset(from: tilesetSource)
@@ -22,14 +22,14 @@ class GameViewController: NSViewController {
 
     @IBOutlet var mainGameView: NSView!
     @IBOutlet weak var gameSideBarView: NSView!
-     @IBOutlet weak var mainMapView: OSXCustomView!
+    @IBOutlet weak var mainMapView: OSXCustomView!
     @IBOutlet weak var resourceBarView: NSView!
     
     
     private lazy var midiPlayer: AVMIDIPlayer = {
         do {
-            let soundFont = Bundle.main.url(forResource: "generalsoundfont", withExtension: "sf2")!
-            let midiFile = Bundle.main.url(forResource: "intro", withExtension: "mid")!
+            let soundFont = Bundle.main.url(forResource: "/data/snd/generalsoundfont", withExtension: "sf2")!
+            let midiFile = Bundle.main.url(forResource: "/data/snd/music/intro", withExtension: "mid")!
             return try AVMIDIPlayer(contentsOf: midiFile, soundBankURL: soundFont)
         } catch {
             fatalError(error.localizedDescription) // TODO: Handle Error
@@ -39,7 +39,7 @@ class GameViewController: NSViewController {
     
     private lazy var map: AssetDecoratedMap = {
         do {
-            let mapURL = Bundle.main.url(forResource: "maze", withExtension: "map")!
+            let mapURL = Bundle.main.url(forResource: "/data/map/maze", withExtension: "map")!
             let mapSource = try FileDataSource(url: mapURL)
             let map = AssetDecoratedMap()
             try map.loadMap(source: mapSource)
@@ -51,7 +51,7 @@ class GameViewController: NSViewController {
     
     private lazy var mapRenderer: MapRenderer = {
         do {
-            let configurationURL = Bundle.main.url(forResource: "MapRendering", withExtension: "dat")!
+            let configurationURL = Bundle.main.url(forResource: "/data/img/MapRendering", withExtension: "dat")!
             let configuration = try FileDataSource(url: configurationURL)
             let terrainTileset = try tileset(with: "Terrain")
             return try MapRenderer(configuration: configuration, tileset: terrainTileset, map: self.map)
@@ -104,34 +104,13 @@ class GameViewController: NSViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        midiPlayer.prepareToPlay()
+        midiPlayer.play()
         
-        
-        /*
-        do{
-            
-            //Loading Rendering Configuration about line 406 in ApplicationData.cpp
-            let mapRenderingURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/img/MapRendering", ofType: "dat"))!)
-            let mapDataSource = try FileDataSource(url: mapRenderingURL)
-            
-            //Loading Terrain about line 415 in ApplicationData.cpp
-            let terrainTileset = GraphicTileset()
-            let terrainURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/img/Terrain", ofType: "dat"))!)
-            let terrainDataSource = try FileDataSource(url: terrainURL)
-            try terrainTileset.loadTileset(from: terrainDataSource)
-            
-            //Loading Map about line 671 in ApplicationData.cpp
-            let map2PlayerURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/map/2player", ofType: "map"))!)
-            let map2PlayerAssetDec = AssetDecoratedMap()
-            let map2PlayerDataSource = try FileDataSource(url: map2PlayerURL)
-            try map2PlayerAssetDec.loadMap(source: map2PlayerDataSource)
-            
-            let map = try MapRenderer(configuration: mapDataSource, tileset: terrainTileset, map: map2PlayerAssetDec)
-            
-            
-        } catch{
-            print(error)
-        }*/
-        
+        let mapView = OSXCustomView(frame: CGRect(origin: .zero, size: CGSize(width: mapRenderer.detailedMapWidth, height: mapRenderer.detailedMapHeight)), mapRenderer: mapRenderer, assetRenderer: assetRenderer)
+        //let miniMapView = MiniMapView(frame: CGRect(origin: .zero, size: CGSize(width: mapRenderer.mapWidth, height: mapRenderer.mapHeight)), mapRenderer: mapRenderer)
+        //view.addSubview(mapView)
+        //view.addSubview(miniMapView)
         
     }
     

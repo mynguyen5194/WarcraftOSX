@@ -2,7 +2,7 @@ import Foundation
 import CoreGraphics
 import AppKit
 
-class GraphicFactory: NSObject {
+class GraphicFactory {
     static func createSurface(width: Int, height: Int, format: GraphicSurfaceFormat) -> GraphicSurface? {
         let size = CGSize(width: width, height: height)
         let colorSpace:CGColorSpace = CGColorSpaceCreateDeviceRGB()
