@@ -1,4 +1,5 @@
-import UIKit
+//IOS
+/*import UIKit
 
 class MiniMapView: UIView {
 
@@ -19,3 +20,4 @@ class MiniMapView: UIView {
         context.draw(layer, in: rect)
     }
 }
+*/

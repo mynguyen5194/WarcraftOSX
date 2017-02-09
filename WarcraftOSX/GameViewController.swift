@@ -21,10 +21,10 @@ class GameViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        /*
         let mapView = MapView(frame: CGRect(origin: .zero, size: CGSize(width: mapRenderer.detailedMapWidth, height: mapRenderer.detailedMapHeight)), mapRenderer: mapRenderer, assetRenderer: assetRenderer)
         let miniMapView = MiniMapView(frame: CGRect(origin: .zero, size: CGSize(width: mapRenderer.mapWidth, height: mapRenderer.mapHeight)), mapRenderer: mapRenderer)
-        
+        */
         
         /*
         do{
