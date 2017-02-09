@@ -726,13 +726,13 @@
             <objects>
                 <viewController id="4oC-8j-Qt8" customClass="SecondController" customModule="WarcraftOSX" sceneMemberID="viewController">
                     <view key="view" id="c29-Ug-jFG">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="500"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </view>
                 </viewController>
                 <customObject id="7Dd-Zx-OD6" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="721" y="770"/>
+            <point key="canvasLocation" x="885" y="770"/>
         </scene>
     </scenes>
 </document>
