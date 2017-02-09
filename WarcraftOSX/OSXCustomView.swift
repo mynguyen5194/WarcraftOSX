@@ -22,10 +22,6 @@ class OSXCustomView: NSView {
     }
     
     func mapSetup() {
-        
-        
-        
-        
     //ORIGINAL BELOW THIS---------
         
         mainContext = NSGraphicsContext.current()?.cgContext

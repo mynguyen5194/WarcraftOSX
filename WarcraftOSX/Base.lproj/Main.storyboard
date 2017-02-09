@@ -727,9 +727,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="653" height="466"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hW1-YF-IxO" userLabel="Game Scene View" customClass="SKView">
+                            <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hW1-YF-IxO" userLabel="Game Scene View" customClass="OSXCustomView" customModule="WarcraftOSX" customModuleProvider="target">
                                 <rect key="frame" x="130" y="0.0" width="523" height="401"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <accessibility description="Dfs"/>
                             </customView>
                             <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wid-pj-4XP" userLabel="Game Side Bar">
                                 <rect key="frame" x="0.0" y="0.0" width="132" height="401"/>

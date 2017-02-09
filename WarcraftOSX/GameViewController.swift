@@ -17,24 +17,15 @@ class GameViewController: NSViewController {
     @IBOutlet weak var gameSceneView: SKView!
     @IBOutlet weak var gameSideBarView: NSView!
     @IBOutlet weak var resourceBarView: NSView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let scene = GameScene(fileNamed: "GameScene") {
-            // Configure the view.
-            let skView: SKView = gameSceneView
-            skView.showsFPS = true
-            skView.showsNodeCount = true
-            
-            /* Sprite Kit applies additional optimizations to improve rendering performance */
-            skView.ignoresSiblingOrder = true
-            
-            /* Set the scale mode to scale to fit the window */
-            scene.scaleMode = .fill
-            
-            skView.presentScene(scene)
-        }
-        self.view = mainGameView
-
+        
+        
+        let mapView = MapView(frame: CGRect(origin: .zero, size: CGSize(width: mapRenderer.detailedMapWidth, height: mapRenderer.detailedMapHeight)), mapRenderer: mapRenderer, assetRenderer: assetRenderer)
+        let miniMapView = MiniMapView(frame: CGRect(origin: .zero, size: CGSize(width: mapRenderer.mapWidth, height: mapRenderer.mapHeight)), mapRenderer: mapRenderer)
+        
+        
         /*
         do{
             
@@ -60,7 +51,7 @@ class GameViewController: NSViewController {
         } catch{
             print(error)
         }*/
-
+        
         
     }
     

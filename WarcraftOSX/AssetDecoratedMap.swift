@@ -59,26 +59,26 @@ class AssetDecoratedMap: TerrainMap {
         resourceInitializationList = map.resourceInitializationList
     }
 
-//    init(map: AssetDecoratedMap, newColors: [PlayerColor]) {
-//        super.init(terrainMap: map)
-//        assets = map.assets
-//        assetInitializationList = map.assetInitializationList.map { asset in
-//            guard asset.color.index < newColors.count else {
-//                return asset
-//            }
-//            var asset = asset
-//            asset.color = newColors[asset.color.index]
-//            return asset
-//        }
-//        resourceInitializationList = map.resourceInitializationList.map { resource in
-//            guard resource.color.index < newColors.count else {
-//                return resource
-//            }
-//            var resource = resource
-//            resource.color = newColors[resource.color.index]
-//            return resource
-//        }
-//    }
+    init(map: AssetDecoratedMap, newColors: [PlayerColor]) {
+        super.init(terrainMap: map)
+        assets = map.assets
+        assetInitializationList = map.assetInitializationList.map { asset in
+            guard asset.color.index < newColors.count else {
+                return asset
+            }
+            var asset = asset
+            asset.color = newColors[asset.color.index]
+            return asset
+        }
+        resourceInitializationList = map.resourceInitializationList.map { resource in
+            guard resource.color.index < newColors.count else {
+                return resource
+            }
+            var resource = resource
+            resource.color = newColors[resource.color.index]
+            return resource
+        }
+    }
 
     static func loadMaps(container: DataContainer) throws {
         guard let fileIterator = container.first() else {
@@ -113,19 +113,19 @@ class AssetDecoratedMap: TerrainMap {
         return all[index]
     }
 
-//    static func duplicateMap(at index: Int, newColors: [PlayerColor]) -> AssetDecoratedMap {
-//        guard index >= 0 && index < all.count else {
-//            return AssetDecoratedMap()
-//        }
-//        return AssetDecoratedMap(map: all[index], newColors: newColors)
-//    }
+    static func duplicateMap(at index: Int, newColors: [PlayerColor]) -> AssetDecoratedMap {
+        guard index >= 0 && index < all.count else {
+            return AssetDecoratedMap()
+        }
+        return AssetDecoratedMap(map: all[index], newColors: newColors)
+    }
 
     func addAsset(_ asset: PlayerAsset) {
         assets.append(asset)
     }
 
     func removeAsset(_ asset: PlayerAsset) {
-        if let index = assets.index(of: asset) {
+        if let index = assets.index(where: { $0 === asset }) {
             assets.remove(at: index)
         }
     }
@@ -145,127 +145,127 @@ class AssetDecoratedMap: TerrainMap {
         return bestAsset
     }
 
-//    func canPlaceAsset(at position: Position, size: Int, ignoreAsset: PlayerAsset) -> Bool {
-//        var rightX: Int
-//        var bottomY: Int
-//
-//        for yOffset in 0 ..< size {
-//            for xOffset in 0 ..< size {
-//                let tileTerrainType = tileTypeAt(x: position.x + xOffset, y: position.y + yOffset)
-//                if TileType.grass != tileTerrainType
-//                    && TileType.dirt != tileTerrainType
-//                    && TileType.stump != tileTerrainType
-//                    && TileType.rubble != tileTerrainType {
-//                    return false
-//                }
-//            }
-//        }
-//        rightX = position.x + size
-//        bottomY = position.y + size
-//        if rightX >= width {
-//            return false
-//        }
-//        if bottomY >= height {
-//            return false
-//        }
-//        for asset in assets {
-//            let offset = (AssetType.goldMine == asset.type) ? 1 : 0
-//            if .none == asset.type
-//                || ignoreAsset === asset
-//                || rightX <= asset.tilePositionX - offset
-//                || position.x >= asset.tilePositionX + asset.size + offset
-//                || bottomY <= asset.tilePositionY - offset
-//                || position.y >= asset.tilePositionY + asset.size + offset {
-//                continue
-//            } else {
-//                return false
-//            }
-//        }
-//        return true
-//    }
+    func canPlaceAsset(at position: Position, size: Int, ignoreAsset: PlayerAsset) -> Bool {
+        var rightX: Int
+        var bottomY: Int
 
-//    func findAssetPlacement(placeAsset: PlayerAsset, fromAsset: PlayerAsset, nextTileTarget: Position) -> Position {
-//        var bestDistance = -1
-//        var bestPosition = Position(x: -1, y: -1)
-//        var topY = fromAsset.tilePositionY - placeAsset.size
-//        var bottomY = fromAsset.tilePositionY + fromAsset.size
-//        var leftX = fromAsset.tilePositionX - placeAsset.size
-//        var rightX = fromAsset.tilePositionX + fromAsset.size
-//        while true {
-//            var skipped = 0
-//            if topY >= 0 {
-//                let toX = min(rightX, width - 1)
-//                for x in max(leftX, 0) ... toX {
-//                    if canPlaceAsset(at: Position(x: x, y: topY), size: placeAsset.size, ignoreAsset: placeAsset) {
-//                        let position = Position(x: x, y: topY)
-//                        let currentDistance = position.distanceSquaredFrom(position: nextTileTarget)
-//                        if -1 == bestDistance || currentDistance < bestDistance {
-//                            bestDistance = currentDistance
-//                            bestPosition = position
-//                        }
-//                    }
-//                }
-//            } else {
-//                skipped += 1
-//            }
-//            if width > rightX {
-//                let toY = min(bottomY, height - 1)
-//                for y in max(topY, 0) ... toY {
-//                    if canPlaceAsset(at: Position(x: rightX, y: y), size: placeAsset.size, ignoreAsset: placeAsset) {
-//                        let position = Position(x: rightX, y: y)
-//                        let currentDistance = position.distanceSquaredFrom(position: nextTileTarget)
-//                        if -1 == bestDistance || currentDistance < bestDistance {
-//                            bestDistance = currentDistance
-//                            bestPosition = position
-//                        }
-//                    }
-//                }
-//            } else {
-//                skipped += 1
-//            }
-//            if height > bottomY {
-//                let toX = max(leftX, 0)
-//                for x in (toX ... min(rightX, width - 1)).reversed() {
-//                    if canPlaceAsset(at: Position(x: x, y: bottomY), size: placeAsset.size, ignoreAsset: placeAsset) {
-//                        let position = Position(x: x, y: bottomY)
-//                        let currentDistance = position.distanceSquared(nextTileTarget)
-//                        if -1 == bestDistance || currentDistance < bestDistance {
-//                            bestDistance = currentDistance
-//                            bestPosition = position
-//                        }
-//                    }
-//                }
-//            } else {
-//                skipped += 1
-//            }
-//            if leftX >= 0 {
-//                let toY = max(topY, 0)
-//                for y in (toY ... min(bottomY, height - 1)).reversed() {
-//                    if canPlaceAsset(at: Position(x: leftX, y: y), size: placeAsset.size, ignoreAsset: placeAsset) {
-//                        let position = Position(x: leftX, y: y)
-//                        let currentDistance = position.distanceSquared(nextTileTarget)
-//                        if -1 == bestDistance || currentDistance < bestDistance {
-//                            bestDistance = currentDistance
-//                            bestPosition = position
-//                        }
-//                    }
-//                }
-//            } else {
-//                skipped += 1
-//            }
-//            if skipped == 4 {
-//                break
-//            }
-//            if bestDistance != -1 {
-//                break
-//            }
-//            topY -= 1
-//            bottomY += 1
-//            leftX -= 1
-//            rightX += 1
-//        }
-//        return bestPosition
-//    }
+        for yOffset in 0 ..< size {
+            for xOffset in 0 ..< size {
+                let tileTerrainType = tileTypeAt(x: position.x + xOffset, y: position.y + yOffset)
+                if TileType.grass != tileTerrainType
+                    && TileType.dirt != tileTerrainType
+                    && TileType.stump != tileTerrainType
+                    && TileType.rubble != tileTerrainType {
+                    return false
+                }
+            }
+        }
+        rightX = position.x + size
+        bottomY = position.y + size
+        if rightX >= width {
+            return false
+        }
+        if bottomY >= height {
+            return false
+        }
+        for asset in assets {
+            let offset = (AssetType.goldMine == asset.type) ? 1 : 0
+            if .none == asset.type
+                || ignoreAsset === asset
+                || rightX <= asset.tilePositionX - offset
+                || position.x >= asset.tilePositionX + asset.size + offset
+                || bottomY <= asset.tilePositionY - offset
+                || position.y >= asset.tilePositionY + asset.size + offset {
+                continue
+            } else {
+                return false
+            }
+        }
+        return true
+    }
+
+    func findAssetPlacement(placeAsset: PlayerAsset, fromAsset: PlayerAsset, nextTileTarget: Position) -> Position {
+        var bestDistance = -1
+        var bestPosition = Position(x: -1, y: -1)
+        var topY = fromAsset.tilePositionY - placeAsset.size
+        var bottomY = fromAsset.tilePositionY + fromAsset.size
+        var leftX = fromAsset.tilePositionX - placeAsset.size
+        var rightX = fromAsset.tilePositionX + fromAsset.size
+        while true {
+            var skipped = 0
+            if topY >= 0 {
+                let toX = min(rightX, width - 1)
+                for x in max(leftX, 0) ... toX {
+                    if canPlaceAsset(at: Position(x: x, y: topY), size: placeAsset.size, ignoreAsset: placeAsset) {
+                        let position = Position(x: x, y: topY)
+                        let currentDistance = position.distanceSquaredFrom(position: nextTileTarget)
+                        if -1 == bestDistance || currentDistance < bestDistance {
+                            bestDistance = currentDistance
+                            bestPosition = position
+                        }
+                    }
+                }
+            } else {
+                skipped += 1
+            }
+            if width > rightX {
+                let toY = min(bottomY, height - 1)
+                for y in max(topY, 0) ... toY {
+                    if canPlaceAsset(at: Position(x: rightX, y: y), size: placeAsset.size, ignoreAsset: placeAsset) {
+                        let position = Position(x: rightX, y: y)
+                        let currentDistance = position.distanceSquaredFrom(position: nextTileTarget)
+                        if -1 == bestDistance || currentDistance < bestDistance {
+                            bestDistance = currentDistance
+                            bestPosition = position
+                        }
+                    }
+                }
+            } else {
+                skipped += 1
+            }
+            if height > bottomY {
+                let toX = max(leftX, 0)
+                for x in (toX ... min(rightX, width - 1)).reversed() {
+                    if canPlaceAsset(at: Position(x: x, y: bottomY), size: placeAsset.size, ignoreAsset: placeAsset) {
+                        let position = Position(x: x, y: bottomY)
+                        let currentDistance = position.distanceSquared(nextTileTarget)
+                        if -1 == bestDistance || currentDistance < bestDistance {
+                            bestDistance = currentDistance
+                            bestPosition = position
+                        }
+                    }
+                }
+            } else {
+                skipped += 1
+            }
+            if leftX >= 0 {
+                let toY = max(topY, 0)
+                for y in (toY ... min(bottomY, height - 1)).reversed() {
+                    if canPlaceAsset(at: Position(x: leftX, y: y), size: placeAsset.size, ignoreAsset: placeAsset) {
+                        let position = Position(x: leftX, y: y)
+                        let currentDistance = position.distanceSquared(nextTileTarget)
+                        if -1 == bestDistance || currentDistance < bestDistance {
+                            bestDistance = currentDistance
+                            bestPosition = position
+                        }
+                    }
+                }
+            } else {
+                skipped += 1
+            }
+            if skipped == 4 {
+                break
+            }
+            if bestDistance != -1 {
+                break
+            }
+            topY -= 1
+            bottomY += 1
+            leftX -= 1
+            rightX += 1
+        }
+        return bestPosition
+    }
 
     override func loadMap(source: DataSource) throws {
         try super.loadMap(source: source)
@@ -284,8 +284,7 @@ class AssetDecoratedMap: TerrainMap {
             guard tokens.count >= 3, let playerColorIndex = Int(tokens[0]), let gold = Int(tokens[1]), let lumber = Int(tokens[2]) else {
                 throw GameError.tooFewTokensForResource(index: index)
             }
-            //changed from index: to rawValue:
-            guard let playerColor = PlayerColor(rawValue: playerColorIndex) else {
+            guard let playerColor = PlayerColor(index: playerColorIndex) else {
                 throw GameError.unknownColorIndex(index: playerColorIndex)
             }
             if index == 0 && playerColor != .none {
@@ -310,8 +309,7 @@ class AssetDecoratedMap: TerrainMap {
             guard x >= 0, y >= 0, x < width, y < width else {
                 throw GameError.invalidAssetPosition(x: x, y: y)
             }
-            //changed from index: to rawValue:
-            guard let color = PlayerColor(rawValue: playerColorIndex) else {
+            guard let color = PlayerColor(index: playerColorIndex) else {
                 throw GameError.unknownColorIndex(index: playerColorIndex)
             }
             let position = Position(x: x, y: y)
@@ -328,129 +326,128 @@ class AssetDecoratedMap: TerrainMap {
     }
 
     func createVisibilityMap() -> VisibilityMap {
-        //changed, added () at the end
-        return VisibilityMap(width: width, height: height, maxVisibility: PlayerAssetType.maxSight())
+        return VisibilityMap(width: width, height: height, maxVisibility: PlayerAssetType.maxSight)
     }
 
-//    func updateMap(visibilityMap: VisibilityMap, assetDecoratedMap: AssetDecoratedMap) {
-//        if map.count != assetDecoratedMap.map.count {
-//            assetDecoratedMap.map = Array(repeating: Array(repeating: .none, count: assetDecoratedMap.map[0].count), count: assetDecoratedMap.map.count)
-//        }
-//        for (index, asset) in assets.enumerated().reversed() {
-//            let currentPosition = asset.tilePosition
-//            let assetSize = asset.size
-//            var removeAsset = false
-//            if asset.speed != 0 || asset.action == AssetAction.decay || asset.action == AssetAction.attack {
-//                assets.remove(at: index)
-//                continue
-//            }
-//            for yOffset in 0 ..< assetSize {
-//                let yPosition = currentPosition.y + yOffset
-//                for xOffset in 0 ..< assetSize {
-//                    let xPosition = currentPosition.x + xOffset
-//                    let tileType = visibilityMap.tileTypeAt(x: xPosition, y: yPosition)
-//                    if tileType == .partial || tileType == .partialPartial || tileType == .visible {
-//                        removeAsset = (asset.type != .none) // Remove visible so they can be updated
-//                        break
-//                    }
-//                }
-//                if removeAsset {
-//                    break
-//                }
-//            }
-//            if removeAsset {
-//                assets.remove(at: index)
-//            }
-//        }
-//        for yPosition in 0 ..< map.count {
-//            for xPosition in 0 ..< map[yPosition].count {
-//                let type = visibilityMap.tileTypeAt(x: xPosition - 1, y: yPosition - 1)
-//                if type == .partial || type == .partialPartial || type == .visible {
-//                    map[yPosition][xPosition] = assetDecoratedMap.map[yPosition][xPosition]
-//                }
-//            }
-//        }
-//        for asset in assetDecoratedMap.assets {
-//            let currentPosition = asset.tilePosition
-//            let assetSize = asset.size
-//            var addAsset = false
-//
-//            for yOffset in 0 ..< assetSize {
-//                let yPosition = currentPosition.y + yOffset
-//                for xOffset in 0 ..< assetSize {
-//                    let xPosition = currentPosition.x + xOffset
-//                    let type = visibilityMap.tileTypeAt(x: xPosition, y: yPosition)
-//                    if type == .partial || type == .partialPartial || type == .visible {
-//                        addAsset = true // Add visible resources
-//                        break
-//                    }
-//                }
-//                if addAsset {
-//                    assets.append(asset)
-//                    break
-//                }
-//            }
-//        }
-//    }
+    func updateMap(visibilityMap: VisibilityMap, assetDecoratedMap: AssetDecoratedMap) {
+        if map.count != assetDecoratedMap.map.count {
+            assetDecoratedMap.map = Array(repeating: Array(repeating: .none, count: assetDecoratedMap.map[0].count), count: assetDecoratedMap.map.count)
+        }
+        for (index, asset) in assets.enumerated().reversed() {
+            let currentPosition = asset.tilePosition
+            let assetSize = asset.size
+            var removeAsset = false
+            if asset.speed != 0 || asset.action == AssetAction.decay || asset.action == AssetAction.attack {
+                assets.remove(at: index)
+                continue
+            }
+            for yOffset in 0 ..< assetSize {
+                let yPosition = currentPosition.y + yOffset
+                for xOffset in 0 ..< assetSize {
+                    let xPosition = currentPosition.x + xOffset
+                    let tileType = visibilityMap.tileTypeAt(x: xPosition, y: yPosition)
+                    if tileType == .partial || tileType == .partialPartial || tileType == .visible {
+                        removeAsset = (asset.type != .none) // Remove visible so they can be updated
+                        break
+                    }
+                }
+                if removeAsset {
+                    break
+                }
+            }
+            if removeAsset {
+                assets.remove(at: index)
+            }
+        }
+        for yPosition in 0 ..< map.count {
+            for xPosition in 0 ..< map[yPosition].count {
+                let type = visibilityMap.tileTypeAt(x: xPosition - 1, y: yPosition - 1)
+                if type == .partial || type == .partialPartial || type == .visible {
+                    map[yPosition][xPosition] = assetDecoratedMap.map[yPosition][xPosition]
+                }
+            }
+        }
+        for asset in assetDecoratedMap.assets {
+            let currentPosition = asset.tilePosition
+            let assetSize = asset.size
+            var addAsset = false
 
-//    func findNearestReachableTileType(at position: Position, type: TileType) -> Position {
-//        var searchQueueArray: [SearchTile] = []
-//        var currentSearch = SearchTile(x: 0, y: 0)
-//        var tempSearch = SearchTile(x: 0, y: 0)
-//        let mapWidth = width
-//        let mapHeight = height
-//        let searchXOffsets = [0, 1, 0, -1]
-//        let searchYOffsets = [ -1, 0, 1, 0]
-//
-//        if searchMap.count != map.count {
-//            searchMap = Array(repeating: Array(repeating: .unvisited, count: map[0].count), count: map.count)
-//            let lastYIndex = map.count - 1
-//            let lastXIndex = map[0].count - 1
-//            for index in 0 ..< map.count {
-//                searchMap[index][0] = .visited
-//                searchMap[index][lastXIndex] = .visited
-//            }
-//            for index in 1 ..< lastXIndex {
-//                searchMap[0][index] = .visited
-//                searchMap[lastYIndex][index] = .visited
-//            }
-//        }
-//        for y in 0 ..< mapHeight {
-//            for x in 0 ..< mapWidth {
-//                searchMap[y + 1][x + 1] = .unvisited
-//            }
-//        }
-//        for asset in assets {
-//            if asset.tilePosition != position {
-//                for y in 0 ..< asset.size {
-//                    for x in 0 ..< asset.size {
-//                        searchMap[asset.tilePositionY + y + 1][asset.tilePositionX + x + 1] = .visited
-//                    }
-//                }
-//            }
-//        }
-//        currentSearch.x = position.x + 1
-//        currentSearch.y = position.y + 1
-//        searchQueueArray.append(currentSearch)
-//        while searchQueueArray.count > 0 {
-//            currentSearch = searchQueueArray[0]
-//            searchQueueArray.remove(at: 0)
-//            searchMap[currentSearch.y][currentSearch.x] = .visited
-//            for index in 0 ..< searchXOffsets.count {
-//                tempSearch.x = currentSearch.x + searchXOffsets[index]
-//                tempSearch.y = currentSearch.y + searchYOffsets[index]
-//                if searchMap[tempSearch.y][tempSearch.x] == .unvisited {
-//                    let tileType = map[tempSearch.y][tempSearch.x]
-//                    searchMap[tempSearch.y][tempSearch.x] = .queued
-//                    if type == tileType {
-//                        return Position(x: tempSearch.x, y: tempSearch.y)
-//                    }
-//                    if tileType == .grass || tileType == .dirt || tileType == .stump || tileType == .rubble || tileType == .none {
-//                        searchQueueArray.append(tempSearch)
-//                    }
-//                }
-//            }
-//        }
-//        return Position(x: -1, y: -1)
-//    }
+            for yOffset in 0 ..< assetSize {
+                let yPosition = currentPosition.y + yOffset
+                for xOffset in 0 ..< assetSize {
+                    let xPosition = currentPosition.x + xOffset
+                    let type = visibilityMap.tileTypeAt(x: xPosition, y: yPosition)
+                    if type == .partial || type == .partialPartial || type == .visible {
+                        addAsset = true // Add visible resources
+                        break
+                    }
+                }
+                if addAsset {
+                    assets.append(asset)
+                    break
+                }
+            }
+        }
+    }
+
+    func findNearestReachableTileType(at position: Position, type: TileType) -> Position {
+        var searchQueueArray: [SearchTile] = []
+        var currentSearch = SearchTile(x: 0, y: 0)
+        var tempSearch = SearchTile(x: 0, y: 0)
+        let mapWidth = width
+        let mapHeight = height
+        let searchXOffsets = [0, 1, 0, -1]
+        let searchYOffsets = [ -1, 0, 1, 0]
+
+        if searchMap.count != map.count {
+            searchMap = Array(repeating: Array(repeating: .unvisited, count: map[0].count), count: map.count)
+            let lastYIndex = map.count - 1
+            let lastXIndex = map[0].count - 1
+            for index in 0 ..< map.count {
+                searchMap[index][0] = .visited
+                searchMap[index][lastXIndex] = .visited
+            }
+            for index in 1 ..< lastXIndex {
+                searchMap[0][index] = .visited
+                searchMap[lastYIndex][index] = .visited
+            }
+        }
+        for y in 0 ..< mapHeight {
+            for x in 0 ..< mapWidth {
+                searchMap[y + 1][x + 1] = .unvisited
+            }
+        }
+        for asset in assets {
+            if asset.tilePosition != position {
+                for y in 0 ..< asset.size {
+                    for x in 0 ..< asset.size {
+                        searchMap[asset.tilePositionY + y + 1][asset.tilePositionX + x + 1] = .visited
+                    }
+                }
+            }
+        }
+        currentSearch.x = position.x + 1
+        currentSearch.y = position.y + 1
+        searchQueueArray.append(currentSearch)
+        while searchQueueArray.count > 0 {
+            currentSearch = searchQueueArray[0]
+            searchQueueArray.remove(at: 0)
+            searchMap[currentSearch.y][currentSearch.x] = .visited
+            for index in 0 ..< searchXOffsets.count {
+                tempSearch.x = currentSearch.x + searchXOffsets[index]
+                tempSearch.y = currentSearch.y + searchYOffsets[index]
+                if searchMap[tempSearch.y][tempSearch.x] == .unvisited {
+                    let tileType = map[tempSearch.y][tempSearch.x]
+                    searchMap[tempSearch.y][tempSearch.x] = .queued
+                    if type == tileType {
+                        return Position(x: tempSearch.x, y: tempSearch.y)
+                    }
+                    if tileType == .grass || tileType == .dirt || tileType == .stump || tileType == .rubble || tileType == .none {
+                        searchQueueArray.append(tempSearch)
+                    }
+                }
+            }
+        }
+        return Position(x: -1, y: -1)
+    }
 }
