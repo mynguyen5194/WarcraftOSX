@@ -747,6 +747,7 @@
                         <outlet property="gameSideBar" destination="Wid-pj-4XP" id="vbw-4Z-whU"/>
                         <outlet property="gameSideBarView" destination="Wid-pj-4XP" id="frx-a3-qFv"/>
                         <outlet property="mainGameView" destination="ZFr-Tl-ysb" id="jbM-F4-IeB"/>
+                        <outlet property="mainMapView" destination="hW1-YF-IxO" id="AzH-1u-YeY"/>
                         <outlet property="resourceBar" destination="7U5-df-unz" id="o6i-YI-Fuu"/>
                         <outlet property="resourceBarView" destination="7U5-df-unz" id="Tof-CT-bqf"/>
                     </connections>
