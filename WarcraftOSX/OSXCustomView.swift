@@ -78,10 +78,10 @@ class OSXCustomView: NSView {
             // try assetRenderer.drawOverlays(on: layer, in: rectangle)
             //let context = UIGraphicsGetCurrentContext()!
             let context = NSGraphicsContext.current()?.cgContext
-            context.draw(layer as! CGLayer, in: rect)
-            context.draw(typeLayer as! CGLayer, in: rect)
+            context?.draw(layer as! CGLayer, in: rect)
+            context?.draw(typeLayer as! CGLayer, in: rect)
         } catch {
-            print(error.localizedDescription) // TODO: Handle Error
+            //print(error.localizedDescription) // TODO: Handle Error
         }
     }
     

@@ -1,4 +1,4 @@
-import UIKit
+/*import UIKit
 
 class MapView: UIView {
 
@@ -43,3 +43,4 @@ class MapView: UIView {
         }
     }
 }
+*/
