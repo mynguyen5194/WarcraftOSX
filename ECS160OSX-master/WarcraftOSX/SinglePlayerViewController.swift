@@ -34,7 +34,6 @@ class SinglePlayerViewController: NSViewController {
     }
     
     override func viewDidLoad() {
-        print("loaded")
         super.viewDidLoad()
         
         //        let imgView = NSImageView()

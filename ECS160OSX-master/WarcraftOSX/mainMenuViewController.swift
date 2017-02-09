@@ -34,13 +34,16 @@ class MainMenuViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        showMenuBackground()
+//        showMenuBackground()
         playMenuMidi()
     }
     
     func showMenuBackground() {
-        let mainMenuBackground = NSImageView()
-        mainMenuBackground.image = NSImage(named: "Texture")
+        let imgView = NSImageView(frame:NSRect(x: 0, y: 0, width: 300, height: 300))
+        imgView.image = NSImage(named:"Texture")
+        self.view.addSubview(imgView)
+//        let mainMenuBackground = NSImageView()
+//        mainMenuBackground.image = NSImage(named: "Texture.png")
     }
     
     
