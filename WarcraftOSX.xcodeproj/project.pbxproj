@@ -45,6 +45,8 @@
 		FE4D01041E4CDBF40099BE43 /* Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4D01031E4CDBF40099BE43 /* Debug.swift */; };
 		FE4D01061E4CDD860099BE43 /* RandomNumberGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4D01051E4CDD860099BE43 /* RandomNumberGenerator.swift */; };
 		FE4D01081E4CDD920099BE43 /* RouterMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4D01071E4CDD920099BE43 /* RouterMap.swift */; };
+		FE4D010B1E4D81740099BE43 /* UIGraphics.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4D010A1E4D81740099BE43 /* UIGraphics.swift */; };
+		FE4D010D1E4D82C00099BE43 /* UIScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4D010C1E4D82C00099BE43 /* UIScreen.swift */; };
 		FE7C9F761E4A4E0A00A32B85 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7C9F751E4A4E0A00A32B85 /* LaunchViewController.swift */; };
 		FE7C9F781E4A509B00A32B85 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7C9F771E4A509B00A32B85 /* GameViewController.swift */; };
 		FEA803251E3FEBB0002D4E8B /* OSXSoundProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA803241E3FEBB0002D4E8B /* OSXSoundProperties.swift */; };
@@ -113,6 +115,8 @@
 		FE4D01031E4CDBF40099BE43 /* Debug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Debug.swift; sourceTree = "<group>"; };
 		FE4D01051E4CDD860099BE43 /* RandomNumberGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomNumberGenerator.swift; sourceTree = "<group>"; };
 		FE4D01071E4CDD920099BE43 /* RouterMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterMap.swift; sourceTree = "<group>"; };
+		FE4D010A1E4D81740099BE43 /* UIGraphics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIGraphics.swift; path = ../UIGraphics.swift; sourceTree = "<group>"; };
+		FE4D010C1E4D82C00099BE43 /* UIScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIScreen.swift; path = ../UIScreen.swift; sourceTree = "<group>"; };
 		FE7C9F751E4A4E0A00A32B85 /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		FE7C9F771E4A509B00A32B85 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		FEA803241E3FEBB0002D4E8B /* OSXSoundProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSXSoundProperties.swift; sourceTree = "<group>"; };
@@ -177,6 +181,7 @@
 				FE4D00DF1E4C28450099BE43 /* Map */,
 				FE4D00FB1E4C453C0099BE43 /* Player */,
 				FE4D00F41E4C3D3A0099BE43 /* Utilities */,
+				FE4D01091E4D81520099BE43 /* UXKit */,
 				A93DF5E61E3D77E90047BA86 /* Assets.xcassets */,
 				A93DF60D1E3D78140047BA86 /* data */,
 				FE4D00C41E4C18070099BE43 /* Graphic */,
@@ -279,6 +284,15 @@
 				FE4D01011E4C49610099BE43 /* GameModel.swift */,
 			);
 			name = GameLogic;
+			sourceTree = "<group>";
+		};
+		FE4D01091E4D81520099BE43 /* UXKit */ = {
+			isa = PBXGroup;
+			children = (
+				FE4D010A1E4D81740099BE43 /* UIGraphics.swift */,
+				FE4D010C1E4D82C00099BE43 /* UIScreen.swift */,
+			);
+			name = UXKit;
 			sourceTree = "<group>";
 		};
 		FE7C9F691E4A3F7500A32B85 /* AppDelegate */ = {
@@ -456,6 +470,7 @@
 				FE4D00F61E4C3D510099BE43 /* Tokenizer.swift in Sources */,
 				FE4D00F81E4C41250099BE43 /* PixelType.swift in Sources */,
 				FE4D00CC1E4C18DC0099BE43 /* MapRenderer.swift in Sources */,
+				FE4D010D1E4D82C00099BE43 /* UIScreen.swift in Sources */,
 				A93DF6101E3D84DE0047BA86 /* OSXMapRenderer.swift in Sources */,
 				FE4D00EF1E4C3CA80099BE43 /* Rectangle.swift in Sources */,
 				FE4D00DA1E4C19470099BE43 /* GraphicTileset.swift in Sources */,
@@ -480,6 +495,7 @@
 				FEA803251E3FEBB0002D4E8B /* OSXSoundProperties.swift in Sources */,
 				FE4D00FD1E4C45530099BE43 /* PlayerAsset.swift in Sources */,
 				FE4D01041E4CDBF40099BE43 /* Debug.swift in Sources */,
+				FE4D010B1E4D81740099BE43 /* UIGraphics.swift in Sources */,
 				FE4D00ED1E4C3B890099BE43 /* TerrainMap.swift in Sources */,
 				FE4D00DC1E4C19520099BE43 /* LineDataSource.swift in Sources */,
 				FE4D00FF1E4C45600099BE43 /* PlayerCommand.swift in Sources */,

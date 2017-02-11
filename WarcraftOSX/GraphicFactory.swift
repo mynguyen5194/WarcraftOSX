@@ -3,13 +3,11 @@ import CoreGraphics
 import AppKit
 
 class GraphicFactory {
+    
     static func createSurface(width: Int, height: Int, format: GraphicSurfaceFormat) -> GraphicSurface? {
         let size = CGSize(width: width, height: height)
-        let colorSpace:CGColorSpace = CGColorSpaceCreateDeviceRGB()
-        let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.premultipliedLast.rawValue)
-        guard let context = CGContext(data: nil, width: width, height: height, bitsPerComponent: 8, bytesPerRow: 0, space: colorSpace, bitmapInfo: bitmapInfo.rawValue) else {
-            return nil
-        }
+        UIGraphicsBeginImageContext(size: size)
+        guard let context = UIGraphicsGetCurrentContext() else {return nil}
         let layer = CGLayer(context, size: size, auxiliaryInfo: nil)
         return layer
     }
@@ -19,18 +17,25 @@ class GraphicFactory {
     }
     
     static func loadPNGTilesetSurface(name: String) -> GraphicSurface {
-        let name = String(name.characters.dropFirst(2))
-        let image = NSImage.init(named: name)
-        let originPoint = CGPoint.init(x: 0, y: 0)
-        var imageRect:CGRect = CGRect.init(origin: originPoint, size: image!.size)
-        let imageRef = image?.cgImage(forProposedRect: &imageRect, context: nil, hints: nil)
-        let colorSpace:CGColorSpace = CGColorSpaceCreateDeviceRGB()
-        let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.premultipliedLast.rawValue)
-        let width: Int = Int(image!.size.width)
-        let height: Int = Int(image!.size.height)
-        let currentContext = CGContext(data: nil, width: width, height: height, bitsPerComponent: 8, bytesPerRow: 0, space: colorSpace, bitmapInfo: bitmapInfo.rawValue)
-        let layer = CGLayer(currentContext!, size: image!.size, auxiliaryInfo: nil)!
-        layer.context!.draw(imageRef!, in: CGRect(origin: .zero, size: image!.size))
-        return layer
+      //  let name = String(name.characters.dropFirst(2))
+    
+        
+        //HACK
+        let terrainURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/img/Terrain", ofType:"png"))!)
+        let terrainData = CGDataProvider(url: terrainURL as CFURL)
+        let terrainCG = CGImage(pngDataProviderSource: terrainData!, decode: nil, shouldInterpolate: false, intent: CGColorRenderingIntent.defaultIntent)
+        let terrainCGImageSize = CGSize.init(width: (terrainCG?.width)!, height: (terrainCG?.height)!)
+        
+        //NOTE: New Implementation
+        //let image = NSImage.init(named: name)
+        //var imageRect: CGRect = CGRect.init(x: 0, y: 0, width: image!.size.width, height: image!.size.height)
+        //let imageRef = image?.cgImage(forProposedRect: nil, context: nil, hints: nil)
+        
+        UIGraphicsBeginImageContext(size: terrainCGImageSize)
+        let layer = CGLayer(UIGraphicsGetCurrentContext()!, size: terrainCGImageSize, auxiliaryInfo: nil)
+        layer?.context!.draw(terrainCG!, in: CGRect(origin: .zero, size: terrainCGImageSize))
+        UIGraphicsEndImageContext()
+        return layer!
+        
     }
 }

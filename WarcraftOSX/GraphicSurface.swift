@@ -66,8 +66,7 @@ extension CGLayer: GraphicSurface {
         }
         context.clear(CGRect(x: x, y: y, width: width, height: height))
     }
-    //IOS
-    /*
+    //NOTE: New implementation of draw function
     func draw(from surface: GraphicSurface, dx: Int, dy: Int, width: Int, height: Int, sx: Int, sy: Int) throws {
         guard let context = context else {
             throw GraphicSurfaceError.missingContext
@@ -77,7 +76,8 @@ extension CGLayer: GraphicSurface {
             context.draw(surface, in: CGRect(x: dx, y: dy, width: width, height: height))
         } else {
             let size = CGSize(width: width, height: height)
-            UIGraphicsBeginImageContext(size)
+            UIGraphicsBeginImageContext(size: size)
+            
             guard let newContext = UIGraphicsGetCurrentContext(), let layer = CGLayer(newContext, size: size, auxiliaryInfo: nil) else {
                 throw GraphicSurfaceError.cannotCreateLayer
             }
@@ -87,39 +87,6 @@ extension CGLayer: GraphicSurface {
             layer.context!.draw(surface, at: CGPoint(x: -sx, y: -surface.height + 32 + sy))
             layer.context!.restoreGState()
             UIGraphicsEndImageContext()
-            try draw(from: layer, dx: dx, dy: dy, width: width, height: height, sx: 0, sy: 0)
-        }
-    }*/
-    //OSX
-    func draw(from surface: GraphicSurface, dx: Int, dy: Int, width: Int, height: Int, sx: Int, sy: Int) throws {
-        guard let context = context else {
-            throw GraphicSurfaceError.missingContext
-        }
-        let surface = surface as! CGLayer
-        if sx == 0 && sy == 0 {
-            context.draw(surface, in: CGRect(x: dx, y: dy, width: width, height: height))
-        } else {
-            let size = CGSize(width: width, height: height)
-            //            UIGraphicsBeginImageContext(size)
-            
-            let colorSpace:CGColorSpace = CGColorSpaceCreateDeviceRGB()
-            let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.premultipliedLast.rawValue)
-            
-            let currentContext = CGContext(data: nil, width: width, height: height, bitsPerComponent: 8, bytesPerRow: 0, space: colorSpace, bitmapInfo: bitmapInfo.rawValue)
-            
-            guard let newContext =  currentContext, let layer = CGLayer(newContext, size: size, auxiliaryInfo: nil) else {
-                throw GraphicSurfaceError.cannotCreateLayer
-            }
-            
-            //            guard let newContext = UIGraphicsGetCurrentContext(), let layer = CGLayer(newContext, size: size, auxiliaryInfo: nil) else {
-            //                throw GraphicSurfaceError.cannotCreateLayer
-            //            }
-            layer.context!.saveGState()
-            layer.context!.translateBy(x: 0, y: size.height)
-            layer.context!.scaleBy(x: 1, y: -1)
-            layer.context!.draw(surface, at: CGPoint(x: -sx, y: -surface.height + 32 + sy))
-            layer.context!.restoreGState()
-            //            UIGraphicsEndImageContext()
             try draw(from: layer, dx: dx, dy: dy, width: width, height: height, sx: 0, sy: 0)
         }
     }
