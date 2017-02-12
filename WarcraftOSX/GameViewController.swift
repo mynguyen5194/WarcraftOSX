@@ -30,13 +30,7 @@ fileprivate func multicolorTileset(_ name: String) throws -> GraphicMulticolorTi
     return tileset
 }
 
-class GameViewController: NSViewController {
-
-    @IBOutlet var mainGameView: NSView!
-    @IBOutlet weak var gameSideBarView: NSView!
-    @IBOutlet weak var mainMapView: OSXCustomView!
-    @IBOutlet weak var resourceBarView: NSView!
-    
+class GameViewController: NSViewController {    
     
     private lazy var midiPlayer: AVMIDIPlayer = {
         do {
