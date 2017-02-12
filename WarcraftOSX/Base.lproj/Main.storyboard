@@ -686,10 +686,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="658" height="466"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vgU-v0-inn">
-                                <rect key="frame" x="0.0" y="0.0" width="658" height="466"/>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="xKk-8l-GmM"/>
-                            </imageView>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zdf-Nf-GGV">
                                 <rect key="frame" x="209" y="215" width="240" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -701,6 +697,10 @@
                                     <segue destination="NXk-fe-dIt" kind="modal" id="SQe-rX-KOU"/>
                                 </connections>
                             </button>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vgU-v0-inn">
+                                <rect key="frame" x="0.0" y="0.0" width="658" height="466"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="xKk-8l-GmM"/>
+                            </imageView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="vgU-v0-inn" firstAttribute="leading" secondItem="ERx-hH-rdd" secondAttribute="leading" id="MF9-ir-H0Y"/>
@@ -723,17 +723,14 @@
         <scene sceneID="K4H-QS-TcK">
             <objects>
                 <viewController title="Game View Controller" id="NXk-fe-dIt" customClass="GameViewController" customModule="WarcraftOSX" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" wantsLayer="YES" id="ZFr-Tl-ysb">
-                        <rect key="frame" x="0.0" y="0.0" width="653" height="466"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </view>
-                    <connections>
-                        <outlet property="mainGameView" destination="ZFr-Tl-ysb" id="jbM-F4-IeB"/>
-                    </connections>
+                    <customView key="view" id="YTt-ce-fNf">
+                        <rect key="frame" x="0.0" y="0.0" width="643" height="466"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    </customView>
                 </viewController>
                 <customObject id="PRY-P4-TTK" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="863" y="821"/>
+            <point key="canvasLocation" x="852" y="821"/>
         </scene>
     </scenes>
 </document>

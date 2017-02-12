@@ -33,6 +33,7 @@ class OSXCustomView: NSView {
     }*/
     
     override func draw(_ dirtyRect: NSRect) {
+        /*
         guard let mapRenderer = mapRenderer, let assetRenderer = assetRenderer else {
             return
         }
@@ -48,7 +49,7 @@ class OSXCustomView: NSView {
             context.draw(typeLayer as! CGLayer, in: dirtyRect)
         } catch {
             //print(error.localizedDescription) // TODO: Handle Error
-        }
+        }*/
         
         /*
         let rectangle = CGRect(x: 0, y: 0, width: 512, height: 512)
@@ -58,7 +59,8 @@ class OSXCustomView: NSView {
         ctx?.setLineWidth(CGFloat.init(10))
         ctx?.addRect(rectangle)
         ctx?.drawPath(using: .fillStroke)
-        */
+         */
+        
     }
     
     

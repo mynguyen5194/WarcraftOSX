@@ -63,7 +63,7 @@ class GameViewController: NSViewController {
             return try MapRenderer(configuration: configuration, tileset: terrainTileset, map: self.map)
         } catch {
             let error = NSError.init(domain: "MapRenderer Error", code: 0, userInfo: nil)
-            fatalError(error.localizedDescription) // TODO: Handle Error
+            fatalError(error.localizedDescription)
         }
     }()
     
