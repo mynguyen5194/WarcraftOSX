@@ -20,6 +20,7 @@ class OSXCustomView: NSView {
         self.mapRenderer = mapRenderer
         self.assetRenderer = assetRenderer
     }
+    
     /*
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let location = touches.first?.location(in: self), let previousLocation = touches.first?.previousLocation(in: self) else {
@@ -31,7 +32,7 @@ class OSXCustomView: NSView {
         frame.origin.y = max(min(frame.origin.y, 0), -frame.size.height + UIScreen.main.bounds.height)
     }*/
     
-    override func draw(_ rect: CGRect) {
+    override func draw(_ dirtyRect: NSRect) {
         guard let mapRenderer = mapRenderer, let assetRenderer = assetRenderer else {
             return
         }
@@ -42,15 +43,22 @@ class OSXCustomView: NSView {
             try mapRenderer.drawMap(on: layer, typeSurface: typeLayer, in: rectangle, level: 0)
             try assetRenderer.drawAssets(on: layer, typeSurface: layer, in: rectangle)
             try mapRenderer.drawMap(on: layer, typeSurface: typeLayer, in: rectangle, level: 1)
-            // let builder = PlayerAsset(playerAsset: PlayerAssetType())
-            // try assetRenderer.drawPlacement(on: layer, in: rectangle, position: Position(x: 100, y: 100), type: .goldMine, builder: builder)
-            // try assetRenderer.drawOverlays(on: layer, in: rectangle)
             let context = UIGraphicsGetCurrentContext()!
-            context.draw(layer as! CGLayer, in: rect)
-            context.draw(typeLayer as! CGLayer, in: rect)
+            context.draw(layer as! CGLayer, in: dirtyRect)
+            context.draw(typeLayer as! CGLayer, in: dirtyRect)
         } catch {
             //print(error.localizedDescription) // TODO: Handle Error
         }
+        
+        /*
+        let rectangle = CGRect(x: 0, y: 0, width: 512, height: 512)
+        let ctx = UIGraphicsGetCurrentContext()
+        ctx?.setFillColor(NSColor.red.cgColor)
+        ctx?.setStrokeColor(NSColor.black.cgColor)
+        ctx?.setLineWidth(CGFloat.init(10))
+        ctx?.addRect(rectangle)
+        ctx?.drawPath(using: .fillStroke)
+        */
     }
     
     
