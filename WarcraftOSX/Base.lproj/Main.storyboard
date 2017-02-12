@@ -686,6 +686,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="658" height="466"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vgU-v0-inn">
+                                <rect key="frame" x="0.0" y="0.0" width="658" height="466"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="xKk-8l-GmM"/>
+                            </imageView>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zdf-Nf-GGV">
                                 <rect key="frame" x="209" y="215" width="240" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -694,13 +698,9 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <segue destination="NXk-fe-dIt" kind="modal" id="SQe-rX-KOU"/>
+                                    <segue destination="NXk-fe-dIt" kind="modal" id="VJa-lI-mFn"/>
                                 </connections>
                             </button>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vgU-v0-inn">
-                                <rect key="frame" x="0.0" y="0.0" width="658" height="466"/>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="xKk-8l-GmM"/>
-                            </imageView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="vgU-v0-inn" firstAttribute="leading" secondItem="ERx-hH-rdd" secondAttribute="leading" id="MF9-ir-H0Y"/>
