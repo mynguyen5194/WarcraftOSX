@@ -678,47 +678,6 @@
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
         </scene>
-        <!--Launch View Controller-->
-        <scene sceneID="hIz-AP-VOD">
-            <objects>
-                <viewController title="Launch View Controller" id="5gI-5U-AMq" customClass="LaunchViewController" customModule="WarcraftOSX" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" wantsLayer="YES" id="ERx-hH-rdd">
-                        <rect key="frame" x="0.0" y="0.0" width="658" height="466"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vgU-v0-inn">
-                                <rect key="frame" x="0.0" y="0.0" width="658" height="466"/>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="xKk-8l-GmM"/>
-                            </imageView>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zdf-Nf-GGV">
-                                <rect key="frame" x="209" y="215" width="240" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qns-u1-vlm">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <segue destination="NXk-fe-dIt" kind="modal" id="VJa-lI-mFn"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="vgU-v0-inn" firstAttribute="leading" secondItem="ERx-hH-rdd" secondAttribute="leading" id="MF9-ir-H0Y"/>
-                            <constraint firstItem="vgU-v0-inn" firstAttribute="top" secondItem="ERx-hH-rdd" secondAttribute="top" id="TdT-Qw-xqq"/>
-                            <constraint firstAttribute="trailing" secondItem="vgU-v0-inn" secondAttribute="trailing" id="ncN-z4-XJv"/>
-                            <constraint firstAttribute="bottom" secondItem="vgU-v0-inn" secondAttribute="bottom" id="syC-Rt-eu8"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="loadMapButton" destination="Zdf-Nf-GGV" id="mPq-pH-wcl"/>
-                        <outlet property="splashScreen" destination="vgU-v0-inn" id="QY1-JB-iRs"/>
-                        <outlet property="viewOfViewController" destination="ERx-hH-rdd" id="Dzd-8t-rSi"/>
-                    </connections>
-                </viewController>
-                <customObject id="2Tp-Fl-jBw" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1580" y="1029"/>
-        </scene>
         <!--Game View Controller-->
         <scene sceneID="K4H-QS-TcK">
             <objects>
@@ -731,12 +690,12 @@
                 </viewController>
                 <customObject id="PRY-P4-TTK" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2390" y="1029"/>
+            <point key="canvasLocation" x="2340" y="470"/>
         </scene>
         <!--Splash Screen-->
         <scene sceneID="BUh-0i-rrM">
             <objects>
-                <viewController title="Splash Screen" id="q9O-6X-8uv" customClass="LaunchViewController" customModule="WarcraftOSX" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Splash Screen" id="q9O-6X-8uv" customClass="SplashScreenViewController" customModule="WarcraftOSX" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="DPi-qc-i7U">
                         <rect key="frame" x="0.0" y="0.0" width="629" height="466"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
@@ -745,19 +704,276 @@
                                 <rect key="frame" x="10" y="0.0" width="609" height="466"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Splash" id="E9q-TG-zcF"/>
+                                <connections>
+                                    <segue destination="gWb-cH-BBS" kind="show" identifier="showMenuSegue" id="0XF-bM-XeN"/>
+                                </connections>
                             </imageView>
                         </subviews>
                     </view>
                     <connections>
-                        <outlet property="splashScreen" destination="fjc-5s-ZCL" id="pkh-24-ISd"/>
+                        <outlet property="splashScreen" destination="fjc-5s-ZCL" id="Epg-tk-WYZ"/>
                     </connections>
                 </viewController>
                 <customObject id="TaC-A0-9PI" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="779"/>
         </scene>
+        <!--Main Menu-->
+        <scene sceneID="Yne-h9-UfL">
+            <objects>
+                <viewController title="Main Menu" id="gWb-cH-BBS" customClass="MainMenuViewController" customModule="WarcraftOSX" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="7L9-T4-5hj">
+                        <rect key="frame" x="0.0" y="0.0" width="593" height="466"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uda-fS-e9o">
+                                <rect key="frame" x="216" y="420" width="111" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="The Game" id="JuL-gm-c43">
+                                    <font key="font" size="20" name="MarkerFelt-Wide"/>
+                                    <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yeq-Ch-1jQ">
+                                <rect key="frame" x="189" y="346" width="157" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Single Player Game" bezelStyle="rounded" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="hKa-nJ-Q6m">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="singlePlayerGameButton:" target="gWb-cH-BBS" id="LX5-Ua-FFV"/>
+                                    <segue destination="T5W-oD-eAs" kind="show" identifier="singlePlayerGameSegue" id="7nz-BX-a4D"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zXv-WG-9bk">
+                                <rect key="frame" x="192" y="283" width="150" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Multi Player Game" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" sound="Bottle" inset="2" id="Nyr-I8-JNH">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="multiPlayerGameButton:" target="gWb-cH-BBS" id="OwA-9j-mpI"/>
+                                    <segue destination="ede-gm-PJf" kind="show" identifier="multiPlayerGameSegue" id="AkE-5J-Rmr"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J3L-Wk-eEe">
+                                <rect key="frame" x="227" y="228" width="88" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Options" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="xek-zv-8yw">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="optionsButton:" target="gWb-cH-BBS" id="eFC-EY-Ro7"/>
+                                    <segue destination="Ju9-He-Lkj" kind="show" identifier="optionsSegue" id="65C-fI-MX5"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YvE-8N-fml">
+                                <rect key="frame" x="220" y="136" width="102" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Exit Game" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" sound="Funk" inset="2" id="d6H-TT-hmR">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="exitGameButton:" target="gWb-cH-BBS" id="nPF-8O-Myb"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                    </view>
+                </viewController>
+                <customObject id="c3h-2r-Ulz" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="871" y="779"/>
+        </scene>
+        <!--Multi Player Game Window-->
+        <scene sceneID="LRK-Gz-BxP">
+            <objects>
+                <viewController title="Multi Player Game Window" id="ede-gm-PJf" sceneMemberID="viewController">
+                    <view key="view" id="KUW-ae-gC9">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GXf-pJ-g0z">
+                                <rect key="frame" x="103" y="148" width="114" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Multi Player Game" id="JNT-nM-ilI">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                    </view>
+                </viewController>
+                <customObject id="MdE-It-wAv" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1540" y="919"/>
+        </scene>
+        <!--Options Window-->
+        <scene sceneID="Bzl-oB-VBO">
+            <objects>
+                <viewController title="Options Window" id="Ju9-He-Lkj" sceneMemberID="viewController">
+                    <view key="view" id="QXt-nx-rBo">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jbV-An-wNQ">
+                                <rect key="frame" x="196" y="251" width="58" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Options" id="2HT-CU-U0e">
+                                    <font key="font" size="16" name="MarkerFelt-Wide"/>
+                                    <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sle-1x-mDK">
+                                <rect key="frame" x="161" y="170" width="130" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Sound Options" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="uX1-v3-DHz">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <segue destination="UkS-ZL-wR6" kind="show" identifier="soundOptionsSeque" id="eOq-4K-cu2"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l97-6K-Bnp">
+                                <rect key="frame" x="154" y="107" width="142" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Network Options" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="5g6-pi-C31">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xv8-Fi-1BR">
+                                <rect key="frame" x="190" y="44" width="70" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Back" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="9Ex-ND-IXk">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <segue destination="gWb-cH-BBS" kind="show" identifier="backFromOptionsSegue" id="dZQ-vE-cIO"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                    </view>
+                </viewController>
+                <customObject id="y7I-bC-GeE" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1540" y="1344"/>
+        </scene>
+        <!--Sound Options-->
+        <scene sceneID="Trl-yl-AZL">
+            <objects>
+                <viewController title="Sound Options" id="UkS-ZL-wR6" customClass="SoundOptionViewController" customModule="WarcraftOSX" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="o0D-uX-jst">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xfc-lK-01Y">
+                                <rect key="frame" x="173" y="251" width="105" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Sound Options" id="80g-Ug-bCU">
+                                    <font key="font" size="16" name="MarkerFelt-Wide"/>
+                                    <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FOd-hu-cJY">
+                                <rect key="frame" x="129" y="179" width="73" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="FX Volume:" id="Fgc-T2-5ia">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d6C-rx-Tuk">
+                                <rect key="frame" x="109" y="124" width="93" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Music Volume:" id="pRh-ot-sIY">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8T1-uK-kez">
+                                <rect key="frame" x="216" y="179" width="96" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="beX-c3-M5Y">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qOI-vn-Jff">
+                                <rect key="frame" x="216" y="119" width="96" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="GVh-rq-jGe">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="fxVolumeTextField" destination="8T1-uK-kez" id="zyx-WU-8fA"/>
+                        <outlet property="musicVolumeTextField" destination="qOI-vn-Jff" id="yy2-tO-mqT"/>
+                    </connections>
+                </viewController>
+                <customObject id="ENS-bG-3nd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2187" y="1344"/>
+        </scene>
+        <!--Single Player Game Window-->
+        <scene sceneID="7Qq-pF-UZA">
+            <objects>
+                <viewController title="Single Player Game Window" id="T5W-oD-eAs" customClass="SinglePlayerViewController" customModule="WarcraftOSX" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="CfT-Ua-3kO">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VR7-tn-Rnb">
+                                <rect key="frame" x="60" y="263" width="121" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Single Player Game" id="3Ud-8t-jmq">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nLH-Jc-61Y">
+                                <rect key="frame" x="176" y="132" width="100" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Load Map" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ciF-3d-FZR">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="loadMapButton:" target="T5W-oD-eAs" id="Euk-bM-phs"/>
+                                    <segue destination="NXk-fe-dIt" kind="modal" identifier="loadMapSegue" id="g5C-wd-YHX"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                    </view>
+                </viewController>
+                <customObject id="D5M-Zg-Dhs" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1540" y="476"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Splash" width="800" height="1200"/>
+        <sound name="Bottle"/>
+        <sound name="Funk"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="dZQ-vE-cIO"/>
+    </inferredMetricsTieBreakers>
 </document>
