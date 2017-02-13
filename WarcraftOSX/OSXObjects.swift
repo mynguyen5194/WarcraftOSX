@@ -1,21 +1,24 @@
 //
-//  Stationary.swift
+//  OSXObjects.swift
 //  WarcraftOSX
 //
-//  Created by Alan Wei on 2/4/17.
+//  Created by Alan Wei on 2/12/17.
 //  Copyright © 2017 Michelle Lee. All rights reserved.
 //
 
 import Cocoa
 
 class StatObjects: NSViewController {
-
+    
     var objectDictArray = [String: [CGImage]]()
     var objectNames = [String]()
     
     override func viewDidLoad() {
         
         objectNames.append("Peasant")
+        objectNames.append("Footman")
+        objectNames.append("Archer")
+        objectNames.append("Ranger")
         objectNames.append("GoldMine")
         objectNames.append("Castle")
         objectNames.append("CannonTower")
@@ -39,7 +42,7 @@ class StatObjects: NSViewController {
             } catch {
                 print(error)
             }
-
+            
             let objectURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/img/" + objectNames[i], ofType:"png"))!)
             let objectData = CGDataProvider(url: objectURL as CFURL)
             let objectCG = CGImage(pngDataProviderSource: objectData!, decode: nil, shouldInterpolate: false, intent: CGColorRenderingIntent.defaultIntent)
