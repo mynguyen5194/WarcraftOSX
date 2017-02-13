@@ -93,21 +93,13 @@ class AssetDecoratedMap: TerrainMap {
                     try map.loadMap(source: container.dataSource(name: filename))
                     mapNameTranslation[map.mapName] = all.count
                     all.append(map)
-                    #if DEBUG
-                        print("Loaded map \(filename).")
-                    #endif
-                    //printDebug("Loaded map \(filename).", level: .low)
+                    printDebug("Loaded map \(filename).", level: .low)
                 } catch {
-                    let nsError = NSError.init(domain: "Failed to load map \(filename) (Error: \(error)).", code: 1, userInfo: nil)
-                    print(nsError.localizedDescription)
-                    //printError("Failed to load map \(filename) (Error: \(error)).")
+                    printError("Failed to load map \(filename) (Error: \(error)).")
                 }
             }
         }
-        #if DEBUG
-            print("Maps loaded.")
-        #endif
-        //printDebug("Maps loaded.", level: .low)
+        printDebug("Maps loaded.", level: .low)
     }
 
     static func mapIndex(of name: String) -> Int {
