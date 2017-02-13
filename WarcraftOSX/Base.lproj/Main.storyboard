@@ -723,14 +723,15 @@
         <scene sceneID="K4H-QS-TcK">
             <objects>
                 <viewController title="Game View Controller" id="NXk-fe-dIt" customClass="GameViewController" customModule="WarcraftOSX" customModuleProvider="target" sceneMemberID="viewController">
-                    <customView key="view" id="YTt-ce-fNf">
-                        <rect key="frame" x="0.0" y="0.0" width="643" height="466"/>
+                    <customView key="view" canDrawConcurrently="YES" id="HWH-5L-yR1">
+                        <rect key="frame" x="0.0" y="0.0" width="634" height="466"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <accessibility description="fasdf"/>
                     </customView>
                 </viewController>
                 <customObject id="PRY-P4-TTK" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="852" y="821"/>
+            <point key="canvasLocation" x="884" y="821"/>
         </scene>
     </scenes>
 </document>

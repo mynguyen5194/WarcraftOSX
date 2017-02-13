@@ -9,6 +9,7 @@ class GraphicFactory {
         UIGraphicsBeginImageContext(size: size)
         guard let context = UIGraphicsGetCurrentContext() else {return nil}
         let layer = CGLayer(context, size: size, auxiliaryInfo: nil)
+        UIGraphicsEndImageContext()
         return layer
     }
     

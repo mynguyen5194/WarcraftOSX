@@ -1,9 +1,6 @@
 import Foundation
 import CoreGraphics
 
-//IOS
-//import UIKit
-
 typealias GraphicSurfaceTransformCallback = (_ callData: UnsafeMutablePointer<UInt8>, _ source: UInt32) -> UInt32
 
 enum GraphicSurfaceError: Error {
