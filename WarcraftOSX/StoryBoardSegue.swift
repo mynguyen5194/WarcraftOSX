@@ -33,11 +33,13 @@ class StoryBoardSegue: NSStoryboardSegue {
         // add destinationViewController as child
         containerViewController.insertChildViewController(destinationViewController, at: 1)
         
+        /*
         // get the size of destinationViewController
         let targetSize = destinationViewController.view.frame.size
         let targetWidth = destinationViewController.view.frame.size.width
         let targetHeight = destinationViewController.view.frame.size.height
-        
+        */
+ 
         // prepare for animation
         sourceViewController.view.wantsLayer = true
         destinationViewController.view.wantsLayer = true
@@ -45,9 +47,11 @@ class StoryBoardSegue: NSStoryboardSegue {
         //perform transition
         containerViewController.transition(from: sourceViewController, to: destinationViewController, options: NSViewControllerTransitionOptions.crossfade, completionHandler: nil)
         
+        /*
         //resize view controllers
         sourceViewController.view.animator().setFrameSize(targetSize)
         destinationViewController.view.animator().setFrameSize(targetSize)
+        
         
         //resize and shift window
         let currentFrame = containerViewController.view.window?.frame
@@ -56,6 +60,7 @@ class StoryBoardSegue: NSStoryboardSegue {
         let verticalChange = (targetHeight - containerViewController.view.frame.size.height)/2
         let newWindowRect = NSMakeRect(currentRect.origin.x - horizontalChange, currentRect.origin.y - verticalChange, targetWidth, targetHeight)
         containerViewController.view.window?.setFrame(newWindowRect, display: true, animate: true)
+        */
         
         // lose the sourceViewController, it's no longer visible
         containerViewController.removeChildViewController(at: 0)
