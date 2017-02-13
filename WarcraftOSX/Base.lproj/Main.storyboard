@@ -827,6 +827,7 @@
                     </customView>
                     <connections>
                         <outlet property="mainMapView" destination="fcH-AL-lHV" id="DBT-TA-Ie7"/>
+                        <outlet property="miniMapView" destination="wKt-hA-keA" id="656-wJ-Zp2"/>
                     </connections>
                 </viewController>
                 <customObject id="PRY-P4-TTK" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

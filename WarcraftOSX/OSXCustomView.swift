@@ -20,7 +20,8 @@ class OSXCustomView: NSView {
         self.mapRenderer = mapRenderer
         self.assetRenderer = assetRenderer
     }
-
+    
+    //NOTE: Look into NSScrollView
     /*
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let location = touches.first?.location(in: self), let previousLocation = touches.first?.previousLocation(in: self) else {

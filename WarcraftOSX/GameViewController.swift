@@ -33,6 +33,7 @@ fileprivate func multicolorTileset(_ name: String) throws -> GraphicMulticolorTi
 class GameViewController: NSViewController {    
     
     @IBOutlet weak var mainMapView: NSView!
+    @IBOutlet weak var miniMapView: NSView!
     
     
     private lazy var acknowledgeSound: AVAudioPlayer = {
@@ -117,10 +118,10 @@ class GameViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let mapView = OSXCustomView(frame: CGRect(origin: .zero, size: CGSize(width: mapRenderer.detailedMapWidth, height: mapRenderer.detailedMapHeight)), mapRenderer: mapRenderer, assetRenderer: assetRenderer)
-        //let miniMapView = MiniMapView(frame: CGRect(origin: .zero, size: CGSize(width: mapRenderer.mapWidth, height: mapRenderer.mapHeight)), mapRenderer: mapRenderer)
-        mainMapView.addSubview(mapView)
-        //view.addSubview(miniMapView)
+        let OSXCustomViewMap = OSXCustomView(frame: CGRect(origin: .zero, size: CGSize(width: mapRenderer.detailedMapWidth, height: mapRenderer.detailedMapHeight)), mapRenderer: mapRenderer, assetRenderer: assetRenderer)
+        let OSXCustomMiniMapViewMap = OSXCustomMiniMapView(frame: CGRect(origin: .zero, size: CGSize(width: mapRenderer.mapWidth, height: mapRenderer.mapHeight)), mapRenderer: mapRenderer)
+        mainMapView.addSubview(OSXCustomViewMap)
+        miniMapView.addSubview(OSXCustomMiniMapViewMap)
         
     }
     

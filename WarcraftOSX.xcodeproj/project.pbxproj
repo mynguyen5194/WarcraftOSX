@@ -13,8 +13,6 @@
 		A93DF5F51E3D77E90047BA86 /* WarcraftOSXTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93DF5F41E3D77E90047BA86 /* WarcraftOSXTests.swift */; };
 		A93DF6001E3D77E90047BA86 /* WarcraftOSXUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93DF5FF1E3D77E90047BA86 /* WarcraftOSXUITests.swift */; };
 		A93DF60E1E3D78140047BA86 /* data in Resources */ = {isa = PBXBuildFile; fileRef = A93DF60D1E3D78140047BA86 /* data */; };
-		A93DF6101E3D84DE0047BA86 /* OSXMapRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93DF60F1E3D84DE0047BA86 /* OSXMapRenderer.swift */; };
-		A93DF6121E3D96A40047BA86 /* OSXGraphicTileset.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93DF6111E3D96A40047BA86 /* OSXGraphicTileset.swift */; };
 		FE0B613F1E513A6C00CC5657 /* OSXCustomMiniMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0B613E1E513A6C00CC5657 /* OSXCustomMiniMapView.swift */; };
 		FE0B61411E5142EB00CC5657 /* UIResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0B61401E5142EB00CC5657 /* UIResponder.swift */; };
 		FE36A19B1E51A06100C6DDEF /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE36A19A1E51A06100C6DDEF /* ContainerViewController.swift */; };
@@ -52,7 +50,6 @@
 		FE4D010D1E4D82C00099BE43 /* UIScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4D010C1E4D82C00099BE43 /* UIScreen.swift */; };
 		FE7C9F761E4A4E0A00A32B85 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7C9F751E4A4E0A00A32B85 /* LaunchViewController.swift */; };
 		FE7C9F781E4A509B00A32B85 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7C9F771E4A509B00A32B85 /* GameViewController.swift */; };
-		FEA803251E3FEBB0002D4E8B /* OSXSoundProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA803241E3FEBB0002D4E8B /* OSXSoundProperties.swift */; };
 		FEA8032C1E412AB9002D4E8B /* OSXCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA8032B1E412AB9002D4E8B /* OSXCustomView.swift */; };
 /* End PBXBuildFile section */
 
@@ -86,8 +83,6 @@
 		A93DF5FF1E3D77E90047BA86 /* WarcraftOSXUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarcraftOSXUITests.swift; sourceTree = "<group>"; };
 		A93DF6011E3D77E90047BA86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A93DF60D1E3D78140047BA86 /* data */ = {isa = PBXFileReference; lastKnownFileType = folder; path = data; sourceTree = "<group>"; };
-		A93DF60F1E3D84DE0047BA86 /* OSXMapRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSXMapRenderer.swift; sourceTree = "<group>"; };
-		A93DF6111E3D96A40047BA86 /* OSXGraphicTileset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSXGraphicTileset.swift; sourceTree = "<group>"; };
 		FE0B613E1E513A6C00CC5657 /* OSXCustomMiniMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSXCustomMiniMapView.swift; sourceTree = "<group>"; };
 		FE0B61401E5142EB00CC5657 /* UIResponder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIResponder.swift; sourceTree = "<group>"; };
 		FE36A19A1E51A06100C6DDEF /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
@@ -125,7 +120,6 @@
 		FE4D010C1E4D82C00099BE43 /* UIScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIScreen.swift; path = ../UIScreen.swift; sourceTree = "<group>"; };
 		FE7C9F751E4A4E0A00A32B85 /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		FE7C9F771E4A509B00A32B85 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
-		FEA803241E3FEBB0002D4E8B /* OSXSoundProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSXSoundProperties.swift; sourceTree = "<group>"; };
 		FEA8032B1E412AB9002D4E8B /* OSXCustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSXCustomView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -334,9 +328,6 @@
 			children = (
 				FEA8032B1E412AB9002D4E8B /* OSXCustomView.swift */,
 				FE0B613E1E513A6C00CC5657 /* OSXCustomMiniMapView.swift */,
-				A93DF6111E3D96A40047BA86 /* OSXGraphicTileset.swift */,
-				A93DF60F1E3D84DE0047BA86 /* OSXMapRenderer.swift */,
-				FEA803241E3FEBB0002D4E8B /* OSXSoundProperties.swift */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -480,7 +471,6 @@
 				FE4D00F81E4C41250099BE43 /* PixelType.swift in Sources */,
 				FE4D00CC1E4C18DC0099BE43 /* MapRenderer.swift in Sources */,
 				FE4D010D1E4D82C00099BE43 /* UIScreen.swift in Sources */,
-				A93DF6101E3D84DE0047BA86 /* OSXMapRenderer.swift in Sources */,
 				FE4D00EF1E4C3CA80099BE43 /* Rectangle.swift in Sources */,
 				FE4D00DA1E4C19470099BE43 /* GraphicTileset.swift in Sources */,
 				FE36A19D1E51A2C200C6DDEF /* StoryBoardSegue.swift in Sources */,
@@ -500,10 +490,8 @@
 				FE4D00D21E4C19250099BE43 /* GraphicMulticolorTileset.swift in Sources */,
 				FE4D01081E4CDD920099BE43 /* RouterMap.swift in Sources */,
 				FE4D00D61E4C19390099BE43 /* GraphicResourceContext.swift in Sources */,
-				A93DF6121E3D96A40047BA86 /* OSXGraphicTileset.swift in Sources */,
 				FE4D00C81E4C18AE0099BE43 /* AssetRenderer.swift in Sources */,
 				A93DF5E11E3D77E90047BA86 /* AppDelegate.swift in Sources */,
-				FEA803251E3FEBB0002D4E8B /* OSXSoundProperties.swift in Sources */,
 				FE4D00FD1E4C45530099BE43 /* PlayerAsset.swift in Sources */,
 				FE4D01041E4CDBF40099BE43 /* Debug.swift in Sources */,
 				FE4D010B1E4D81740099BE43 /* UIGraphics.swift in Sources */,
