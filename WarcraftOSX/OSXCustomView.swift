@@ -31,6 +31,12 @@ class OSXCustomView: NSView {
         frame.origin.x = max(min(frame.origin.x, 0), -frame.size.width + UIScreen.main.bounds.width)
         frame.origin.y = max(min(frame.origin.y, 0), -frame.size.height + UIScreen.main.bounds.height)
     }*/
+    /*
+    override func touchesMoved(with event: NSEvent) {
+        <#code#>
+    }*/
+    
+    
     
     override func draw(_ dirtyRect: CGRect) {
         
@@ -42,27 +48,13 @@ class OSXCustomView: NSView {
             let layer = GraphicFactory.createSurface(width: mapRenderer.detailedMapWidth, height: mapRenderer.detailedMapHeight, format: .a1)!
             let typeLayer = GraphicFactory.createSurface(width: mapRenderer.detailedMapWidth, height: mapRenderer.detailedMapHeight, format: .a1)!
             try mapRenderer.drawMap(on: layer, typeSurface: typeLayer, in: rectangle, level: 0)
-            try assetRenderer.drawAssets(on: layer, typeSurface: layer, in: rectangle)
+            try assetRenderer.drawAssets(on: layer, typeSurface: typeLayer, in: rectangle)
             try mapRenderer.drawMap(on: layer, typeSurface: typeLayer, in: rectangle, level: 1)
             let context = UIGraphicsGetCurrentContext()!
             context.draw(layer as! CGLayer, in: dirtyRect)
             context.draw(typeLayer as! CGLayer, in: dirtyRect)
         } catch {
-            //print(error.localizedDescription) // TODO: Handle Error
+            print(error.localizedDescription) // TODO: Handle Error
         }
-        
-        /*
-        let rectangle = CGRect(x: 0, y: 0, width: 512, height: 512)
-        let ctx = UIGraphicsGetCurrentContext()
-        ctx?.setFillColor(NSColor.red.cgColor)
-        ctx?.setStrokeColor(NSColor.black.cgColor)
-        ctx?.setLineWidth(CGFloat.init(10))
-        ctx?.addRect(rectangle)
-        ctx?.drawPath(using: .fillStroke)
-        */
- 
-        
     }
-    
-    
 }

@@ -16,6 +16,7 @@
 		A93DF6101E3D84DE0047BA86 /* OSXMapRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93DF60F1E3D84DE0047BA86 /* OSXMapRenderer.swift */; };
 		A93DF6121E3D96A40047BA86 /* OSXGraphicTileset.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93DF6111E3D96A40047BA86 /* OSXGraphicTileset.swift */; };
 		FE0B613F1E513A6C00CC5657 /* OSXCustomMiniMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0B613E1E513A6C00CC5657 /* OSXCustomMiniMapView.swift */; };
+		FE0B61411E5142EB00CC5657 /* UIResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0B61401E5142EB00CC5657 /* UIResponder.swift */; };
 		FE4079351E4BE1B800F2120A /* OSXVisualElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4079341E4BE1B800F2120A /* OSXVisualElements.swift */; };
 		FE4D00C61E4C187F0099BE43 /* MiniMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4D00C51E4C187F0099BE43 /* MiniMapView.swift */; };
 		FE4D00C81E4C18AE0099BE43 /* AssetRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4D00C71E4C18AE0099BE43 /* AssetRenderer.swift */; };
@@ -87,6 +88,7 @@
 		A93DF60F1E3D84DE0047BA86 /* OSXMapRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSXMapRenderer.swift; sourceTree = "<group>"; };
 		A93DF6111E3D96A40047BA86 /* OSXGraphicTileset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSXGraphicTileset.swift; sourceTree = "<group>"; };
 		FE0B613E1E513A6C00CC5657 /* OSXCustomMiniMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSXCustomMiniMapView.swift; sourceTree = "<group>"; };
+		FE0B61401E5142EB00CC5657 /* UIResponder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIResponder.swift; sourceTree = "<group>"; };
 		FE4079341E4BE1B800F2120A /* OSXVisualElements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSXVisualElements.swift; sourceTree = "<group>"; };
 		FE4D00C51E4C187F0099BE43 /* MiniMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniMapView.swift; sourceTree = "<group>"; };
 		FE4D00C71E4C18AE0099BE43 /* AssetRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetRenderer.swift; sourceTree = "<group>"; };
@@ -291,6 +293,7 @@
 		FE4D01091E4D81520099BE43 /* UXKit */ = {
 			isa = PBXGroup;
 			children = (
+				FE0B61401E5142EB00CC5657 /* UIResponder.swift */,
 				FE4D010A1E4D81740099BE43 /* UIGraphics.swift */,
 				FE4D010C1E4D82C00099BE43 /* UIScreen.swift */,
 			);
@@ -505,6 +508,7 @@
 				FE4D00FF1E4C45600099BE43 /* PlayerCommand.swift in Sources */,
 				FE4D00E11E4C28770099BE43 /* VisibilityMap.swift in Sources */,
 				FE4D00E51E4C296D0099BE43 /* DataSource.swift in Sources */,
+				FE0B61411E5142EB00CC5657 /* UIResponder.swift in Sources */,
 				FE4D00CA1E4C18B90099BE43 /* AssetDecoratedMap.swift in Sources */,
 				FE4D00EB1E4C29C10099BE43 /* FileDataSource.swift in Sources */,
 				FE4D01021E4C49610099BE43 /* GameModel.swift in Sources */,

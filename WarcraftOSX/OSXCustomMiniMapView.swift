@@ -8,7 +8,7 @@
 import Cocoa
 import Foundation
 
- class MiniMapView: NSView {
+class MiniMapView: NSView {
  
     weak var mapRenderer: MapRenderer?
  
