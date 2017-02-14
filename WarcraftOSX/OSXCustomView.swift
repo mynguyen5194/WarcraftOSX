@@ -18,6 +18,10 @@ class OSXCustomView: NSView {
         self.init(frame: frame)
         self.mapRenderer = mapRenderer
         self.assetRenderer = assetRenderer
+        NSEvent.addLocalMonitorForEvents(matching: .keyDown) {
+            (event) -> NSEvent? in self.keyDown(with: event)
+            return event
+        }
     }
     
     override var isFlipped: Bool{
@@ -29,6 +33,30 @@ class OSXCustomView: NSView {
     override func mouseDragged(with event: NSEvent) {
         frame.origin.x += event.deltaX
         frame.origin.y -= event.deltaY
+    }
+    
+    // Arrow keys allows user to scroll through the map
+    override func keyDown(with event: NSEvent) {
+        
+        let myCGFloat = CGFloat(30)
+        
+        //left arrow
+        if event.keyCode == 123 {
+            frame.origin.x += myCGFloat
+        }
+        //right arrow
+        else if event.keyCode == 124 {
+            frame.origin.x -= myCGFloat
+        }
+        //down arrow
+        else if event.keyCode == 125 {
+            frame.origin.y += myCGFloat
+        }
+        //up arrow
+        else if event.keyCode == 126 {
+            frame.origin.y -= myCGFloat
+        }
+        
     }
     
     override func draw(_ dirtyRect: CGRect) {
