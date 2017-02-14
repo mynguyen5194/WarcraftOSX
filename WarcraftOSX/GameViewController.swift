@@ -35,7 +35,6 @@ class GameViewController: NSViewController {
     @IBOutlet weak var mainMapView: NSView!
     @IBOutlet weak var miniMapView: NSView!
     
-    
     private lazy var acknowledgeSound: AVAudioPlayer = {
         do {
             var acknowledgeSound = AVAudioPlayer()

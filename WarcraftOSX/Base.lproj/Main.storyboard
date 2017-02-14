@@ -700,7 +700,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <segue destination="NXk-fe-dIt" kind="custom" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="KoH-td-9QV"/>
+                                    <segue destination="NXk-fe-dIt" kind="custom" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="GmA-18-Gjo"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -742,7 +742,7 @@
                 <viewController title="Game View Controller" storyboardIdentifier="gameViewController" id="NXk-fe-dIt" customClass="GameViewController" customModule="WarcraftOSX" customModuleProvider="target" sceneMemberID="viewController">
                     <customView key="view" id="HWH-5L-yR1">
                         <rect key="frame" x="0.0" y="0.0" width="658" height="466"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                         <subviews>
                             <splitView arrangesAllSubviews="NO" dividerStyle="thin" translatesAutoresizingMaskIntoConstraints="NO" id="zPT-An-TTW">
                                 <rect key="frame" x="20" y="31" width="146" height="374"/>
@@ -814,6 +814,7 @@
                             <constraint firstItem="fcH-AL-lHV" firstAttribute="leading" secondItem="HWH-5L-yR1" secondAttribute="leading" constant="174" id="0pj-mj-a7g"/>
                             <constraint firstItem="zPT-An-TTW" firstAttribute="top" secondItem="Po4-Oi-HNz" secondAttribute="bottom" constant="8" symbolic="YES" id="86S-vL-FfP"/>
                             <constraint firstItem="zPT-An-TTW" firstAttribute="bottom" secondItem="fcH-AL-lHV" secondAttribute="bottom" id="C3i-M5-6uM"/>
+                            <constraint firstAttribute="bottom" secondItem="fcH-AL-lHV" secondAttribute="bottom" constant="31" id="Hp1-KI-NtC"/>
                             <constraint firstItem="Po4-Oi-HNz" firstAttribute="trailing" secondItem="fcH-AL-lHV" secondAttribute="trailing" id="M4Q-Jt-mUM"/>
                             <constraint firstItem="Po4-Oi-HNz" firstAttribute="top" secondItem="HWH-5L-yR1" secondAttribute="top" constant="20" symbolic="YES" id="VWh-Pt-yGH"/>
                             <constraint firstItem="Po4-Oi-HNz" firstAttribute="leading" secondItem="HWH-5L-yR1" secondAttribute="leading" constant="20" symbolic="YES" id="Wkh-ZW-KbC"/>

@@ -16,7 +16,6 @@ class LaunchViewController: NSViewController {
     @IBOutlet var viewOfViewController: NSView!
     @IBOutlet weak var launchMapButton: NSButtonCell!
     @IBOutlet weak var splashScreen: NSImageView!
-
     
     private lazy var visualElement: NSImage = {
             let splashURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/img/Splash", ofType:"png"))!)
