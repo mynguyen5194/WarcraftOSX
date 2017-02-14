@@ -21,6 +21,7 @@ class OSXCustomView: NSView {
         self.assetRenderer = assetRenderer
     }
     
+    //NOTE: Look into NSScrollView
     /*
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let location = touches.first?.location(in: self), let previousLocation = touches.first?.previousLocation(in: self) else {
@@ -31,12 +32,6 @@ class OSXCustomView: NSView {
         frame.origin.x = max(min(frame.origin.x, 0), -frame.size.width + UIScreen.main.bounds.width)
         frame.origin.y = max(min(frame.origin.y, 0), -frame.size.height + UIScreen.main.bounds.height)
     }*/
-    /*
-    override func touchesMoved(with event: NSEvent) {
-        <#code#>
-    }*/
-    
-    
     
     override func draw(_ dirtyRect: CGRect) {
         
@@ -54,7 +49,8 @@ class OSXCustomView: NSView {
             context.draw(layer as! CGLayer, in: dirtyRect)
             context.draw(typeLayer as! CGLayer, in: dirtyRect)
         } catch {
-            print(error.localizedDescription) // TODO: Handle Error
+            let error = NSError.init(domain: "Failed in draw function of OSXCustomView", code: 0, userInfo: nil)
+            fatalError(error.localizedDescription)
         }
     }
 }

@@ -658,7 +658,7 @@
                 <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="WarcraftOSX" customModuleProvider="target"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="0.0"/>
+            <point key="canvasLocation" x="75" y="-105"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
@@ -667,21 +667,21 @@
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="Ckk-yw-fiv">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="480" height="270"/>
+                        <rect key="contentRect" x="196" y="240" width="658" height="466"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                     </window>
                     <connections>
-                        <segue destination="5gI-5U-AMq" kind="relationship" relationship="window.shadowedContentViewController" id="nsd-lR-9xd"/>
+                        <segue destination="8S9-Ga-BCI" kind="relationship" relationship="window.shadowedContentViewController" id="nx1-7p-abh"/>
                     </connections>
                 </windowController>
                 <customObject id="6f7-a7-6o1" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="250"/>
+            <point key="canvasLocation" x="90" y="250"/>
         </scene>
         <!--Launch View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController title="Launch View Controller" id="5gI-5U-AMq" customClass="LaunchViewController" customModule="WarcraftOSX" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Launch View Controller" storyboardIdentifier="launchViewController" id="5gI-5U-AMq" customClass="LaunchViewController" customModule="WarcraftOSX" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="ERx-hH-rdd">
                         <rect key="frame" x="0.0" y="0.0" width="658" height="466"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
@@ -690,48 +690,149 @@
                                 <rect key="frame" x="0.0" y="0.0" width="658" height="466"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="xKk-8l-GmM"/>
                             </imageView>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zdf-Nf-GGV">
-                                <rect key="frame" x="209" y="215" width="240" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qns-u1-vlm">
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JxP-zC-4Sr">
+                                <rect key="frame" x="230" y="215" width="199" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="187" id="1Xu-jB-iMg"/>
+                                </constraints>
+                                <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Gq5-cJ-0jJ">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <segue destination="NXk-fe-dIt" kind="modal" id="VJa-lI-mFn"/>
+                                    <segue destination="NXk-fe-dIt" kind="custom" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="KoH-td-9QV"/>
                                 </connections>
                             </button>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="vgU-v0-inn" firstAttribute="leading" secondItem="ERx-hH-rdd" secondAttribute="leading" id="MF9-ir-H0Y"/>
-                            <constraint firstItem="vgU-v0-inn" firstAttribute="top" secondItem="ERx-hH-rdd" secondAttribute="top" id="TdT-Qw-xqq"/>
-                            <constraint firstAttribute="trailing" secondItem="vgU-v0-inn" secondAttribute="trailing" id="ncN-z4-XJv"/>
-                            <constraint firstAttribute="bottom" secondItem="vgU-v0-inn" secondAttribute="bottom" id="syC-Rt-eu8"/>
+                            <constraint firstAttribute="bottom" secondItem="vgU-v0-inn" secondAttribute="bottom" id="4xw-xT-GAZ"/>
+                            <constraint firstItem="vgU-v0-inn" firstAttribute="top" secondItem="ERx-hH-rdd" secondAttribute="top" id="5HA-X0-A1X"/>
+                            <constraint firstItem="JxP-zC-4Sr" firstAttribute="centerX" secondItem="vgU-v0-inn" secondAttribute="centerX" id="GS1-TP-V11"/>
+                            <constraint firstAttribute="trailing" secondItem="vgU-v0-inn" secondAttribute="trailing" id="tX5-4D-XSu"/>
+                            <constraint firstItem="vgU-v0-inn" firstAttribute="centerY" secondItem="JxP-zC-4Sr" secondAttribute="centerY" id="v1b-v7-gAH"/>
+                            <constraint firstItem="vgU-v0-inn" firstAttribute="leading" secondItem="ERx-hH-rdd" secondAttribute="leading" id="yPW-rJ-d53"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="loadMapButton" destination="Zdf-Nf-GGV" id="mPq-pH-wcl"/>
+                        <outlet property="launchMapButton" destination="Gq5-cJ-0jJ" id="BLz-dF-w2d"/>
                         <outlet property="splashScreen" destination="vgU-v0-inn" id="QY1-JB-iRs"/>
                         <outlet property="viewOfViewController" destination="ERx-hH-rdd" id="Dzd-8t-rSi"/>
                     </connections>
                 </viewController>
                 <customObject id="2Tp-Fl-jBw" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="74" y="821"/>
+            <point key="canvasLocation" x="90" y="821"/>
+        </scene>
+        <!--Container View Controller-->
+        <scene sceneID="nDk-F8-Cda">
+            <objects>
+                <viewController title="Container View Controller" id="8S9-Ga-BCI" customClass="ContainerViewController" customModule="WarcraftOSX" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="mUc-Of-Ffd">
+                        <rect key="frame" x="0.0" y="0.0" width="658" height="466"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="SZD-7j-Sfy" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="865" y="250"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="K4H-QS-TcK">
             <objects>
-                <viewController title="Game View Controller" id="NXk-fe-dIt" customClass="GameViewController" customModule="WarcraftOSX" customModuleProvider="target" sceneMemberID="viewController">
-                    <customView key="view" canDrawConcurrently="YES" id="HWH-5L-yR1">
-                        <rect key="frame" x="0.0" y="0.0" width="634" height="466"/>
+                <viewController title="Game View Controller" storyboardIdentifier="gameViewController" id="NXk-fe-dIt" customClass="GameViewController" customModule="WarcraftOSX" customModuleProvider="target" sceneMemberID="viewController">
+                    <customView key="view" id="HWH-5L-yR1">
+                        <rect key="frame" x="0.0" y="0.0" width="658" height="466"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <subviews>
+                            <splitView arrangesAllSubviews="NO" dividerStyle="thin" translatesAutoresizingMaskIntoConstraints="NO" id="zPT-An-TTW">
+                                <rect key="frame" x="20" y="31" width="146" height="374"/>
+                                <subviews>
+                                    <customView fixedFrame="YES" id="Oq0-Zb-3iV">
+                                        <rect key="frame" x="0.0" y="0.0" width="146" height="120"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </customView>
+                                    <customView fixedFrame="YES" id="ZX0-yO-ySg">
+                                        <rect key="frame" x="0.0" y="121" width="146" height="125"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    </customView>
+                                    <customView fixedFrame="YES" id="wKt-hA-keA">
+                                        <rect key="frame" x="0.0" y="247" width="146" height="127"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </customView>
+                                </subviews>
+                                <holdingPriorities>
+                                    <real value="250"/>
+                                    <real value="250"/>
+                                    <real value="250"/>
+                                </holdingPriorities>
+                            </splitView>
+                            <splitView arrangesAllSubviews="NO" dividerStyle="thin" vertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Po4-Oi-HNz">
+                                <rect key="frame" x="20" y="413" width="594" height="33"/>
+                                <subviews>
+                                    <customView id="QB6-ct-8u5">
+                                        <rect key="frame" x="0.0" y="0.0" width="152" height="33"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <subviews>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fq2-9u-DFR">
+                                                <rect key="frame" x="14" y="-1" width="124" height="32"/>
+                                                <buttonCell key="cell" type="push" title="Menu" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="IKs-zX-IhM">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <segue destination="5gI-5U-AMq" kind="custom" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="cyX-bL-L2L"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="fq2-9u-DFR" secondAttribute="trailing" constant="20" symbolic="YES" id="JtQ-k1-Nm4"/>
+                                            <constraint firstItem="fq2-9u-DFR" firstAttribute="top" secondItem="QB6-ct-8u5" secondAttribute="top" constant="6" id="SJ0-9a-Cd7"/>
+                                            <constraint firstItem="fq2-9u-DFR" firstAttribute="leading" secondItem="QB6-ct-8u5" secondAttribute="leading" constant="20" symbolic="YES" id="VYg-z6-SMF"/>
+                                            <constraint firstItem="fq2-9u-DFR" firstAttribute="centerY" secondItem="QB6-ct-8u5" secondAttribute="centerY" id="gpQ-9i-nAd"/>
+                                        </constraints>
+                                    </customView>
+                                    <customView fixedFrame="YES" id="PUK-1M-ajB">
+                                        <rect key="frame" x="153" y="0.0" width="231" height="33"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    </customView>
+                                    <customView fixedFrame="YES" id="3Dn-Oy-efh">
+                                        <rect key="frame" x="385" y="0.0" width="209" height="33"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </customView>
+                                </subviews>
+                                <holdingPriorities>
+                                    <real value="250"/>
+                                    <real value="250"/>
+                                    <real value="250"/>
+                                </holdingPriorities>
+                            </splitView>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="fcH-AL-lHV">
+                                <rect key="frame" x="174" y="31" width="440" height="374"/>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="fcH-AL-lHV" firstAttribute="leading" secondItem="HWH-5L-yR1" secondAttribute="leading" constant="174" id="0pj-mj-a7g"/>
+                            <constraint firstItem="zPT-An-TTW" firstAttribute="top" secondItem="Po4-Oi-HNz" secondAttribute="bottom" constant="8" symbolic="YES" id="86S-vL-FfP"/>
+                            <constraint firstItem="zPT-An-TTW" firstAttribute="bottom" secondItem="fcH-AL-lHV" secondAttribute="bottom" id="C3i-M5-6uM"/>
+                            <constraint firstItem="Po4-Oi-HNz" firstAttribute="trailing" secondItem="fcH-AL-lHV" secondAttribute="trailing" id="M4Q-Jt-mUM"/>
+                            <constraint firstItem="Po4-Oi-HNz" firstAttribute="top" secondItem="HWH-5L-yR1" secondAttribute="top" constant="20" symbolic="YES" id="VWh-Pt-yGH"/>
+                            <constraint firstItem="Po4-Oi-HNz" firstAttribute="leading" secondItem="HWH-5L-yR1" secondAttribute="leading" constant="20" symbolic="YES" id="Wkh-ZW-KbC"/>
+                            <constraint firstItem="fcH-AL-lHV" firstAttribute="leading" secondItem="zPT-An-TTW" secondAttribute="trailing" constant="8" symbolic="YES" id="c3e-j4-V36"/>
+                            <constraint firstItem="Po4-Oi-HNz" firstAttribute="leading" secondItem="zPT-An-TTW" secondAttribute="leading" id="d7K-xG-pfM"/>
+                            <constraint firstAttribute="bottom" secondItem="zPT-An-TTW" secondAttribute="bottom" constant="31" id="dWM-qi-2pj"/>
+                            <constraint firstItem="zPT-An-TTW" firstAttribute="top" secondItem="fcH-AL-lHV" secondAttribute="top" id="rTu-iL-wdO"/>
+                            <constraint firstAttribute="trailing" secondItem="Po4-Oi-HNz" secondAttribute="trailing" constant="44" id="vN7-RB-c4y"/>
+                        </constraints>
                         <accessibility description="fasdf"/>
                     </customView>
+                    <connections>
+                        <outlet property="mainMapView" destination="fcH-AL-lHV" id="DBT-TA-Ie7"/>
+                        <outlet property="miniMapView" destination="wKt-hA-keA" id="656-wJ-Zp2"/>
+                    </connections>
                 </viewController>
                 <customObject id="PRY-P4-TTK" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="884" y="821"/>
+            <point key="canvasLocation" x="865" y="821"/>
         </scene>
     </scenes>
 </document>

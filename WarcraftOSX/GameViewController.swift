@@ -32,13 +32,19 @@ fileprivate func multicolorTileset(_ name: String) throws -> GraphicMulticolorTi
 
 class GameViewController: NSViewController {    
     
-    private lazy var midiPlayer: AVMIDIPlayer = {
+    @IBOutlet weak var mainMapView: NSView!
+    @IBOutlet weak var miniMapView: NSView!
+    
+    
+    private lazy var acknowledgeSound: AVAudioPlayer = {
         do {
-            let soundFont = Bundle.main.url(forResource: "/data/snd/generalsoundfont", withExtension: "sf2")!
-            let midiFile = Bundle.main.url(forResource: "/data/snd/music/intro", withExtension: "mid")!
-            return try AVMIDIPlayer(contentsOf: midiFile, soundBankURL: soundFont)
+            var acknowledgeSound = AVAudioPlayer()
+            let acknowledge1URL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/snd/basic/acknowledge1", ofType: "wav"))!)
+            try acknowledgeSound = AVAudioPlayer(contentsOf: acknowledge1URL)
+            return acknowledgeSound
         } catch {
-            fatalError(error.localizedDescription) // TODO: Handle Error
+            let error = NSError.init(domain: "Failed to load Audio Player", code: 0, userInfo: nil)
+            fatalError(error.localizedDescription)
         }
         
     }()
@@ -111,14 +117,17 @@ class GameViewController: NSViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        midiPlayer.prepareToPlay()
-        midiPlayer.play()
         
-        let mapView = OSXCustomView(frame: CGRect(origin: .zero, size: CGSize(width: mapRenderer.detailedMapWidth, height: mapRenderer.detailedMapHeight)), mapRenderer: mapRenderer, assetRenderer: assetRenderer)
-        let miniMapView = MiniMapView(frame: CGRect(origin: .zero, size: CGSize(width: mapRenderer.mapWidth, height: mapRenderer.mapHeight)), mapRenderer: mapRenderer)
-        view.addSubview(mapView)
-        view.addSubview(miniMapView)
+        let OSXCustomViewMap = OSXCustomView(frame: CGRect(origin: .zero, size: CGSize(width: mapRenderer.detailedMapWidth, height: mapRenderer.detailedMapHeight)), mapRenderer: mapRenderer, assetRenderer: assetRenderer)
+        let OSXCustomMiniMapViewMap = OSXCustomMiniMapView(frame: CGRect(origin: .zero, size: CGSize(width: mapRenderer.mapWidth, height: mapRenderer.mapHeight)), mapRenderer: mapRenderer)
+        mainMapView.addSubview(OSXCustomViewMap)
+        miniMapView.addSubview(OSXCustomMiniMapViewMap)
         
+    }
+    
+    override func mouseDown(with event: NSEvent) {
+        acknowledgeSound.prepareToPlay()
+        acknowledgeSound.play()
     }
     
 }
