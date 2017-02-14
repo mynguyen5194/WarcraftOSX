@@ -17,6 +17,7 @@ class MainMenuViewController: NSViewController {
     
     @IBAction func singlePlayerGameButton(_ sender: NSButton) {
         performSegue(withIdentifier: "singlePlayerGameSegue", sender: self)
+        
         menuSound.stop()
     }
     

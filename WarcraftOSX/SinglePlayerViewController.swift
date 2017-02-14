@@ -17,7 +17,16 @@ class SinglePlayerViewController: NSViewController {
     var game1SoundBankURL: URL?
     var game1Sound = AVMIDIPlayer()
 
-    @IBAction func loadMapButton(_ sender: NSButton) {
+    @IBAction func selectButton(_ sender: NSButton) {
+    }
+
+    
+    @IBAction func northSouthDivideTextField(_ sender: NSTextField) {
+        print("North-South Divide Selected")
+    }
+    
+    @IBAction func mazeTextField(_ sender: NSTextField) {
+        print("Maze Selected")
     }
     
     override func viewDidLoad() {
