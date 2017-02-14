@@ -33,6 +33,27 @@ class OSXCustomView: NSView {
         frame.origin.y = max(min(frame.origin.y, 0), -frame.size.height + UIScreen.main.bounds.height)
     }*/
     
+    /*
+    override func draw(_ dirtyRect: CGRect) {
+        
+        guard let mapRenderer = mapRenderer, let assetRenderer = assetRenderer else {
+            return
+        }
+        do {
+            let rectangle = Rectangle(xPosition: 0, yPosition: 0, width: mapRenderer.detailedMapWidth, height: mapRenderer.detailedMapHeight)
+            let layer = GraphicFactory.createSurface(width: mapRenderer.detailedMapWidth, height: mapRenderer.detailedMapHeight, format: .a1)!
+            let typeLayer = GraphicFactory.createSurface(width: mapRenderer.detailedMapWidth, height: mapRenderer.detailedMapHeight, format: .a1)!
+            try mapRenderer.drawMap(on: layer, typeSurface: typeLayer, in: rectangle, level: 0)
+            //try assetRenderer.drawAssets(on: layer, typeSurface: typeLayer, in: rectangle)
+            //try mapRenderer.drawMap(on: layer, typeSurface: typeLayer, in: rectangle, level: 1)
+            let context = UIGraphicsGetCurrentContext()!
+            context.draw(layer as! CGLayer, in: dirtyRect)
+            //context.draw(typeLayer as! CGLayer, in: dirtyRect)
+        } catch {
+            let error = NSError.init(domain: "Failed in draw function of OSXCustomView", code: 0, userInfo: nil)
+            fatalError(error.localizedDescription)
+        }
+    }*/
     override func draw(_ dirtyRect: CGRect) {
         
         guard let mapRenderer = mapRenderer, let assetRenderer = assetRenderer else {
@@ -46,11 +67,11 @@ class OSXCustomView: NSView {
             try assetRenderer.drawAssets(on: layer, typeSurface: typeLayer, in: rectangle)
             try mapRenderer.drawMap(on: layer, typeSurface: typeLayer, in: rectangle, level: 1)
             let context = UIGraphicsGetCurrentContext()!
-            context.draw(layer as! CGLayer, in: dirtyRect)
+            let mainRect = CGRect(origin: .zero, size: CGSize(width: 900, height: 600))
+            context.draw(layer as! CGLayer, in: mainRect)
             context.draw(typeLayer as! CGLayer, in: dirtyRect)
         } catch {
-            let error = NSError.init(domain: "Failed in draw function of OSXCustomView", code: 0, userInfo: nil)
-            fatalError(error.localizedDescription)
+            print(error.localizedDescription) // TODO: Handle Error
         }
     }
 }
