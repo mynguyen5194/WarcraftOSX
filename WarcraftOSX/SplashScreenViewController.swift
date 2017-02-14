@@ -32,6 +32,7 @@ class SplashScreenViewController: NSViewController {
     func showMenu() {
         performSegue(withIdentifier: "showMenuSegue", sender: self)
         splashScreenSound.stop()
+        print("Stop splashScreenSound")
     }
     
     override var representedObject: Any? {
@@ -70,7 +71,7 @@ class SplashScreenViewController: NSViewController {
         }
         splashScreenSound.prepareToPlay()
         splashScreenSound.play()
-        
+        print("Play splashScreenSound")
     }
     
 }

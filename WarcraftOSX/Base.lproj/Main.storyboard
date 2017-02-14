@@ -727,7 +727,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uda-fS-e9o">
-                                <rect key="frame" x="216" y="414" width="111" height="26"/>
+                                <rect key="frame" x="260" y="414" width="111" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="The Game" id="JuL-gm-c43">
                                     <font key="font" size="20" name="MarkerFelt-Wide"/>
@@ -736,7 +736,7 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yeq-Ch-1jQ">
-                                <rect key="frame" x="189" y="340" width="157" height="32"/>
+                                <rect key="frame" x="237" y="325" width="157" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Single Player Game" bezelStyle="rounded" alignment="center" borderStyle="border" allowsMixedState="YES" imageScaling="proportionallyDown" inset="2" id="hKa-nJ-Q6m">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -747,9 +747,9 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zXv-WG-9bk">
-                                <rect key="frame" x="192" y="277" width="150" height="32"/>
+                                <rect key="frame" x="240" y="264" width="150" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Multi Player Game" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" sound="Bottle" inset="2" id="Nyr-I8-JNH">
+                                <buttonCell key="cell" type="push" title="Multi Player Game" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Nyr-I8-JNH">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -759,7 +759,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J3L-Wk-eEe">
-                                <rect key="frame" x="227" y="222" width="88" height="32"/>
+                                <rect key="frame" x="271" y="202" width="88" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Options" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="xek-zv-8yw">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -771,9 +771,9 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YvE-8N-fml">
-                                <rect key="frame" x="220" y="130" width="102" height="32"/>
+                                <rect key="frame" x="264" y="134" width="102" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Exit Game" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" sound="Funk" inset="2" id="d6H-TT-hmR">
+                                <buttonCell key="cell" type="push" title="Exit Game" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="d6H-TT-hmR">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -808,6 +808,15 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQn-Un-VOr">
+                                <rect key="frame" x="274" y="411" width="83" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Select Map" id="jV0-gr-IVH">
+                                    <font key="font" size="16" name="MarkerFelt-Wide"/>
+                                    <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                     </view>
                 </viewController>
@@ -824,7 +833,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jbV-An-wNQ">
-                                <rect key="frame" x="196" y="411" width="58" height="29"/>
+                                <rect key="frame" x="286" y="411" width="58" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Options" id="2HT-CU-U0e">
                                     <font key="font" size="16" name="MarkerFelt-Wide"/>
@@ -833,7 +842,7 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sle-1x-mDK">
-                                <rect key="frame" x="161" y="330" width="130" height="32"/>
+                                <rect key="frame" x="250" y="329" width="130" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Sound Options" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="uX1-v3-DHz">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -844,7 +853,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l97-6K-Bnp">
-                                <rect key="frame" x="154" y="267" width="142" height="32"/>
+                                <rect key="frame" x="244" y="253" width="142" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Network Options" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="5g6-pi-C31">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -852,7 +861,7 @@
                                 </buttonCell>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xv8-Fi-1BR">
-                                <rect key="frame" x="190" y="204" width="70" height="32"/>
+                                <rect key="frame" x="280" y="179" width="70" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Back" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="9Ex-ND-IXk">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -874,11 +883,11 @@
             <objects>
                 <viewController title="Sound Options" id="UkS-ZL-wR6" customClass="SoundOptionViewController" customModule="WarcraftOSX" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="o0D-uX-jst">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="630" height="460"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xfc-lK-01Y">
-                                <rect key="frame" x="173" y="251" width="105" height="29"/>
+                                <rect key="frame" x="263" y="411" width="105" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Sound Options" id="80g-Ug-bCU">
                                     <font key="font" size="16" name="MarkerFelt-Wide"/>
@@ -887,7 +896,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FOd-hu-cJY">
-                                <rect key="frame" x="129" y="179" width="73" height="17"/>
+                                <rect key="frame" x="220" y="247" width="73" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="FX Volume:" id="Fgc-T2-5ia">
                                     <font key="font" metaFont="system"/>
@@ -896,7 +905,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d6C-rx-Tuk">
-                                <rect key="frame" x="109" y="124" width="93" height="17"/>
+                                <rect key="frame" x="200" y="189" width="93" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Music Volume:" id="pRh-ot-sIY">
                                     <font key="font" metaFont="system"/>
@@ -905,7 +914,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8T1-uK-kez">
-                                <rect key="frame" x="216" y="179" width="96" height="22"/>
+                                <rect key="frame" x="313" y="242" width="96" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="beX-c3-M5Y">
                                     <font key="font" metaFont="system"/>
@@ -914,7 +923,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qOI-vn-Jff">
-                                <rect key="frame" x="216" y="119" width="96" height="22"/>
+                                <rect key="frame" x="313" y="187" width="96" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="GVh-rq-jGe">
                                     <font key="font" metaFont="system"/>
@@ -931,7 +940,7 @@
                 </viewController>
                 <customObject id="ENS-bG-3nd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2711" y="1432"/>
+            <point key="canvasLocation" x="2665" y="1523"/>
         </scene>
         <!--Single Player Game Window-->
         <scene sceneID="7Qq-pF-UZA">
@@ -1034,10 +1043,8 @@ Gw
     </scenes>
     <resources>
         <image name="Splash" width="800" height="1200"/>
-        <sound name="Bottle"/>
-        <sound name="Funk"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0XF-bM-XeN"/>
+        <segue reference="dZQ-vE-cIO"/>
     </inferredMetricsTieBreakers>
 </document>

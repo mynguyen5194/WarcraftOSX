@@ -10,14 +10,12 @@ import Cocoa
 import AVFoundation
 
 class SinglePlayerViewController: NSViewController {
-    var farmURL: URL?
-    var farmSound = AVAudioPlayer()
-    
     var game1SoundURL: URL?
     var game1SoundBankURL: URL?
     var game1Sound = AVMIDIPlayer()
 
     @IBAction func selectButton(_ sender: NSButton) {
+        // MARK: Menu Sound should stop here
     }
 
     
@@ -47,7 +45,7 @@ class SinglePlayerViewController: NSViewController {
         }
         game1Sound.prepareToPlay()
         game1Sound.play()
-        //        game1Sound.stop()
+                game1Sound.stop()
     }
     
 }
