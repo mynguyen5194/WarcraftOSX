@@ -11,7 +11,10 @@ import Foundation
 class OSXCustomMiniMapView: NSView {
  
     weak var mapRenderer: MapRenderer?
- 
+    
+    override var isFlipped: Bool{
+        return true
+    }
     convenience init(frame: CGRect, mapRenderer: MapRenderer) {
         self.init(frame: frame)
         self.mapRenderer = mapRenderer
