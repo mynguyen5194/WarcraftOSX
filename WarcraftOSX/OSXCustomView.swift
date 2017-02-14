@@ -14,7 +14,6 @@ class OSXCustomView: NSView {
     
     weak var mapRenderer: MapRenderer?
     weak var assetRenderer: AssetRenderer?
-    
     convenience init(frame: CGRect, mapRenderer: MapRenderer, assetRenderer: AssetRenderer) {
         self.init(frame: frame)
         self.mapRenderer = mapRenderer
@@ -25,11 +24,11 @@ class OSXCustomView: NSView {
         return true
     }
     
-    // NOTE: Finish implementation of mouseDragged function
+    
+    // Mouse dragging allows user to scroll through the map
     override func mouseDragged(with event: NSEvent) {
-        //let newPoint = event.locationInWindow
-        frame.origin.x -= 1
-        //frame.origin.y -= 1
+        frame.origin.x += event.deltaX
+        frame.origin.y -= event.deltaY
     }
     
     //NOTE: Look into NSScrollView
