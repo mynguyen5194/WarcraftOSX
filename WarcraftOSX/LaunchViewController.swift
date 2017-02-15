@@ -9,13 +9,14 @@
 import Cocoa
 import AVFoundation
 
-
-
 class LaunchViewController: NSViewController {
     
     @IBOutlet var viewOfViewController: NSView!
-    @IBOutlet weak var launchMapButton: NSButtonCell!
     @IBOutlet weak var splashScreen: NSImageView!
+    
+    var splashScreenSoundURL: URL?
+    var splashScreenSoundBankURL: URL?
+    var splashScreenSound = AVMIDIPlayer()
     
     private lazy var visualElement: NSImage = {
             let splashURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/img/Splash", ofType:"png"))!)
@@ -29,29 +30,28 @@ class LaunchViewController: NSViewController {
             return splash
     }()
     
-    private lazy var acknowledgeSound: AVAudioPlayer = {
-        do {
-            var acknowledgeSound = AVAudioPlayer()
-            let acknowledge1URL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/snd/basic/acknowledge1", ofType: "wav"))!)
-            try acknowledgeSound = AVAudioPlayer(contentsOf: acknowledge1URL)
-            return acknowledgeSound
-        } catch {
-            let error = NSError.init(domain: "Failed to load Audio Player", code: 0, userInfo: nil)
-            fatalError(error.localizedDescription)
-        }
+    // Play midi file
+    func playMidi() {
+        //splashScreen sound midi
+        splashScreenSoundURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/snd/music/load", ofType: "mid"))!)
+        splashScreenSoundBankURL = Bundle.main.url(forResource: "data/snd/generalsoundfont", withExtension: "sf2")
         
-    }()
+        do {
+            try splashScreenSound = AVMIDIPlayer(contentsOf: splashScreenSoundURL!, soundBankURL: splashScreenSoundBankURL)
+        }
+        catch {
+            NSLog("Error: Can't play sound file menu.mid")
+        }
+        splashScreenSound.prepareToPlay()
+        splashScreenSound.play()
+        print("Play splashScreenSound")
+    }
     
-    private lazy var midiPlayer: AVMIDIPlayer = {
-        do {
-            let soundFont = Bundle.main.url(forResource: "/data/snd/generalsoundfont", withExtension: "sf2")!
-            let midiFile = Bundle.main.url(forResource: "/data/snd/music/intro", withExtension: "mid")!
-            return try AVMIDIPlayer(contentsOf: midiFile, soundBankURL: soundFont)
-        } catch {
-            fatalError(error.localizedDescription) // TODO: Handle Error
-        }
-        
-    }()
+    
+    func showMenu() {
+        performSegue(withIdentifier: "showMenuSegue", sender: self)
+        splashScreenSound.stop()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,12 +59,11 @@ class LaunchViewController: NSViewController {
         //set splash screen
         splashScreen.image = visualElement
         
-        //Button Elements
-        launchMapButton.title = "Load Map"
-        
         //Play Intro
-        midiPlayer.prepareToPlay()
-        midiPlayer.play()
+        playMidi()
+        
+        // Display splash screen for 3 seconds
+        perform(#selector(LaunchViewController.showMenu), with: nil, afterDelay: 3)
         
     }
     

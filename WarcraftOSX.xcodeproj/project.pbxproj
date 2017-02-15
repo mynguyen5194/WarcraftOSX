@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		20D1BC861E53D2C2009ED019 /* SinglePlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D1BC851E53D2C2009ED019 /* SinglePlayerViewController.swift */; };
+		20D1BC881E53D419009ED019 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D1BC871E53D419009ED019 /* MainMenuViewController.swift */; };
+		20D1BC8A1E53D759009ED019 /* SoundOptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D1BC891E53D759009ED019 /* SoundOptionViewController.swift */; };
 		A93DF5E11E3D77E90047BA86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93DF5E01E3D77E90047BA86 /* AppDelegate.swift */; };
 		A93DF5E71E3D77E90047BA86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A93DF5E61E3D77E90047BA86 /* Assets.xcassets */; };
 		A93DF5EA1E3D77E90047BA86 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A93DF5E81E3D77E90047BA86 /* Main.storyboard */; };
@@ -71,6 +74,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		20D1BC851E53D2C2009ED019 /* SinglePlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinglePlayerViewController.swift; sourceTree = "<group>"; };
+		20D1BC871E53D419009ED019 /* MainMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
+		20D1BC891E53D759009ED019 /* SoundOptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundOptionViewController.swift; sourceTree = "<group>"; };
 		A93DF5DD1E3D77E90047BA86 /* WarcraftOSX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WarcraftOSX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A93DF5E01E3D77E90047BA86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A93DF5E61E3D77E90047BA86 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -173,8 +179,8 @@
 			children = (
 				FE7C9F691E4A3F7500A32B85 /* AppDelegate */,
 				FE7C9F6B1E4A3FC100A32B85 /* ViewControllers */,
-				FE4D01001E4C49450099BE43 /* GameLogic */,
 				FE7C9F741E4A46AE00A32B85 /* Views */,
+				FE4D01001E4C49450099BE43 /* GameLogic */,
 				A93DF5EB1E3D77E90047BA86 /* Info.plist */,
 				FE4D00E31E4C28C30099BE43 /* DataContainer */,
 				FE4D00E21E4C289E0099BE43 /* GameType */,
@@ -309,6 +315,9 @@
 			children = (
 				FE36A19A1E51A06100C6DDEF /* ContainerViewController.swift */,
 				FE7C9F751E4A4E0A00A32B85 /* LaunchViewController.swift */,
+				20D1BC871E53D419009ED019 /* MainMenuViewController.swift */,
+				20D1BC851E53D2C2009ED019 /* SinglePlayerViewController.swift */,
+				20D1BC891E53D759009ED019 /* SoundOptionViewController.swift */,
 				FE7C9F771E4A509B00A32B85 /* GameViewController.swift */,
 				FE36A19C1E51A2C200C6DDEF /* StoryBoardSegue.swift */,
 			);
@@ -481,6 +490,7 @@
 				FE7C9F781E4A509B00A32B85 /* GameViewController.swift in Sources */,
 				FE4D00E91E4C29B60099BE43 /* DataSink.swift in Sources */,
 				FE4D00E71E4C29A90099BE43 /* DataContainer.swift in Sources */,
+				20D1BC8A1E53D759009ED019 /* SoundOptionViewController.swift in Sources */,
 				FE7C9F761E4A4E0A00A32B85 /* LaunchViewController.swift in Sources */,
 				FE36A19B1E51A06100C6DDEF /* ContainerViewController.swift in Sources */,
 				FE4D00D81E4C19400099BE43 /* GraphicSurface.swift in Sources */,
@@ -490,6 +500,7 @@
 				FE4D00D21E4C19250099BE43 /* GraphicMulticolorTileset.swift in Sources */,
 				FE4D01081E4CDD920099BE43 /* RouterMap.swift in Sources */,
 				FE4D00D61E4C19390099BE43 /* GraphicResourceContext.swift in Sources */,
+				20D1BC881E53D419009ED019 /* MainMenuViewController.swift in Sources */,
 				FE4D00C81E4C18AE0099BE43 /* AssetRenderer.swift in Sources */,
 				A93DF5E11E3D77E90047BA86 /* AppDelegate.swift in Sources */,
 				FE4D00FD1E4C45530099BE43 /* PlayerAsset.swift in Sources */,
@@ -500,6 +511,7 @@
 				FE4D00FF1E4C45600099BE43 /* PlayerCommand.swift in Sources */,
 				FE4D00E11E4C28770099BE43 /* VisibilityMap.swift in Sources */,
 				FE4D00E51E4C296D0099BE43 /* DataSource.swift in Sources */,
+				20D1BC861E53D2C2009ED019 /* SinglePlayerViewController.swift in Sources */,
 				FE0B61411E5142EB00CC5657 /* UIResponder.swift in Sources */,
 				FE4D00CA1E4C18B90099BE43 /* AssetDecoratedMap.swift in Sources */,
 				FE4D00EB1E4C29C10099BE43 /* FileDataSource.swift in Sources */,
