@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="jGA-0Y-lOj">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="jGA-0Y-lOj">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
@@ -812,6 +812,7 @@
                     </customView>
                     <connections>
                         <outlet property="mainMapView" destination="fcH-AL-lHV" id="DBT-TA-Ie7"/>
+                        <outlet property="mini" destination="Oq0-Zb-3iV" id="Xfw-En-Ig1"/>
                         <outlet property="miniMapView" destination="wKt-hA-keA" id="656-wJ-Zp2"/>
                     </connections>
                 </viewController>
@@ -823,7 +824,7 @@
         <scene sceneID="7mB-XG-Pbd">
             <objects>
                 <viewController title="Main Menu" id="zhJ-aD-mQv" customClass="MainMenuViewController" customModule="WarcraftOSX" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="Q1e-4i-EB9">
+                    <view key="view" id="Q1e-4i-EB9" customClass="NSImageView">
                         <rect key="frame" x="0.0" y="0.0" width="658" height="463"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
@@ -885,6 +886,8 @@
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="menuScreen" destination="Q1e-4i-EB9" id="hoo-TB-5gu"/>
+                        <outlet property="menuView" destination="Q1e-4i-EB9" id="9Ql-QS-rZ0"/>
                         <segue destination="bEc-MV-a2K" kind="custom" identifier="singlePlayerGameSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="xNm-9e-HTw"/>
                     </connections>
                 </viewController>
@@ -1174,7 +1177,7 @@ Gw
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="5c6-tT-kTi"/>
-        <segue reference="9OI-jO-cZ1"/>
+        <segue reference="gDF-aI-Zhb"/>
+        <segue reference="0ql-Dq-d7M"/>
     </inferredMetricsTieBreakers>
 </document>

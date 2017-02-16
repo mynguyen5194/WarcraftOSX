@@ -35,6 +35,8 @@ class GameViewController: NSViewController {
     @IBOutlet weak var mainMapView: NSView!
     @IBOutlet weak var miniMapView: NSView!
     
+    @IBOutlet weak var mini: NSView!
+    
     private lazy var acknowledgeSound: AVAudioPlayer = {
         do {
             var acknowledgeSound = AVAudioPlayer()
@@ -120,7 +122,7 @@ class GameViewController: NSViewController {
         let OSXCustomViewMap = OSXCustomView(frame: CGRect(origin: .zero, size: CGSize(width: mapRenderer.detailedMapWidth, height: mapRenderer.detailedMapHeight)), mapRenderer: mapRenderer, assetRenderer: assetRenderer)
         let OSXCustomMiniMapViewMap = OSXCustomMiniMapView(frame: CGRect(origin: .zero, size: CGSize(width: mapRenderer.mapWidth, height: mapRenderer.mapHeight)), mapRenderer: mapRenderer)
         mainMapView.addSubview(OSXCustomViewMap)
-        miniMapView.addSubview(OSXCustomMiniMapViewMap)
+        mini.addSubview(OSXCustomMiniMapViewMap)
         
     }
     

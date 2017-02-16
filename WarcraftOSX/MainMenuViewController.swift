@@ -12,6 +12,7 @@ import AVFoundation
 
 class MainMenuViewController: NSViewController {
     
+    @IBOutlet var menuScreen: NSImageView!
     var thunkURL: URL?
     var thunkSound = AVAudioPlayer()
     
@@ -36,9 +37,23 @@ class MainMenuViewController: NSViewController {
     }
 
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
+        //set splash screen
+        
+        let visualElements = OSXMainMenu()
+        
+        menuScreen.image = visualElements.getMenuImage()
+        
+        //Button Elements
+        
+        
+        
+        //showMenuBackground()
+        
         playMenuMidi()
+        
     }
     
     func showMenuBackground() {

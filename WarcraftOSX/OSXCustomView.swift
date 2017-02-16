@@ -24,40 +24,48 @@ class OSXCustomView: NSView {
         }
     }
     
+    // Flips the inverted map to display map correctly
     override var isFlipped: Bool{
         return true
     }
     
     // Mouse dragging allows user to scroll through the map
     override func mouseDragged(with event: NSEvent) {
+        
+        // Moves frame of the NSView by the deltaX and deltaY of the mouseDrag
         frame.origin.x += event.deltaX
         frame.origin.y -= event.deltaY
         
-        // NOTE: Set bounds to scrolling
-        frame.origin.x = max(min(frame.origin.x, 0), -frame.size.width + 700)
-        frame.origin.y = max(min(frame.origin.y, 0), -frame.size.height + 500)
+        // Hard coded to set boundary to 990 for xPos and 600 yPos
+        frame.origin.x = max(min(frame.origin.x, 0), -frame.size.width + (window?.frame.width)!)
+        frame.origin.y = max(min(frame.origin.y, 0), -frame.size.height + (window?.frame.height)!)
     }
     
     // Arrow keys allows user to scroll through the map
     override func keyDown(with event: NSEvent) {
         
+        // Convert an integer to CGFloat to be used in changing frame coordinates
         let myCGFloat = CGFloat(50)
         
         //left arrow
         if event.keyCode == 123 {
             frame.origin.x += myCGFloat
+            frame.origin.x = max(min(frame.origin.x, 0), -frame.size.width + self.visibleRect.width)
         }
         //right arrow
         else if event.keyCode == 124 {
             frame.origin.x -= myCGFloat
+            frame.origin.x = max(min(frame.origin.x, 0), -frame.size.width + self.visibleRect.width)
         }
         //down arrow
         else if event.keyCode == 125 {
             frame.origin.y += myCGFloat
+            frame.origin.y = max(min(frame.origin.y, 0), -frame.size.height + 600)
         }
         //up arrow
         else if event.keyCode == 126 {
             frame.origin.y -= myCGFloat
+            frame.origin.y = max(min(frame.origin.y, 0), -frame.size.height + 600)
         }
     }
     
@@ -81,4 +89,38 @@ class OSXCustomView: NSView {
             fatalError(error.localizedDescription)
         }
     }
+}
+
+class OSXMainMenu {
+    
+    var menu:NSImage
+    
+    init(){
+        
+        let menuURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/img/Texture", ofType:"png"))!)
+        
+        let menuData = CGDataProvider(url: menuURL as CFURL)
+        
+        let menuCG = CGImage(pngDataProviderSource: menuData!, decode: nil, shouldInterpolate: false, intent: CGColorRenderingIntent.defaultIntent)
+        
+        let menuOrigin = CGPoint(x: 0, y: 0)
+        
+        let menuSize = CGSize(width: menuCG!.width, height: menuCG!.height)
+        
+        let menuRect = CGRect(origin: menuOrigin, size: menuSize)
+        
+        let menuImage = menuCG?.cropping(to: menuRect)
+        
+        menu = NSImage(cgImage: menuImage!, size: NSZeroSize)
+        
+    }
+    
+    
+    
+    func getMenuImage() -> NSImage {
+        
+        return self.menu
+        
+    }
+    
 }
