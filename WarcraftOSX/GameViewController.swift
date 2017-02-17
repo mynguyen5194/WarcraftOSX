@@ -134,8 +134,8 @@ class GameViewController: NSViewController {
     override func mouseDown(with event: NSEvent) {
         // adjust to only track within ViewController with origin at (0,0)
         // may need to dynamically adjust whenever window size is changed
-        var xLocation = NSEvent.mouseLocation().x - 315.7
         var yLocation = NSEvent.mouseLocation().y - 151.8
+        var xLocation = NSEvent.mouseLocation().y - mainMapView.frame.origin.x
         
         // store position into the text field for testing purposes
         // change String parameter to NSEvent.mouseLocation() to track x and y position concurrently
