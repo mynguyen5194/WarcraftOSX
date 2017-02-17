@@ -125,13 +125,22 @@ class GameViewController: NSViewController {
         mini.addSubview(OSXCustomMiniMapViewMap)
         
     }
-    
+    // variable that stores the mouse location
     var mouseLocation: NSPoint {
         return NSEvent.mouseLocation()
     }
     
+     // track mouse location upon click
     override func mouseDown(with event: NSEvent) {
-        testLocation.stringValue = String(describing: NSEvent.mouseLocation())
+        // adjust to only track within ViewController with origin at (0,0)
+        // may need to dynamically adjust whenever window size is changed
+        var xLocation = NSEvent.mouseLocation().x - 315.7
+        var yLocation = NSEvent.mouseLocation().y - 151.8
+        
+        // store position into the text field for testing purposes
+        // change String parameter to NSEvent.mouseLocation() to track x and y position concurrently
+        testLocation.stringValue = String(describing: xLocation)
+        
         //acknowledgeSound.prepareToPlay()
         //acknowledgeSound.play()
     }
