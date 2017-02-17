@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WarcraftOSX/OSXCustomView.swift"
-            timestampString = "508966529.819895"
+            timestampString = "509008979.132411"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
             landmarkName = "mouseDragged(with:)"
             landmarkType = "7">
          </BreakpointContent>

@@ -31,14 +31,15 @@ class OSXCustomView: NSView {
     
     // Mouse dragging allows user to scroll through the map
     override func mouseDragged(with event: NSEvent) {
+
         
         // Moves frame of the NSView by the deltaX and deltaY of the mouseDrag
         frame.origin.x += event.deltaX
         frame.origin.y -= event.deltaY
         
         // Hard coded to set boundary to 990 for xPos and 600 yPos
-        frame.origin.x = max(min(frame.origin.x, 0), -frame.size.width + (window?.frame.width)!)
-        frame.origin.y = max(min(frame.origin.y, 0), -frame.size.height + (window?.frame.height)!)
+        frame.origin.x = max(min(frame.origin.x, 0), -frame.size.width + NSScreen.main()!.frame.width)
+        frame.origin.y = max(min(frame.origin.y, 0), -frame.size.height + NSScreen.main()!.frame.height)
     }
     
     // Arrow keys allows user to scroll through the map

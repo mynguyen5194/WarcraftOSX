@@ -793,6 +793,15 @@
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="fcH-AL-lHV">
                                 <rect key="frame" x="174" y="31" width="440" height="374"/>
                             </customView>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UoW-p4-usd">
+                                <rect key="frame" x="20" y="444" width="234" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="00v-P2-EBv">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstItem="fcH-AL-lHV" firstAttribute="leading" secondItem="HWH-5L-yR1" secondAttribute="leading" constant="174" id="0pj-mj-a7g"/>
@@ -812,8 +821,10 @@
                     </customView>
                     <connections>
                         <outlet property="mainMapView" destination="fcH-AL-lHV" id="DBT-TA-Ie7"/>
+                        <outlet property="menuButton" destination="IKs-zX-IhM" id="JRW-BA-cMB"/>
                         <outlet property="mini" destination="Oq0-Zb-3iV" id="Xfw-En-Ig1"/>
                         <outlet property="miniMapView" destination="wKt-hA-keA" id="656-wJ-Zp2"/>
+                        <outlet property="testLocation" destination="UoW-p4-usd" id="dvS-Ov-9bC"/>
                     </connections>
                 </viewController>
                 <customObject id="PRY-P4-TTK" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -887,7 +898,8 @@
                     </view>
                     <connections>
                         <outlet property="menuScreen" destination="Q1e-4i-EB9" id="hoo-TB-5gu"/>
-                        <outlet property="menuView" destination="Q1e-4i-EB9" id="9Ql-QS-rZ0"/>
+                        <outlet property="menuV" destination="Q1e-4i-EB9" id="Lpc-Re-iQv"/>
+                        <outlet property="menuView" destination="Q1e-4i-EB9" id="IKk-JQ-bUa"/>
                         <segue destination="bEc-MV-a2K" kind="custom" identifier="singlePlayerGameSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="xNm-9e-HTw"/>
                     </connections>
                 </viewController>
@@ -1177,7 +1189,7 @@ Gw
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="gDF-aI-Zhb"/>
+        <segue reference="5c6-tT-kTi"/>
         <segue reference="0ql-Dq-d7M"/>
     </inferredMetricsTieBreakers>
 </document>

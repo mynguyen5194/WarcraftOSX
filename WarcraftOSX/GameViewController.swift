@@ -34,7 +34,7 @@ class GameViewController: NSViewController {
     
     @IBOutlet weak var mainMapView: NSView!
     @IBOutlet weak var miniMapView: NSView!
-    
+    @IBOutlet weak var testLocation: NSTextField!
     @IBOutlet weak var mini: NSView!
     
     private lazy var acknowledgeSound: AVAudioPlayer = {
@@ -126,9 +126,14 @@ class GameViewController: NSViewController {
         
     }
     
+    var mouseLocation: NSPoint {
+        return NSEvent.mouseLocation()
+    }
+    
     override func mouseDown(with event: NSEvent) {
-        acknowledgeSound.prepareToPlay()
-        acknowledgeSound.play()
+        testLocation.stringValue = String(describing: NSEvent.mouseLocation())
+        //acknowledgeSound.prepareToPlay()
+        //acknowledgeSound.play()
     }
     
 }
