@@ -7,23 +7,22 @@
 //
 
 import Cocoa
-import Foundation
 import AVFoundation
 
 class OSXCustomView: NSView {
     
-    weak var mapRenderer: MapRenderer?
-    weak var assetRenderer: AssetRenderer?
-    convenience init(frame: CGRect, mapRenderer: MapRenderer, assetRenderer: AssetRenderer) {
+    weak var viewportRenderer: ViewportRenderer?
+    
+    convenience init(frame: CGRect, viewportRenderer: ViewportRenderer) {
         self.init(frame: frame)
-        self.mapRenderer = mapRenderer
-        self.assetRenderer = assetRenderer
+        self.viewportRenderer = viewportRenderer
+        
         NSEvent.addLocalMonitorForEvents(matching: .keyDown) {
             (event) -> NSEvent? in self.keyDown(with: event)
             return event
         }
     }
-    
+
     override var isFlipped: Bool{
         return true
     }
@@ -47,15 +46,15 @@ class OSXCustomView: NSView {
         if event.keyCode == 123 {
             frame.origin.x += myCGFloat
         }
-        //right arrow
+            //right arrow
         else if event.keyCode == 124 {
             frame.origin.x -= myCGFloat
         }
-        //down arrow
+            //down arrow
         else if event.keyCode == 125 {
             frame.origin.y += myCGFloat
         }
-        //up arrow
+            //up arrow
         else if event.keyCode == 126 {
             frame.origin.y -= myCGFloat
         }
@@ -63,16 +62,14 @@ class OSXCustomView: NSView {
     
     override func draw(_ dirtyRect: CGRect) {
         
-        guard let mapRenderer = mapRenderer, let assetRenderer = assetRenderer else {
+        guard let viewportRenderer = viewportRenderer else {
             return
         }
         do {
-            let rectangle = Rectangle(xPosition: 0, yPosition: 0, width: mapRenderer.detailedMapWidth, height: mapRenderer.detailedMapHeight)
-            let layer = GraphicFactory.createSurface(width: mapRenderer.detailedMapWidth, height: mapRenderer.detailedMapHeight, format: .a1)!
-            let typeLayer = GraphicFactory.createSurface(width: mapRenderer.detailedMapWidth, height: mapRenderer.detailedMapHeight, format: .a1)!
-            try mapRenderer.drawMap(on: layer, typeSurface: typeLayer, in: rectangle, level: 0)
-            try assetRenderer.drawAssets(on: layer, typeSurface: typeLayer, in: rectangle)
-            try mapRenderer.drawMap(on: layer, typeSurface: typeLayer, in: rectangle, level: 1)
+            let rectangle = Rectangle(xPosition: 0, yPosition: 0, width: viewportRenderer.lastViewportWidth, height: viewportRenderer.lastViewportHeight)
+            let layer = GraphicFactory.createSurface(width: viewportRenderer.lastViewportWidth, height: viewportRenderer.lastViewportHeight, format: .a1)!
+            let typeLayer = GraphicFactory.createSurface(width: viewportRenderer.lastViewportWidth, height: viewportRenderer.lastViewportHeight, format: .a1)!
+            try viewportRenderer.drawViewport(on: layer, typeSurface: typeLayer, selectionMarkerList: [], selectRect: rectangle, currentCapability: .none)
             let context = UIGraphicsGetCurrentContext()!
             context.draw(layer as! CGLayer, in: self.bounds)
             context.draw(typeLayer as! CGLayer, in: dirtyRect)
@@ -81,4 +78,6 @@ class OSXCustomView: NSView {
             fatalError(error.localizedDescription)
         }
     }
+    
 }
+

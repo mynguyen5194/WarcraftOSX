@@ -10,6 +10,9 @@
 		20D1BC861E53D2C2009ED019 /* SinglePlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D1BC851E53D2C2009ED019 /* SinglePlayerViewController.swift */; };
 		20D1BC881E53D419009ED019 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D1BC871E53D419009ED019 /* MainMenuViewController.swift */; };
 		20D1BC8A1E53D759009ED019 /* SoundOptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D1BC891E53D759009ED019 /* SoundOptionViewController.swift */; };
+		8C421ABC1E583C8D00343CC4 /* ViewportRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C421ABB1E583C8D00343CC4 /* ViewportRenderer.swift */; };
+		8C421ABE1E583D0000343CC4 /* FogRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C421ABD1E583D0000343CC4 /* FogRenderer.swift */; };
+		8C421AC01E58718B00343CC4 /* FileDataContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C421ABF1E58718B00343CC4 /* FileDataContainer.swift */; };
 		A93DF5E11E3D77E90047BA86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93DF5E01E3D77E90047BA86 /* AppDelegate.swift */; };
 		A93DF5E71E3D77E90047BA86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A93DF5E61E3D77E90047BA86 /* Assets.xcassets */; };
 		A93DF5EA1E3D77E90047BA86 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A93DF5E81E3D77E90047BA86 /* Main.storyboard */; };
@@ -77,6 +80,9 @@
 		20D1BC851E53D2C2009ED019 /* SinglePlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinglePlayerViewController.swift; sourceTree = "<group>"; };
 		20D1BC871E53D419009ED019 /* MainMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		20D1BC891E53D759009ED019 /* SoundOptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundOptionViewController.swift; sourceTree = "<group>"; };
+		8C421ABB1E583C8D00343CC4 /* ViewportRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewportRenderer.swift; sourceTree = "<group>"; };
+		8C421ABD1E583D0000343CC4 /* FogRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FogRenderer.swift; sourceTree = "<group>"; };
+		8C421ABF1E58718B00343CC4 /* FileDataContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileDataContainer.swift; sourceTree = "<group>"; };
 		A93DF5DD1E3D77E90047BA86 /* WarcraftOSX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WarcraftOSX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A93DF5E01E3D77E90047BA86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A93DF5E61E3D77E90047BA86 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -238,6 +244,8 @@
 				FE4D00E01E4C28770099BE43 /* VisibilityMap.swift */,
 				FE4D00EC1E4C3B890099BE43 /* TerrainMap.swift */,
 				FE4D01071E4CDD920099BE43 /* RouterMap.swift */,
+				8C421ABB1E583C8D00343CC4 /* ViewportRenderer.swift */,
+				8C421ABD1E583D0000343CC4 /* FogRenderer.swift */,
 			);
 			name = Map;
 			sourceTree = "<group>";
@@ -259,8 +267,9 @@
 				FE4D00E61E4C29A90099BE43 /* DataContainer.swift */,
 				FE4D00E41E4C296D0099BE43 /* DataSource.swift */,
 				FE4D00E81E4C29B60099BE43 /* DataSink.swift */,
-				FE4D00DB1E4C19520099BE43 /* LineDataSource.swift */,
+				8C421ABF1E58718B00343CC4 /* FileDataContainer.swift */,
 				FE4D00EA1E4C29C10099BE43 /* FileDataSource.swift */,
+				FE4D00DB1E4C19520099BE43 /* LineDataSource.swift */,
 			);
 			name = DataContainer;
 			sourceTree = "<group>";
@@ -478,6 +487,7 @@
 				FE4D00C61E4C187F0099BE43 /* MiniMapView.swift in Sources */,
 				FE4D00F61E4C3D510099BE43 /* Tokenizer.swift in Sources */,
 				FE4D00F81E4C41250099BE43 /* PixelType.swift in Sources */,
+				8C421ABE1E583D0000343CC4 /* FogRenderer.swift in Sources */,
 				FE4D00CC1E4C18DC0099BE43 /* MapRenderer.swift in Sources */,
 				FE4D010D1E4D82C00099BE43 /* UIScreen.swift in Sources */,
 				FE4D00EF1E4C3CA80099BE43 /* Rectangle.swift in Sources */,
@@ -504,7 +514,9 @@
 				FE4D00C81E4C18AE0099BE43 /* AssetRenderer.swift in Sources */,
 				A93DF5E11E3D77E90047BA86 /* AppDelegate.swift in Sources */,
 				FE4D00FD1E4C45530099BE43 /* PlayerAsset.swift in Sources */,
+				8C421AC01E58718B00343CC4 /* FileDataContainer.swift in Sources */,
 				FE4D01041E4CDBF40099BE43 /* Debug.swift in Sources */,
+				8C421ABC1E583C8D00343CC4 /* ViewportRenderer.swift in Sources */,
 				FE4D010B1E4D81740099BE43 /* UIGraphics.swift in Sources */,
 				FE4D00ED1E4C3B890099BE43 /* TerrainMap.swift in Sources */,
 				FE4D00DC1E4C19520099BE43 /* LineDataSource.swift in Sources */,

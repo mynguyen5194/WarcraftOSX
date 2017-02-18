@@ -2,9 +2,8 @@ import Foundation
 import os.log
 
 class AssetDecoratedMap: TerrainMap {
-
+    
     enum GameError: Error {
-        case missingFirstFileInterator
         case failedToReadResourceCount
         case failedToReadResource(index: Int)
         case tooFewTokensForResource(index: Int)
@@ -15,50 +14,50 @@ class AssetDecoratedMap: TerrainMap {
         case invalidAssetPosition(x: Int, y: Int)
         case unknownColorIndex(index: Int)
     }
-
+    
     enum SearchStatus {
         case unvisited, queued, visited
     }
-
+    
     struct AssetInitialization {
         var type: String
         var color: PlayerColor
         var tilePosition: Position
     }
-
+    
     struct ResourceInitialization {
         var color: PlayerColor
         var gold: Int
         var lumber: Int
     }
-
+    
     struct SearchTile {
         var x: Int
         var y: Int
     }
-
+    
     private(set) var assets: [PlayerAsset] = []
     private(set) var assetInitializationList: [AssetInitialization] = []
     private(set) var resourceInitializationList: [ResourceInitialization] = []
     private var searchMap: [[SearchStatus]] = []
     private static var mapNameTranslation: [String: Int] = [:]
     private static var all: [AssetDecoratedMap] = []
-
+    
     override var playerCount: Int {
         return resourceInitializationList.count - 1
     }
-
+    
     override init() {
         super.init()
     }
-
+    
     init(map: AssetDecoratedMap) {
         super.init(terrainMap: map)
         assets = map.assets
         assetInitializationList = map.assetInitializationList
         resourceInitializationList = map.resourceInitializationList
     }
-
+    
     init(map: AssetDecoratedMap, newColors: [PlayerColor]) {
         super.init(terrainMap: map)
         assets = map.assets
@@ -79,57 +78,52 @@ class AssetDecoratedMap: TerrainMap {
             return resource
         }
     }
-
-    static func loadMaps(container: DataContainer) throws {
-        guard let fileIterator = container.first() else {
-            throw GameError.missingFirstFileInterator
-        }
-        while fileIterator.isValid() {
-            let filename = fileIterator.name()
-            fileIterator.next()
-            if filename.hasSuffix(".map") {
+    
+    static func loadMaps(from dataContainer: DataContainer) {
+        dataContainer.contentURLs.filter { url in
+            return url.pathExtension == "map"
+            }.forEach { url in
                 do {
                     let map = AssetDecoratedMap()
-                    try map.loadMap(source: container.dataSource(name: filename))
+                    try map.loadMap(source: FileDataSource(url: url))
                     mapNameTranslation[map.mapName] = all.count
                     all.append(map)
-                    printDebug("Loaded map \(filename).", level: .low)
+                    printDebug("Loaded map \(url.lastPathComponent).", level: .low)
                 } catch {
-                    printError("Failed to load map \(filename) (Error: \(error)).")
+                    printError("Failed to load map \(url.lastPathComponent). \(error.localizedDescription)")
                 }
-            }
         }
         printDebug("Maps loaded.", level: .low)
     }
-
+    
     static func mapIndex(of name: String) -> Int {
         return mapNameTranslation[name] ?? -1
     }
-
+    
     static func map(at index: Int) -> AssetDecoratedMap {
         guard index >= 0 && index < all.count else {
             return AssetDecoratedMap()
         }
         return all[index]
     }
-
+    
     static func duplicateMap(at index: Int, newColors: [PlayerColor]) -> AssetDecoratedMap {
         guard index >= 0 && index < all.count else {
             return AssetDecoratedMap()
         }
         return AssetDecoratedMap(map: all[index], newColors: newColors)
     }
-
+    
     func addAsset(_ asset: PlayerAsset) {
         assets.append(asset)
     }
-
+    
     func removeAsset(_ asset: PlayerAsset) {
         if let index = assets.index(where: { $0 === asset }) {
             assets.remove(at: index)
         }
     }
-
+    
     func findNearestAsset(at position: Position, color: PlayerColor, type: AssetType) -> PlayerAsset {
         var bestAsset = assets[0]
         var bestDistanceSquared = -1
@@ -144,11 +138,11 @@ class AssetDecoratedMap: TerrainMap {
         }
         return bestAsset
     }
-
+    
     func canPlaceAsset(at position: Position, size: Int, ignoreAsset: PlayerAsset) -> Bool {
         var rightX: Int
         var bottomY: Int
-
+        
         for yOffset in 0 ..< size {
             for xOffset in 0 ..< size {
                 let tileTerrainType = tileTypeAt(x: position.x + xOffset, y: position.y + yOffset)
@@ -183,7 +177,7 @@ class AssetDecoratedMap: TerrainMap {
         }
         return true
     }
-
+    
     func findAssetPlacement(placeAsset: PlayerAsset, fromAsset: PlayerAsset, nextTileTarget: Position) -> Position {
         var bestDistance = -1
         var bestPosition = Position(x: -1, y: -1)
@@ -198,7 +192,7 @@ class AssetDecoratedMap: TerrainMap {
                 for x in max(leftX, 0) ... toX {
                     if canPlaceAsset(at: Position(x: x, y: topY), size: placeAsset.size, ignoreAsset: placeAsset) {
                         let position = Position(x: x, y: topY)
-                        let currentDistance = position.distanceSquaredFrom(position: nextTileTarget)
+                        let currentDistance = position.distanceSquared(nextTileTarget)
                         if -1 == bestDistance || currentDistance < bestDistance {
                             bestDistance = currentDistance
                             bestPosition = position
@@ -213,7 +207,7 @@ class AssetDecoratedMap: TerrainMap {
                 for y in max(topY, 0) ... toY {
                     if canPlaceAsset(at: Position(x: rightX, y: y), size: placeAsset.size, ignoreAsset: placeAsset) {
                         let position = Position(x: rightX, y: y)
-                        let currentDistance = position.distanceSquaredFrom(position: nextTileTarget)
+                        let currentDistance = position.distanceSquared(nextTileTarget)
                         if -1 == bestDistance || currentDistance < bestDistance {
                             bestDistance = currentDistance
                             bestPosition = position
@@ -266,12 +260,12 @@ class AssetDecoratedMap: TerrainMap {
         }
         return bestPosition
     }
-
-    override func loadMap(source: DataSource) throws {
-        try super.loadMap(source: source)
-
-        let lineSource = LineDataSource(dataSource: source)
-
+    
+    override func loadMap(source dataSource: DataSource) throws {
+        try super.loadMap(source: dataSource)
+        
+        let lineSource = LineDataSource(dataSource: dataSource)
+        
         resourceInitializationList = []
         guard let resourceCountString = lineSource.readLine(), let resourceCount = Int(resourceCountString) else {
             throw GameError.failedToReadResourceCount
@@ -292,7 +286,7 @@ class AssetDecoratedMap: TerrainMap {
             }
             resourceInitializationList.append(ResourceInitialization(color: playerColor, gold: gold, lumber: lumber))
         }
-
+        
         assetInitializationList = []
         guard let assetCountString = lineSource.readLine(), let assetCount = Int(assetCountString) else {
             throw GameError.failedToReadAssetCount
@@ -301,7 +295,7 @@ class AssetDecoratedMap: TerrainMap {
             guard let currentLine = lineSource.readLine() else {
                 throw GameError.failedToReadAsset(index: index)
             }
-
+            
             let tokens = Tokenizer.tokenize(data: currentLine)
             guard tokens.count >= 4, let type = tokens.first, let playerColorIndex = Int(tokens[1]), let x = Int(tokens[2]), let y = Int(tokens[3]) else {
                 throw GameError.tooFewTokensForAsset(index: index)
@@ -316,7 +310,7 @@ class AssetDecoratedMap: TerrainMap {
             assetInitializationList.append(AssetInitialization(type: type, color: color, tilePosition: position))
         }
     }
-
+    
     func createInitializeMap() -> AssetDecoratedMap {
         let returnMap = AssetDecoratedMap()
         if returnMap.map.count != map.count {
@@ -324,11 +318,11 @@ class AssetDecoratedMap: TerrainMap {
         }
         return returnMap
     }
-
+    
     func createVisibilityMap() -> VisibilityMap {
         return VisibilityMap(width: width, height: height, maxVisibility: PlayerAssetType.maxSight)
     }
-
+    
     func updateMap(visibilityMap: VisibilityMap, assetDecoratedMap: AssetDecoratedMap) {
         if map.count != assetDecoratedMap.map.count {
             assetDecoratedMap.map = Array(repeating: Array(repeating: .none, count: assetDecoratedMap.map[0].count), count: assetDecoratedMap.map.count)
@@ -371,7 +365,7 @@ class AssetDecoratedMap: TerrainMap {
             let currentPosition = asset.tilePosition
             let assetSize = asset.size
             var addAsset = false
-
+            
             for yOffset in 0 ..< assetSize {
                 let yPosition = currentPosition.y + yOffset
                 for xOffset in 0 ..< assetSize {
@@ -389,7 +383,7 @@ class AssetDecoratedMap: TerrainMap {
             }
         }
     }
-
+    
     func findNearestReachableTileType(at position: Position, type: TileType) -> Position {
         var searchQueueArray: [SearchTile] = []
         var currentSearch = SearchTile(x: 0, y: 0)
@@ -398,7 +392,7 @@ class AssetDecoratedMap: TerrainMap {
         let mapHeight = height
         let searchXOffsets = [0, 1, 0, -1]
         let searchYOffsets = [ -1, 0, 1, 0]
-
+        
         if searchMap.count != map.count {
             searchMap = Array(repeating: Array(repeating: .unvisited, count: map[0].count), count: map.count)
             let lastYIndex = map.count - 1
