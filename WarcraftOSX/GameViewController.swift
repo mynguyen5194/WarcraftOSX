@@ -52,7 +52,7 @@ class GameViewController: NSViewController {
     
     private lazy var map: AssetDecoratedMap = {
         do {
-            let mapURL = Bundle.main.url(forResource: "/data/map/maze", withExtension: "map")!
+            let mapURL = Bundle.main.url(forResource: "/data/map/2player", withExtension: "map")!
             let mapSource = try FileDataSource(url: mapURL)
             let map = AssetDecoratedMap()
             try map.loadMap(source: mapSource)
@@ -67,6 +67,7 @@ class GameViewController: NSViewController {
             let configurationURL = Bundle.main.url(forResource: "/data/img/MapRendering", withExtension: "dat")!
             let configuration = try FileDataSource(url: configurationURL)
             let terrainTileset = try tileset("Terrain")
+            Position.setTileDimensions(width: terrainTileset.tileWidth, height: terrainTileset.tileHeight)
             return try MapRenderer(configuration: configuration, tileset: terrainTileset, map: self.map)
         } catch {
             let error = NSError.init(domain: "MapRenderer Error", code: 0, userInfo: nil)
@@ -98,7 +99,11 @@ class GameViewController: NSViewController {
             let fireTilesets = [try tileset("FireSmall"), try tileset("FireLarge")]
             let buildingDeathTileset = try tileset("BuildingDeath")
             let arrowTileset = try tileset("Arrow")
-            // let playerData = PlayerData(map: self.map, color: .blue)
+            let assetURL = Bundle.main.url(forResource: "/data/res", withExtension: nil)!
+            try PlayerAssetType.loadTypes(from: FileDataContainer(url: assetURL))
+            let playerData = PlayerData(map: self.map, color: .blue)
+            _ = PlayerData(map: self.map, color: .none)
+            _ = PlayerData(map: self.map, color: .red)
             let assetRenderer = AssetRenderer(
                 colors: colors,
                 tilesets: tilesets,
@@ -107,7 +112,7 @@ class GameViewController: NSViewController {
                 fireTilesets: fireTilesets,
                 buildingDeathTileset: buildingDeathTileset,
                 arrowTileset: arrowTileset,
-                player: nil,
+                player: playerData,
                 map: self.map
             )
             return assetRenderer
@@ -116,21 +121,37 @@ class GameViewController: NSViewController {
         }
     }()
 
+    private lazy var fogRenderer: FogRenderer = {
+        do {
+            let fogTileset = try tileset("Fog")
+            return try FogRenderer(tileset: fogTileset, map: self.map.createVisibilityMap())
+        } catch {
+            fatalError(error.localizedDescription) // TODO: Handle Error
+        }
+    }()
+    
+    private lazy var viewportRenderer: ViewportRenderer = {
+        return ViewportRenderer(mapRenderer: self.mapRenderer, assetRenderer: self.assetRenderer, fogRenderer: self.fogRenderer)
+    }()
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let OSXCustomViewMap = OSXCustomView(frame: CGRect(origin: .zero, size: CGSize(width: mapRenderer.detailedMapWidth, height: mapRenderer.detailedMapHeight)), mapRenderer: mapRenderer, assetRenderer: assetRenderer)
+        let OSXCustomViewMap = OSXCustomView(frame: CGRect(origin: .zero, size: CGSize(width: mapRenderer.detailedMapWidth, height: mapRenderer.detailedMapHeight)), viewportRenderer: viewportRenderer)
         let OSXCustomMiniMapViewMap = OSXCustomMiniMapView(frame: CGRect(origin: .zero, size: CGSize(width: mapRenderer.mapWidth, height: mapRenderer.mapHeight)), mapRenderer: mapRenderer)
-        mainMapView.addSubview(OSXCustomViewMap)
-        mini.addSubview(OSXCustomMiniMapViewMap)
         
+        view.addSubview(OSXCustomViewMap)
+        view.addSubview(OSXCustomMiniMapViewMap)
+    
+
     }
     // variable that stores the mouse location
     var mouseLocation: NSPoint {
         return NSEvent.mouseLocation()
     }
     
-     // track mouse location upon click
+
     override func mouseDown(with event: NSEvent) {
         // adjust to only track within ViewController with origin at (0,0)
         // may need to dynamically adjust whenever window size is changed

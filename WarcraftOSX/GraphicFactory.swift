@@ -1,4 +1,3 @@
-import Foundation
 import CoreGraphics
 import AppKit
 
@@ -12,31 +11,15 @@ class GraphicFactory {
         UIGraphicsEndImageContext()
         return layer
     }
-    
-    static func loadSurface(dataSource: DataSource) -> GraphicSurface? {
-        fatalError("This method is not yet implemented.")
-    }
-    
-    static func loadPNGTilesetSurface(name: String) -> GraphicSurface {
-      //  let name = String(name.characters.dropFirst(2))
-    
         
-        //HACK
-        let terrainURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/img/Terrain", ofType:"png"))!)
-        let terrainData = CGDataProvider(url: terrainURL as CFURL)
-        let terrainCG = CGImage(pngDataProviderSource: terrainData!, decode: nil, shouldInterpolate: false, intent: CGColorRenderingIntent.defaultIntent)
-        let terrainCGImageSize = CGSize.init(width: (terrainCG?.width)!, height: (terrainCG?.height)!)
-        
-        //NOTE: New Implementation
-        //let image = NSImage.init(named: name)
-        //var imageRect: CGRect = CGRect.init(x: 0, y: 0, width: image!.size.width, height: image!.size.height)
-        //let imageRef = image?.cgImage(forProposedRect: nil, context: nil, hints: nil)
-        
-        UIGraphicsBeginImageContext(size: terrainCGImageSize)
-        let layer = CGLayer(UIGraphicsGetCurrentContext()!, size: terrainCGImageSize, auxiliaryInfo: nil)
-        layer?.context!.draw(terrainCG!, in: CGRect(origin: .zero, size: terrainCGImageSize))
+    static func loadSurface(from url: URL) -> GraphicSurface? {
+        let image = NSImage(contentsOfFile: url.path)!
+        let cgImage = image.cgImage(forProposedRect: nil, context: nil, hints: nil)
+        UIGraphicsBeginImageContext(size: image.size)
+        let layer = CGLayer(UIGraphicsGetCurrentContext()!, size: image.size, auxiliaryInfo: nil)!
+        layer.context!.draw(cgImage!, in: CGRect(origin: .zero, size: image.size))
         UIGraphicsEndImageContext()
-        return layer!
-        
+        return layer
     }
+
 }

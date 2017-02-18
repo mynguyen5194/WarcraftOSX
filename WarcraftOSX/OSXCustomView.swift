@@ -7,24 +7,22 @@
 //
 
 import Cocoa
-import Foundation
 import AVFoundation
 
 class OSXCustomView: NSView {
     
-    weak var mapRenderer: MapRenderer?
-    weak var assetRenderer: AssetRenderer?
-    convenience init(frame: CGRect, mapRenderer: MapRenderer, assetRenderer: AssetRenderer) {
+    weak var viewportRenderer: ViewportRenderer?
+    
+    convenience init(frame: CGRect, viewportRenderer: ViewportRenderer) {
         self.init(frame: frame)
-        self.mapRenderer = mapRenderer
-        self.assetRenderer = assetRenderer
+        self.viewportRenderer = viewportRenderer
+        
         NSEvent.addLocalMonitorForEvents(matching: .keyDown) {
             (event) -> NSEvent? in self.keyDown(with: event)
             return event
         }
     }
     
-    // Flips the inverted map to display map correctly
     override var isFlipped: Bool{
         return true
     }
@@ -53,17 +51,17 @@ class OSXCustomView: NSView {
             frame.origin.x += myCGFloat
             frame.origin.x = max(min(frame.origin.x, 0), -frame.size.width + self.visibleRect.width)
         }
-        //right arrow
+            //right arrow
         else if event.keyCode == 124 {
             frame.origin.x -= myCGFloat
             frame.origin.x = max(min(frame.origin.x, 0), -frame.size.width + self.visibleRect.width)
         }
-        //down arrow
+            //down arrow
         else if event.keyCode == 125 {
             frame.origin.y += myCGFloat
             frame.origin.y = max(min(frame.origin.y, 0), -frame.size.height + 600)
         }
-        //up arrow
+            //up arrow
         else if event.keyCode == 126 {
             frame.origin.y -= myCGFloat
             frame.origin.y = max(min(frame.origin.y, 0), -frame.size.height + 600)
@@ -72,16 +70,14 @@ class OSXCustomView: NSView {
     
     override func draw(_ dirtyRect: CGRect) {
         
-        guard let mapRenderer = mapRenderer, let assetRenderer = assetRenderer else {
+        guard let viewportRenderer = viewportRenderer else {
             return
         }
         do {
-            let rectangle = Rectangle(xPosition: 0, yPosition: 0, width: mapRenderer.detailedMapWidth, height: mapRenderer.detailedMapHeight)
-            let layer = GraphicFactory.createSurface(width: mapRenderer.detailedMapWidth, height: mapRenderer.detailedMapHeight, format: .a1)!
-            let typeLayer = GraphicFactory.createSurface(width: mapRenderer.detailedMapWidth, height: mapRenderer.detailedMapHeight, format: .a1)!
-            try mapRenderer.drawMap(on: layer, typeSurface: typeLayer, in: rectangle, level: 0)
-            try assetRenderer.drawAssets(on: layer, typeSurface: typeLayer, in: rectangle)
-            try mapRenderer.drawMap(on: layer, typeSurface: typeLayer, in: rectangle, level: 1)
+            let rectangle = Rectangle(xPosition: 0, yPosition: 0, width: viewportRenderer.lastViewportWidth, height: viewportRenderer.lastViewportHeight)
+            let layer = GraphicFactory.createSurface(width: viewportRenderer.lastViewportWidth, height: viewportRenderer.lastViewportHeight, format: .a1)!
+            let typeLayer = GraphicFactory.createSurface(width: viewportRenderer.lastViewportWidth, height: viewportRenderer.lastViewportHeight, format: .a1)!
+            try viewportRenderer.drawViewport(on: layer, typeSurface: typeLayer, selectionMarkerList: [], selectRect: rectangle, currentCapability: .none)
             let context = UIGraphicsGetCurrentContext()!
             context.draw(layer as! CGLayer, in: self.bounds)
             context.draw(typeLayer as! CGLayer, in: dirtyRect)
@@ -90,38 +86,6 @@ class OSXCustomView: NSView {
             fatalError(error.localizedDescription)
         }
     }
+    
 }
 
-class OSXMainMenu {
-    
-    var menu:NSImage
-    
-    init(){
-        
-        let menuURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/img/Texture", ofType:"png"))!)
-        
-        let menuData = CGDataProvider(url: menuURL as CFURL)
-        
-        let menuCG = CGImage(pngDataProviderSource: menuData!, decode: nil, shouldInterpolate: false, intent: CGColorRenderingIntent.defaultIntent)
-        
-        let menuOrigin = CGPoint(x: 0, y: 0)
-        
-        let menuSize = CGSize(width: menuCG!.width, height: menuCG!.height)
-        
-        let menuRect = CGRect(origin: menuOrigin, size: menuSize)
-        
-        let menuImage = menuCG?.cropping(to: menuRect)
-        
-        menu = NSImage(cgImage: menuImage!, size: NSZeroSize)
-        
-    }
-    
-    
-    
-    func getMenuImage() -> NSImage {
-        
-        return self.menu
-        
-    }
-    
-}
