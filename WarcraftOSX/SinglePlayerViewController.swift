@@ -2,7 +2,11 @@
 //  SinglePlayerViewController.swift
 //  WarcraftOSX
 //
+<<<<<<< HEAD
 //  Created by My Nguyen on 2/13/17.
+=======
+//  Created by My Nguyen on 2/14/17.
+>>>>>>> origin/master
 //  Copyright © 2017 Michelle Lee. All rights reserved.
 //
 
@@ -13,6 +17,7 @@ class SinglePlayerViewController: NSViewController {
     var game1SoundURL: URL?
     var game1SoundBankURL: URL?
     var game1Sound = AVMIDIPlayer()
+<<<<<<< HEAD
 
     @IBAction func selectButton(_ sender: NSButton) {
         // MARK: Menu Sound should stop here
@@ -27,6 +32,21 @@ class SinglePlayerViewController: NSViewController {
         print("Maze Selected")
     }
     
+=======
+    
+    @IBAction func selectButton(_ sender: NSButton) {
+    }
+    
+    @IBAction func northSouthDivideTextField(_ sender: NSTextField) {
+    }
+    
+    @IBAction func mazeTextField(_ sender: NSTextField) {
+    }
+    
+    @IBAction func cancelButton(_ sender: NSButton) {
+    }
+
+>>>>>>> origin/master
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,7 +65,11 @@ class SinglePlayerViewController: NSViewController {
         }
         game1Sound.prepareToPlay()
         game1Sound.play()
+<<<<<<< HEAD
                 game1Sound.stop()
+=======
+        game1Sound.stop()
+>>>>>>> origin/master
     }
     
 }

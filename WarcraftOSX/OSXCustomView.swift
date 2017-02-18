@@ -14,29 +14,52 @@ class OSXCustomView: NSView {
     
     weak var mapRenderer: MapRenderer?
     weak var assetRenderer: AssetRenderer?
-    
     convenience init(frame: CGRect, mapRenderer: MapRenderer, assetRenderer: AssetRenderer) {
         self.init(frame: frame)
         self.mapRenderer = mapRenderer
         self.assetRenderer = assetRenderer
+        NSEvent.addLocalMonitorForEvents(matching: .keyDown) {
+            (event) -> NSEvent? in self.keyDown(with: event)
+            return event
+        }
     }
     
-    /*
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let location = touches.first?.location(in: self), let previousLocation = touches.first?.previousLocation(in: self) else {
-            return
+    override var isFlipped: Bool{
+        return true
+    }
+    
+    // Mouse dragging allows user to scroll through the map
+    override func mouseDragged(with event: NSEvent) {
+        frame.origin.x += event.deltaX
+        frame.origin.y -= event.deltaY
+        
+        // NOTE: Set bounds to scrolling
+        frame.origin.x = max(min(frame.origin.x, 0), -frame.size.width + 700)
+        frame.origin.y = max(min(frame.origin.y, 0), -frame.size.height + 500)
+    }
+    
+    // Arrow keys allows user to scroll through the map
+    override func keyDown(with event: NSEvent) {
+        
+        let myCGFloat = CGFloat(50)
+        
+        //left arrow
+        if event.keyCode == 123 {
+            frame.origin.x += myCGFloat
         }
-        frame.origin.x += location.x - previousLocation.x
-        frame.origin.y += location.y - previousLocation.y
-        frame.origin.x = max(min(frame.origin.x, 0), -frame.size.width + UIScreen.main.bounds.width)
-        frame.origin.y = max(min(frame.origin.y, 0), -frame.size.height + UIScreen.main.bounds.height)
-    }*/
-    /*
-    override func touchesMoved(with event: NSEvent) {
-        <#code#>
-    }*/
-    
-    
+        //right arrow
+        else if event.keyCode == 124 {
+            frame.origin.x -= myCGFloat
+        }
+        //down arrow
+        else if event.keyCode == 125 {
+            frame.origin.y += myCGFloat
+        }
+        //up arrow
+        else if event.keyCode == 126 {
+            frame.origin.y -= myCGFloat
+        }
+    }
     
     override func draw(_ dirtyRect: CGRect) {
         
@@ -51,10 +74,11 @@ class OSXCustomView: NSView {
             try assetRenderer.drawAssets(on: layer, typeSurface: typeLayer, in: rectangle)
             try mapRenderer.drawMap(on: layer, typeSurface: typeLayer, in: rectangle, level: 1)
             let context = UIGraphicsGetCurrentContext()!
-            context.draw(layer as! CGLayer, in: dirtyRect)
+            context.draw(layer as! CGLayer, in: self.bounds)
             context.draw(typeLayer as! CGLayer, in: dirtyRect)
         } catch {
-            print(error.localizedDescription) // TODO: Handle Error
+            let error = NSError.init(domain: "Failed in draw function of OSXCustomView", code: 0, userInfo: nil)
+            fatalError(error.localizedDescription)
         }
     }
 }
