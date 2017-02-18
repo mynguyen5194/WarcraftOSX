@@ -37,17 +37,17 @@ class GameViewController: NSViewController {
     @IBOutlet weak var testLocation: NSTextField!
     @IBOutlet weak var mini: NSView!
     
-    private lazy var acknowledgeSound: AVAudioPlayer = {
-        do {
-            var acknowledgeSound = AVAudioPlayer()
-            let acknowledge1URL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/snd/basic/acknowledge1", ofType: "wav"))!)
-            try acknowledgeSound = AVAudioPlayer(contentsOf: acknowledge1URL)
-            return acknowledgeSound
-        } catch {
-            let error = NSError.init(domain: "Failed to load Audio Player", code: 0, userInfo: nil)
-            fatalError(error.localizedDescription)
-        }
+
+    
+    private lazy var midiPlayer: AVMIDIPlayer = {
+        let gameURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/snd/music/intro", ofType: "mid"))!)
+        let soundURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/snd/generalsoundfont", ofType: "sf2"))!)
         
+        do {
+            return try AVMIDIPlayer(contentsOf: gameURL, soundBankURL: soundURL)
+        } catch {
+            fatalError(error.localizedDescription) // TODO: Handle Error
+        }
     }()
     
     private lazy var map: AssetDecoratedMap = {
@@ -137,6 +137,9 @@ class GameViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        midiPlayer.prepareToPlay()
+        midiPlayer.play()
         
         let OSXCustomViewMap = OSXCustomView(frame: CGRect(origin: .zero, size: CGSize(width: mapRenderer.detailedMapWidth, height: mapRenderer.detailedMapHeight)), viewportRenderer: viewportRenderer)
         let OSXCustomMiniMapViewMap = OSXCustomMiniMapView(frame: CGRect(origin: .zero, size: CGSize(width: mapRenderer.mapWidth, height: mapRenderer.mapHeight)), mapRenderer: mapRenderer)

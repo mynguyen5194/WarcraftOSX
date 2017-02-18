@@ -42,10 +42,6 @@ class MainMenuViewController: NSViewController {
         
         //set splash screen
         
-        let visualElements = OSXMainMenu()
-        
-        menuV.image = visualElements.getMenuImage()
-        
         //Button Elements
         
         
