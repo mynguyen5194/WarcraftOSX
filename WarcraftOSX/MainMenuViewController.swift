@@ -10,31 +10,46 @@
 import Cocoa
 import AVFoundation
 
-class MainMenuViewController: NSViewController {
-    
-    var thunkURL: URL?
+var menuSound = AVMIDIPlayer()
+
+func playThunkSound() {
+    let thunkURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/snd/misc/thunk", ofType: "wav"))!)
     var thunkSound = AVAudioPlayer()
+    
+    do {
+        try thunkSound = AVAudioPlayer(contentsOf: thunkURL)
+    } catch {
+        NSLog("Error: Can't play sound file thunk.wav")
+    }
+    
+    thunkSound.prepareToPlay()
+    thunkSound.play()
+}
+
+class MainMenuViewController: NSViewController {
     
     var menuSoundURL: URL?
     var menuSoundBankURL: URL?
-    var menuSound = AVMIDIPlayer()
     
     @IBAction func singlePlayerGameButton(_ sender: NSButton) {
-        playthunk()
+        playThunkSound()
         performSegue(withIdentifier: "singlePlayerGameSegue", sender: self)
-        //        menuSound.stop()
     }
     
     @IBAction func multiPlayerGameButton(_ sender: NSButton) {
+        playThunkSound()
     }
     
     @IBAction func optionsButton(_ sender: NSButton) {
+        playThunkSound()
     }
     
     @IBAction func exitGameButton(_ sender: NSButton) {
+        playThunkSound()
         exit(0)
     }
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -60,20 +75,5 @@ class MainMenuViewController: NSViewController {
         }
         menuSound.prepareToPlay()
         menuSound.play()
-        print("Play menuSound")
     }
-    
-    func playthunk() {
-        self.thunkURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/snd/misc/thunk", ofType: "wav"))!)
-        do {
-            try self.thunkSound = AVAudioPlayer(contentsOf: self.thunkURL!)
-        } catch {
-            NSLog("Error: Can't play sound file thunk.wav")
-        }
-        
-        self.thunkSound.prepareToPlay()
-        self.thunkSound.play()
-    }
-
-    
 }

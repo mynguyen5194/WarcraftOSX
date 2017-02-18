@@ -30,7 +30,11 @@ fileprivate func multicolorTileset(_ name: String) throws -> GraphicMulticolorTi
     return tileset
 }
 
-class GameViewController: NSViewController {    
+class GameViewController: NSViewController {
+    
+    var game1SoundURL: URL?
+    var game1SoundBankURL: URL?
+    var game1Sound = AVMIDIPlayer()
     
     @IBOutlet weak var mainMapView: NSView!
     @IBOutlet weak var miniMapView: NSView!
@@ -117,6 +121,8 @@ class GameViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        playBackgroundMusic()
+        
         let OSXCustomViewMap = OSXCustomView(frame: CGRect(origin: .zero, size: CGSize(width: mapRenderer.detailedMapWidth, height: mapRenderer.detailedMapHeight)), mapRenderer: mapRenderer, assetRenderer: assetRenderer)
         let OSXCustomMiniMapViewMap = OSXCustomMiniMapView(frame: CGRect(origin: .zero, size: CGSize(width: mapRenderer.mapWidth, height: mapRenderer.mapHeight)), mapRenderer: mapRenderer)
         mainMapView.addSubview(OSXCustomViewMap)
@@ -127,6 +133,20 @@ class GameViewController: NSViewController {
     override func mouseDown(with event: NSEvent) {
         acknowledgeSound.prepareToPlay()
         acknowledgeSound.play()
+    }
+    
+    func playBackgroundMusic() {
+        game1SoundURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/snd/music/game1", ofType: "mid"))!)
+        game1SoundBankURL = Bundle.main.url(forResource: "data/snd/generalsoundfont", withExtension: "sf2")
+        
+        do {
+            try game1Sound = AVMIDIPlayer(contentsOf: game1SoundURL!, soundBankURL: game1SoundBankURL)
+        }
+        catch {
+            NSLog("Error: Can't play sound file menu.mid")
+        }
+        game1Sound.prepareToPlay()
+        game1Sound.play()
     }
     
 }

@@ -658,7 +658,7 @@
                 <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="WarcraftOSX" customModuleProvider="target"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="-105"/>
+            <point key="canvasLocation" x="91" y="-161"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
@@ -676,7 +676,7 @@
                 </windowController>
                 <customObject id="6f7-a7-6o1" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="90" y="250"/>
+            <point key="canvasLocation" x="90" y="168"/>
         </scene>
         <!--Launch View Controller-->
         <scene sceneID="hIz-AP-VOD">
@@ -721,7 +721,7 @@
                 </viewController>
                 <customObject id="SZD-7j-Sfy" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="865" y="250"/>
+            <point key="canvasLocation" x="865" y="168"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="K4H-QS-TcK">
@@ -823,22 +823,20 @@
         <scene sceneID="7mB-XG-Pbd">
             <objects>
                 <viewController title="Main Menu" id="zhJ-aD-mQv" customClass="MainMenuViewController" customModule="WarcraftOSX" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="Q1e-4i-EB9">
+                    <view key="view" misplaced="YES" id="Q1e-4i-EB9">
                         <rect key="frame" x="0.0" y="0.0" width="658" height="463"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="guA-q7-ofk">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="guA-q7-ofk">
                                 <rect key="frame" x="274" y="417" width="111" height="26"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="The Game" id="iR0-VH-eAb">
                                     <font key="font" size="20" name="MarkerFelt-Wide"/>
                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="duJ-dm-GrR">
+                            <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="duJ-dm-GrR">
                                 <rect key="frame" x="251" y="329" width="157" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Single Player Game" bezelStyle="rounded" alignment="center" borderStyle="border" allowsMixedState="YES" imageScaling="proportionallyDown" inset="2" id="Kgw-N7-fAB">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -847,9 +845,8 @@
                                     <action selector="singlePlayerGameButton:" target="zhJ-aD-mQv" id="iTM-9b-Ko6"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tQC-xP-btW">
+                            <button verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tQC-xP-btW">
                                 <rect key="frame" x="254" y="263" width="150" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Multi Player Game" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="LiM-XH-9CJ">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -859,9 +856,18 @@
                                     <segue destination="VRI-sG-Yuv" kind="custom" identifier="multiPlayerGameSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="exB-nn-PS6"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="933-vq-lhe">
-                                <rect key="frame" x="285" y="204" width="88" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mf2-g4-ohe">
+                                <rect key="frame" x="278" y="137" width="102" height="32"/>
+                                <buttonCell key="cell" type="push" title="Exit Game" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="GNQ-5c-0Bt">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="exitGameButton:" target="zhJ-aD-mQv" id="RH4-o4-TqO"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="933-vq-lhe">
+                                <rect key="frame" x="285" y="202" width="88" height="32"/>
                                 <buttonCell key="cell" type="push" title="Options" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="e7N-C2-seQ">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -871,18 +877,21 @@
                                     <segue destination="uAV-jX-Jyl" kind="custom" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="0ql-Dq-d7M"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mf2-g4-ohe">
-                                <rect key="frame" x="278" y="137" width="102" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Exit Game" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="GNQ-5c-0Bt">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="exitGameButton:" target="zhJ-aD-mQv" id="RH4-o4-TqO"/>
-                                </connections>
-                            </button>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="933-vq-lhe" firstAttribute="centerX" secondItem="tQC-xP-btW" secondAttribute="centerX" id="0OZ-kx-C90"/>
+                            <constraint firstItem="933-vq-lhe" firstAttribute="leading" secondItem="tQC-xP-btW" secondAttribute="leading" id="11J-gp-s3p"/>
+                            <constraint firstItem="tQC-xP-btW" firstAttribute="centerX" secondItem="duJ-dm-GrR" secondAttribute="centerX" id="M88-au-Vef"/>
+                            <constraint firstItem="guA-q7-ofk" firstAttribute="top" secondItem="Q1e-4i-EB9" secondAttribute="top" constant="20" id="S80-nx-HeB"/>
+                            <constraint firstItem="guA-q7-ofk" firstAttribute="centerY" secondItem="Q1e-4i-EB9" secondAttribute="centerY" id="cJK-30-Zsq"/>
+                            <constraint firstAttribute="bottom" secondItem="mf2-g4-ohe" secondAttribute="bottom" constant="144" id="dcj-uu-fpd"/>
+                            <constraint firstItem="mf2-g4-ohe" firstAttribute="centerX" secondItem="Q1e-4i-EB9" secondAttribute="centerX" id="fQi-0N-dDt"/>
+                            <constraint firstItem="mf2-g4-ohe" firstAttribute="centerX" secondItem="933-vq-lhe" secondAttribute="centerX" id="gS2-nq-70K"/>
+                            <constraint firstItem="tQC-xP-btW" firstAttribute="leading" secondItem="duJ-dm-GrR" secondAttribute="leading" id="iBt-8r-y3O"/>
+                            <constraint firstItem="duJ-dm-GrR" firstAttribute="centerX" secondItem="guA-q7-ofk" secondAttribute="centerX" id="oTE-df-0hs"/>
+                            <constraint firstItem="duJ-dm-GrR" firstAttribute="leading" secondItem="guA-q7-ofk" secondAttribute="leading" id="p7I-Iz-snp"/>
+                            <constraint firstItem="guA-q7-ofk" firstAttribute="centerX" secondItem="Q1e-4i-EB9" secondAttribute="centerX" id="wWO-Om-QVa"/>
+                        </constraints>
                     </view>
                     <connections>
                         <segue destination="bEc-MV-a2K" kind="custom" identifier="singlePlayerGameSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="xNm-9e-HTw"/>
@@ -1175,6 +1184,6 @@ Gw
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="5c6-tT-kTi"/>
-        <segue reference="9OI-jO-cZ1"/>
+        <segue reference="0ql-Dq-d7M"/>
     </inferredMetricsTieBreakers>
 </document>
