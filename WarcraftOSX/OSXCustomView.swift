@@ -35,6 +35,9 @@ class OSXCustomView: NSView {
         frame.origin.x += event.deltaX
         frame.origin.y -= event.deltaY
         
+        mainMapOffsetX -= Int(event.deltaX)
+        mainMapOffsetY -= Int(event.deltaY)
+        
         // Hard coded to set boundary to 990 for xPos and 600 yPos
         frame.origin.x = max(min(frame.origin.x, 0), -frame.size.width + NSScreen.main()!.frame.width)
         frame.origin.y = max(min(frame.origin.y, 0), -frame.size.height + NSScreen.main()!.frame.height-100)
@@ -50,22 +53,38 @@ class OSXCustomView: NSView {
         if event.keyCode == 123 {
             frame.origin.x += myCGFloat
             frame.origin.x = max(min(frame.origin.x, 0), -frame.size.width + NSScreen.main()!.frame.width)
+            
+            mainMapOffsetX -= Int(myCGFloat)
+            if mainMapOffsetX < 0{
+                mainMapOffsetX = 0
+            } else if mainMapOffsetX > Int(frame.width){
+                mainMapOffsetX = Int(frame.width)
+            }
         }
             //right arrow
         else if event.keyCode == 124 {
             frame.origin.x -= myCGFloat
             frame.origin.x = max(min(frame.origin.x, 0), -frame.size.width + NSScreen.main()!.frame.width)
 
+            mainMapOffsetX += Int(myCGFloat)
+            if mainMapOffsetX < 0{
+                mainMapOffsetX = 0
+            } else if mainMapOffsetX > Int(frame.width){
+                mainMapOffsetX = Int(frame.width)
+            }
         }
             //down arrow
         else if event.keyCode == 125 {
             frame.origin.y += myCGFloat
             frame.origin.y = max(min(frame.origin.y, 0), -frame.size.height + NSScreen.main()!.frame.height-100)
+            mainMapOffsetY -= Int(myCGFloat)
         }
             //up arrow
         else if event.keyCode == 126 {
             frame.origin.y -= myCGFloat
-            frame.origin.y = max(min(frame.origin.y, 0), -frame.size.height + NSScreen.main()!.frame.height-100)        }
+            frame.origin.y = max(min(frame.origin.y, 0), -frame.size.height + NSScreen.main()!.frame.height-100)
+            mainMapOffsetY += Int(myCGFloat)
+        }
     }
     
     override func draw(_ dirtyRect: CGRect) {

@@ -9,6 +9,8 @@
 import Cocoa
 import AVFoundation
 
+var mainMapOffsetX = 0
+var mainMapOffsetY = 0
 
 fileprivate func tileset(_ name: String) throws -> GraphicTileset {
     guard let tilesetURL = Bundle.main.url(forResource: "/data/img/\(name)", withExtension: "dat") else {
@@ -34,7 +36,10 @@ class GameViewController: NSViewController {
     
     @IBOutlet weak var mainMapView: NSView!
     @IBOutlet weak var miniMapView: NSView!
-    @IBOutlet weak var testLocation: NSTextField!
+    @IBOutlet weak var testXLoc: NSTextField!
+    @IBOutlet weak var testYLoc: NSTextField!
+    @IBOutlet weak var tileXLoc: NSTextField!
+    @IBOutlet weak var tileYLoc: NSTextField!
     @IBOutlet weak var mini: NSView!
     
 
@@ -157,14 +162,20 @@ class GameViewController: NSViewController {
     
 
     override func mouseDown(with event: NSEvent) {
-        // adjust to only track within ViewController with origin at (0,0)
-        // may need to dynamically adjust whenever window size is changed
-        let yLocation = NSEvent.mouseLocation().y - 151.8
-        let xLocation = NSEvent.mouseLocation().y - mainMapView.frame.origin.x
+        // event.locationInWindow is mouse location inside the window with bottom left of window (0,0)
+        // -mainMapView.frame.origin to offset mainMapView relative to the entire window
+        let xMouseLoc = event.locationInWindow.x - self.mainMapView.frame.origin.x
+        let yMouseLoc = event.locationInWindow.x - self.mainMapView.frame.origin.y
+        
+        let xTileLoc = xMouseLoc + CGFloat(mainMapOffsetX)
+        let yTileLoc = yMouseLoc + CGFloat(mainMapOffsetY)
         
         // store position into the text field for testing purposes
         // change String parameter to NSEvent.mouseLocation() to track x and y position concurrently
-        testLocation.stringValue = String(describing: xLocation)
+        testXLoc.stringValue = String(describing: xMouseLoc)
+        testYLoc.stringValue = String(describing: yMouseLoc)
+        tileXLoc.stringValue = String(describing: xTileLoc)
+        tileYLoc.stringValue = String(describing: yTileLoc)
     }
     
     /*var titleVisibility: NSWindowTitleVisibility{
