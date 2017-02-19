@@ -13,7 +13,6 @@ class SinglePlayerViewController: NSViewController {
     
     
     @IBAction func selectButton(_ sender: NSButton) {
-        
     }
     
     @IBAction func northSouthDivideTextField(_ sender: NSTextField) {

@@ -1127,7 +1127,7 @@ Gw
                 </viewController>
                 <customObject id="d9R-A4-hfF" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1780" y="1477"/>
+            <point key="canvasLocation" x="1745" y="1524"/>
         </scene>
         <!--Sound Options-->
         <scene sceneID="UXg-xJ-zOW">
@@ -1204,6 +1204,9 @@ Gw
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <segue destination="uAV-jX-Jyl" kind="custom" identifier="okSoundOptionsSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="G1b-LP-3ti"/>
+                                </connections>
                             </button>
                         </subviews>
                     </view>
@@ -1564,7 +1567,7 @@ Gw
         <!--Network Options-->
         <scene sceneID="kcQ-Tl-uJ5">
             <objects>
-                <viewController title="Network Options" id="9yG-uZ-eSa" customClass="SoundOptionViewController" customModule="WarcraftOSX" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Network Options" id="9yG-uZ-eSa" sceneMemberID="viewController">
                     <view key="view" id="PST-vd-76m">
                         <rect key="frame" x="0.0" y="0.0" width="658" height="466"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1634,7 +1637,7 @@ Gw
 </string>
                                 </buttonCell>
                                 <connections>
-                                    <segue destination="uAV-jX-Jyl" kind="custom" identifier="cancelNetworkOptionsSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="4lq-jZ-KBu"/>
+                                    <segue destination="uAV-jX-Jyl" kind="custom" identifier="cancelNetworkOptions" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="pg2-XZ-0g6"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rpC-Pi-YgU">
@@ -1645,7 +1648,7 @@ Gw
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <segue destination="uAV-jX-Jyl" kind="custom" identifier="okNetworkOptionsSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="dOk-Za-kaK"/>
+                                    <segue destination="uAV-jX-Jyl" kind="custom" identifier="okNetWorkOptionsSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="XFd-UM-ceA"/>
                                 </connections>
                             </button>
                             <textField verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Afn-dy-fy2">
@@ -1678,6 +1681,6 @@ Gw
     <inferredMetricsTieBreakers>
         <segue reference="kI8-mt-Jef"/>
         <segue reference="Zuz-ad-ytp"/>
-        <segue reference="1Vm-Vv-6Vx"/>
+        <segue reference="xNm-9e-HTw"/>
     </inferredMetricsTieBreakers>
 </document>
