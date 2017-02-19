@@ -22,7 +22,7 @@ class OSXCustomView: NSView {
             return event
         }
     }
-    
+
     override var isFlipped: Bool{
         return true
     }
@@ -37,7 +37,7 @@ class OSXCustomView: NSView {
         
         // Hard coded to set boundary to 990 for xPos and 600 yPos
         frame.origin.x = max(min(frame.origin.x, 0), -frame.size.width + NSScreen.main()!.frame.width)
-        frame.origin.y = max(min(frame.origin.y, 0), -frame.size.height + NSScreen.main()!.frame.height)
+        frame.origin.y = max(min(frame.origin.y, 0), -frame.size.height + NSScreen.main()!.frame.height-100)
     }
     
     // Arrow keys allows user to scroll through the map
@@ -49,23 +49,23 @@ class OSXCustomView: NSView {
         //left arrow
         if event.keyCode == 123 {
             frame.origin.x += myCGFloat
-            frame.origin.x = max(min(frame.origin.x, 0), -frame.size.width + self.visibleRect.width)
+            frame.origin.x = max(min(frame.origin.x, 0), -frame.size.width + NSScreen.main()!.frame.width)
         }
             //right arrow
         else if event.keyCode == 124 {
             frame.origin.x -= myCGFloat
-            frame.origin.x = max(min(frame.origin.x, 0), -frame.size.width + self.visibleRect.width)
+            frame.origin.x = max(min(frame.origin.x, 0), -frame.size.width + NSScreen.main()!.frame.width)
+
         }
             //down arrow
         else if event.keyCode == 125 {
             frame.origin.y += myCGFloat
-            frame.origin.y = max(min(frame.origin.y, 0), -frame.size.height + 600)
+            frame.origin.y = max(min(frame.origin.y, 0), -frame.size.height + NSScreen.main()!.frame.height-100)
         }
             //up arrow
         else if event.keyCode == 126 {
             frame.origin.y -= myCGFloat
-            frame.origin.y = max(min(frame.origin.y, 0), -frame.size.height + 600)
-        }
+            frame.origin.y = max(min(frame.origin.y, 0), -frame.size.height + NSScreen.main()!.frame.height-100)        }
     }
     
     override func draw(_ dirtyRect: CGRect) {

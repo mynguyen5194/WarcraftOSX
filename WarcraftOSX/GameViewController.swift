@@ -144,6 +144,7 @@ class GameViewController: NSViewController {
         let OSXCustomViewMap = OSXCustomView(frame: CGRect(origin: .zero, size: CGSize(width: mapRenderer.detailedMapWidth, height: mapRenderer.detailedMapHeight)), viewportRenderer: viewportRenderer)
         let OSXCustomMiniMapViewMap = OSXCustomMiniMapView(frame: CGRect(origin: .zero, size: CGSize(width: mapRenderer.mapWidth, height: mapRenderer.mapHeight)), mapRenderer: mapRenderer)
         
+        //self.titleVisibility = NSWindowTitleVisibility.Hidden;
         view.addSubview(OSXCustomViewMap)
         view.addSubview(OSXCustomMiniMapViewMap)
     
@@ -158,15 +159,16 @@ class GameViewController: NSViewController {
     override func mouseDown(with event: NSEvent) {
         // adjust to only track within ViewController with origin at (0,0)
         // may need to dynamically adjust whenever window size is changed
-        var yLocation = NSEvent.mouseLocation().y - 151.8
-        var xLocation = NSEvent.mouseLocation().y - mainMapView.frame.origin.x
+        let yLocation = NSEvent.mouseLocation().y - 151.8
+        let xLocation = NSEvent.mouseLocation().y - mainMapView.frame.origin.x
         
         // store position into the text field for testing purposes
         // change String parameter to NSEvent.mouseLocation() to track x and y position concurrently
         testLocation.stringValue = String(describing: xLocation)
-        
-        //acknowledgeSound.prepareToPlay()
-        //acknowledgeSound.play()
     }
+    
+    /*var titleVisibility: NSWindowTitleVisibility{
+        return NSWindowTitleVisibility.hidden
+    }*/
     
 }
