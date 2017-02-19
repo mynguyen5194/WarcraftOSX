@@ -12,40 +12,24 @@ import AVFoundation
 
 var menuSound = AVMIDIPlayer()
 
-func playThunkSound() {
-    let thunkURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/snd/misc/thunk", ofType: "wav"))!)
-    var thunkSound = AVAudioPlayer()
-    
-    do {
-        try thunkSound = AVAudioPlayer(contentsOf: thunkURL)
-    } catch {
-        NSLog("Error: Can't play sound file thunk.wav")
-    }
-    
-    thunkSound.prepareToPlay()
-    thunkSound.play()
-}
-
 class MainMenuViewController: NSViewController {
-    
-    var menuSoundURL: URL?
-    var menuSoundBankURL: URL?
+//    var thunk = MenuSupporter().playThunkSound()
     
     @IBAction func singlePlayerGameButton(_ sender: NSButton) {
-        playThunkSound()
+        MenuSupporter().playThunkSound().play()
         performSegue(withIdentifier: "singlePlayerGameSegue", sender: self)
     }
     
     @IBAction func multiPlayerGameButton(_ sender: NSButton) {
-        playThunkSound()
+        MenuSupporter().playThunkSound().play()
     }
     
     @IBAction func optionsButton(_ sender: NSButton) {
-        playThunkSound()
+//        MenuSupporter().playThunkSound()
     }
     
     @IBAction func exitGameButton(_ sender: NSButton) {
-        playThunkSound()
+//        MenuSupporter().playThunkSound()
         exit(0)
     }
 
@@ -53,27 +37,8 @@ class MainMenuViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        playMenuMidi()
-    }
-    
-    func showMenuBackground() {
-        let imgView = NSImageView(frame:NSRect(x: 0, y: 0, width: 300, height: 300))
-        imgView.image = NSImage(named:"Texture")
-        self.view.addSubview(imgView)
-    }
-    
-    
-    func playMenuMidi() {
-        menuSoundURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/snd/music/menu", ofType: "mid"))!)
-        menuSoundBankURL = Bundle.main.url(forResource: "data/snd/generalsoundfont", withExtension: "sf2")
+//        background.image = MenuSupporter().getMenuImage()
+//        MenuSupporter().playMenuMidi()
         
-        do {
-            try menuSound = AVMIDIPlayer(contentsOf: menuSoundURL!, soundBankURL: menuSoundBankURL)
-        }
-        catch {
-            NSLog("Error: Can't play sound file menu.mid")
-        }
-        menuSound.prepareToPlay()
-        menuSound.play()
     }
 }
