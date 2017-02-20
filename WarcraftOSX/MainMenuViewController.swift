@@ -14,11 +14,12 @@ class MainMenuViewController: NSViewController {
     
     var thunkURL: URL?
     var thunkSound = AVAudioPlayer()
-    
     var menuSoundURL: URL?
     var menuSoundBankURL: URL?
     var menuSound = AVMIDIPlayer()
     
+    @IBOutlet var menuView: NSView!
+    @IBOutlet var menuV: NSImageView!
     @IBAction func singlePlayerGameButton(_ sender: NSButton) {
         playthunk()
         performSegue(withIdentifier: "singlePlayerGameSegue", sender: self)
@@ -36,16 +37,26 @@ class MainMenuViewController: NSViewController {
     }
 
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
+        //set splash screen
+        
+        //Button Elements
+        
+        
+        
+        //showMenuBackground()
+        
         playMenuMidi()
+        
     }
     
-    func showMenuBackground() {
+    /*func showMenuBackground() {
         let imgView = NSImageView(frame:NSRect(x: 0, y: 0, width: 300, height: 300))
         imgView.image = NSImage(named:"Texture")
         self.view.addSubview(imgView)
-    }
+    }*/
     
     
     func playMenuMidi() {
