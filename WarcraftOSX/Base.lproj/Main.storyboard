@@ -668,8 +668,7 @@
                 <windowController storyboardIdentifier="Document Window Controller" id="jGA-0Y-lOj" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="Ckk-yw-fiv">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="658" height="466"/>
+                        <rect key="contentRect" x="526" y="322" width="658" height="466"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                     </window>
                     <connections>
@@ -829,73 +828,121 @@
                         <rect key="frame" x="0.0" y="0.0" width="658" height="463"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="duJ-dm-GrR">
-                                <rect key="frame" x="251" y="329" width="157" height="32"/>
-                                <buttonCell key="cell" type="push" title="Single Player Game" bezelStyle="rounded" alignment="center" borderStyle="border" allowsMixedState="YES" imageScaling="proportionallyDown" inset="2" id="Kgw-N7-fAB">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="singlePlayerGameButton:" target="zhJ-aD-mQv" id="iTM-9b-Ko6"/>
-                                </connections>
-                            </button>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tQC-xP-btW">
-                                <rect key="frame" x="254" y="263" width="150" height="32"/>
-                                <buttonCell key="cell" type="push" title="Multi Player Game" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="LiM-XH-9CJ">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="multiPlayerGameButton:" target="zhJ-aD-mQv" id="Dn1-NJ-wzc"/>
-                                    <segue destination="VRI-sG-Yuv" kind="custom" identifier="multiPlayerGameSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="exB-nn-PS6"/>
-                                </connections>
-                            </button>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mf2-g4-ohe">
-                                <rect key="frame" x="278" y="137" width="102" height="32"/>
-                                <buttonCell key="cell" type="push" title="Exit Game" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="GNQ-5c-0Bt">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="exitGameButton:" target="zhJ-aD-mQv" id="RH4-o4-TqO"/>
-                                </connections>
-                            </button>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="933-vq-lhe">
-                                <rect key="frame" x="285" y="202" width="88" height="32"/>
-                                <buttonCell key="cell" type="push" title="Options" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="e7N-C2-seQ">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="optionsButton:" target="zhJ-aD-mQv" id="jTb-bJ-C0u"/>
-                                    <segue destination="uAV-jX-Jyl" kind="custom" identifier="optionsSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="kI8-mt-Jef"/>
-                                </connections>
-                            </button>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="guA-q7-ofk">
-                                <rect key="frame" x="283" y="414" width="93" height="29"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="The Game" id="iR0-VH-eAb">
-                                    <font key="font" size="20" name="MarkerFelt-Wide"/>
-                                    <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mbi-wI-Hkn">
+                                <rect key="frame" x="0.0" y="0.0" width="658" height="463"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="Texture" id="9F7-y9-NVr"/>
+                            </imageView>
+                            <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="70" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3SW-hv-Zrj">
+                                <rect key="frame" x="239" y="94" width="180" height="349"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="guA-q7-ofk">
+                                        <rect key="frame" x="44" y="320" width="93" height="29"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="The Game" id="iR0-VH-eAb">
+                                            <font key="font" size="20" name="MarkerFelt-Wide"/>
+                                            <color key="textColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <stackView distribution="equalCentering" orientation="vertical" alignment="centerX" spacing="30" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eP1-DM-t5u">
+                                        <rect key="frame" x="0.0" y="100" width="180" height="150"/>
+                                        <subviews>
+                                            <button verticalHuggingPriority="750" imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="duJ-dm-GrR">
+                                                <rect key="frame" x="5" y="120" width="170" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="VBr-pj-iAA"/>
+                                                    <constraint firstAttribute="width" constant="170" id="k39-Ql-MW8"/>
+                                                </constraints>
+                                                <buttonCell key="cell" type="square" title="Single Player Game" bezelStyle="shadowlessSquare" image="ButtonColors0" imagePosition="overlaps" alignment="center" borderStyle="border" allowsMixedState="YES" imageScaling="axesIndependently" inset="2" id="Kgw-N7-fAB">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="singlePlayerGameButton:" target="zhJ-aD-mQv" id="iTM-9b-Ko6"/>
+                                                    <segue destination="bEc-MV-a2K" kind="custom" identifier="singlePlayerGameSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="FRP-Se-GX2"/>
+                                                </connections>
+                                            </button>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tQC-xP-btW">
+                                                <rect key="frame" x="5" y="60" width="170" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="dtF-Ci-Bu3"/>
+                                                    <constraint firstAttribute="width" constant="170" id="t5V-wT-cQn"/>
+                                                </constraints>
+                                                <buttonCell key="cell" type="square" title="Multi Player Game" bezelStyle="shadowlessSquare" image="ButtonColors0" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="axesIndependently" inset="2" id="LiM-XH-9CJ">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="multiPlayerGameButton:" target="zhJ-aD-mQv" id="Dn1-NJ-wzc"/>
+                                                    <segue destination="VRI-sG-Yuv" kind="custom" identifier="multiPlayerGameSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="exB-nn-PS6"/>
+                                                </connections>
+                                            </button>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="933-vq-lhe">
+                                                <rect key="frame" x="5" y="0.0" width="170" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="170" id="3DK-2f-yNT"/>
+                                                    <constraint firstAttribute="height" constant="30" id="Qjy-Pn-WWI"/>
+                                                </constraints>
+                                                <buttonCell key="cell" type="square" title="Options" bezelStyle="shadowlessSquare" image="ButtonColors0" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="axesIndependently" inset="2" id="e7N-C2-seQ">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="optionsButton:" target="zhJ-aD-mQv" id="jTb-bJ-C0u"/>
+                                                    <segue destination="uAV-jX-Jyl" kind="custom" identifier="optionsSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="kI8-mt-Jef"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="180" id="aff-21-Mpn"/>
+                                            <constraint firstAttribute="height" constant="150" id="dtg-dV-ghV"/>
+                                        </constraints>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mf2-g4-ohe">
+                                        <rect key="frame" x="5" y="0.0" width="170" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="170" id="RyI-ve-3XM"/>
+                                            <constraint firstAttribute="height" constant="30" id="rXr-v6-xJw"/>
+                                        </constraints>
+                                        <buttonCell key="cell" type="square" title="Exit Game" bezelStyle="shadowlessSquare" image="ButtonColors0" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="axesIndependently" inset="2" id="GNQ-5c-0Bt">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="exitGameButton:" target="zhJ-aD-mQv" id="RH4-o4-TqO"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="933-vq-lhe" firstAttribute="top" secondItem="tQC-xP-btW" secondAttribute="bottom" constant="40" id="0Zh-do-uHK"/>
-                            <constraint firstItem="mf2-g4-ohe" firstAttribute="centerX" secondItem="Q1e-4i-EB9" secondAttribute="centerX" id="E1g-Oo-GLy"/>
-                            <constraint firstItem="duJ-dm-GrR" firstAttribute="centerX" secondItem="Q1e-4i-EB9" secondAttribute="centerX" id="GC3-Vh-TSC"/>
-                            <constraint firstItem="duJ-dm-GrR" firstAttribute="top" secondItem="Q1e-4i-EB9" secondAttribute="top" constant="106" id="OEH-3A-BPu"/>
-                            <constraint firstItem="duJ-dm-GrR" firstAttribute="top" secondItem="guA-q7-ofk" secondAttribute="bottom" constant="57" id="Pmh-sf-4vx"/>
-                            <constraint firstItem="guA-q7-ofk" firstAttribute="centerX" secondItem="Q1e-4i-EB9" secondAttribute="centerX" id="RuJ-pb-wRU"/>
-                            <constraint firstItem="tQC-xP-btW" firstAttribute="top" secondItem="duJ-dm-GrR" secondAttribute="bottom" constant="45" id="Y7B-Lo-N6P"/>
-                            <constraint firstItem="tQC-xP-btW" firstAttribute="centerX" secondItem="Q1e-4i-EB9" secondAttribute="centerX" id="Zm8-90-5eN"/>
-                            <constraint firstItem="933-vq-lhe" firstAttribute="centerX" secondItem="Q1e-4i-EB9" secondAttribute="centerX" id="aQm-hI-WdH"/>
-                            <constraint firstItem="mf2-g4-ohe" firstAttribute="top" secondItem="933-vq-lhe" secondAttribute="bottom" constant="44" id="m4c-Jm-DeK"/>
+                            <constraint firstItem="mbi-wI-Hkn" firstAttribute="top" secondItem="Q1e-4i-EB9" secondAttribute="top" id="A92-gp-wob"/>
+                            <constraint firstAttribute="trailing" secondItem="mbi-wI-Hkn" secondAttribute="trailing" id="Fgp-kh-q5i"/>
+                            <constraint firstItem="3SW-hv-Zrj" firstAttribute="top" secondItem="Q1e-4i-EB9" secondAttribute="top" constant="20" id="Jdp-Ic-eTE"/>
+                            <constraint firstAttribute="bottom" secondItem="mbi-wI-Hkn" secondAttribute="bottom" id="X2R-nA-xJZ"/>
+                            <constraint firstItem="mbi-wI-Hkn" firstAttribute="leading" secondItem="Q1e-4i-EB9" secondAttribute="leading" id="hWS-vp-3Nm"/>
+                            <constraint firstItem="3SW-hv-Zrj" firstAttribute="centerX" secondItem="Q1e-4i-EB9" secondAttribute="centerX" id="soY-bX-PQR"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <segue destination="bEc-MV-a2K" kind="custom" identifier="singlePlayerGameSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="xNm-9e-HTw"/>
-                    </connections>
                 </viewController>
                 <customObject id="Ryx-XQ-ngb" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -924,7 +971,7 @@
                                 <rect key="frame" x="491" y="84" width="153" height="32"/>
                                 <buttonCell key="cell" type="push" title="Select" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Jhe-v7-AYn">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
+                                    <font key="font" size="13" name=".SFNSText-Bold"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="selectButton:" target="bEc-MV-a2K" id="wQX-LX-fVu"/>
@@ -1012,7 +1059,7 @@ Gw
                 </viewController>
                 <customObject id="Ufd-NY-Cqq" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2777" y="256"/>
+            <point key="canvasLocation" x="2614" y="256"/>
         </scene>
         <!--Multi Player Game Window-->
         <scene sceneID="uM4-Hv-M2S">
@@ -1240,13 +1287,13 @@ Gw
                                 </textFieldCell>
                             </textField>
                             <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="15" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1da-td-rAF">
-                                <rect key="frame" x="20" y="271" width="436" height="114"/>
+                                <rect key="frame" x="20" y="274" width="441" height="111"/>
                                 <subviews>
                                     <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="25" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pmo-ey-dsD">
-                                        <rect key="frame" x="0.0" y="1" width="64" height="113"/>
+                                        <rect key="frame" x="0.0" y="7" width="69" height="104"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sqz-mM-5l7">
-                                                <rect key="frame" x="-2" y="92" width="42" height="21"/>
+                                                <rect key="frame" x="-2" y="86" width="45" height="18"/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Player" id="poM-6b-ipr">
                                                     <font key="font" size="14" name=".SFNSDisplay"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1254,15 +1301,15 @@ Gw
                                                 </textFieldCell>
                                             </textField>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x28-DJ-gIu">
-                                                <rect key="frame" x="-2" y="46" width="40" height="21"/>
+                                                <rect key="frame" x="-2" y="43" width="43" height="18"/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="1. You" id="8u8-FE-rwH">
                                                     <font key="font" size="14" name=".SFNSDisplay"/>
-                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="textColor" red="1" green="0.94194424152374268" blue="0.20373097062110901" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                             </textField>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="coK-OI-EYF">
-                                                <rect key="frame" x="-2" y="0.0" width="68" height="21"/>
+                                                <rect key="frame" x="-2" y="0.0" width="73" height="18"/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="2. Player 2" id="LMz-cL-BdQ">
                                                     <font key="font" size="14" name=".SFNSDisplay"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1282,10 +1329,10 @@ Gw
                                         </customSpacing>
                                     </stackView>
                                     <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="21" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lhW-5N-9qP">
-                                        <rect key="frame" x="79" y="1" width="270" height="113"/>
+                                        <rect key="frame" x="84" y="1" width="270" height="110"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="392-dX-Fr2">
-                                                <rect key="frame" x="117" y="92" width="37" height="21"/>
+                                                <rect key="frame" x="116" y="92" width="39" height="18"/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Color" id="Pxg-HH-GTN">
                                                     <font key="font" size="14" name=".SFNSDisplay"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1475,10 +1522,10 @@ Gw
                                         </customSpacing>
                                     </stackView>
                                     <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="72" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t5x-La-60O">
-                                        <rect key="frame" x="364" y="0.0" width="72" height="114"/>
+                                        <rect key="frame" x="369" y="0.0" width="72" height="111"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sBB-fh-38c">
-                                                <rect key="frame" x="7" y="93" width="58" height="21"/>
+                                                <rect key="frame" x="5" y="93" width="62" height="18"/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Difficulty" id="ZdY-Jm-vGI">
                                                     <font key="font" size="14" name=".SFNSDisplay"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1677,10 +1724,11 @@ Gw
         <image name="ButtonColors5" width="1" height="1"/>
         <image name="ButtonColors6" width="1" height="1"/>
         <image name="ButtonColors7" width="1" height="1"/>
+        <image name="Texture" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="FRP-Se-GX2"/>
+        <segue reference="Qp6-bd-spe"/>
         <segue reference="kI8-mt-Jef"/>
-        <segue reference="Zuz-ad-ytp"/>
-        <segue reference="xNm-9e-HTw"/>
     </inferredMetricsTieBreakers>
 </document>

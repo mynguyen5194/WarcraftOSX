@@ -10,23 +10,24 @@ import Cocoa
 import AVFoundation
 
 class MenuSupporter {
-    var menu:NSImage?
+//    var menu:NSImage?
     var menuSoundURL: URL?
     var menuSoundBankURL: URL?
     var thunkSound = AVAudioPlayer()
+    var menuSound = AVMIDIPlayer()
 
-    func getMenuImage() -> NSImage {
-        let menuURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/img/Texture", ofType:"png"))!)
-        let menuData = CGDataProvider(url: menuURL as CFURL)
-        let menuCG = CGImage(pngDataProviderSource: menuData!, decode: nil, shouldInterpolate: false, intent: CGColorRenderingIntent.defaultIntent)
-        let menuOrigin = CGPoint(x: 0, y: 0)
-        let menuSize = CGSize(width: menuCG!.width, height: menuCG!.height)
-        let menuRect = CGRect(origin: menuOrigin, size: menuSize)
-        let menuImage = menuCG?.cropping(to: menuRect)
-        menu = NSImage(cgImage: menuImage!, size: NSZeroSize)
-        
-        return self.menu!
-    }
+//    func getMenuImage() -> NSImage {
+//        let menuURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/img/Texture", ofType:"png"))!)
+//        let menuData = CGDataProvider(url: menuURL as CFURL)
+//        let menuCG = CGImage(pngDataProviderSource: menuData!, decode: nil, shouldInterpolate: false, intent: CGColorRenderingIntent.defaultIntent)
+//        let menuOrigin = CGPoint(x: 0, y: 0)
+//        let menuSize = CGSize(width: menuCG!.width, height: menuCG!.height)
+//        let menuRect = CGRect(origin: menuOrigin, size: menuSize)
+//        let menuImage = menuCG?.cropping(to: menuRect)
+//        menu = NSImage(cgImage: menuImage!, size: NSZeroSize)
+//        
+//        return self.menu!
+//    }
     
     func playMenuMidi() {
         menuSoundURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/snd/music/menu", ofType: "mid"))!)
@@ -51,7 +52,6 @@ class MenuSupporter {
             NSLog("Error: Can't play sound file thunk.wav")
         }
         
-        thunkSound.prepareToPlay()
         print("play thunk")
         return thunkSound
     }

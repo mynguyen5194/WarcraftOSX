@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		20064EA41E5A7DA300A1210B /* Kingthings_Calligraphica_Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20064EA11E5A7DA300A1210B /* Kingthings_Calligraphica_Italic.ttf */; };
+		20064EA51E5A7DA300A1210B /* Kingthings_Calligraphica_Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20064EA21E5A7DA300A1210B /* Kingthings_Calligraphica_Light.ttf */; };
+		20064EA61E5A7DA300A1210B /* Kingthings_Calligraphica.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20064EA31E5A7DA300A1210B /* Kingthings_Calligraphica.ttf */; };
+		20064EA81E5A837700A1210B /* ColorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20064EA71E5A837700A1210B /* ColorsViewController.swift */; };
 		2083222D1E5855D700C0099A /* MenuSupporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2083222C1E5855D700C0099A /* MenuSupporter.swift */; };
 		20D1BC861E53D2C2009ED019 /* SinglePlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D1BC851E53D2C2009ED019 /* SinglePlayerViewController.swift */; };
 		20D1BC881E53D419009ED019 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D1BC871E53D419009ED019 /* MainMenuViewController.swift */; };
@@ -75,6 +79,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		20064EA11E5A7DA300A1210B /* Kingthings_Calligraphica_Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Kingthings_Calligraphica_Italic.ttf; sourceTree = "<group>"; };
+		20064EA21E5A7DA300A1210B /* Kingthings_Calligraphica_Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Kingthings_Calligraphica_Light.ttf; sourceTree = "<group>"; };
+		20064EA31E5A7DA300A1210B /* Kingthings_Calligraphica.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Kingthings_Calligraphica.ttf; sourceTree = "<group>"; };
+		20064EA71E5A837700A1210B /* ColorsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorsViewController.swift; sourceTree = "<group>"; };
 		2083222C1E5855D700C0099A /* MenuSupporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuSupporter.swift; sourceTree = "<group>"; };
 		20D1BC851E53D2C2009ED019 /* SinglePlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinglePlayerViewController.swift; sourceTree = "<group>"; };
 		20D1BC871E53D419009ED019 /* MainMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
@@ -156,6 +164,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		20064EA01E5A7D6700A1210B /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				20064EA11E5A7DA300A1210B /* Kingthings_Calligraphica_Italic.ttf */,
+				20064EA21E5A7DA300A1210B /* Kingthings_Calligraphica_Light.ttf */,
+				20064EA31E5A7DA300A1210B /* Kingthings_Calligraphica.ttf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		A93DF5D41E3D77E80047BA86 = {
 			isa = PBXGroup;
 			children = (
@@ -179,6 +197,7 @@
 		A93DF5DF1E3D77E90047BA86 /* WarcraftOSX */ = {
 			isa = PBXGroup;
 			children = (
+				20064EA01E5A7D6700A1210B /* Fonts */,
 				FE7C9F691E4A3F7500A32B85 /* AppDelegate */,
 				FE7C9F6B1E4A3FC100A32B85 /* ViewControllers */,
 				FE7C9F741E4A46AE00A32B85 /* Views */,
@@ -323,6 +342,7 @@
 				FE7C9F771E4A509B00A32B85 /* GameViewController.swift */,
 				FE36A19C1E51A2C200C6DDEF /* StoryBoardSegue.swift */,
 				2083222C1E5855D700C0099A /* MenuSupporter.swift */,
+				20064EA71E5A837700A1210B /* ColorsViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -452,6 +472,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A93DF5E71E3D77E90047BA86 /* Assets.xcassets in Resources */,
+				20064EA61E5A7DA300A1210B /* Kingthings_Calligraphica.ttf in Resources */,
+				20064EA41E5A7DA300A1210B /* Kingthings_Calligraphica_Italic.ttf in Resources */,
+				20064EA51E5A7DA300A1210B /* Kingthings_Calligraphica_Light.ttf in Resources */,
 				A93DF60E1E3D78140047BA86 /* data in Resources */,
 				A93DF5EA1E3D77E90047BA86 /* Main.storyboard in Resources */,
 			);
@@ -492,6 +515,7 @@
 				FE4D00D41E4C192C0099BE43 /* GraphicRecolorMap.swift in Sources */,
 				FE4D00CE1E4C18F00099BE43 /* MapView.swift in Sources */,
 				FE7C9F781E4A509B00A32B85 /* GameViewController.swift in Sources */,
+				20064EA81E5A837700A1210B /* ColorsViewController.swift in Sources */,
 				FE4D00E91E4C29B60099BE43 /* DataSink.swift in Sources */,
 				FE4D00E71E4C29A90099BE43 /* DataContainer.swift in Sources */,
 				20D1BC8A1E53D759009ED019 /* SoundOptionViewController.swift in Sources */,
