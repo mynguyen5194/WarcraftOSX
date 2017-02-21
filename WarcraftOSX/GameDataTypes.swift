@@ -10,7 +10,21 @@ enum PlayerColor {
     case yellow
     case black
     case white
-
+    
+    var pixelColor: UInt32 {
+        switch self {
+        case .none: return 0x808080
+        case .blue: return 0x0000ff
+        case .red: return 0xff0000
+        case .green: return 0x008000
+        case .purple: return 0x800080
+        case .orange: return 0x808000
+        case .yellow: return 0xffff00
+        case .black: return 0x000000
+        case .white: return 0xffffff
+        }
+    }
+    
     var index: Int {
         switch self {
         case .none: return 0
@@ -24,11 +38,25 @@ enum PlayerColor {
         case .white: return 8
         }
     }
-
+    
     static var numberOfColors: Int {
         return 9
     }
-
+    
+    init(pixelColor: UInt32) {
+        switch pixelColor {
+        case 0x0000ff: self = .blue
+        case 0xff0000: self = .red
+        case 0x008000: self = .green
+        case 0x800080: self = .purple
+        case 0x808000: self = .orange
+        case 0xffff00: self = .yellow
+        case 0x000000: self = .black
+        case 0xffffff: self = .white
+        default: self = .none
+        }
+    }
+    
     init?(index: Int) {
         switch index {
         case 0: self = .none
@@ -42,6 +70,14 @@ enum PlayerColor {
         case 8: self = .white
         default: return nil
         }
+    }
+    
+    static func getAllValues() -> [PlayerColor] {
+        var values: [PlayerColor] = []
+        for i in 0 ..< PlayerColor.numberOfColors {
+            values.append(PlayerColor(index: i)!)
+        }
+        return values
     }
 }
 
@@ -63,7 +99,7 @@ enum AssetAction: Int {
 }
 
 enum AssetCapabilityType: Int {
-
+    
     case none = 0
     case buildPeasant
     case buildFootman
@@ -103,7 +139,7 @@ enum AssetCapabilityType: Int {
     case rangerScouting
     case marksmanship
     case max
-
+    
     static var allValues: [AssetCapabilityType] { return [
         .none,
         .buildPeasant,
@@ -144,7 +180,7 @@ enum AssetCapabilityType: Int {
         .rangerScouting,
         .marksmanship,
         .max
-    ] }
+        ] }
 }
 
 enum AssetType: Int {
@@ -177,15 +213,15 @@ enum Direction {
     case west
     case northWest
     case max
-
+    
     static var numberOfDirections: Int {
         return 8
     }
-
+    
     var opposite: Direction {
         return Direction(angle: angle + 180)!
     }
-
+    
     var angle: Int {
         switch self {
         case .north: return 0
@@ -199,7 +235,7 @@ enum Direction {
         case .max: return 360
         }
     }
-
+    
     var index: Int {
         switch self {
         case .north: return 0
@@ -213,7 +249,7 @@ enum Direction {
         case .max: return 8
         }
     }
-
+    
     init?(angle: Int) {
         let angle = angle % 360
         switch angle {
@@ -228,7 +264,7 @@ enum Direction {
         default: return nil
         }
     }
-
+    
     init?(index: Int) {
         switch index {
         case 0: self = .north

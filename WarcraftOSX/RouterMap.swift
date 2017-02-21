@@ -135,6 +135,8 @@ class RouterMap {
             for index in 0 ..< searchDirections.count {
                 tempTile.x = currentSearch.x + resMapXOffsets[index]
                 tempTile.y = currentSearch.y + resMapYOffsets[index]
+                print(tempTile.x)
+                print(tempTile.y)
                 let tempDirection = Direction(index: SearchStatus.occupied.rawValue - map[tempTile.y + 1][tempTile.x + 1].rawValue)!
                 if SearchStatus.unvisited == map[tempTile.y + 1][tempTile.x + 1] || RouterMap.movingAway(searchDirections[index], tempDirection) {
                     map[tempTile.y + 1][tempTile.x + 1] = SearchStatus(rawValue: index)!

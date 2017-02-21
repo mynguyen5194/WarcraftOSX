@@ -495,16 +495,28 @@ class GameModel {
         for playerIndex in 0 ..< PlayerColor.numberOfColors {
             players.append(PlayerData(map: actualMap, color: PlayerColor(index: playerIndex)!))
         }
+
         
-        assetOccupancyMap = Array(repeating: Array(repeating: nil, count: actualMap.width), count: actualMap.height)
-        diagonalOccupancyMap = Array(repeating: Array(repeating: false, count: actualMap.width), count: actualMap.height)
+        //hardcoded size need to fix
+        assetOccupancyMap = Array(repeating: Array(repeating: nil, count: 96), count: 64)
+        diagonalOccupancyMap = Array(repeating: Array(repeating: false, count: 96), count: 64)
         
-        lumberAvailable = Array(repeating: Array(repeating: 0, count: actualMap.width), count: actualMap.height)
-        for row in 0 ..< actualMap.height {
-            for column in 0 ..< actualMap.width where actualMap.tileTypeAt(x: column, y: row) == .tree {
+        lumberAvailable = Array(repeating: Array(repeating: 0, count: 96), count: 64)
+        for row in 0 ..< 64 {
+            for column in 0 ..< 96 where actualMap.tileTypeAt(x: column, y: row) == .tree {
                 lumberAvailable[row][column] = players[0].lumber
             }
         }
+        
+        //        for i in 0 ..< actualMap.assets.count {
+        //            if actualMap.assets[i].assetType.name == "Peasant" && actualMap.assets[i].tilePosition == Position(x: 10, y: 10) {
+        //                print("peasant index \(i)")
+        //                let randomMapAsset = PlayerAsset(playerAssetType: PlayerAssetType())
+        //                randomMapAsset.position.setFromTile(Position(x: 16, y: 10))
+        //                actualMap.assets[i].pushCommand(AssetCommand(action: .walk, capability: .buildPeasant, assetTarget: randomMapAsset, activatedCapability: nil))
+        //                break
+        //            }
+        //        }
     }
     
     func isValidAsset(_ playerAsset: PlayerAsset) -> Bool {
@@ -927,7 +939,12 @@ class GameModel {
                 if asset.tileAligned {
                     var command = asset.currentCommand
                     let nextCommand = asset.nextCommand
+                    // HACK
+                    // let mapTarget = Position(x: 20 * Position.tileWidth, y: 11 * Position.tileHeight)
+                    // END HACK
+                    // ORIGINAL
                     let mapTarget = Position(from: command.assetTarget!.closestPosition(asset.position))
+                    // END ORIGINAL
                     
                     if nextCommand.action == .attack {
                         if nextCommand.assetTarget!.closestPosition(asset.position).distanceSquared(asset.position) <= rangeToDistanceSquared(asset.effectiveRange) {
@@ -937,7 +954,7 @@ class GameModel {
                         }
                     }
                     
-                    let travelDirection = (routerMap.findRoute(resMap: players[asset.color.index].playerMap, asset: asset, target: mapTarget))
+                    let travelDirection = routerMap.findRoute(resMap: players[asset.color.index].playerMap, asset: asset, target: mapTarget)
                     if travelDirection != .max {
                         asset.direction = travelDirection
                     } else {

@@ -337,6 +337,7 @@ class AssetRenderer {
                     renderData.tileIndex = constructIndices[asset.type.rawValue][currentStep]
                 }
             case .walk:
+                print("Walking")
                 let currentIndices: [[Int]] = {
                     if asset.lumber > 0 {
                         return carryLumberIndices

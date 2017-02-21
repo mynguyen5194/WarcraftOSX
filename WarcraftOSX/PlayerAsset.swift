@@ -1033,6 +1033,7 @@ class PlayerAsset {
     }
     
     func moveStep(occupancyMap: inout [[PlayerAsset?]], diagonals: inout [[Bool]]) -> Bool {
+        let speed = 5
         let currentOctant = position.tileOctant
         let currentTile = tilePosition
         let currentPosition = position
