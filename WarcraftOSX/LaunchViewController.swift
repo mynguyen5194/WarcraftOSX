@@ -19,15 +19,15 @@ class LaunchViewController: NSViewController {
     var splashScreenSound = AVMIDIPlayer()
     
     private lazy var visualElement: NSImage = {
-            let splashURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/img/Splash", ofType:"png"))!)
-            let splashData = CGDataProvider(url: splashURL as CFURL)
-            let splashCG = CGImage(pngDataProviderSource: splashData!, decode: nil, shouldInterpolate: false, intent: CGColorRenderingIntent.defaultIntent)
-            let splashOrigin = CGPoint(x: 0, y: (splashCG!.height/2))
-            let splashSize = CGSize(width: splashCG!.width, height: (splashCG!.height/2))
-            let splashRect = CGRect(origin: splashOrigin, size: splashSize)
-            let splashImage = splashCG?.cropping(to: splashRect)
-            let splash = NSImage(cgImage: splashImage!, size: NSZeroSize)
-            return splash
+        let splashURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/img/Splash", ofType:"png"))!)
+        let splashData = CGDataProvider(url: splashURL as CFURL)
+        let splashCG = CGImage(pngDataProviderSource: splashData!, decode: nil, shouldInterpolate: false, intent: CGColorRenderingIntent.defaultIntent)
+        let splashOrigin = CGPoint(x: 0, y: (splashCG!.height/2))
+        let splashSize = CGSize(width: splashCG!.width, height: (splashCG!.height/2))
+        let splashRect = CGRect(origin: splashOrigin, size: splashSize)
+        let splashImage = splashCG?.cropping(to: splashRect)
+        let splash = NSImage(cgImage: splashImage!, size: NSZeroSize)
+        return splash
     }()
     
     // Play midi file
@@ -44,7 +44,6 @@ class LaunchViewController: NSViewController {
         }
         splashScreenSound.prepareToPlay()
         splashScreenSound.play()
-        print("Play splashScreenSound")
     }
     
     
@@ -63,7 +62,7 @@ class LaunchViewController: NSViewController {
         playMidi()
         
         // Display splash screen for 3 seconds
-        perform(#selector(LaunchViewController.showMenu), with: nil, afterDelay: 3)
+        perform(#selector(LaunchViewController.showMenu), with: nil, afterDelay: 1)
         
     }
     
