@@ -15,6 +15,7 @@ class MenuSupporter {
     var menuSoundBankURL: URL?
     var thunkSound = AVAudioPlayer()
     var menuSound = AVMIDIPlayer()
+    let pstyle = NSMutableParagraphStyle()
 
 //    func getMenuImage() -> NSImage {
 //        let menuURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/img/Texture", ofType:"png"))!)
@@ -55,4 +56,17 @@ class MenuSupporter {
         print("play thunk")
         return thunkSound
     }
+    
+    func formatButtonTitle(sender: NSButton, color: NSColor, title: String, fontSize: CGFloat) {
+        pstyle.alignment = .center
+        var attributes = [String: AnyObject]()
+        
+        attributes[NSFontAttributeName] = NSFont(name: "Apple Chancery", size: fontSize)
+        attributes[NSForegroundColorAttributeName] = color
+        attributes[NSParagraphStyleAttributeName] = pstyle
+        
+        sender.attributedTitle = NSAttributedString(string: sender.title, attributes: attributes )
+        
+    }
+    
 }

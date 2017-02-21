@@ -16,23 +16,36 @@ class MainMenuViewController: NSViewController {
     var menuSoundURL: URL?
     var menuSoundBankURL: URL?
     var thunkSound = AVAudioPlayer()
+
+    var menuSupporter = MenuSupporter()
+
+    
+    @IBOutlet weak var theGameText: NSTextField!
+    @IBOutlet weak var singlePlayerGameButton: NSButton!
+    @IBOutlet weak var multiPlayerGameButton: NSButton!
+    @IBOutlet weak var optionsButton: NSButton!
+    @IBOutlet weak var exitGameButton: NSButton!
     
     @IBAction func singlePlayerGameButton(_ sender: NSButton) {
+        
+        
         playThunkSound()
         thunkSound.prepareToPlay()
         thunkSound.play()
     }
     
     @IBAction func multiPlayerGameButton(_ sender: NSButton) {
+        
         playThunkSound()
     }
     
     @IBAction func optionsButton(_ sender: NSButton) {
+        
 
     }
     
     @IBAction func exitGameButton(_ sender: NSButton) {
-
+        
         exit(0)
     }
 
@@ -40,7 +53,11 @@ class MainMenuViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        background.image = MenuSupporter().getMenuImage()
+        menuSupporter.formatButtonTitle(sender: singlePlayerGameButton, color: NSColor.yellow, title: singlePlayerGameButton.title, fontSize: 18)
+        menuSupporter.formatButtonTitle(sender: multiPlayerGameButton, color: NSColor.yellow, title: multiPlayerGameButton.title, fontSize: 18)
+        menuSupporter.formatButtonTitle(sender: optionsButton, color: NSColor.yellow, title: optionsButton.title, fontSize: 18)
+        menuSupporter.formatButtonTitle(sender: exitGameButton, color: NSColor.yellow, title: exitGameButton.title, fontSize: 18)
+        
         playMenuMidi()
         
     }
@@ -69,8 +86,6 @@ class MainMenuViewController: NSViewController {
             NSLog("Error: Can't play sound file thunk.wav")
         }
         
-        
-        print("play thunk")
 //        return thunkSound
     }
 }
