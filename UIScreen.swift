@@ -25,7 +25,7 @@
  * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
  * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
+ 
 import Cocoa
 import ApplicationServices
 import QuartzCore
@@ -82,7 +82,7 @@ class UIScreen: NSObject {
         }
     }
     
-    var brightness: CGFloat
+    var brightness: CGFloat = 0.0
     var self.grabber: UIImageView
     var self.layer: CALayer
     var self.windows: [AnyObject]

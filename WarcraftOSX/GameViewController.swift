@@ -9,6 +9,8 @@
 import Cocoa
 import AVFoundation
 
+var mainMapOffsetX = 0
+var mainMapOffsetY = 0
 
 fileprivate func tileset(_ name: String) throws -> GraphicTileset {
     guard let tilesetURL = Bundle.main.url(forResource: "/data/img/\(name)", withExtension: "dat") else {
@@ -38,23 +40,28 @@ class GameViewController: NSViewController {
     
     @IBOutlet weak var mainMapView: NSView!
     @IBOutlet weak var miniMapView: NSView!
+    @IBOutlet weak var testXLoc: NSTextField!
+    @IBOutlet weak var testYLoc: NSTextField!
+    @IBOutlet weak var tileXLoc: NSTextField!
+    @IBOutlet weak var tileYLoc: NSTextField!
+    @IBOutlet weak var mini: NSView!
     
-    private lazy var acknowledgeSound: AVAudioPlayer = {
-        do {
-            var acknowledgeSound = AVAudioPlayer()
-            let acknowledge1URL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/snd/basic/acknowledge1", ofType: "wav"))!)
-            try acknowledgeSound = AVAudioPlayer(contentsOf: acknowledge1URL)
-            return acknowledgeSound
-        } catch {
-            let error = NSError.init(domain: "Failed to load Audio Player", code: 0, userInfo: nil)
-            fatalError(error.localizedDescription)
-        }
+
+    
+    private lazy var midiPlayer: AVMIDIPlayer = {
+        let gameURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/snd/music/intro", ofType: "mid"))!)
+        let soundURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/snd/generalsoundfont", ofType: "sf2"))!)
         
+        do {
+            return try AVMIDIPlayer(contentsOf: gameURL, soundBankURL: soundURL)
+        } catch {
+            fatalError(error.localizedDescription) // TODO: Handle Error
+        }
     }()
     
     private lazy var map: AssetDecoratedMap = {
         do {
-            let mapURL = Bundle.main.url(forResource: "/data/map/maze", withExtension: "map")!
+            let mapURL = Bundle.main.url(forResource: "/data/map/2player", withExtension: "map")!
             let mapSource = try FileDataSource(url: mapURL)
             let map = AssetDecoratedMap()
             try map.loadMap(source: mapSource)
@@ -69,6 +76,7 @@ class GameViewController: NSViewController {
             let configurationURL = Bundle.main.url(forResource: "/data/img/MapRendering", withExtension: "dat")!
             let configuration = try FileDataSource(url: configurationURL)
             let terrainTileset = try tileset("Terrain")
+            Position.setTileDimensions(width: terrainTileset.tileWidth, height: terrainTileset.tileHeight)
             return try MapRenderer(configuration: configuration, tileset: terrainTileset, map: self.map)
         } catch {
             let error = NSError.init(domain: "MapRenderer Error", code: 0, userInfo: nil)
@@ -100,7 +108,11 @@ class GameViewController: NSViewController {
             let fireTilesets = [try tileset("FireSmall"), try tileset("FireLarge")]
             let buildingDeathTileset = try tileset("BuildingDeath")
             let arrowTileset = try tileset("Arrow")
-            // let playerData = PlayerData(map: self.map, color: .blue)
+            let assetURL = Bundle.main.url(forResource: "/data/res", withExtension: nil)!
+            try PlayerAssetType.loadTypes(from: FileDataContainer(url: assetURL))
+            let playerData = PlayerData(map: self.map, color: .blue)
+            _ = PlayerData(map: self.map, color: .none)
+            _ = PlayerData(map: self.map, color: .red)
             let assetRenderer = AssetRenderer(
                 colors: colors,
                 tilesets: tilesets,
@@ -109,7 +121,7 @@ class GameViewController: NSViewController {
                 fireTilesets: fireTilesets,
                 buildingDeathTileset: buildingDeathTileset,
                 arrowTileset: arrowTileset,
-                player: nil,
+                player: playerData,
                 map: self.map
             )
             return assetRenderer
@@ -118,21 +130,57 @@ class GameViewController: NSViewController {
         }
     }()
 
+    private lazy var fogRenderer: FogRenderer = {
+        do {
+            let fogTileset = try tileset("Fog")
+            return try FogRenderer(tileset: fogTileset, map: self.map.createVisibilityMap())
+        } catch {
+            fatalError(error.localizedDescription) // TODO: Handle Error
+        }
+    }()
+    
+    private lazy var viewportRenderer: ViewportRenderer = {
+        return ViewportRenderer(mapRenderer: self.mapRenderer, assetRenderer: self.assetRenderer, fogRenderer: self.fogRenderer)
+    }()
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        playBackgroundMusic()
+        midiPlayer.prepareToPlay()
+        midiPlayer.play()
         
-        let OSXCustomViewMap = OSXCustomView(frame: CGRect(origin: .zero, size: CGSize(width: mapRenderer.detailedMapWidth, height: mapRenderer.detailedMapHeight)), mapRenderer: mapRenderer, assetRenderer: assetRenderer)
+        let OSXCustomViewMap = OSXCustomView(frame: CGRect(origin: .zero, size: CGSize(width: mapRenderer.detailedMapWidth, height: mapRenderer.detailedMapHeight)), viewportRenderer: viewportRenderer)
+
         let OSXCustomMiniMapViewMap = OSXCustomMiniMapView(frame: CGRect(origin: .zero, size: CGSize(width: mapRenderer.mapWidth, height: mapRenderer.mapHeight)), mapRenderer: mapRenderer)
-        mainMapView.addSubview(OSXCustomViewMap)
-        miniMapView.addSubview(OSXCustomMiniMapViewMap)
         
+        //self.titleVisibility = NSWindowTitleVisibility.Hidden;
+        view.addSubview(OSXCustomViewMap)
+        view.addSubview(OSXCustomMiniMapViewMap)
+    
+
+    }
+    // variable that stores the mouse location
+    var mouseLocation: NSPoint {
+        return NSEvent.mouseLocation()
     }
     
+
     override func mouseDown(with event: NSEvent) {
-        acknowledgeSound.prepareToPlay()
-        acknowledgeSound.play()
+        // event.locationInWindow is mouse location inside the window with bottom left of window (0,0)
+        // -mainMapView.frame.origin to offset mainMapView relative to the entire window
+        let xMouseLoc = event.locationInWindow.x - self.mainMapView.frame.origin.x
+        let yMouseLoc = event.locationInWindow.x - self.mainMapView.frame.origin.y
+        
+        let xTileLoc = xMouseLoc + CGFloat(mainMapOffsetX)
+        let yTileLoc = yMouseLoc + CGFloat(mainMapOffsetY)
+        
+        // store position into the text field for testing purposes
+        // change String parameter to NSEvent.mouseLocation() to track x and y position concurrently
+        testXLoc.stringValue = String(describing: xMouseLoc)
+        testYLoc.stringValue = String(describing: yMouseLoc)
+        tileXLoc.stringValue = String(describing: xTileLoc)
+        tileYLoc.stringValue = String(describing: yTileLoc)
     }
     
     func playBackgroundMusic() {
@@ -148,5 +196,6 @@ class GameViewController: NSViewController {
         game1Sound.prepareToPlay()
         game1Sound.play()
     }
+
     
 }
