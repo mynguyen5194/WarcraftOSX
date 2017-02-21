@@ -38,6 +38,7 @@ class GameViewController: NSViewController {
     var game1SoundBankURL: URL?
     var game1Sound = AVMIDIPlayer()
     
+    @IBOutlet weak var miniView: NSView!
     @IBOutlet weak var mainMapView: NSView!
     @IBOutlet weak var miniMapView: NSView!
     @IBOutlet weak var testXLoc: NSTextField!
@@ -155,8 +156,8 @@ class GameViewController: NSViewController {
         let OSXCustomMiniMapViewMap = OSXCustomMiniMapView(frame: CGRect(origin: .zero, size: CGSize(width: mapRenderer.mapWidth, height: mapRenderer.mapHeight)), mapRenderer: mapRenderer)
         
         //self.titleVisibility = NSWindowTitleVisibility.Hidden;
-        view.addSubview(OSXCustomViewMap)
-        view.addSubview(OSXCustomMiniMapViewMap)
+        mainMapView.addSubview(OSXCustomViewMap)
+        miniView.addSubview(OSXCustomMiniMapViewMap)
     
 
     }
@@ -170,7 +171,7 @@ class GameViewController: NSViewController {
         // event.locationInWindow is mouse location inside the window with bottom left of window (0,0)
         // -mainMapView.frame.origin to offset mainMapView relative to the entire window
         let xMouseLoc = event.locationInWindow.x - self.mainMapView.frame.origin.x
-        let yMouseLoc = event.locationInWindow.x - self.mainMapView.frame.origin.y
+        let yMouseLoc = event.locationInWindow.y - self.mainMapView.frame.origin.y
         
         let xTileLoc = xMouseLoc + CGFloat(mainMapOffsetX)
         let yTileLoc = yMouseLoc + CGFloat(mainMapOffsetY)

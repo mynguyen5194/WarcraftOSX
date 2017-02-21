@@ -852,6 +852,7 @@
                         <outlet property="menuButton" destination="IKs-zX-IhM" id="JRW-BA-cMB"/>
                         <outlet property="mini" destination="Oq0-Zb-3iV" id="Xfw-En-Ig1"/>
                         <outlet property="miniMapView" destination="wKt-hA-keA" id="656-wJ-Zp2"/>
+                        <outlet property="miniView" destination="Oq0-Zb-3iV" id="6qw-aO-Jlj"/>
                         <outlet property="testLocation" destination="UoW-p4-usd" id="dvS-Ov-9bC"/>
                         <outlet property="testXLoc" destination="UoW-p4-usd" id="hNb-ba-4Qv"/>
                         <outlet property="testYLoc" destination="gNk-Ca-9fB" id="Mc5-HT-cl4"/>
@@ -955,7 +956,7 @@
                                         </customSpacing>
                                     </stackView>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mf2-g4-ohe">
-                                        <rect key="frame" x="0.0" y="0.0" width="200" height="35"/>
+                                        <rect key="frame" x="0.0" y="10" width="200" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="200" id="RyI-ve-3XM"/>
                                             <constraint firstAttribute="height" constant="35" id="rXr-v6-xJw"/>
@@ -995,13 +996,11 @@
                         </constraints>
                     </view>
                     <connections>
-
                         <outlet property="exitGameButton" destination="mf2-g4-ohe" id="0Cq-X1-pi6"/>
                         <outlet property="multiPlayerGameButton" destination="tQC-xP-btW" id="wDZ-EA-oOo"/>
                         <outlet property="optionsButton" destination="933-vq-lhe" id="dSw-jY-oBa"/>
                         <outlet property="singlePlayerGameButton" destination="duJ-dm-GrR" id="uke-EN-dcL"/>
                         <outlet property="theGameText" destination="guA-q7-ofk" id="aGr-LD-pBp"/>
-
                     </connections>
                 </viewController>
                 <customObject id="Ryx-XQ-ngb" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -1641,7 +1640,7 @@ Gw
                                         <rect key="frame" x="87" y="7" width="270" height="121"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="392-dX-Fr2">
-                                                <rect key="frame" x="116" y="90" width="39" height="31"/>
+                                                <rect key="frame" x="115.5" y="90" width="39" height="31"/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Color" id="Pxg-HH-GTN">
                                                     <font key="font" size="16" name="Apple-Chancery"/>
                                                     <color key="textColor" name="highlightColor" catalog="System" colorSpace="catalog"/>
@@ -1882,7 +1881,7 @@ Gw
                                         <rect key="frame" x="367" y="0.0" width="103" height="128"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sBB-fh-38c">
-                                                <rect key="frame" x="18" y="97" width="68" height="31"/>
+                                                <rect key="frame" x="17.5" y="97" width="68" height="31"/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Difficulty" id="ZdY-Jm-vGI">
                                                     <font key="font" size="16" name="Apple-Chancery"/>
                                                     <color key="textColor" name="highlightColor" catalog="System" colorSpace="catalog"/>
@@ -1890,7 +1889,7 @@ Gw
                                                 </textFieldCell>
                                             </textField>
                                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BAD-mm-WYT">
-                                                <rect key="frame" x="2" y="0.0" width="100" height="34"/>
+                                                <rect key="frame" x="1.5" y="0.0" width="100" height="34"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="34" id="5RA-SA-9l5"/>
                                                     <constraint firstAttribute="width" constant="100" id="e7B-zV-JPo"/>
@@ -2159,10 +2158,8 @@ Gw
         <image name="Texture" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-
         <segue reference="1Vm-Vv-6Vx"/>
         <segue reference="vMm-eN-a5Z"/>
         <segue reference="G1b-LP-3ti"/>
-
     </inferredMetricsTieBreakers>
 </document>
