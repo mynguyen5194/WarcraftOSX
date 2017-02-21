@@ -19,7 +19,6 @@ class MainMenuViewController: NSViewController {
 
     var menuSoundURL: URL?
     var menuSoundBankURL: URL?
-    var thunkSound = AVAudioPlayer()
 
     var menuSupporter = MenuSupporter()
 
