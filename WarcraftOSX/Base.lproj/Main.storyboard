@@ -1416,6 +1416,7 @@ Gw
                                     <font key="font" size="18" name="Apple-Chancery"/>
                                 </buttonCell>
                                 <connections>
+                                    <action selector="okButton:" target="PVz-zB-iQZ" id="LI8-0S-oFm"/>
                                     <segue destination="uAV-jX-Jyl" kind="custom" identifier="okSoundOptionsSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="G1b-LP-3ti"/>
                                 </connections>
                             </button>

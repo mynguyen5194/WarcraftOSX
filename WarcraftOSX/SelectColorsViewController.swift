@@ -125,6 +125,7 @@ class SelectColorsViewController: NSViewController {
         cancelButton.attributedTitle = NSAttributedString(string: cancelButton.title, attributes: attribute)
         
 
+        
 //        perform(#selector(SelectColorsViewController.playGame))
 
     }

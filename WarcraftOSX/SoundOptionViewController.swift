@@ -12,11 +12,19 @@ class SoundOptionViewController: NSViewController {
     var menuSupporter = MenuSupporter()
 
     @IBOutlet weak var fxVolumeTextField: NSTextField!
-    
     @IBOutlet weak var musicVolumeTextField: NSTextField!
     
     @IBOutlet weak var okButton: NSButton!
     @IBOutlet weak var cancelButton: NSButton!
+    
+    @IBAction func okButton(_ sender: NSButton) {
+        print("here")
+        var fxVolume = fxVolumeTextField.integerValue
+        var musicVolume = musicVolumeTextField.integerValue
+        
+        print("\(fxVolume)  \(musicVolume)")
+    }
+    
     
     
     override func viewDidLoad() {
@@ -26,8 +34,9 @@ class SoundOptionViewController: NSViewController {
         menuSupporter.formatButtonTitle(sender: cancelButton, color: NSColor.yellow, title: cancelButton.title, fontSize: 18)
         
         fxVolumeTextField.stringValue = "100"
-        musicVolumeTextField.stringValue = "50"
-        
+        musicVolumeTextField.stringValue = "100"
     }
+    
+    
     
 }

@@ -151,6 +151,7 @@ class GameViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        menuSound.stop()
         
         midiPlayer.prepareToPlay()
         midiPlayer.play()

@@ -10,11 +10,11 @@
 import Cocoa
 import AVFoundation
 
-var menuSound = AVMIDIPlayer()
+//var menuSound = AVMIDIPlayer()
 
 class MainMenuViewController: NSViewController {
-    var menuSoundURL: URL?
-    var menuSoundBankURL: URL?
+//    var menuSoundURL: URL?
+//    var menuSoundBankURL: URL?
     //    var thunkSound = AVAudioPlayer()
     //    let thunkURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/snd/misc/thunk", ofType: "wav"))!)
     
@@ -65,23 +65,23 @@ class MainMenuViewController: NSViewController {
         menuSupporter.formatButtonTitle(sender: optionsButton, color: NSColor.yellow, title: optionsButton.title, fontSize: 18)
         menuSupporter.formatButtonTitle(sender: exitGameButton, color: NSColor.yellow, title: exitGameButton.title, fontSize: 18)
         
-        playMenuMidi()
+//        playMenuMidi()
         
     }
     
-    func playMenuMidi() {
-        menuSoundURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/snd/music/menu", ofType: "mid"))!)
-        menuSoundBankURL = Bundle.main.url(forResource: "data/snd/generalsoundfont", withExtension: "sf2")
-        
-        do {
-            try menuSound = AVMIDIPlayer(contentsOf: menuSoundURL!, soundBankURL: menuSoundBankURL)
-        }
-        catch {
-            NSLog("Error: Can't play sound file menu.mid")
-        }
-        menuSound.prepareToPlay()
-        menuSound.play()
-    }
+//    func playMenuMidi() {
+//        menuSoundURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/snd/music/menu", ofType: "mid"))!)
+//        menuSoundBankURL = Bundle.main.url(forResource: "data/snd/generalsoundfont", withExtension: "sf2")
+//        
+//        do {
+//            try menuSound = AVMIDIPlayer(contentsOf: menuSoundURL!, soundBankURL: menuSoundBankURL)
+//        }
+//        catch {
+//            NSLog("Error: Can't play sound file menu.mid")
+//        }
+//        menuSound.prepareToPlay()
+//        menuSound.play()
+//    }
     
     func playThunkSound() {// -> AVAudioPlayer {
         
