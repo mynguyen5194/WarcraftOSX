@@ -69,7 +69,7 @@ class LaunchViewController: NSViewController {
         performSegue(withIdentifier: "showMenuSegue", sender: self)
         splashScreenSound.stop()
         
-        playMenuMidi()
+//        playMenuMidi()
     }
     
     override func viewDidLoad() {

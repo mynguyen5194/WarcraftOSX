@@ -32,8 +32,14 @@ class SelectMapViewController: NSViewController {
     }
     
     
-    
-    
+    @IBAction func selectButton(_ sender: NSButton) {
+        thunkSound.play()
+        self.performSegue(withIdentifier: "selectSegue", sender: sender)
+    }
+    @IBAction func cancelButton(_ sender: NSButton) {
+        thunkSound.play()
+        self.performSegue(withIdentifier: "cancelSelectMapSegue", sender: sender)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

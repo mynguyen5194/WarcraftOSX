@@ -44,7 +44,8 @@ class MenuSupporter {
         menuSound.play()
     }
     
-    func playThunkSound() -> AVAudioPlayer {
+    func playThunkSound() -> AVAudioPlayer{
+        var thunkSound = AVAudioPlayer()
         let thunkURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/snd/misc/thunk", ofType: "wav"))!)
         
         do {
@@ -53,7 +54,8 @@ class MenuSupporter {
             NSLog("Error: Can't play sound file thunk.wav")
         }
         
-        print("play thunk")
+//        thunkSound.prepareToPlay()
+//        thunkSound.play()
         return thunkSound
     }
     

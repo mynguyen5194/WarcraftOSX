@@ -105,7 +105,12 @@ class SelectColorsViewController: NSViewController {
     @IBOutlet weak var cancelButton: NSButton!
     
     @IBAction func playGameButton(_ sender: NSButton) {
-        
+        thunkSound.play()
+        self.performSegue(withIdentifier: "playGameSegue", sender: sender)
+    }
+    @IBAction func cancelButton(_ sender: NSButton) {
+        thunkSound.play()
+        self.performSegue(withIdentifier: "cancelSelectColorsSegue", sender: sender)
     }
     
     override func viewDidLoad() {
@@ -124,9 +129,6 @@ class SelectColorsViewController: NSViewController {
         playGameButton.attributedTitle = NSAttributedString(string: playGameButton.title, attributes: attribute)
         cancelButton.attributedTitle = NSAttributedString(string: cancelButton.title, attributes: attribute)
         
-
-        
-//        perform(#selector(SelectColorsViewController.playGame))
 
     }
     

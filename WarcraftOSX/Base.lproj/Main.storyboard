@@ -892,7 +892,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <stackView distribution="equalCentering" orientation="vertical" alignment="centerX" spacing="20" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eP1-DM-t5u">
-                                        <rect key="frame" x="0.0" y="105" width="200" height="145"/>
+                                        <rect key="frame" x="0.0" y="115" width="200" height="145"/>
                                         <subviews>
                                             <button verticalHuggingPriority="750" imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="duJ-dm-GrR">
                                                 <rect key="frame" x="0.0" y="110" width="200" height="35"/>
@@ -906,7 +906,6 @@
                                                 </buttonCell>
                                                 <connections>
                                                     <action selector="singlePlayerGameButton:" target="zhJ-aD-mQv" id="iTM-9b-Ko6"/>
-                                                    <segue destination="bEc-MV-a2K" kind="custom" identifier="singlePlayerGameSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="FRP-Se-GX2"/>
                                                 </connections>
                                             </button>
                                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tQC-xP-btW">
@@ -921,7 +920,6 @@
                                                 </buttonCell>
                                                 <connections>
                                                     <action selector="multiPlayerGameButton:" target="zhJ-aD-mQv" id="Dn1-NJ-wzc"/>
-                                                    <segue destination="VRI-sG-Yuv" kind="custom" identifier="multiPlayerGameSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="exB-nn-PS6"/>
                                                 </connections>
                                             </button>
                                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="933-vq-lhe">
@@ -936,7 +934,6 @@
                                                 </buttonCell>
                                                 <connections>
                                                     <action selector="optionsButton:" target="zhJ-aD-mQv" id="jTb-bJ-C0u"/>
-                                                    <segue destination="uAV-jX-Jyl" kind="custom" identifier="optionsSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="kI8-mt-Jef"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -956,7 +953,7 @@
                                         </customSpacing>
                                     </stackView>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mf2-g4-ohe">
-                                        <rect key="frame" x="0.0" y="0.0" width="200" height="35"/>
+                                        <rect key="frame" x="0.0" y="10" width="200" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="200" id="RyI-ve-3XM"/>
                                             <constraint firstAttribute="height" constant="35" id="rXr-v6-xJw"/>
@@ -1001,11 +998,14 @@
                         <outlet property="optionsButton" destination="933-vq-lhe" id="dSw-jY-oBa"/>
                         <outlet property="singlePlayerGameButton" destination="duJ-dm-GrR" id="uke-EN-dcL"/>
                         <outlet property="theGameText" destination="guA-q7-ofk" id="aGr-LD-pBp"/>
+                        <segue destination="VRI-sG-Yuv" kind="custom" identifier="multiPlayerGameSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="Xq8-14-r68"/>
+                        <segue destination="uAV-jX-Jyl" kind="custom" identifier="optionsSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="yh4-ff-Xsb"/>
+                        <segue destination="bEc-MV-a2K" kind="custom" identifier="singlePlayerGameSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="TxN-Cz-65k"/>
                     </connections>
                 </viewController>
                 <customObject id="Ryx-XQ-ngb" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="865" y="822.5"/>
+            <point key="canvasLocation" x="889" y="822"/>
         </scene>
         <!--Select Map Window-->
         <scene sceneID="8ol-qY-SiJ">
@@ -1095,7 +1095,7 @@
                                             <font key="font" size="18" name="Apple-Chancery"/>
                                         </buttonCell>
                                         <connections>
-                                            <segue destination="R6h-BC-qNu" kind="custom" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="gr8-nk-3IN"/>
+                                            <action selector="selectButton:" target="bEc-MV-a2K" id="GlO-rE-Imc"/>
                                         </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TUl-8J-PWY">
@@ -1112,7 +1112,7 @@ Gw
 </string>
                                         </buttonCell>
                                         <connections>
-                                            <segue destination="zhJ-aD-mQv" kind="custom" identifier="cancelFromSelectMapSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="vMm-eN-a5Z"/>
+                                            <action selector="cancelButton:" target="bEc-MV-a2K" id="hvT-WF-PLv"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1150,6 +1150,8 @@ Gw
                         <outlet property="mazeText" destination="X6x-oP-gHC" id="Axf-vZ-XNt"/>
                         <outlet property="northSouthDivideText" destination="UI0-cY-mFL" id="USd-7d-Vdq"/>
                         <outlet property="selectButton" destination="6tu-fB-eL0" id="gLG-et-Bvw"/>
+                        <segue destination="R6h-BC-qNu" kind="custom" identifier="selectSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="acY-Pl-2dS"/>
+                        <segue destination="zhJ-aD-mQv" kind="custom" identifier="cancelSelectMapSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="U08-h1-nky"/>
                     </connections>
                 </viewController>
                 <customObject id="Ufd-NY-Cqq" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -1193,7 +1195,7 @@ Gw
                                                     <font key="font" size="18" name="Apple-Chancery"/>
                                                 </buttonCell>
                                                 <connections>
-                                                    <segue destination="bEc-MV-a2K" kind="custom" identifier="hostMultiPlayerGameSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="efm-7d-W1i"/>
+                                                    <action selector="hostButton:" target="VRI-sG-Yuv" id="oj4-Po-Iqh"/>
                                                 </connections>
                                             </button>
                                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hdQ-8g-se3">
@@ -1206,6 +1208,9 @@ Gw
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" size="18" name="Apple-Chancery"/>
                                                 </buttonCell>
+                                                <connections>
+                                                    <action selector="joinButton:" target="VRI-sG-Yuv" id="eab-SP-XGL"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <visibilityPriorities>
@@ -1228,7 +1233,7 @@ Gw
                                             <font key="font" size="18" name="Apple-Chancery"/>
                                         </buttonCell>
                                         <connections>
-                                            <segue destination="zhJ-aD-mQv" kind="custom" identifier="backMultiplayerGameSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="Qp6-bd-spe"/>
+                                            <action selector="backButton:" target="VRI-sG-Yuv" id="8UT-Wo-sqj"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1257,6 +1262,8 @@ Gw
                         <outlet property="backButton" destination="gqT-TZ-Qnn" id="h7K-r1-J7h"/>
                         <outlet property="hostButton" destination="mKh-1d-Xk0" id="6ra-d7-cGR"/>
                         <outlet property="joinButton" destination="hdQ-8g-se3" id="DsN-wq-2bk"/>
+                        <segue destination="bEc-MV-a2K" kind="custom" identifier="hostMultiPlayerGameSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="NbZ-RS-EFx"/>
+                        <segue destination="zhJ-aD-mQv" kind="custom" identifier="backMultiplayerGameSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="rq0-5g-OSg"/>
                     </connections>
                 </viewController>
                 <customObject id="gFE-x1-PrR" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -1289,35 +1296,35 @@ Gw
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="40" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="thO-ZA-Vys">
+                                    <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="30" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="thO-ZA-Vys">
                                         <rect key="frame" x="0.0" y="115" width="200" height="100"/>
                                         <subviews>
                                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Jpf-6z-J6l">
-                                                <rect key="frame" x="15" y="70" width="170" height="30"/>
+                                                <rect key="frame" x="0.0" y="65" width="200" height="35"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="170" id="CXA-Cv-oUi"/>
-                                                    <constraint firstAttribute="height" constant="30" id="Ljz-uG-gRv"/>
+                                                    <constraint firstAttribute="width" constant="200" id="CXA-Cv-oUi"/>
+                                                    <constraint firstAttribute="height" constant="35" id="Ljz-uG-gRv"/>
                                                 </constraints>
                                                 <buttonCell key="cell" type="square" title="Sound Options" bezelStyle="shadowlessSquare" image="ButtonColors0" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="axesIndependently" inset="2" id="NCm-sM-JUc">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" size="18" name="Apple-Chancery"/>
                                                 </buttonCell>
                                                 <connections>
-                                                    <segue destination="PVz-zB-iQZ" kind="custom" identifier="soundOptionsSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="6hl-is-06g"/>
+                                                    <action selector="soundButton:" target="uAV-jX-Jyl" id="LPO-jk-2qh"/>
                                                 </connections>
                                             </button>
                                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qsX-4y-tMh">
-                                                <rect key="frame" x="15" y="0.0" width="170" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="200" height="35"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="FT2-UZ-wV6"/>
-                                                    <constraint firstAttribute="width" constant="170" id="eKD-gD-zPy"/>
+                                                    <constraint firstAttribute="height" constant="35" id="FT2-UZ-wV6"/>
+                                                    <constraint firstAttribute="width" constant="200" id="eKD-gD-zPy"/>
                                                 </constraints>
                                                 <buttonCell key="cell" type="square" title="Network Options" bezelStyle="shadowlessSquare" image="ButtonColors0" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="axesIndependently" inset="2" id="de4-K3-PAv">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" size="18" name="Apple-Chancery"/>
                                                 </buttonCell>
                                                 <connections>
-                                                    <segue destination="9yG-uZ-eSa" kind="custom" identifier="networkOptionsSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="KYA-7t-DSS"/>
+                                                    <action selector="networkButton:" target="uAV-jX-Jyl" id="wwb-Vk-lua"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -1345,7 +1352,7 @@ Gw
                                             <font key="font" size="18" name="Apple-Chancery"/>
                                         </buttonCell>
                                         <connections>
-                                            <segue destination="zhJ-aD-mQv" kind="custom" identifier="backOptionsSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="Zuz-ad-ytp"/>
+                                            <action selector="backButton:" target="uAV-jX-Jyl" id="gFE-Dq-7d5"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1374,6 +1381,9 @@ Gw
                         <outlet property="backButton" destination="9R2-Pm-dzr" id="6oE-gN-VuP"/>
                         <outlet property="networkButton" destination="qsX-4y-tMh" id="IER-FT-2Bb"/>
                         <outlet property="soundButton" destination="Jpf-6z-J6l" id="GKu-Jj-OxB"/>
+                        <segue destination="zhJ-aD-mQv" kind="custom" identifier="backOptionsSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="Oh0-Wd-oHs"/>
+                        <segue destination="PVz-zB-iQZ" kind="custom" identifier="soundOptionsSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="odh-XT-jQ3"/>
+                        <segue destination="9yG-uZ-eSa" kind="custom" identifier="networkOptionsSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="4Bo-mG-byp"/>
                     </connections>
                 </viewController>
                 <customObject id="d9R-A4-hfF" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -1391,6 +1401,9 @@ Gw
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="B08-Ya-hz0">
                                 <rect key="frame" x="0.0" y="0.0" width="658" height="466"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="Texture" id="gxi-nw-SMd"/>
+                                <connections>
+                                    <segue destination="uAV-jX-Jyl" kind="custom" identifier="okSoundOptionsSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="Umf-m6-ZsL"/>
+                                </connections>
                             </imageView>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bnz-xK-Pdp">
                                 <rect key="frame" x="511" y="33" width="130" height="35"/>
@@ -1402,7 +1415,7 @@ Gw
 </string>
                                 </buttonCell>
                                 <connections>
-                                    <segue destination="uAV-jX-Jyl" kind="custom" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="9OI-jO-cZ1"/>
+                                    <action selector="cancelButton:" target="PVz-zB-iQZ" id="ISz-79-zjd"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EZ7-DT-RA0">
@@ -1416,8 +1429,7 @@ Gw
                                     <font key="font" size="18" name="Apple-Chancery"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="okButton:" target="PVz-zB-iQZ" id="LI8-0S-oFm"/>
-                                    <segue destination="uAV-jX-Jyl" kind="custom" identifier="okSoundOptionsSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="G1b-LP-3ti"/>
+                                    <action selector="okButton:" target="PVz-zB-iQZ" id="vwm-In-YvS"/>
                                 </connections>
                             </button>
                             <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="10" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O00-24-rAc">
@@ -1530,11 +1542,12 @@ Gw
                         <outlet property="fxVolumeTextField" destination="RHd-E0-h8f" id="9jz-xH-kjq"/>
                         <outlet property="musicVolumeTextField" destination="3dM-R3-ZbS" id="fsL-ba-Ovj"/>
                         <outlet property="okButton" destination="EZ7-DT-RA0" id="1oH-uT-nGM"/>
+                        <segue destination="uAV-jX-Jyl" kind="custom" identifier="cancelSoundOptionsSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="t1B-HL-rhE"/>
                     </connections>
                 </viewController>
                 <customObject id="IhN-mp-O8O" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2671" y="1169"/>
+            <point key="canvasLocation" x="2857" y="1280"/>
         </scene>
         <!--Select Colors Difficulty Window-->
         <scene sceneID="l01-Sl-bJG">
@@ -1560,7 +1573,6 @@ Gw
                                 </buttonCell>
                                 <connections>
                                     <action selector="playGameButton:" target="R6h-BC-qNu" id="XZi-kV-syF"/>
-                                    <segue destination="NXk-fe-dIt" kind="custom" identifier="playGameSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="J9N-mp-wj7"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kXL-FZ-Fce">
@@ -1577,8 +1589,7 @@ Gw
 </string>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="cancelButton:" target="R6h-BC-qNu" id="57I-Ct-dVf"/>
-                                    <segue destination="bEc-MV-a2K" kind="custom" identifier="cancelFromSelectColorsSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="1Vm-Vv-6Vx"/>
+                                    <action selector="cancelButton:" target="R6h-BC-qNu" id="tL6-T7-Gdl"/>
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KSx-v5-3UE">
@@ -1964,6 +1975,8 @@ Gw
                         <outlet property="youColorButton6" destination="Q0U-PG-Bx0" id="GKe-o8-LZz"/>
                         <outlet property="youColorButton7" destination="Vu0-eQ-xFO" id="iBx-8z-vhJ"/>
                         <outlet property="youColorButton8" destination="yJ0-MF-s8d" id="5IK-Gz-AvH"/>
+                        <segue destination="NXk-fe-dIt" kind="custom" identifier="playGameSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="Rgy-oK-eC4"/>
+                        <segue destination="bEc-MV-a2K" kind="custom" identifier="cancelSelectColorsSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="7XN-uL-2B6"/>
                     </connections>
                 </viewController>
                 <customObject id="aIE-aJ-EdQ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -2093,7 +2106,7 @@ Gw
 </string>
                                 </buttonCell>
                                 <connections>
-                                    <segue destination="uAV-jX-Jyl" kind="custom" identifier="cancelNetworkOptions" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="pg2-XZ-0g6"/>
+                                    <action selector="cancelButton:" target="9yG-uZ-eSa" id="idT-TZ-hcq"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rpC-Pi-YgU">
@@ -2107,7 +2120,7 @@ Gw
                                     <font key="font" size="18" name="Apple-Chancery"/>
                                 </buttonCell>
                                 <connections>
-                                    <segue destination="uAV-jX-Jyl" kind="custom" identifier="okNetWorkOptionsSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="XFd-UM-ceA"/>
+                                    <action selector="okButton:" target="9yG-uZ-eSa" id="IBb-d7-ejW"/>
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LeB-tq-bFe">
@@ -2140,11 +2153,13 @@ Gw
                     <connections>
                         <outlet property="cancelButton" destination="ySp-VQ-NsC" id="Gef-mX-5Dh"/>
                         <outlet property="okButton" destination="rpC-Pi-YgU" id="jcR-Ha-F7L"/>
+                        <segue destination="uAV-jX-Jyl" kind="custom" identifier="cancelNetworkOptionsSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="Yec-bG-YZW"/>
+                        <segue destination="uAV-jX-Jyl" kind="custom" identifier="okNetworkOptionsSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="Ljk-lr-UnV"/>
                     </connections>
                 </viewController>
                 <customObject id="9QZ-u7-nHb" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2671" y="1844"/>
+            <point key="canvasLocation" x="2866" y="1865"/>
         </scene>
     </scenes>
     <resources>
@@ -2159,8 +2174,8 @@ Gw
         <image name="Texture" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1Vm-Vv-6Vx"/>
-        <segue reference="vMm-eN-a5Z"/>
-        <segue reference="G1b-LP-3ti"/>
+        <segue reference="NbZ-RS-EFx"/>
+        <segue reference="Oh0-Wd-oHs"/>
+        <segue reference="Ljk-lr-UnV"/>
     </inferredMetricsTieBreakers>
 </document>
