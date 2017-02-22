@@ -69,7 +69,7 @@ class LaunchViewController: NSViewController {
         performSegue(withIdentifier: "showMenuSegue", sender: self)
         splashScreenSound.stop()
         
-//        playMenuMidi()
+        playMenuMidi()
     }
     
     override func viewDidLoad() {
@@ -82,7 +82,7 @@ class LaunchViewController: NSViewController {
         playMidi()
         
         // Display splash screen for 3 seconds
-        perform(#selector(LaunchViewController.showMenu), with: nil, afterDelay: 3)
+        perform(#selector(LaunchViewController.showMenu), with: nil, afterDelay: 1)
         
         
     }

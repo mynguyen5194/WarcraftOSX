@@ -22,6 +22,7 @@ class SoundOptionViewController: NSViewController {
     @IBAction func okButton(_ sender: NSButton) {
         thunkSound.play()
         self.performSegue(withIdentifier: "okSoundOptionsSegue", sender: sender)
+        
         fxVolume = fxVolumeTextField.integerValue
         musicVolume = musicVolumeTextField.integerValue
     }
@@ -40,6 +41,9 @@ class SoundOptionViewController: NSViewController {
         
         fxVolumeTextField.stringValue = "100"
         musicVolumeTextField.stringValue = "100"
+        
+        thunkSound.volume = Float(fxVolume/100)
+        fxVolumeTextField.stringValue = String(fxVolume)
     
     }
 }

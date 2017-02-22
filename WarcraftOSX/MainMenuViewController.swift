@@ -11,12 +11,12 @@ import Cocoa
 import AVFoundation
 
 var thunkSound = AVAudioPlayer()
+var tickSound = AVAudioPlayer()
 
 class MainMenuViewController: NSViewController {
     
     var menuSupporter = MenuSupporter()
     
-    @IBOutlet weak var theGameText: NSTextField!
     @IBOutlet weak var singlePlayerGameButton: NSButton!
     @IBOutlet weak var multiPlayerGameButton: NSButton!
     @IBOutlet weak var optionsButton: NSButton!
@@ -25,7 +25,6 @@ class MainMenuViewController: NSViewController {
     @IBAction func singlePlayerGameButton(_ sender: NSButton) {
         playThunkSound()
         self.performSegue(withIdentifier: "singlePlayerGameSegue", sender: sender)
-        
     }
     
     @IBAction func multiPlayerGameButton(_ sender: NSButton) {
@@ -50,6 +49,38 @@ class MainMenuViewController: NSViewController {
         menuSupporter.formatButtonTitle(sender: multiPlayerGameButton, color: NSColor.yellow, title: multiPlayerGameButton.title, fontSize: 18)
         menuSupporter.formatButtonTitle(sender: optionsButton, color: NSColor.yellow, title: optionsButton.title, fontSize: 18)
         menuSupporter.formatButtonTitle(sender: exitGameButton, color: NSColor.yellow, title: exitGameButton.title, fontSize: 18)
+        
+        let area = NSTrackingArea.init(rect: singlePlayerGameButton.bounds, options: [NSTrackingAreaOptions.mouseEnteredAndExited, NSTrackingAreaOptions.activeAlways], owner: self, userInfo: nil)
+        singlePlayerGameButton.addTrackingArea(area)
+        
+    }
+    
+//    func mouseHandler(sender: NSButton) {
+//        let pstyle = NSMutableParagraphStyle()
+//        pstyle.alignment = .center
+//        var attributes = [String: AnyObject]()
+//        
+//        attributes[NSFontAttributeName] = NSFont(name: "Apple Chancery", size: fontSize)
+//        attributes[NSForegroundColorAttributeName] = NSColor.white
+//        attributes[NSParagraphStyleAttributeName] = pstyle
+//        
+//        sender.attributedTitle = NSAttributedString(string: sender.title, attributes: attributes )
+//        
+//        
+//        
+//        let area = NSTrackingArea.init(rect: sender.bounds, options: [NSTrackingAreaOptions.mouseEnteredAndExited, NSTrackingAreaOptions.activeAlways], owner: self, userInfo: nil)
+//        sender.addTrackingArea(area)
+//    }
+    
+    
+    
+    override func mouseEntered(with event: NSEvent) {
+        menuSupporter.formatButtonTitle(sender: singlePlayerGameButton, color: NSColor.white, title: singlePlayerGameButton.title, fontSize: 18)
+        playTickSound()
+        
+    }
+    override func mouseExited(with event: NSEvent) {
+        menuSupporter.formatButtonTitle(sender: singlePlayerGameButton, color: NSColor.yellow, title: singlePlayerGameButton.title, fontSize: 18)
     }
     
     
@@ -64,5 +95,18 @@ class MainMenuViewController: NSViewController {
         
         thunkSound.prepareToPlay()
         thunkSound.play()
+    }
+    
+    func playTickSound() {
+        let tickURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/snd/misc/tick", ofType: "wav"))!)
+        
+        do {
+            try tickSound = AVAudioPlayer(contentsOf: tickURL)
+        } catch {
+            NSLog("Error: Can't play sound file thunk.wav")
+        }
+        
+        tickSound.prepareToPlay()
+        tickSound.play()
     }
 }
