@@ -51,7 +51,7 @@ class GameViewController: NSViewController {
 
     
     private lazy var midiPlayer: AVMIDIPlayer = {
-        let gameURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/snd/music/intro", ofType: "mid"))!)
+        let gameURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/snd/music/game1", ofType: "mid"))!)
         let soundURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/snd/generalsoundfont", ofType: "sf2"))!)
         
         do {
@@ -63,7 +63,7 @@ class GameViewController: NSViewController {
     
     private lazy var map: AssetDecoratedMap = {
         do {
-            let forResource = "/data/map/" + SelectMapViewController().mapName
+            let forResource = "/data/map/" + SelectMapViewController() .mapName
             let lowerCase = forResource.lowercased()
             print (lowerCase)
             let mapURL = Bundle.main.url(forResource: lowerCase, withExtension: "map")!
