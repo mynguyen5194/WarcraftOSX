@@ -53,28 +53,28 @@ class MainMenuViewController: NSViewController {
         let area = NSTrackingArea.init(rect: singlePlayerGameButton.bounds, options: [NSTrackingAreaOptions.mouseEnteredAndExited, NSTrackingAreaOptions.activeAlways], owner: self, userInfo: nil)
         singlePlayerGameButton.addTrackingArea(area)
         
+        
     }
     
-//    func mouseHandler(sender: NSButton) {
+    func mouseHandler(sender: NSButton) {
 //        let pstyle = NSMutableParagraphStyle()
 //        pstyle.alignment = .center
 //        var attributes = [String: AnyObject]()
 //        
-//        attributes[NSFontAttributeName] = NSFont(name: "Apple Chancery", size: fontSize)
+//        attributes[NSFontAttributeName] = NSFonts(name: "Apple Chancery", size: fontSize)
 //        attributes[NSForegroundColorAttributeName] = NSColor.white
 //        attributes[NSParagraphStyleAttributeName] = pstyle
 //        
 //        sender.attributedTitle = NSAttributedString(string: sender.title, attributes: attributes )
-//        
-//        
-//        
-//        let area = NSTrackingArea.init(rect: sender.bounds, options: [NSTrackingAreaOptions.mouseEnteredAndExited, NSTrackingAreaOptions.activeAlways], owner: self, userInfo: nil)
-//        sender.addTrackingArea(area)
-//    }
-    
-    
+        
+        
+        let buttonArea = NSTrackingArea.init(rect: sender.bounds, options: [NSTrackingAreaOptions.mouseEnteredAndExited, NSTrackingAreaOptions.activeAlways], owner: self, userInfo: nil)
+        sender.addTrackingArea(buttonArea)
+        
+    }
     
     override func mouseEntered(with event: NSEvent) {
+        
         menuSupporter.formatButtonTitle(sender: singlePlayerGameButton, color: NSColor.white, title: singlePlayerGameButton.title, fontSize: 18)
         playTickSound()
         

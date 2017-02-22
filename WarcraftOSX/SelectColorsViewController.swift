@@ -18,6 +18,8 @@ class SelectColorsViewController: NSViewController {
     var player2ColorButtons = [NSButton]()
     var secondRowPre = NSButton()
     
+    
+    
     @IBOutlet weak var difficulty: NSButton!
     @IBAction func difficultyButton(_ sender: NSButton) {
         let attribute = getAttribute()
@@ -113,6 +115,32 @@ class SelectColorsViewController: NSViewController {
         self.performSegue(withIdentifier: "cancelSelectColorsSegue", sender: sender)
     }
     
+    
+    private lazy var mapRenderer: MapRenderer = {
+        do {
+            let configurationURL = Bundle.main.url(forResource: "/data/img/MapRendering", withExtension: "dat")!
+            let configuration = try FileDataSource(url: configurationURL)
+            let terrainTileset = try tileset("Terrain")
+            Position.setTileDimensions(width: terrainTileset.tileWidth, height: terrainTileset.tileHeight)
+            return try MapRenderer(configuration: configuration, tileset: terrainTileset, map: self.map)
+        } catch {
+            let error = NSError.init(domain: "MapRenderer Error", code: 0, userInfo: nil)
+            fatalError(error.localizedDescription)
+        }
+    }()
+    
+    private lazy var map: AssetDecoratedMap = {
+        do {
+            let mapURL = Bundle.main.url(forResource: "/data/map/maze", withExtension: "map")!
+            let mapSource = try FileDataSource(url: mapURL)
+            let map = AssetDecoratedMap()
+            try map.loadMap(source: mapSource)
+            return map
+        } catch {
+            fatalError(error.localizedDescription) // TODO: Handle Error
+        }
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         youColorButtons = [youColorButton1, youColorButton2, youColorButton3, youColorButton4, youColorButton5, youColorButton6, youColorButton7, youColorButton8]
@@ -129,7 +157,11 @@ class SelectColorsViewController: NSViewController {
         playGameButton.attributedTitle = NSAttributedString(string: playGameButton.title, attributes: attribute)
         cancelButton.attributedTitle = NSAttributedString(string: cancelButton.title, attributes: attribute)
         
-
+        // For Mini Map
+        let OSXCustomMiniMapViewMap = OSXCustomMiniMapView(frame: CGRect(origin: .zero, size: CGSize(width: mapRenderer.mapWidth, height: mapRenderer.mapHeight)), mapRenderer: mapRenderer)
+        
+        //self.titleVisibility = NSWindowTitleVisibility.Hidden;
+        miniMapView.addSubview(OSXCustomMiniMapViewMap)
     }
     
     func playGame() {
