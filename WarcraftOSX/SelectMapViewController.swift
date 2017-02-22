@@ -18,14 +18,14 @@ class SelectMapViewController: NSViewController {
     @IBOutlet weak var mazeText: NSTextField!
 
     @IBAction func northSouthDivide(_ sender: NSTextField) {
-//        print("North-South Divide Clicked")
+        print("North-South Divide Clicked")
         
 //        mazeText.textColor = NSColor.white
 //        northSouthDivideText.textColor = NSColor.yellow
     }
     
     @IBAction func maze(_ sender: NSTextField) {
-//        print("Maze Clicked")
+        print("Maze Clicked")
         
 //        northSouthDivideText.textColor = NSColor.white
 //        mazeText.textColor = NSColor.yellow

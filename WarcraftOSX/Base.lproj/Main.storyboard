@@ -892,7 +892,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <stackView distribution="equalCentering" orientation="vertical" alignment="centerX" spacing="20" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eP1-DM-t5u">
-                                        <rect key="frame" x="0.0" y="115" width="200" height="145"/>
+                                        <rect key="frame" x="0.0" y="105" width="200" height="145"/>
                                         <subviews>
                                             <button verticalHuggingPriority="750" imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="duJ-dm-GrR">
                                                 <rect key="frame" x="0.0" y="110" width="200" height="35"/>
@@ -956,7 +956,7 @@
                                         </customSpacing>
                                     </stackView>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mf2-g4-ohe">
-                                        <rect key="frame" x="0.0" y="10" width="200" height="35"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="200" id="RyI-ve-3XM"/>
                                             <constraint firstAttribute="height" constant="35" id="rXr-v6-xJw"/>
@@ -1038,9 +1038,9 @@
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UI0-cY-mFL">
-                                                    <rect key="frame" x="18" y="300" width="182" height="35"/>
+                                                    <rect key="frame" x="18" y="315" width="182" height="35"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" title="North-South Divide" id="DRi-Db-Gr9">
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" title="North-South Divide" id="DRi-Db-Gr9">
                                                         <font key="font" size="16" name="Apple-Chancery"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -1050,7 +1050,7 @@
                                                     </connections>
                                                 </textField>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X6x-oP-gHC">
-                                                    <rect key="frame" x="18" y="261" width="63" height="31"/>
+                                                    <rect key="frame" x="18" y="276" width="63" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" title="Maze" id="6Ik-fz-Pm9">
                                                         <font key="font" size="16" name="Apple-Chancery"/>
