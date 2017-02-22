@@ -13,13 +13,11 @@ import AVFoundation
 var menuSound = AVMIDIPlayer()
 
 class MainMenuViewController: NSViewController {
-    
-    var thunkURL: URL?
-    var thunkSound = AVAudioPlayer()
-
     var menuSoundURL: URL?
     var menuSoundBankURL: URL?
-
+    //    var thunkSound = AVAudioPlayer()
+    //    let thunkURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/snd/misc/thunk", ofType: "wav"))!)
+    
     var menuSupporter = MenuSupporter()
 
     
@@ -29,12 +27,16 @@ class MainMenuViewController: NSViewController {
     @IBOutlet weak var optionsButton: NSButton!
     @IBOutlet weak var exitGameButton: NSButton!
     
-    @IBOutlet var menuView: NSView!
-    @IBOutlet var menuV: NSImageView!
     @IBAction func singlePlayerGameButton(_ sender: NSButton) {
+        var thunkSound = AVAudioPlayer()
+        let thunkURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/snd/misc/thunk", ofType: "wav"))!)
         
+        do {
+            try thunkSound = AVAudioPlayer(contentsOf: thunkURL)
+        } catch {
+            NSLog("Error: Can't play sound file thunk.wav")
+        }
         
-        playThunkSound()
         thunkSound.prepareToPlay()
         thunkSound.play()
     }
@@ -56,10 +58,8 @@ class MainMenuViewController: NSViewController {
 
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         
-
         menuSupporter.formatButtonTitle(sender: singlePlayerGameButton, color: NSColor.yellow, title: singlePlayerGameButton.title, fontSize: 18)
         menuSupporter.formatButtonTitle(sender: multiPlayerGameButton, color: NSColor.yellow, title: multiPlayerGameButton.title, fontSize: 18)
         menuSupporter.formatButtonTitle(sender: optionsButton, color: NSColor.yellow, title: optionsButton.title, fontSize: 18)
@@ -84,15 +84,15 @@ class MainMenuViewController: NSViewController {
     }
     
     func playThunkSound() {// -> AVAudioPlayer {
-        let thunkURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/snd/misc/thunk", ofType: "wav"))!)
         
         
-        do {
-            try thunkSound = AVAudioPlayer(contentsOf: thunkURL)
-        } catch {
-            NSLog("Error: Can't play sound file thunk.wav")
-        }
         
-//        return thunkSound
+        //        do {
+        //            try thunkSound = AVAudioPlayer(contentsOf: thunkURL)
+        //        } catch {
+        //            NSLog("Error: Can't play sound file thunk.wav")
+        //        }
+        
+        //        return thunkSound
     }
 }
