@@ -8,27 +8,30 @@
 
 import Cocoa
 import AVFoundation
-
+ 
 class SelectMapViewController: NSViewController {
     var menuSupporter = MenuSupporter()
+    var mapName: String = "maze"
     
     @IBOutlet weak var selectButton: NSButton!
     @IBOutlet weak var cancelButton: NSButton!
     @IBOutlet weak var northSouthDivideText: NSTextField!
     @IBOutlet weak var mazeText: NSTextField!
+    
+    
 
     @IBAction func northSouthDivide(_ sender: NSTextField) {
 //        print("North-South Divide Clicked")
-        
-//        mazeText.textColor = NSColor.white
-//        northSouthDivideText.textColor = NSColor.yellow
+          self.mapName = "2playerdivide"
+//          mazeText.textColor = NSColor.yellow
+//          northSouthDivideText.textColor = NSColor.white
     }
     
     @IBAction func maze(_ sender: NSTextField) {
 //        print("Maze Clicked")
-        
-//        northSouthDivideText.textColor = NSColor.white
-//        mazeText.textColor = NSColor.yellow
+          self.mapName = "maze"
+//          northSouthDivideText.textColor = NSColor.yellow
+//          mazeText.textColor = NSColor.white
     }
     
     

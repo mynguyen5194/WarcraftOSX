@@ -20,6 +20,8 @@
 		A93DF60E1E3D78140047BA86 /* data in Resources */ = {isa = PBXBuildFile; fileRef = A93DF60D1E3D78140047BA86 /* data */; };
 		EDF9DFEC1E5C9AB100D73526 /* MenuSupporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF9DFEB1E5C9AB100D73526 /* MenuSupporter.swift */; };
 		EDF9DFEE1E5CC55200D73526 /* SinglePlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF9DFED1E5CC55200D73526 /* SinglePlayerViewController.swift */; };
+		EDF9E03A1E5F60D000D73526 /* SelectMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF9E0391E5F60D000D73526 /* SelectMapViewController.swift */; };
+		EDF9E03C1E5F60DE00D73526 /* SelectColorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF9E03B1E5F60DE00D73526 /* SelectColorsViewController.swift */; };
 		FE0B613F1E513A6C00CC5657 /* OSXCustomMiniMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0B613E1E513A6C00CC5657 /* OSXCustomMiniMapView.swift */; };
 		FE0B61411E5142EB00CC5657 /* UIResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0B61401E5142EB00CC5657 /* UIResponder.swift */; };
 		FE36A19B1E51A06100C6DDEF /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE36A19A1E51A06100C6DDEF /* ContainerViewController.swift */; };
@@ -97,6 +99,8 @@
 		A93DF60D1E3D78140047BA86 /* data */ = {isa = PBXFileReference; lastKnownFileType = folder; path = data; sourceTree = "<group>"; };
 		EDF9DFEB1E5C9AB100D73526 /* MenuSupporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuSupporter.swift; sourceTree = "<group>"; };
 		EDF9DFED1E5CC55200D73526 /* SinglePlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SinglePlayerViewController.swift; path = ../SinglePlayerViewController.swift; sourceTree = "<group>"; };
+		EDF9E0391E5F60D000D73526 /* SelectMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SelectMapViewController.swift; path = "../../../../../Downloads/ECS160OSX-menu/WarcraftOSX/SelectMapViewController.swift"; sourceTree = "<group>"; };
+		EDF9E03B1E5F60DE00D73526 /* SelectColorsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SelectColorsViewController.swift; path = ../../../../../Downloads/ECS160OSX/WarcraftOSX/SelectColorsViewController.swift; sourceTree = "<group>"; };
 		FE0B613E1E513A6C00CC5657 /* OSXCustomMiniMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSXCustomMiniMapView.swift; sourceTree = "<group>"; };
 		FE0B61401E5142EB00CC5657 /* UIResponder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIResponder.swift; sourceTree = "<group>"; };
 		FE36A19A1E51A06100C6DDEF /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
@@ -329,6 +333,8 @@
 				FE7C9F751E4A4E0A00A32B85 /* LaunchViewController.swift */,
 				20D1BC871E53D419009ED019 /* MainMenuViewController.swift */,
 				EDF9DFEB1E5C9AB100D73526 /* MenuSupporter.swift */,
+				EDF9E03B1E5F60DE00D73526 /* SelectColorsViewController.swift */,
+				EDF9E0391E5F60D000D73526 /* SelectMapViewController.swift */,
 				20D1BC891E53D759009ED019 /* SoundOptionViewController.swift */,
 				FE7C9F771E4A509B00A32B85 /* GameViewController.swift */,
 				FE36A19C1E51A2C200C6DDEF /* StoryBoardSegue.swift */,
@@ -495,6 +501,7 @@
 				FE4D010D1E4D82C00099BE43 /* UIScreen.swift in Sources */,
 				FE4D00EF1E4C3CA80099BE43 /* Rectangle.swift in Sources */,
 				FE4D00DA1E4C19470099BE43 /* GraphicTileset.swift in Sources */,
+				EDF9E03C1E5F60DE00D73526 /* SelectColorsViewController.swift in Sources */,
 				FE36A19D1E51A2C200C6DDEF /* StoryBoardSegue.swift in Sources */,
 				FE0B613F1E513A6C00CC5657 /* OSXCustomMiniMapView.swift in Sources */,
 				FEA8032C1E412AB9002D4E8B /* OSXCustomView.swift in Sources */,
@@ -525,6 +532,7 @@
 				FE4D010B1E4D81740099BE43 /* UIGraphics.swift in Sources */,
 				FE4D00ED1E4C3B890099BE43 /* TerrainMap.swift in Sources */,
 				FE4D00DC1E4C19520099BE43 /* LineDataSource.swift in Sources */,
+				EDF9E03A1E5F60D000D73526 /* SelectMapViewController.swift in Sources */,
 				FE4D00FF1E4C45600099BE43 /* PlayerCommand.swift in Sources */,
 				FE4D00E11E4C28770099BE43 /* VisibilityMap.swift in Sources */,
 				FE4D00E51E4C296D0099BE43 /* DataSource.swift in Sources */,
