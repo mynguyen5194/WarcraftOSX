@@ -9,16 +9,20 @@
 import Cocoa
 import AVFoundation
 
+
 var northSouthDivide = false
+
 
 class SelectMapViewController: NSViewController {
     var menuSupporter = MenuSupporter()
+    var mapName: String = "maze"
     
     @IBOutlet weak var miniMap: NSImageView!
     
     
     @IBOutlet weak var selectButton: NSButton!
     @IBOutlet weak var cancelButton: NSButton!
+
 
     
     @IBOutlet weak var northSouthDivideButton: NSButton!
@@ -37,6 +41,7 @@ class SelectMapViewController: NSViewController {
         menuSupporter.formatButtonTitle(sender: northSouthDivideButton, color: NSColor.yellow, title: northSouthDivideButton.title, fontSize: 16)
         menuSupporter.formatButtonTitle(sender: mazeButton, color: NSColor.white, title: mazeButton.title, fontSize: 16)
         northSouthDivide = false
+
     }
 
     @IBAction func selectButton(_ sender: NSButton) {

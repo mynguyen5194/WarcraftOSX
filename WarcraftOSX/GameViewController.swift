@@ -63,10 +63,11 @@ class GameViewController: NSViewController {
     
     private lazy var map: AssetDecoratedMap = {
         do {
-//            let forResource = "/data/map/" + SelectMapViewController() .mapName
-//            let lowerCase = forResource.lowercased()
-//            print (lowerCase)
-            let mapURL = Bundle.main.url(forResource: "/data/map/maze", withExtension: "map")!
+            let forResource = "/data/map/" + SelectMapViewController().mapName
+            let lowerCase = forResource.lowercased()
+            print (lowerCase)
+            let mapURL = Bundle.main.url(forResource: lowerCase, withExtension: "map")!
+
             let mapSource = try FileDataSource(url: mapURL)
             let map = AssetDecoratedMap()
             try map.loadMap(source: mapSource)
