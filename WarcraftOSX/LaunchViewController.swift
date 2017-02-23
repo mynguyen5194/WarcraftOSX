@@ -9,7 +9,11 @@
 import Cocoa
 import AVFoundation
 
+var menuSound = AVMIDIPlayer()
+
 class LaunchViewController: NSViewController {
+    var menuSoundURL: URL?
+    var menuSoundBankURL: URL?
     
     @IBOutlet var viewOfViewController: NSView!
     @IBOutlet weak var splashScreen: NSImageView!
@@ -46,10 +50,26 @@ class LaunchViewController: NSViewController {
         splashScreenSound.play()
     }
     
+    func playMenuMidi() {
+        menuSoundURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/snd/music/menu", ofType: "mid"))!)
+        menuSoundBankURL = Bundle.main.url(forResource: "data/snd/generalsoundfont", withExtension: "sf2")
+        
+        do {
+            try menuSound = AVMIDIPlayer(contentsOf: menuSoundURL!, soundBankURL: menuSoundBankURL)
+        }
+        catch {
+            NSLog("Error: Can't play sound file menu.mid")
+        }
+        menuSound.prepareToPlay()
+        menuSound.play()
+    }
+    
     
     func showMenu() {
         performSegue(withIdentifier: "showMenuSegue", sender: self)
         splashScreenSound.stop()
+        
+        playMenuMidi()
     }
     
     override func viewDidLoad() {
@@ -63,6 +83,7 @@ class LaunchViewController: NSViewController {
         
         // Display splash screen for 3 seconds
         perform(#selector(LaunchViewController.showMenu), with: nil, afterDelay: 1)
+        
         
     }
     

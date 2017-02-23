@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="jGA-0Y-lOj">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="jGA-0Y-lOj">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
@@ -877,10 +877,10 @@
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="Texture" id="9F7-y9-NVr"/>
                             </imageView>
                             <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="70" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3SW-hv-Zrj">
-                                <rect key="frame" x="229" y="73" width="200" height="370"/>
+                                <rect key="frame" x="229" y="77" width="200" height="366"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="guA-q7-ofk">
-                                        <rect key="frame" x="8" y="330" width="184" height="40"/>
+                                        <rect key="frame" x="8" y="326" width="184" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="9gr-wG-I5e"/>
                                             <constraint firstAttribute="width" constant="180" id="HnL-ra-GFe"/>
@@ -892,7 +892,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <stackView distribution="equalCentering" orientation="vertical" alignment="centerX" spacing="20" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eP1-DM-t5u">
-                                        <rect key="frame" x="0.0" y="115" width="200" height="145"/>
+                                        <rect key="frame" x="0.0" y="111" width="200" height="145"/>
                                         <subviews>
                                             <button verticalHuggingPriority="750" imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="duJ-dm-GrR">
                                                 <rect key="frame" x="0.0" y="110" width="200" height="35"/>
@@ -906,7 +906,6 @@
                                                 </buttonCell>
                                                 <connections>
                                                     <action selector="singlePlayerGameButton:" target="zhJ-aD-mQv" id="iTM-9b-Ko6"/>
-                                                    <segue destination="bEc-MV-a2K" kind="custom" identifier="singlePlayerGameSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="FRP-Se-GX2"/>
                                                 </connections>
                                             </button>
                                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tQC-xP-btW">
@@ -918,10 +917,11 @@
                                                 <buttonCell key="cell" type="square" title="Multi Player Game" bezelStyle="shadowlessSquare" image="ButtonColors0" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="axesIndependently" inset="2" id="LiM-XH-9CJ">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" size="18" name="Apple-Chancery"/>
+                                                    <string key="keyEquivalent">r</string>
+                                                    <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                                                 </buttonCell>
                                                 <connections>
                                                     <action selector="multiPlayerGameButton:" target="zhJ-aD-mQv" id="Dn1-NJ-wzc"/>
-                                                    <segue destination="VRI-sG-Yuv" kind="custom" identifier="multiPlayerGameSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="exB-nn-PS6"/>
                                                 </connections>
                                             </button>
                                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="933-vq-lhe">
@@ -936,7 +936,6 @@
                                                 </buttonCell>
                                                 <connections>
                                                     <action selector="optionsButton:" target="zhJ-aD-mQv" id="jTb-bJ-C0u"/>
-                                                    <segue destination="uAV-jX-Jyl" kind="custom" identifier="optionsSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="kI8-mt-Jef"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -956,7 +955,7 @@
                                         </customSpacing>
                                     </stackView>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mf2-g4-ohe">
-                                        <rect key="frame" x="0.0" y="10" width="200" height="35"/>
+                                        <rect key="frame" x="0.0" y="6" width="200" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="200" id="RyI-ve-3XM"/>
                                             <constraint firstAttribute="height" constant="35" id="rXr-v6-xJw"/>
@@ -971,7 +970,7 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="370" id="tMD-gA-sgc"/>
+                                    <constraint firstAttribute="height" constant="366" id="tMD-gA-sgc"/>
                                     <constraint firstAttribute="width" constant="200" id="uv1-Pc-FZf"/>
                                 </constraints>
                                 <visibilityPriorities>
@@ -1000,12 +999,14 @@
                         <outlet property="multiPlayerGameButton" destination="tQC-xP-btW" id="wDZ-EA-oOo"/>
                         <outlet property="optionsButton" destination="933-vq-lhe" id="dSw-jY-oBa"/>
                         <outlet property="singlePlayerGameButton" destination="duJ-dm-GrR" id="uke-EN-dcL"/>
-                        <outlet property="theGameText" destination="guA-q7-ofk" id="aGr-LD-pBp"/>
+                        <segue destination="VRI-sG-Yuv" kind="custom" identifier="multiPlayerGameSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="Xq8-14-r68"/>
+                        <segue destination="uAV-jX-Jyl" kind="custom" identifier="optionsSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="yh4-ff-Xsb"/>
+                        <segue destination="bEc-MV-a2K" kind="custom" identifier="singlePlayerGameSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="TxN-Cz-65k"/>
                     </connections>
                 </viewController>
                 <customObject id="Ryx-XQ-ngb" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="865" y="822.5"/>
+            <point key="canvasLocation" x="889" y="822"/>
         </scene>
         <!--Select Map Window-->
         <scene sceneID="8ol-qY-SiJ">
@@ -1028,39 +1029,37 @@
                                 </textFieldCell>
                             </textField>
                             <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HJg-GO-OB1">
-                                <rect key="frame" x="20" y="20" width="421" height="367"/>
+                                <rect key="frame" x="20" y="20" width="421" height="374"/>
                                 <clipView key="contentView" id="gD9-ZG-fUd">
-                                    <rect key="frame" x="1" y="1" width="419" height="365"/>
+                                    <rect key="frame" x="1" y="1" width="419" height="372"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <view fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pe3-UX-7xY">
-                                            <rect key="frame" x="0.0" y="0.0" width="404" height="350"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="404" height="357"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UI0-cY-mFL">
-                                                    <rect key="frame" x="18" y="300" width="182" height="35"/>
+                                                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d9S-oh-Ew2">
+                                                    <rect key="frame" x="20" y="302" width="140" height="35"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" title="North-South Divide" id="DRi-Db-Gr9">
+                                                    <buttonCell key="cell" type="square" title="North-South Divide" bezelStyle="shadowlessSquare" imagePosition="overlaps" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="I6i-tb-51o">
+                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" size="16" name="Apple-Chancery"/>
-                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                    </textFieldCell>
+                                                    </buttonCell>
                                                     <connections>
-                                                        <action selector="northSouthDivide:" target="bEc-MV-a2K" id="L3O-tW-iDD"/>
+                                                        <action selector="northSouthDivideButton:" target="bEc-MV-a2K" id="j8v-Cv-aQJ"/>
                                                     </connections>
-                                                </textField>
-                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X6x-oP-gHC">
-                                                    <rect key="frame" x="18" y="261" width="63" height="31"/>
+                                                </button>
+                                                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fvv-4x-gHi">
+                                                    <rect key="frame" x="20" y="257" width="48" height="35"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" title="Maze" id="6Ik-fz-Pm9">
+                                                    <buttonCell key="cell" type="square" title="Maze" bezelStyle="shadowlessSquare" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="cLf-rJ-LJK">
+                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" size="16" name="Apple-Chancery"/>
-                                                        <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                    </textFieldCell>
+                                                    </buttonCell>
                                                     <connections>
-                                                        <action selector="maze:" target="bEc-MV-a2K" id="Zp5-Qn-9i7"/>
+                                                        <action selector="mazeButton:" target="bEc-MV-a2K" id="1rs-fI-kZP"/>
                                                     </connections>
-                                                </textField>
+                                                </button>
                                             </subviews>
                                         </view>
                                     </subviews>
@@ -1073,11 +1072,11 @@
                                     </configuration>
                                 </ciFilter>
                                 <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="Cdp-Sg-1et">
-                                    <rect key="frame" x="1" y="350" width="419" height="16"/>
+                                    <rect key="frame" x="1" y="357" width="419" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="pH6-TE-z0f">
-                                    <rect key="frame" x="404" y="1" width="16" height="365"/>
+                                    <rect key="frame" x="404" y="1" width="16" height="372"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
@@ -1095,7 +1094,7 @@
                                             <font key="font" size="18" name="Apple-Chancery"/>
                                         </buttonCell>
                                         <connections>
-                                            <segue destination="R6h-BC-qNu" kind="custom" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="gr8-nk-3IN"/>
+                                            <action selector="selectButton:" target="bEc-MV-a2K" id="GlO-rE-Imc"/>
                                         </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TUl-8J-PWY">
@@ -1112,7 +1111,7 @@ Gw
 </string>
                                         </buttonCell>
                                         <connections>
-                                            <segue destination="zhJ-aD-mQv" kind="custom" identifier="cancelFromSelectMapSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="vMm-eN-a5Z"/>
+                                            <action selector="cancelButton:" target="bEc-MV-a2K" id="hvT-WF-PLv"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1129,17 +1128,44 @@ Gw
                                     <real value="3.4028234663852886e+38"/>
                                 </customSpacing>
                             </stackView>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zue-wx-Ni1">
+                                <rect key="frame" x="463" y="264" width="175" height="130"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="130" id="7Wm-9y-fo6"/>
+                                    <constraint firstAttribute="width" constant="175" id="gly-RL-v9V"/>
+                                </constraints>
+                                <imageCell key="cell" selectable="YES" editable="YES" alignment="left" animates="YES" imageScaling="axesIndependently" image="North-South Divide Map" id="GRK-Dx-xsi"/>
+                            </imageView>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="Khv-A3-Yla">
+                                <rect key="frame" x="512" y="202" width="76" height="62"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="62" id="Dwq-EN-i3W"/>
+                                    <constraint firstAttribute="width" constant="72" id="MDO-g2-iB9"/>
+                                </constraints>
+                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="2 Players 96 x 64" id="sNZ-A7-LRN">
+                                    <font key="font" size="16" name="Apple-Chancery"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstItem="cvX-qu-NL3" firstAttribute="top" secondItem="asx-uk-QNA" secondAttribute="bottom" constant="-110" id="5hZ-cT-r5F"/>
                             <constraint firstItem="asx-uk-QNA" firstAttribute="leading" secondItem="7vR-8f-fSE" secondAttribute="leading" id="9ML-JG-5cF"/>
-                            <constraint firstItem="HJg-GO-OB1" firstAttribute="top" secondItem="JJq-sA-HIZ" secondAttribute="bottom" constant="17" id="Da1-5t-8vE"/>
+                            <constraint firstItem="HJg-GO-OB1" firstAttribute="top" secondItem="JJq-sA-HIZ" secondAttribute="bottom" constant="10" id="Da1-5t-8vE"/>
                             <constraint firstItem="cvX-qu-NL3" firstAttribute="leading" secondItem="HJg-GO-OB1" secondAttribute="trailing" constant="34" id="K3D-EY-xan"/>
                             <constraint firstItem="JJq-sA-HIZ" firstAttribute="centerX" secondItem="7vR-8f-fSE" secondAttribute="centerX" id="LMX-Zb-85v"/>
                             <constraint firstItem="cvX-qu-NL3" firstAttribute="bottom" secondItem="HJg-GO-OB1" secondAttribute="bottom" id="Xcx-XW-sJj"/>
+                            <constraint firstItem="Zue-wx-Ni1" firstAttribute="centerX" secondItem="cvX-qu-NL3" secondAttribute="centerX" id="aAU-Wg-6rP"/>
+                            <constraint firstItem="Zue-wx-Ni1" firstAttribute="leading" secondItem="asx-uk-QNA" secondAttribute="trailing" constant="-195" id="aWd-Ff-8oN"/>
+                            <constraint firstItem="Khv-A3-Yla" firstAttribute="top" secondItem="Zue-wx-Ni1" secondAttribute="bottom" id="c2Q-zP-gke"/>
+                            <constraint firstItem="Zue-wx-Ni1" firstAttribute="leading" secondItem="pH6-TE-z0f" secondAttribute="trailing" constant="23" id="fw7-lm-7fz"/>
                             <constraint firstItem="HJg-GO-OB1" firstAttribute="leading" secondItem="7vR-8f-fSE" secondAttribute="leading" constant="20" symbolic="YES" id="iTD-Mh-Q0Z"/>
+                            <constraint firstItem="cvX-qu-NL3" firstAttribute="top" secondItem="Zue-wx-Ni1" secondAttribute="bottom" constant="154" id="ipc-Ka-7Yj"/>
+                            <constraint firstItem="Zue-wx-Ni1" firstAttribute="centerX" secondItem="Khv-A3-Yla" secondAttribute="centerX" id="ltF-l4-gS2"/>
                             <constraint firstAttribute="trailing" secondItem="cvX-qu-NL3" secondAttribute="trailing" constant="33" id="me1-w7-jfU"/>
                             <constraint firstItem="asx-uk-QNA" firstAttribute="top" secondItem="7vR-8f-fSE" secondAttribute="top" id="pVL-ks-D3d"/>
+                            <constraint firstItem="asx-uk-QNA" firstAttribute="top" secondItem="Zue-wx-Ni1" secondAttribute="bottom" constant="-202" id="ujd-c9-u2k"/>
                             <constraint firstAttribute="trailing" secondItem="asx-uk-QNA" secondAttribute="trailing" id="wUu-iD-1Ht"/>
                             <constraint firstItem="JJq-sA-HIZ" firstAttribute="top" secondItem="7vR-8f-fSE" secondAttribute="top" constant="20" id="x9v-Nb-t0D"/>
                             <constraint firstAttribute="bottom" secondItem="asx-uk-QNA" secondAttribute="bottom" id="zza-Mt-dsb"/>
@@ -1147,9 +1173,12 @@ Gw
                     </view>
                     <connections>
                         <outlet property="cancelButton" destination="TUl-8J-PWY" id="OfV-RY-Bdt"/>
-                        <outlet property="mazeText" destination="X6x-oP-gHC" id="Axf-vZ-XNt"/>
-                        <outlet property="northSouthDivideText" destination="UI0-cY-mFL" id="USd-7d-Vdq"/>
+                        <outlet property="mazeButton" destination="fvv-4x-gHi" id="3sn-n6-o9H"/>
+                        <outlet property="miniMap" destination="Zue-wx-Ni1" id="PaX-Wm-2iY"/>
+                        <outlet property="northSouthDivideButton" destination="d9S-oh-Ew2" id="wDt-JC-k4I"/>
                         <outlet property="selectButton" destination="6tu-fB-eL0" id="gLG-et-Bvw"/>
+                        <segue destination="R6h-BC-qNu" kind="custom" identifier="selectSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="acY-Pl-2dS"/>
+                        <segue destination="zhJ-aD-mQv" kind="custom" identifier="cancelSelectMapSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="U08-h1-nky"/>
                     </connections>
                 </viewController>
                 <customObject id="Ufd-NY-Cqq" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -1193,7 +1222,7 @@ Gw
                                                     <font key="font" size="18" name="Apple-Chancery"/>
                                                 </buttonCell>
                                                 <connections>
-                                                    <segue destination="bEc-MV-a2K" kind="custom" identifier="hostMultiPlayerGameSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="efm-7d-W1i"/>
+                                                    <action selector="hostButton:" target="VRI-sG-Yuv" id="oj4-Po-Iqh"/>
                                                 </connections>
                                             </button>
                                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hdQ-8g-se3">
@@ -1206,6 +1235,9 @@ Gw
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" size="18" name="Apple-Chancery"/>
                                                 </buttonCell>
+                                                <connections>
+                                                    <action selector="joinButton:" target="VRI-sG-Yuv" id="eab-SP-XGL"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <visibilityPriorities>
@@ -1228,7 +1260,7 @@ Gw
                                             <font key="font" size="18" name="Apple-Chancery"/>
                                         </buttonCell>
                                         <connections>
-                                            <segue destination="zhJ-aD-mQv" kind="custom" identifier="backMultiplayerGameSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="Qp6-bd-spe"/>
+                                            <action selector="backButton:" target="VRI-sG-Yuv" id="8UT-Wo-sqj"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1257,6 +1289,8 @@ Gw
                         <outlet property="backButton" destination="gqT-TZ-Qnn" id="h7K-r1-J7h"/>
                         <outlet property="hostButton" destination="mKh-1d-Xk0" id="6ra-d7-cGR"/>
                         <outlet property="joinButton" destination="hdQ-8g-se3" id="DsN-wq-2bk"/>
+                        <segue destination="bEc-MV-a2K" kind="custom" identifier="hostMultiPlayerGameSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="NbZ-RS-EFx"/>
+                        <segue destination="zhJ-aD-mQv" kind="custom" identifier="backMultiplayerGameSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="rq0-5g-OSg"/>
                     </connections>
                 </viewController>
                 <customObject id="gFE-x1-PrR" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -1289,35 +1323,35 @@ Gw
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="40" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="thO-ZA-Vys">
+                                    <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="30" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="thO-ZA-Vys">
                                         <rect key="frame" x="0.0" y="115" width="200" height="100"/>
                                         <subviews>
                                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Jpf-6z-J6l">
-                                                <rect key="frame" x="15" y="70" width="170" height="30"/>
+                                                <rect key="frame" x="0.0" y="65" width="200" height="35"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="170" id="CXA-Cv-oUi"/>
-                                                    <constraint firstAttribute="height" constant="30" id="Ljz-uG-gRv"/>
+                                                    <constraint firstAttribute="width" constant="200" id="CXA-Cv-oUi"/>
+                                                    <constraint firstAttribute="height" constant="35" id="Ljz-uG-gRv"/>
                                                 </constraints>
                                                 <buttonCell key="cell" type="square" title="Sound Options" bezelStyle="shadowlessSquare" image="ButtonColors0" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="axesIndependently" inset="2" id="NCm-sM-JUc">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" size="18" name="Apple-Chancery"/>
                                                 </buttonCell>
                                                 <connections>
-                                                    <segue destination="PVz-zB-iQZ" kind="custom" identifier="soundOptionsSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="6hl-is-06g"/>
+                                                    <action selector="soundButton:" target="uAV-jX-Jyl" id="LPO-jk-2qh"/>
                                                 </connections>
                                             </button>
                                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qsX-4y-tMh">
-                                                <rect key="frame" x="15" y="0.0" width="170" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="200" height="35"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="FT2-UZ-wV6"/>
-                                                    <constraint firstAttribute="width" constant="170" id="eKD-gD-zPy"/>
+                                                    <constraint firstAttribute="height" constant="35" id="FT2-UZ-wV6"/>
+                                                    <constraint firstAttribute="width" constant="200" id="eKD-gD-zPy"/>
                                                 </constraints>
                                                 <buttonCell key="cell" type="square" title="Network Options" bezelStyle="shadowlessSquare" image="ButtonColors0" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="axesIndependently" inset="2" id="de4-K3-PAv">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" size="18" name="Apple-Chancery"/>
                                                 </buttonCell>
                                                 <connections>
-                                                    <segue destination="9yG-uZ-eSa" kind="custom" identifier="networkOptionsSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="KYA-7t-DSS"/>
+                                                    <action selector="networkButton:" target="uAV-jX-Jyl" id="wwb-Vk-lua"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -1345,7 +1379,7 @@ Gw
                                             <font key="font" size="18" name="Apple-Chancery"/>
                                         </buttonCell>
                                         <connections>
-                                            <segue destination="zhJ-aD-mQv" kind="custom" identifier="backOptionsSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="Zuz-ad-ytp"/>
+                                            <action selector="backButton:" target="uAV-jX-Jyl" id="gFE-Dq-7d5"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1374,6 +1408,9 @@ Gw
                         <outlet property="backButton" destination="9R2-Pm-dzr" id="6oE-gN-VuP"/>
                         <outlet property="networkButton" destination="qsX-4y-tMh" id="IER-FT-2Bb"/>
                         <outlet property="soundButton" destination="Jpf-6z-J6l" id="GKu-Jj-OxB"/>
+                        <segue destination="zhJ-aD-mQv" kind="custom" identifier="backOptionsSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="Oh0-Wd-oHs"/>
+                        <segue destination="PVz-zB-iQZ" kind="custom" identifier="soundOptionsSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="odh-XT-jQ3"/>
+                        <segue destination="9yG-uZ-eSa" kind="custom" identifier="networkOptionsSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="4Bo-mG-byp"/>
                     </connections>
                 </viewController>
                 <customObject id="d9R-A4-hfF" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -1391,6 +1428,9 @@ Gw
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="B08-Ya-hz0">
                                 <rect key="frame" x="0.0" y="0.0" width="658" height="466"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="Texture" id="gxi-nw-SMd"/>
+                                <connections>
+                                    <segue destination="uAV-jX-Jyl" kind="custom" identifier="okSoundOptionsSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="Umf-m6-ZsL"/>
+                                </connections>
                             </imageView>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bnz-xK-Pdp">
                                 <rect key="frame" x="511" y="33" width="130" height="35"/>
@@ -1402,7 +1442,7 @@ Gw
 </string>
                                 </buttonCell>
                                 <connections>
-                                    <segue destination="uAV-jX-Jyl" kind="custom" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="9OI-jO-cZ1"/>
+                                    <action selector="cancelButton:" target="PVz-zB-iQZ" id="ISz-79-zjd"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EZ7-DT-RA0">
@@ -1416,7 +1456,7 @@ Gw
                                     <font key="font" size="18" name="Apple-Chancery"/>
                                 </buttonCell>
                                 <connections>
-                                    <segue destination="uAV-jX-Jyl" kind="custom" identifier="okSoundOptionsSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="G1b-LP-3ti"/>
+                                    <action selector="okButton:" target="PVz-zB-iQZ" id="vwm-In-YvS"/>
                                 </connections>
                             </button>
                             <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="10" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O00-24-rAc">
@@ -1529,57 +1569,69 @@ Gw
                         <outlet property="fxVolumeTextField" destination="RHd-E0-h8f" id="9jz-xH-kjq"/>
                         <outlet property="musicVolumeTextField" destination="3dM-R3-ZbS" id="fsL-ba-Ovj"/>
                         <outlet property="okButton" destination="EZ7-DT-RA0" id="1oH-uT-nGM"/>
+                        <segue destination="uAV-jX-Jyl" kind="custom" identifier="cancelSoundOptionsSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="t1B-HL-rhE"/>
                     </connections>
                 </viewController>
                 <customObject id="IhN-mp-O8O" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2671" y="1169"/>
+            <point key="canvasLocation" x="2857" y="1280"/>
         </scene>
         <!--Select Colors Difficulty Window-->
         <scene sceneID="l01-Sl-bJG">
             <objects>
                 <viewController title="Select Colors Difficulty Window" id="R6h-BC-qNu" customClass="SelectColorsViewController" customModule="WarcraftOSX" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="jwR-Eu-Sv4">
-                        <rect key="frame" x="0.0" y="0.0" width="658" height="466"/>
+                        <rect key="frame" x="0.0" y="0.0" width="657" height="466"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pug-tm-0Hg">
-                                <rect key="frame" x="0.0" y="0.0" width="658" height="466"/>
+                                <rect key="frame" x="0.0" y="0.0" width="657" height="466"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="Texture" id="dBe-R0-X6g"/>
                             </imageView>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tbj-jr-n0M">
-                                <rect key="frame" x="488" y="80" width="150" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="az5-CT-YNn"/>
-                                    <constraint firstAttribute="height" constant="35" id="tHw-zi-e5A"/>
-                                </constraints>
-                                <buttonCell key="cell" type="square" title="Play Game" bezelStyle="shadowlessSquare" image="ButtonColors0" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="axesIndependently" inset="2" id="4ou-bS-Sjr">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" size="18" name="Apple-Chancery"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="playGameButton:" target="R6h-BC-qNu" id="XZi-kV-syF"/>
-                                    <segue destination="NXk-fe-dIt" kind="custom" identifier="playGameSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="J9N-mp-wj7"/>
-                                </connections>
-                            </button>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kXL-FZ-Fce">
-                                <rect key="frame" x="488" y="20" width="150" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="QeW-7r-0Hg"/>
-                                    <constraint firstAttribute="width" constant="150" id="mgX-Jx-uUd"/>
-                                </constraints>
-                                <buttonCell key="cell" type="square" title="Cancel" bezelStyle="shadowlessSquare" image="ButtonColors0" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="axesIndependently" inset="2" id="Frn-u1-qQa">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" size="18" name="Apple-Chancery"/>
-                                    <string key="keyEquivalent" base64-UTF8="YES">
+                            <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="20" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HfE-40-u1Q">
+                                <rect key="frame" x="478" y="25" width="150" height="90"/>
+                                <subviews>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tbj-jr-n0M">
+                                        <rect key="frame" x="0.0" y="55" width="150" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="a5Y-zR-OGH"/>
+                                            <constraint firstAttribute="width" constant="150" id="v4I-3P-yH2"/>
+                                        </constraints>
+                                        <buttonCell key="cell" type="square" title="Play Game" bezelStyle="shadowlessSquare" image="ButtonColors0" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="axesIndependently" inset="2" id="4ou-bS-Sjr">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" size="18" name="Apple-Chancery"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="playGameButton:" target="R6h-BC-qNu" id="XZi-kV-syF"/>
+                                        </connections>
+                                    </button>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kXL-FZ-Fce">
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="BJ5-1C-dIM"/>
+                                            <constraint firstAttribute="height" constant="35" id="cPm-Ad-mfh"/>
+                                        </constraints>
+                                        <buttonCell key="cell" type="square" title="Cancel" bezelStyle="shadowlessSquare" image="ButtonColors0" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="axesIndependently" inset="2" id="Frn-u1-qQa">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" size="18" name="Apple-Chancery"/>
+                                            <string key="keyEquivalent" base64-UTF8="YES">
 Gw
 </string>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="cancelButton:" target="R6h-BC-qNu" id="57I-Ct-dVf"/>
-                                    <segue destination="bEc-MV-a2K" kind="custom" identifier="cancelFromSelectColorsSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="1Vm-Vv-6Vx"/>
-                                </connections>
-                            </button>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="cancelButton:" target="R6h-BC-qNu" id="tL6-T7-Gdl"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KSx-v5-3UE">
                                 <rect key="frame" x="216" y="411" width="226" height="35"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Select Colors/Difficulty" id="eeQ-oq-bUh">
@@ -1588,14 +1640,14 @@ Gw
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="10" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1da-td-rAF">
-                                <rect key="frame" x="20" y="264" width="470" height="128"/>
+                            <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="5" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1da-td-rAF">
+                                <rect key="frame" x="15" y="272" width="438" height="120"/>
                                 <subviews>
                                     <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="15" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pmo-ey-dsD">
-                                        <rect key="frame" x="0.0" y="5" width="77" height="123"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="77" height="120"/>
                                         <subviews>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sqz-mM-5l7">
-                                                <rect key="frame" x="-2" y="92" width="49" height="31"/>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" verticalCompressionResistancePriority="751" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sqz-mM-5l7">
+                                                <rect key="frame" x="-2" y="89" width="49" height="31"/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Player" id="poM-6b-ipr">
                                                     <font key="font" size="16" name="Apple-Chancery"/>
                                                     <color key="textColor" name="highlightColor" catalog="System" colorSpace="catalog"/>
@@ -1603,15 +1655,15 @@ Gw
                                                 </textFieldCell>
                                             </textField>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x28-DJ-gIu">
-                                                <rect key="frame" x="-2" y="46" width="45" height="31"/>
+                                                <rect key="frame" x="-2" y="43" width="45" height="31"/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="1. You" id="8u8-FE-rwH">
                                                     <font key="font" size="16" name="Apple-Chancery"/>
                                                     <color key="textColor" red="1" green="0.94194424152374268" blue="0.20373097062110901" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                             </textField>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="coK-OI-EYF">
-                                                <rect key="frame" x="-2" y="0.0" width="81" height="31"/>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" verticalCompressionResistancePriority="749" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="coK-OI-EYF">
+                                                <rect key="frame" x="-2" y="0.0" width="81" height="28"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="77" id="gQO-Gm-q9x"/>
                                                 </constraints>
@@ -1623,6 +1675,7 @@ Gw
                                             </textField>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstAttribute="height" constant="120" id="2Mv-mi-T4f"/>
                                             <constraint firstAttribute="width" constant="77" id="CMs-bb-APt"/>
                                         </constraints>
                                         <visibilityPriorities>
@@ -1637,31 +1690,31 @@ Gw
                                         </customSpacing>
                                     </stackView>
                                     <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="20" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lhW-5N-9qP">
-                                        <rect key="frame" x="87" y="7" width="270" height="121"/>
+                                        <rect key="frame" x="83" y="0.0" width="250" height="120"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="392-dX-Fr2">
-                                                <rect key="frame" x="115.5" y="90" width="39" height="31"/>
+                                                <rect key="frame" x="106" y="90" width="39" height="30"/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Color" id="Pxg-HH-GTN">
                                                     <font key="font" size="16" name="Apple-Chancery"/>
                                                     <color key="textColor" name="highlightColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                             </textField>
-                                            <stackView distribution="fillEqually" orientation="horizontal" alignment="top" spacing="10" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ToW-V5-8bZ">
-                                                <rect key="frame" x="0.0" y="45" width="270" height="25"/>
+                                            <stackView distribution="fillEqually" orientation="horizontal" alignment="top" spacing="7" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ToW-V5-8bZ">
+                                                <rect key="frame" x="0.0" y="45" width="250" height="25"/>
                                                 <subviews>
                                                     <button identifier="a1" translatesAutoresizingMaskIntoConstraints="NO" id="UTf-lV-LY8">
                                                         <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
-                                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="ButtonColors0" imagePosition="only" alignment="center" borderStyle="border" imageScaling="axesIndependently" inset="2" id="sWa-nj-Ga9">
+                                                        <buttonCell key="cell" type="square" title="X" bezelStyle="shadowlessSquare" image="ButtonColors0" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="axesIndependently" inset="2" id="sWa-nj-Ga9">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                            <font key="font" metaFont="system"/>
+                                                            <font key="font" size="16" name="Apple-Chancery"/>
                                                         </buttonCell>
                                                         <connections>
                                                             <action selector="youColorButton1:" target="R6h-BC-qNu" id="rXX-YA-Sca"/>
                                                         </connections>
                                                     </button>
                                                     <button identifier="a2" translatesAutoresizingMaskIntoConstraints="NO" id="2fL-cH-bZY">
-                                                        <rect key="frame" x="35" y="0.0" width="25" height="25"/>
+                                                        <rect key="frame" x="32" y="0.0" width="25" height="25"/>
                                                         <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="ButtonColors1" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="0aY-TD-C9p">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
@@ -1671,7 +1724,7 @@ Gw
                                                         </connections>
                                                     </button>
                                                     <button identifier="a3" translatesAutoresizingMaskIntoConstraints="NO" id="Nqa-Al-Um8">
-                                                        <rect key="frame" x="70" y="0.0" width="25" height="25"/>
+                                                        <rect key="frame" x="64" y="0.0" width="25" height="25"/>
                                                         <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="ButtonColors2" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="p36-Bk-rGN">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
@@ -1681,7 +1734,7 @@ Gw
                                                         </connections>
                                                     </button>
                                                     <button identifier="a4" translatesAutoresizingMaskIntoConstraints="NO" id="CZt-cF-FwE">
-                                                        <rect key="frame" x="105" y="0.0" width="25" height="25"/>
+                                                        <rect key="frame" x="96" y="0.0" width="26" height="25"/>
                                                         <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="ButtonColors3" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="En6-wD-rvL">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
@@ -1691,7 +1744,7 @@ Gw
                                                         </connections>
                                                     </button>
                                                     <button identifier="a5" translatesAutoresizingMaskIntoConstraints="NO" id="7sO-r3-CD5">
-                                                        <rect key="frame" x="140" y="0.0" width="25" height="25"/>
+                                                        <rect key="frame" x="129" y="0.0" width="25" height="25"/>
                                                         <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="ButtonColors4" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="UvX-Vg-PdW">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
@@ -1701,7 +1754,7 @@ Gw
                                                         </connections>
                                                     </button>
                                                     <button identifier="a6" translatesAutoresizingMaskIntoConstraints="NO" id="Q0U-PG-Bx0">
-                                                        <rect key="frame" x="175" y="0.0" width="25" height="25"/>
+                                                        <rect key="frame" x="161" y="0.0" width="25" height="25"/>
                                                         <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="ButtonColors5" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="eWl-mV-i6Q">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
@@ -1711,7 +1764,7 @@ Gw
                                                         </connections>
                                                     </button>
                                                     <button identifier="a7" translatesAutoresizingMaskIntoConstraints="NO" id="Vu0-eQ-xFO">
-                                                        <rect key="frame" x="210" y="0.0" width="25" height="25"/>
+                                                        <rect key="frame" x="193" y="0.0" width="25" height="25"/>
                                                         <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="ButtonColors6" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="xba-Uw-oyX">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
@@ -1721,7 +1774,7 @@ Gw
                                                         </connections>
                                                     </button>
                                                     <button identifier="a8" translatesAutoresizingMaskIntoConstraints="NO" id="yJ0-MF-s8d">
-                                                        <rect key="frame" x="245" y="0.0" width="25" height="25"/>
+                                                        <rect key="frame" x="225" y="0.0" width="25" height="25"/>
                                                         <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="ButtonColors7" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="4sX-bi-elH">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
@@ -1733,7 +1786,7 @@ Gw
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="DOe-Ed-PVC"/>
-                                                    <constraint firstAttribute="width" constant="270" id="Jhw-lA-P07"/>
+                                                    <constraint firstAttribute="width" constant="250" id="Jhw-lA-P07"/>
                                                 </constraints>
                                                 <visibilityPriorities>
                                                     <integer value="1000"/>
@@ -1756,12 +1809,12 @@ Gw
                                                     <real value="3.4028234663852886e+38"/>
                                                 </customSpacing>
                                             </stackView>
-                                            <stackView distribution="fillEqually" orientation="horizontal" alignment="top" spacing="10" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n5R-uz-f7h">
-                                                <rect key="frame" x="0.0" y="0.0" width="270" height="25"/>
+                                            <stackView distribution="fillEqually" orientation="horizontal" alignment="top" spacing="7" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n5R-uz-f7h">
+                                                <rect key="frame" x="0.0" y="0.0" width="250" height="25"/>
                                                 <subviews>
                                                     <button identifier="b1" translatesAutoresizingMaskIntoConstraints="NO" id="iSo-EH-UaE">
                                                         <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
-                                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="ButtonColors0" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="XTh-Py-8X1">
+                                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="ButtonColors0" imagePosition="only" alignment="center" borderStyle="border" imageScaling="axesIndependently" inset="2" id="XTh-Py-8X1">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
@@ -1770,18 +1823,18 @@ Gw
                                                         </connections>
                                                     </button>
                                                     <button identifier="b2" translatesAutoresizingMaskIntoConstraints="NO" id="X22-ke-T7l">
-                                                        <rect key="frame" x="35" y="0.0" width="25" height="25"/>
-                                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="ButtonColors1" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="Hgu-g8-7ZH">
+                                                        <rect key="frame" x="32" y="0.0" width="25" height="25"/>
+                                                        <buttonCell key="cell" type="square" title="X" bezelStyle="shadowlessSquare" image="ButtonColors1" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="axesIndependently" inset="2" id="Hgu-g8-7ZH">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                            <font key="font" metaFont="system"/>
+                                                            <font key="font" size="16" name="Apple-Chancery"/>
                                                         </buttonCell>
                                                         <connections>
                                                             <action selector="player2ColorButton2:" target="R6h-BC-qNu" id="RLA-Dr-JsU"/>
                                                         </connections>
                                                     </button>
                                                     <button identifier="b3" translatesAutoresizingMaskIntoConstraints="NO" id="hSM-SN-xLn">
-                                                        <rect key="frame" x="70" y="0.0" width="25" height="25"/>
-                                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="ButtonColors2" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="NXd-vu-Al4">
+                                                        <rect key="frame" x="64" y="0.0" width="25" height="25"/>
+                                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="ButtonColors2" imagePosition="only" alignment="center" borderStyle="border" imageScaling="axesIndependently" inset="2" id="NXd-vu-Al4">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
@@ -1790,8 +1843,8 @@ Gw
                                                         </connections>
                                                     </button>
                                                     <button identifier="b4" translatesAutoresizingMaskIntoConstraints="NO" id="9Rq-JS-MVc">
-                                                        <rect key="frame" x="105" y="0.0" width="25" height="25"/>
-                                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="ButtonColors3" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="kqf-FQ-ZS2">
+                                                        <rect key="frame" x="96" y="0.0" width="26" height="25"/>
+                                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="ButtonColors3" imagePosition="only" alignment="center" borderStyle="border" imageScaling="axesIndependently" inset="2" id="kqf-FQ-ZS2">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
@@ -1800,8 +1853,8 @@ Gw
                                                         </connections>
                                                     </button>
                                                     <button identifier="b5" translatesAutoresizingMaskIntoConstraints="NO" id="liF-03-7Ns">
-                                                        <rect key="frame" x="140" y="0.0" width="25" height="25"/>
-                                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="ButtonColors4" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="Bhi-ZN-NBv">
+                                                        <rect key="frame" x="129" y="0.0" width="25" height="25"/>
+                                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="ButtonColors4" imagePosition="only" alignment="center" borderStyle="border" imageScaling="axesIndependently" inset="2" id="Bhi-ZN-NBv">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
@@ -1810,8 +1863,8 @@ Gw
                                                         </connections>
                                                     </button>
                                                     <button identifier="b6" translatesAutoresizingMaskIntoConstraints="NO" id="fpY-Wt-7Gd">
-                                                        <rect key="frame" x="175" y="0.0" width="25" height="25"/>
-                                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="ButtonColors5" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="SQa-1C-cZR">
+                                                        <rect key="frame" x="161" y="0.0" width="25" height="25"/>
+                                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="ButtonColors5" imagePosition="only" alignment="center" borderStyle="border" imageScaling="axesIndependently" inset="2" id="SQa-1C-cZR">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
@@ -1820,8 +1873,8 @@ Gw
                                                         </connections>
                                                     </button>
                                                     <button identifier="b7" translatesAutoresizingMaskIntoConstraints="NO" id="fj9-Q7-CKD">
-                                                        <rect key="frame" x="210" y="0.0" width="25" height="25"/>
-                                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="ButtonColors6" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="sHg-Y6-dDJ">
+                                                        <rect key="frame" x="193" y="0.0" width="25" height="25"/>
+                                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="ButtonColors6" imagePosition="only" alignment="center" borderStyle="border" imageScaling="axesIndependently" inset="2" id="sHg-Y6-dDJ">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
@@ -1830,8 +1883,8 @@ Gw
                                                         </connections>
                                                     </button>
                                                     <button identifier="b8" translatesAutoresizingMaskIntoConstraints="NO" id="9yl-1N-IUL">
-                                                        <rect key="frame" x="245" y="0.0" width="25" height="25"/>
-                                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="ButtonColors7" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="JfE-cb-yzi">
+                                                        <rect key="frame" x="225" y="0.0" width="25" height="25"/>
+                                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="ButtonColors7" imagePosition="only" alignment="center" borderStyle="border" imageScaling="axesIndependently" inset="2" id="JfE-cb-yzi">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
@@ -1841,7 +1894,7 @@ Gw
                                                     </button>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="270" id="Pcv-et-CGo"/>
+                                                    <constraint firstAttribute="width" constant="250" id="Pcv-et-CGo"/>
                                                     <constraint firstAttribute="height" constant="25" id="eRV-c8-a0h"/>
                                                 </constraints>
                                                 <visibilityPriorities>
@@ -1866,6 +1919,10 @@ Gw
                                                 </customSpacing>
                                             </stackView>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="250" id="Fdc-mB-Fr7"/>
+                                            <constraint firstAttribute="height" constant="120" id="KLU-mS-z9I"/>
+                                        </constraints>
                                         <visibilityPriorities>
                                             <integer value="1000"/>
                                             <integer value="1000"/>
@@ -1877,32 +1934,36 @@ Gw
                                             <real value="3.4028234663852886e+38"/>
                                         </customSpacing>
                                     </stackView>
-                                    <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="63" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t5x-La-60O">
-                                        <rect key="frame" x="367" y="0.0" width="103" height="128"/>
+                                    <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="55" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t5x-La-60O">
+                                        <rect key="frame" x="338" y="0.0" width="100" height="120"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sBB-fh-38c">
-                                                <rect key="frame" x="17.5" y="97" width="68" height="31"/>
+                                                <rect key="frame" x="16" y="90" width="68" height="30"/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Difficulty" id="ZdY-Jm-vGI">
                                                     <font key="font" size="16" name="Apple-Chancery"/>
                                                     <color key="textColor" name="highlightColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                             </textField>
-                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BAD-mm-WYT">
-                                                <rect key="frame" x="1.5" y="0.0" width="100" height="34"/>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xwi-pJ-Kvc">
+                                                <rect key="frame" x="0.0" y="0.0" width="100" height="35"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="34" id="5RA-SA-9l5"/>
-                                                    <constraint firstAttribute="width" constant="100" id="e7B-zV-JPo"/>
+                                                    <constraint firstAttribute="height" constant="35" id="2So-I1-i7C"/>
+                                                    <constraint firstAttribute="width" constant="100" id="qVI-gD-xNy"/>
                                                 </constraints>
-                                                <buttonCell key="cell" type="square" title="AI Easy" bezelStyle="shadowlessSquare" image="ButtonColors0" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="axesIndependently" inset="2" id="bzJ-Ll-th3">
+                                                <buttonCell key="cell" type="square" title="AI Easy" bezelStyle="shadowlessSquare" image="ButtonColors0" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="axesIndependently" inset="2" id="EMe-OP-9Hm">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                    <font key="font" size="15" name="Apple-Chancery"/>
+                                                    <font key="font" size="16" name="Apple-Chancery"/>
                                                 </buttonCell>
                                                 <connections>
-                                                    <action selector="difficultyButton:" target="R6h-BC-qNu" id="jlR-K7-Ec2"/>
+                                                    <action selector="difficultyButton:" target="R6h-BC-qNu" id="dQh-D3-uig"/>
                                                 </connections>
                                             </button>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="120" id="Hqq-JJ-UZb"/>
+                                            <constraint firstAttribute="width" constant="100" id="Q5H-v8-1AN"/>
+                                        </constraints>
                                         <visibilityPriorities>
                                             <integer value="1000"/>
                                             <integer value="1000"/>
@@ -1914,7 +1975,7 @@ Gw
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="470" id="gNf-Le-lvU"/>
+                                    <constraint firstAttribute="width" constant="438" id="gNf-Le-lvU"/>
                                 </constraints>
                                 <visibilityPriorities>
                                     <integer value="1000"/>
@@ -1927,25 +1988,49 @@ Gw
                                     <real value="3.4028234663852886e+38"/>
                                 </customSpacing>
                             </stackView>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Ql-Bw-01M">
+                                <rect key="frame" x="466" y="262" width="175" height="130"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="130" id="4Nl-Q0-5gK"/>
+                                    <constraint firstAttribute="width" constant="175" id="mzO-Bb-N9T"/>
+                                </constraints>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="North-South Divide Map" id="MnC-iE-rh9"/>
+                            </imageView>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="por-Xn-IS2">
+                                <rect key="frame" x="515" y="202" width="76" height="62"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="62" id="IHu-IC-fuM"/>
+                                    <constraint firstAttribute="width" constant="72" id="PnR-R4-OYh"/>
+                                </constraints>
+                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="2 Players 96 x 64" id="LOF-QU-Kd5">
+                                    <font key="font" size="16" name="Apple-Chancery"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="kXL-FZ-Fce" firstAttribute="leading" secondItem="tbj-jr-n0M" secondAttribute="leading" id="BA2-hO-Mxd"/>
+                            <constraint firstItem="1Ql-Bw-01M" firstAttribute="leading" secondItem="Pug-tm-0Hg" secondAttribute="trailing" constant="-191" id="2DJ-rM-gbr"/>
                             <constraint firstItem="1da-td-rAF" firstAttribute="top" secondItem="KSx-v5-3UE" secondAttribute="bottom" constant="19" id="Cfh-mu-LAs"/>
                             <constraint firstAttribute="bottom" secondItem="Pug-tm-0Hg" secondAttribute="bottom" id="FT9-jg-B8w"/>
-                            <constraint firstItem="1da-td-rAF" firstAttribute="leading" secondItem="jwR-Eu-Sv4" secondAttribute="leading" constant="20" symbolic="YES" id="Hfh-8j-9Tr"/>
-                            <constraint firstAttribute="trailing" secondItem="kXL-FZ-Fce" secondAttribute="trailing" constant="20" symbolic="YES" id="JSG-pI-eBY"/>
+                            <constraint firstItem="1da-td-rAF" firstAttribute="leading" secondItem="jwR-Eu-Sv4" secondAttribute="leading" constant="15" id="Hfh-8j-9Tr"/>
                             <constraint firstItem="Pug-tm-0Hg" firstAttribute="leading" secondItem="jwR-Eu-Sv4" secondAttribute="leading" id="LVx-3t-F8r"/>
+                            <constraint firstItem="por-Xn-IS2" firstAttribute="top" secondItem="1Ql-Bw-01M" secondAttribute="bottom" constant="-2" id="WF7-xy-8kB"/>
                             <constraint firstItem="KSx-v5-3UE" firstAttribute="centerX" secondItem="Pug-tm-0Hg" secondAttribute="centerX" id="WTK-7Z-BS4"/>
                             <constraint firstItem="1da-td-rAF" firstAttribute="top" secondItem="jwR-Eu-Sv4" secondAttribute="top" constant="74" id="WYz-cf-dMT"/>
+                            <constraint firstItem="HfE-40-u1Q" firstAttribute="top" secondItem="Pug-tm-0Hg" secondAttribute="bottom" constant="-115" id="dD5-3q-GD8"/>
+                            <constraint firstItem="Pug-tm-0Hg" firstAttribute="top" secondItem="1Ql-Bw-01M" secondAttribute="bottom" constant="-204" id="fyg-Ue-Yvf"/>
                             <constraint firstItem="Pug-tm-0Hg" firstAttribute="top" secondItem="jwR-Eu-Sv4" secondAttribute="top" id="g1e-mo-hAJ"/>
-                            <constraint firstItem="kXL-FZ-Fce" firstAttribute="top" secondItem="tbj-jr-n0M" secondAttribute="bottom" constant="25" id="jkO-b6-jNl"/>
+                            <constraint firstItem="HfE-40-u1Q" firstAttribute="centerX" secondItem="por-Xn-IS2" secondAttribute="centerX" id="le8-r1-6kf"/>
+                            <constraint firstItem="HfE-40-u1Q" firstAttribute="leading" secondItem="Pug-tm-0Hg" secondAttribute="trailing" constant="-179" id="pBy-Hz-njq"/>
                             <constraint firstAttribute="trailing" secondItem="Pug-tm-0Hg" secondAttribute="trailing" id="puj-M2-FYa"/>
-                            <constraint firstItem="kXL-FZ-Fce" firstAttribute="top" secondItem="Pug-tm-0Hg" secondAttribute="bottom" constant="-55" id="y5W-hb-HBK"/>
+                            <constraint firstItem="por-Xn-IS2" firstAttribute="centerX" secondItem="1Ql-Bw-01M" secondAttribute="centerX" id="qlb-VY-73Y"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="cancelButton" destination="kXL-FZ-Fce" id="ZOU-LC-gE0"/>
-                        <outlet property="difficulty" destination="BAD-mm-WYT" id="6lK-Bu-ra8"/>
+                        <outlet property="difficultyButton" destination="xwi-pJ-Kvc" id="8M9-ZB-YKL"/>
+                        <outlet property="miniMap" destination="1Ql-Bw-01M" id="diP-dq-B6v"/>
                         <outlet property="playGameButton" destination="tbj-jr-n0M" id="271-xC-o97"/>
                         <outlet property="player2ColorButton1" destination="iSo-EH-UaE" id="3FL-uS-XK2"/>
                         <outlet property="player2ColorButton2" destination="X22-ke-T7l" id="onU-Uo-Xbe"/>
@@ -1955,6 +2040,7 @@ Gw
                         <outlet property="player2ColorButton6" destination="fpY-Wt-7Gd" id="ZNq-fK-Im2"/>
                         <outlet property="player2ColorButton7" destination="fj9-Q7-CKD" id="zIP-KR-LLC"/>
                         <outlet property="player2ColorButton8" destination="9yl-1N-IUL" id="p7o-pM-oAV"/>
+                        <outlet property="player2Text" destination="coK-OI-EYF" id="5fS-SF-7Ny"/>
                         <outlet property="youColorButton1" destination="UTf-lV-LY8" id="hrj-CQ-VGa"/>
                         <outlet property="youColorButton2" destination="2fL-cH-bZY" id="1H4-t4-1oe"/>
                         <outlet property="youColorButton3" destination="Nqa-Al-Um8" id="OJY-is-eW2"/>
@@ -1963,11 +2049,13 @@ Gw
                         <outlet property="youColorButton6" destination="Q0U-PG-Bx0" id="GKe-o8-LZz"/>
                         <outlet property="youColorButton7" destination="Vu0-eQ-xFO" id="iBx-8z-vhJ"/>
                         <outlet property="youColorButton8" destination="yJ0-MF-s8d" id="5IK-Gz-AvH"/>
+                        <segue destination="NXk-fe-dIt" kind="custom" identifier="playGameSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="Rgy-oK-eC4"/>
+                        <segue destination="bEc-MV-a2K" kind="custom" identifier="cancelSelectColorsSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="7XN-uL-2B6"/>
                     </connections>
                 </viewController>
                 <customObject id="aIE-aJ-EdQ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3540" y="256"/>
+            <point key="canvasLocation" x="3541" y="256"/>
         </scene>
         <!--Network Options-->
         <scene sceneID="kcQ-Tl-uJ5">
@@ -2092,7 +2180,7 @@ Gw
 </string>
                                 </buttonCell>
                                 <connections>
-                                    <segue destination="uAV-jX-Jyl" kind="custom" identifier="cancelNetworkOptions" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="pg2-XZ-0g6"/>
+                                    <action selector="cancelButton:" target="9yG-uZ-eSa" id="idT-TZ-hcq"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rpC-Pi-YgU">
@@ -2106,7 +2194,7 @@ Gw
                                     <font key="font" size="18" name="Apple-Chancery"/>
                                 </buttonCell>
                                 <connections>
-                                    <segue destination="uAV-jX-Jyl" kind="custom" identifier="okNetWorkOptionsSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="XFd-UM-ceA"/>
+                                    <action selector="okButton:" target="9yG-uZ-eSa" id="IBb-d7-ejW"/>
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LeB-tq-bFe">
@@ -2139,11 +2227,13 @@ Gw
                     <connections>
                         <outlet property="cancelButton" destination="ySp-VQ-NsC" id="Gef-mX-5Dh"/>
                         <outlet property="okButton" destination="rpC-Pi-YgU" id="jcR-Ha-F7L"/>
+                        <segue destination="uAV-jX-Jyl" kind="custom" identifier="cancelNetworkOptionsSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="Yec-bG-YZW"/>
+                        <segue destination="uAV-jX-Jyl" kind="custom" identifier="okNetworkOptionsSegue" customClass="StoryBoardSegue" customModule="WarcraftOSX" customModuleProvider="target" id="Ljk-lr-UnV"/>
                     </connections>
                 </viewController>
                 <customObject id="9QZ-u7-nHb" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2671" y="1844"/>
+            <point key="canvasLocation" x="2866" y="1865"/>
         </scene>
     </scenes>
     <resources>
@@ -2155,11 +2245,12 @@ Gw
         <image name="ButtonColors5" width="1" height="1"/>
         <image name="ButtonColors6" width="1" height="1"/>
         <image name="ButtonColors7" width="1" height="1"/>
+        <image name="North-South Divide Map" width="568" height="380"/>
         <image name="Texture" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1Vm-Vv-6Vx"/>
-        <segue reference="vMm-eN-a5Z"/>
-        <segue reference="G1b-LP-3ti"/>
+        <segue reference="yh4-ff-Xsb"/>
+        <segue reference="U08-h1-nky"/>
+        <segue reference="7XN-uL-2B6"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -15,6 +15,19 @@ class MultiPlayerGameOptionsViewController: NSViewController {
     @IBOutlet weak var joinButton: NSButton!
     @IBOutlet weak var backButton: NSButton!
     
+    @IBAction func hostButton(_ sender: NSButton) {
+        thunkSound.play()
+        self.performSegue(withIdentifier: "hostMultiPlayerGameSegue", sender: sender)
+    }
+    @IBAction func joinButton(_ sender: NSButton) {
+//        self.performSegue(withIdentifier: "optionsSegue", sender: sender)
+    }
+    @IBAction func backButton(_ sender: NSButton) {
+        thunkSound.play()
+        self.performSegue(withIdentifier: "backMultiplayerGameSegue", sender: sender)
+    }
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()

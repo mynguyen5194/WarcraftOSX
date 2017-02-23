@@ -14,7 +14,16 @@ class NetworkOptionsViewController: NSViewController {
     @IBOutlet weak var okButton: NSButton!
     @IBOutlet weak var cancelButton: NSButton!
     
+    @IBAction func okButton(_ sender: NSButton) {
+        thunkSound.play()
+        self.performSegue(withIdentifier: "okNetworkOptionsSegue", sender: sender)
+    }
 
+    @IBAction func cancelButton(_ sender: NSButton) {
+        thunkSound.play()
+        self.performSegue(withIdentifier: "cancelNetworkOptionsSegue", sender: sender)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

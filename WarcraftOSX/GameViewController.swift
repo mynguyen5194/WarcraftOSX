@@ -67,6 +67,7 @@ class GameViewController: NSViewController {
             let lowerCase = forResource.lowercased()
             print (lowerCase)
             let mapURL = Bundle.main.url(forResource: lowerCase, withExtension: "map")!
+
             let mapSource = try FileDataSource(url: mapURL)
             let map = AssetDecoratedMap()
             try map.loadMap(source: mapSource)
@@ -151,6 +152,7 @@ class GameViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        menuSound.stop()
         
         midiPlayer.prepareToPlay()
         midiPlayer.play()
