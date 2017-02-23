@@ -12,6 +12,7 @@ import AVFoundation
 
 var thunkSound = AVAudioPlayer()
 var tickSound = AVAudioPlayer()
+var singlePlayerGame = false
 
 class MainMenuViewController: NSViewController {
     
@@ -25,11 +26,13 @@ class MainMenuViewController: NSViewController {
     @IBAction func singlePlayerGameButton(_ sender: NSButton) {
         playThunkSound()
         self.performSegue(withIdentifier: "singlePlayerGameSegue", sender: sender)
+        singlePlayerGame = true
     }
     
     @IBAction func multiPlayerGameButton(_ sender: NSButton) {
         playThunkSound()
         self.performSegue(withIdentifier: "multiPlayerGameSegue", sender: sender)
+        singlePlayerGame = false
     }
     
     @IBAction func optionsButton(_ sender: NSButton) {

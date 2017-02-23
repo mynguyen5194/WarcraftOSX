@@ -18,11 +18,15 @@ class SelectColorsViewController: NSViewController {
     var player2ColorButtons = [NSButton]()
     var secondRowPre = NSButton()
     
+    @IBOutlet weak var miniMap: NSImageView!
+    @IBOutlet weak var player2Text: NSTextField!
     
     
-    @IBOutlet weak var difficulty: NSButton!
+    
+    // MARK: difficutlyButton
+    @IBOutlet weak var difficultyButton: NSButton!
     @IBAction func difficultyButton(_ sender: NSButton) {
-        let attribute = getAttribute()
+        let attribute = getAttribute(size: 18)
         
         if sender.title == "AI Easy"{
             sender.attributedTitle = NSAttributedString(string: "AI Medium", attributes: attribute)
@@ -31,8 +35,27 @@ class SelectColorsViewController: NSViewController {
         } else {
             sender.attributedTitle = NSAttributedString(string: "AI Easy", attributes: attribute)
         }
+        
     }
     
+    
+    // MARK: playGameButton
+    @IBOutlet weak var playGameButton: NSButton!
+    @IBAction func playGameButton(_ sender: NSButton) {
+        thunkSound.play()
+        self.performSegue(withIdentifier: "playGameSegue", sender: sender)
+    }
+    
+    
+    // MARK: cancelButton
+    @IBOutlet weak var cancelButton: NSButton!
+    @IBAction func cancelButton(_ sender: NSButton) {
+        thunkSound.play()
+        self.performSegue(withIdentifier: "cancelSelectColorsSegue", sender: sender)
+    }
+    
+    
+    // MARK: youColorButtons
     @IBOutlet weak var youColorButton1: NSButton!
     @IBOutlet weak var youColorButton2: NSButton!
     @IBOutlet weak var youColorButton3: NSButton!
@@ -67,7 +90,7 @@ class SelectColorsViewController: NSViewController {
         modifyButton(sender, firstRow: true)
     }
     
-    
+    // MARK: player2ColorButtons
     @IBOutlet weak var player2ColorButton1: NSButton!
     @IBOutlet weak var player2ColorButton2: NSButton!
     @IBOutlet weak var player2ColorButton3: NSButton!
@@ -103,77 +126,43 @@ class SelectColorsViewController: NSViewController {
     }
     
     
-    @IBOutlet weak var playGameButton: NSButton!
-    @IBOutlet weak var cancelButton: NSButton!
-    
-    @IBAction func playGameButton(_ sender: NSButton) {
-        thunkSound.play()
-        self.performSegue(withIdentifier: "playGameSegue", sender: sender)
-    }
-    @IBAction func cancelButton(_ sender: NSButton) {
-        thunkSound.play()
-        self.performSegue(withIdentifier: "cancelSelectColorsSegue", sender: sender)
-    }
-    
-    
-    private lazy var mapRenderer: MapRenderer = {
-        do {
-            let configurationURL = Bundle.main.url(forResource: "/data/img/MapRendering", withExtension: "dat")!
-            let configuration = try FileDataSource(url: configurationURL)
-            let terrainTileset = try tileset("Terrain")
-            Position.setTileDimensions(width: terrainTileset.tileWidth, height: terrainTileset.tileHeight)
-            return try MapRenderer(configuration: configuration, tileset: terrainTileset, map: self.map)
-        } catch {
-            let error = NSError.init(domain: "MapRenderer Error", code: 0, userInfo: nil)
-            fatalError(error.localizedDescription)
-        }
-    }()
-    
-    private lazy var map: AssetDecoratedMap = {
-        do {
-            let mapURL = Bundle.main.url(forResource: "/data/map/maze", withExtension: "map")!
-            let mapSource = try FileDataSource(url: mapURL)
-            let map = AssetDecoratedMap()
-            try map.loadMap(source: mapSource)
-            return map
-        } catch {
-            fatalError(error.localizedDescription) // TODO: Handle Error
-        }
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         youColorButtons = [youColorButton1, youColorButton2, youColorButton3, youColorButton4, youColorButton5, youColorButton6, youColorButton7, youColorButton8]
         firstRowPre = youColorButton1
-    
+        
         player2ColorButtons = [player2ColorButton1, player2ColorButton2, player2ColorButton3, player2ColorButton4, player2ColorButton5, player2ColorButton6, player2ColorButton7, player2ColorButton8]
         secondRowPre = player2ColorButton1
         
-        let attribute = getAttribute()
+        let attribute = getAttribute(size: 18)
+        
+        if singlePlayerGame == true {
+            difficultyButton.attributedTitle = NSAttributedString(string: "AI Easy", attributes: attribute)
+        } else {
+            difficultyButton.attributedTitle = NSAttributedString(string: "Human", attributes: attribute)
+            
+        }
        
-        difficulty.attributedTitle = NSAttributedString(string: "AI Easy", attributes: attribute)
         youColorButton1.attributedTitle = NSAttributedString(string: "X", attributes: attribute)
         player2ColorButton2.attributedTitle = NSAttributedString(string: "X", attributes: attribute)
         playGameButton.attributedTitle = NSAttributedString(string: playGameButton.title, attributes: attribute)
         cancelButton.attributedTitle = NSAttributedString(string: cancelButton.title, attributes: attribute)
         
-        // For Mini Map
-        let OSXCustomMiniMapViewMap = OSXCustomMiniMapView(frame: CGRect(origin: .zero, size: CGSize(width: mapRenderer.mapWidth, height: mapRenderer.mapHeight)), mapRenderer: mapRenderer)
-        
-        //self.titleVisibility = NSWindowTitleVisibility.Hidden;
-        miniMapView.addSubview(OSXCustomMiniMapViewMap)
+
+        if northSouthDivide == true {
+            miniMap.image = NSImage(named: "North-South Divide Map")
+        } else {
+            miniMap.image = NSImage(named: "Maze Map")
+        }
     }
     
-    func playGame() {
-        performSegue(withIdentifier: "playGameSegue", sender: self)
-        menuSound.stop()
-    }
     
-    func getAttribute() -> [String: AnyObject] {
+    // MARK: helper functions
+    func getAttribute(size: CGFloat) -> [String: AnyObject] {
         pstyle.alignment = .center
         var attributes = [String: AnyObject]()
         
-        attributes[NSFontAttributeName] = NSFont(name: "Apple Chancery", size: 18)
+        attributes[NSFontAttributeName] = NSFont(name: "Apple Chancery", size: size)
         attributes[NSForegroundColorAttributeName] = NSColor.yellow
         attributes[NSParagraphStyleAttributeName] = pstyle
         
@@ -181,8 +170,7 @@ class SelectColorsViewController: NSViewController {
     }
     
     func modifyButton(_ sender: NSButton, firstRow: Bool) {
-        pstyle.alignment = .center
-        sender.attributedTitle = NSAttributedString(string: "X", attributes: [ NSForegroundColorAttributeName: NSColor.yellow, NSParagraphStyleAttributeName: pstyle])
+        sender.attributedTitle = NSAttributedString(string: "X", attributes: getAttribute(size: 16))
         clearOtherButtons(sender, firstRow: firstRow)
     }
     
