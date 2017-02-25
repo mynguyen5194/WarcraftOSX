@@ -39,6 +39,40 @@ class GameViewController: NSViewController {
     var game1Sound = AVMIDIPlayer()
     //var mapType: SelectMapViewController?
     
+    @IBOutlet weak var button1: NSButton!
+    @IBOutlet weak var button2: NSButton!
+    @IBOutlet weak var button3: NSButton!
+    @IBOutlet weak var button4: NSButton!
+    @IBOutlet weak var button5: NSButton!
+    @IBOutlet weak var button6: NSButton!
+    @IBOutlet weak var button7: NSButton!
+    @IBOutlet weak var button8: NSButton!
+    @IBOutlet weak var button9: NSButton!
+    
+    @IBAction func button1(_ sender: NSButton) {
+    }
+    @IBAction func button2(_ sender: NSButton) {
+    }
+    @IBAction func button3(_ sender: NSButton) {
+    }
+    @IBAction func button4(_ sender: NSButton) {
+    }
+    @IBAction func button5(_ sender: NSButton) {
+    }
+    @IBAction func button6(_ sender: NSButton) {
+    }
+    @IBAction func button7(_ sender: NSButton) {
+        if sender.image?.name() == "Build-simple Icon" {
+            print("************")
+        }
+    }
+    @IBAction func button8(_ sender: NSButton) {
+    }
+    @IBAction func button9(_ sender: NSButton) {
+    }
+    
+    
+    
     @IBOutlet weak var miniView: NSView!
     @IBOutlet weak var mainMapView: NSView!
     @IBOutlet weak var testXLoc: NSTextField!
