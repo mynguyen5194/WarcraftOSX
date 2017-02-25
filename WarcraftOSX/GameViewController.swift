@@ -41,7 +41,6 @@ class GameViewController: NSViewController {
     
     @IBOutlet weak var miniView: NSView!
     @IBOutlet weak var mainMapView: NSView!
-    @IBOutlet weak var miniMapView: NSView!
     @IBOutlet weak var testXLoc: NSTextField!
     @IBOutlet weak var testYLoc: NSTextField!
     @IBOutlet weak var tileXLoc: NSTextField!

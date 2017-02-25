@@ -18,6 +18,7 @@ class MainMenuViewController: NSViewController {
     
     var menuSupporter = MenuSupporter()
     
+    @IBOutlet weak var menuStackView: NSStackView!
     @IBOutlet weak var singlePlayerGameButton: NSButton!
     @IBOutlet weak var multiPlayerGameButton: NSButton!
     @IBOutlet weak var optionsButton: NSButton!
@@ -55,31 +56,55 @@ class MainMenuViewController: NSViewController {
         
         let area = NSTrackingArea.init(rect: singlePlayerGameButton.bounds, options: [NSTrackingAreaOptions.mouseEnteredAndExited, NSTrackingAreaOptions.activeAlways], owner: self, userInfo: nil)
         singlePlayerGameButton.addTrackingArea(area)
-        
-        
+
+        let area2 = NSTrackingArea.init(rect: multiPlayerGameButton.bounds, options: [NSTrackingAreaOptions.mouseEnteredAndExited, NSTrackingAreaOptions.activeAlways], owner: self, userInfo: nil)
+        multiPlayerGameButton.addTrackingArea(area2)
     }
     
-    func mouseHandler(sender: NSButton) {
-//        let pstyle = NSMutableParagraphStyle()
-//        pstyle.alignment = .center
-//        var attributes = [String: AnyObject]()
+    
+//    override func mouseMoved(with event: NSEvent) {
+////        let a = NSEvent.mouseLocation()
+//        let a = event.locationInWindow
+//        print("LOCATION A = \(a)")
+//        print("********* \(singlePlayerGameButton.doesContain(a))")
 //        
-//        attributes[NSFontAttributeName] = NSFonts(name: "Apple Chancery", size: fontSize)
-//        attributes[NSForegroundColorAttributeName] = NSColor.white
-//        attributes[NSParagraphStyleAttributeName] = pstyle
-//        
-//        sender.attributedTitle = NSAttributedString(string: sender.title, attributes: attributes )
-        
-        
-        let buttonArea = NSTrackingArea.init(rect: sender.bounds, options: [NSTrackingAreaOptions.mouseEnteredAndExited, NSTrackingAreaOptions.activeAlways], owner: self, userInfo: nil)
-        sender.addTrackingArea(buttonArea)
-        
-    }
+//        if singlePlayerGameButton.doesContain(a) {
+//            print("INSIDE SINGLE")
+//            menuSupporter.formatButtonTitle(sender: singlePlayerGameButton, color: NSColor.white, title: singlePlayerGameButton.title, fontSize: 18)
+//            playTickSound()
+//        }
+//        if multiPlayerGameButton.doesContain(a) {
+//            print("INSIDE 2")
+//            menuSupporter.formatButtonTitle(sender: multiPlayerGameButton, color: NSColor.white, title: multiPlayerGameButton.title, fontSize: 18)
+//            playTickSound()
+//        }
+//    }
     
     override func mouseEntered(with event: NSEvent) {
+        let a = NSEvent.mouseLocation()
+        print("LOCATION A = \(a)")
         
-        menuSupporter.formatButtonTitle(sender: singlePlayerGameButton, color: NSColor.white, title: singlePlayerGameButton.title, fontSize: 18)
-        playTickSound()
+        
+        
+        
+        
+        let b = CGPoint(x: a.x, y: a.y)
+//        print("********* \(singlePlayerGameButton.frame.contains(b))")
+        
+        
+        let c = event.trackingArea?.rect.contains(b)
+        print("**********\(c)")
+        
+        
+        if singlePlayerGameButton.frame.contains(b) {
+            print("INSIDE SINGLE")
+            menuSupporter.formatButtonTitle(sender: singlePlayerGameButton, color: NSColor.white, title: singlePlayerGameButton.title, fontSize: 18)
+            playTickSound()
+        } else if multiPlayerGameButton.doesContain(a) {
+            print("INSIDE 2")
+            menuSupporter.formatButtonTitle(sender: multiPlayerGameButton, color: NSColor.white, title: multiPlayerGameButton.title, fontSize: 18)
+            playTickSound()
+        }
         
     }
     override func mouseExited(with event: NSEvent) {

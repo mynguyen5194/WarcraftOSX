@@ -851,7 +851,6 @@
                         <outlet property="mainMapView" destination="fcH-AL-lHV" id="DBT-TA-Ie7"/>
                         <outlet property="menuButton" destination="IKs-zX-IhM" id="JRW-BA-cMB"/>
                         <outlet property="mini" destination="Oq0-Zb-3iV" id="Xfw-En-Ig1"/>
-                        <outlet property="miniMapView" destination="wKt-hA-keA" id="656-wJ-Zp2"/>
                         <outlet property="miniView" destination="Oq0-Zb-3iV" id="6qw-aO-Jlj"/>
                         <outlet property="testLocation" destination="UoW-p4-usd" id="dvS-Ov-9bC"/>
                         <outlet property="testXLoc" destination="UoW-p4-usd" id="hNb-ba-4Qv"/>
@@ -892,7 +891,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <stackView distribution="equalCentering" orientation="vertical" alignment="centerX" spacing="20" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eP1-DM-t5u">
-                                        <rect key="frame" x="0.0" y="111" width="200" height="145"/>
+                                        <rect key="frame" x="0.0" y="105" width="200" height="145"/>
                                         <subviews>
                                             <button verticalHuggingPriority="750" imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="duJ-dm-GrR">
                                                 <rect key="frame" x="0.0" y="110" width="200" height="35"/>
@@ -955,7 +954,7 @@
                                         </customSpacing>
                                     </stackView>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mf2-g4-ohe">
-                                        <rect key="frame" x="0.0" y="6" width="200" height="35"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="200" id="RyI-ve-3XM"/>
                                             <constraint firstAttribute="height" constant="35" id="rXr-v6-xJw"/>
@@ -996,6 +995,7 @@
                     </view>
                     <connections>
                         <outlet property="exitGameButton" destination="mf2-g4-ohe" id="0Cq-X1-pi6"/>
+                        <outlet property="menuStackView" destination="3SW-hv-Zrj" id="jMT-6R-c0Z"/>
                         <outlet property="multiPlayerGameButton" destination="tQC-xP-btW" id="wDZ-EA-oOo"/>
                         <outlet property="optionsButton" destination="933-vq-lhe" id="dSw-jY-oBa"/>
                         <outlet property="singlePlayerGameButton" destination="duJ-dm-GrR" id="uke-EN-dcL"/>
@@ -1643,48 +1643,55 @@ Gw
                             <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="5" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1da-td-rAF">
                                 <rect key="frame" x="15" y="272" width="438" height="120"/>
                                 <subviews>
-                                    <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="15" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pmo-ey-dsD">
-                                        <rect key="frame" x="0.0" y="0.0" width="77" height="120"/>
+                                    <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="12" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gGC-bi-uMv">
+                                        <rect key="frame" x="0.0" y="0.0" width="78" height="120"/>
                                         <subviews>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" verticalCompressionResistancePriority="751" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sqz-mM-5l7">
-                                                <rect key="frame" x="-2" y="89" width="49" height="31"/>
-                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Player" id="poM-6b-ipr">
-                                                    <font key="font" size="16" name="Apple-Chancery"/>
-                                                    <color key="textColor" name="highlightColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                </textFieldCell>
-                                            </textField>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x28-DJ-gIu">
-                                                <rect key="frame" x="-2" y="43" width="45" height="31"/>
-                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="1. You" id="8u8-FE-rwH">
-                                                    <font key="font" size="16" name="Apple-Chancery"/>
-                                                    <color key="textColor" red="1" green="0.94194424152374268" blue="0.20373097062110901" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                </textFieldCell>
-                                            </textField>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" verticalCompressionResistancePriority="749" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="coK-OI-EYF">
-                                                <rect key="frame" x="-2" y="0.0" width="81" height="28"/>
+                                            <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="15" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pmo-ey-dsD">
+                                                <rect key="frame" x="0.0" y="43" width="77" height="77"/>
+                                                <subviews>
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" verticalCompressionResistancePriority="751" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sqz-mM-5l7">
+                                                        <rect key="frame" x="-2" y="46" width="49" height="31"/>
+                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Player" id="poM-6b-ipr">
+                                                            <font key="font" size="16" name="Apple-Chancery"/>
+                                                            <color key="textColor" name="highlightColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x28-DJ-gIu">
+                                                        <rect key="frame" x="-2" y="0.0" width="45" height="31"/>
+                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="1. You" id="8u8-FE-rwH">
+                                                            <font key="font" size="16" name="Apple-Chancery"/>
+                                                            <color key="textColor" red="1" green="0.94194424152374268" blue="0.20373097062110901" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="77" id="gQO-Gm-q9x"/>
+                                                    <constraint firstAttribute="width" constant="77" id="CMs-bb-APt"/>
                                                 </constraints>
-                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="2. Player 2" id="LMz-cL-BdQ">
+                                                <visibilityPriorities>
+                                                    <integer value="1000"/>
+                                                    <integer value="1000"/>
+                                                </visibilityPriorities>
+                                                <customSpacing>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                </customSpacing>
+                                            </stackView>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Psb-im-XeZ">
+                                                <rect key="frame" x="-2" y="0.0" width="79" height="31"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="2. Player 2" id="zIM-3I-DgU">
                                                     <font key="font" size="16" name="Apple-Chancery"/>
-                                                    <color key="textColor" name="highlightColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                             </textField>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="120" id="2Mv-mi-T4f"/>
-                                            <constraint firstAttribute="width" constant="77" id="CMs-bb-APt"/>
-                                        </constraints>
                                         <visibilityPriorities>
-                                            <integer value="1000"/>
                                             <integer value="1000"/>
                                             <integer value="1000"/>
                                         </visibilityPriorities>
                                         <customSpacing>
-                                            <real value="3.4028234663852886e+38"/>
                                             <real value="3.4028234663852886e+38"/>
                                             <real value="3.4028234663852886e+38"/>
                                         </customSpacing>
@@ -2040,7 +2047,7 @@ Gw
                         <outlet property="player2ColorButton6" destination="fpY-Wt-7Gd" id="ZNq-fK-Im2"/>
                         <outlet property="player2ColorButton7" destination="fj9-Q7-CKD" id="zIP-KR-LLC"/>
                         <outlet property="player2ColorButton8" destination="9yl-1N-IUL" id="p7o-pM-oAV"/>
-                        <outlet property="player2Text" destination="coK-OI-EYF" id="5fS-SF-7Ny"/>
+                        <outlet property="player2Text" destination="Psb-im-XeZ" id="1zG-ha-GMy"/>
                         <outlet property="youColorButton1" destination="UTf-lV-LY8" id="hrj-CQ-VGa"/>
                         <outlet property="youColorButton2" destination="2fL-cH-bZY" id="1H4-t4-1oe"/>
                         <outlet property="youColorButton3" destination="Nqa-Al-Um8" id="OJY-is-eW2"/>
@@ -2055,7 +2062,7 @@ Gw
                 </viewController>
                 <customObject id="aIE-aJ-EdQ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3541" y="256"/>
+            <point key="canvasLocation" x="3540.5" y="256"/>
         </scene>
         <!--Network Options-->
         <scene sceneID="kcQ-Tl-uJ5">
@@ -2251,6 +2258,6 @@ Gw
     <inferredMetricsTieBreakers>
         <segue reference="yh4-ff-Xsb"/>
         <segue reference="U08-h1-nky"/>
-        <segue reference="7XN-uL-2B6"/>
+        <segue reference="TxN-Cz-65k"/>
     </inferredMetricsTieBreakers>
 </document>

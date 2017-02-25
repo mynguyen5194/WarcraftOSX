@@ -9,7 +9,7 @@
 import Cocoa
 import AVFoundation
 
-var menuSound = AVMIDIPlayer()
+var menuSound = AVAudioPlayer() //AVMIDIPlayer()
 
 class LaunchViewController: NSViewController {
     var menuSoundURL: URL?
@@ -51,17 +51,30 @@ class LaunchViewController: NSViewController {
     }
     
     func playMenuMidi() {
-        menuSoundURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/snd/music/menu", ofType: "mid"))!)
-        menuSoundBankURL = Bundle.main.url(forResource: "data/snd/generalsoundfont", withExtension: "sf2")
+//        menuSoundURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/snd/music/menu", ofType: "mid"))!)
+//        menuSoundBankURL = Bundle.main.url(forResource: "data/snd/generalsoundfont", withExtension: "sf2")
+        
+        menuSoundURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/snd/misc/thunk", ofType: "wav"))!)
         
         do {
-            try menuSound = AVMIDIPlayer(contentsOf: menuSoundURL!, soundBankURL: menuSoundBankURL)
+            try menuSound = AVAudioPlayer(contentsOf: menuSoundURL!)
+        } catch {
+            NSLog("Error: Can't play sound file thunk.wav")
         }
-        catch {
-            NSLog("Error: Can't play sound file menu.mid")
-        }
+        
         menuSound.prepareToPlay()
         menuSound.play()
+
+        
+//        do {
+//            try menuSound = AVMIDIPlayer(contentsOf: menuSoundURL!, soundBankURL: menuSoundBankURL)
+//        }
+//        catch {
+//            NSLog("Error: Can't play sound file menu.mid")
+//        }
+//        menuSound.prepareToPlay()
+//        menuSound.play()
+        
     }
     
     
