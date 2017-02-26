@@ -487,6 +487,7 @@ class GameModel {
         randomNumberGenerator = RandomNumberGenerator()
         randomNumberGenerator.seed(seed)
         gameCycle = 0
+
         
         actualMap = AssetDecoratedMap.duplicateMap(at: mapIndex, newColors: newColors)
         routerMap = RouterMap()
@@ -496,6 +497,7 @@ class GameModel {
             players.append(PlayerData(map: actualMap, color: PlayerColor(index: playerIndex)!))
         }
         
+
         assetOccupancyMap = Array(repeating: Array(repeating: nil, count: actualMap.width), count: actualMap.height)
         diagonalOccupancyMap = Array(repeating: Array(repeating: false, count: actualMap.width), count: actualMap.height)
         
@@ -505,6 +507,8 @@ class GameModel {
                 lumberAvailable[row][column] = players[0].lumber
             }
         }
+        
+
     }
     
     func isValidAsset(_ playerAsset: PlayerAsset) -> Bool {
@@ -518,8 +522,12 @@ class GameModel {
     }
     
     func timestep() throws {
+        //Original
         assetOccupancyMap = Array(repeating: Array(repeating: nil, count: assetOccupancyMap[0].count), count: assetOccupancyMap.count)
         diagonalOccupancyMap = Array(repeating: Array(repeating: false, count: diagonalOccupancyMap[0].count), count: diagonalOccupancyMap.count)
+        
+//        assetOccupancyMap = Array(repeating: Array(repeating: nil, count: assetOccupancyMap.count), count: assetOccupancyMap.count)
+//        diagonalOccupancyMap = Array(repeating: Array(repeating: false, count: diagonalOccupancyMap.count), count: diagonalOccupancyMap.count)
         
         for asset in actualMap.assets where ![.conveyGold, .conveyLumber, .mineGold].contains(asset.action) {
             assetOccupancyMap[asset.tilePositionY][asset.tilePositionX] = asset
