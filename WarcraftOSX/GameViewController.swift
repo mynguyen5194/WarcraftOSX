@@ -39,6 +39,8 @@ class GameViewController: NSViewController {
     var game1Sound = AVMIDIPlayer()
     //var mapType: SelectMapViewController?
     
+    var buttons = [NSButton]()
+    
     @IBOutlet weak var button1: NSButton!
     @IBOutlet weak var button2: NSButton!
     @IBOutlet weak var button3: NSButton!
@@ -63,13 +65,22 @@ class GameViewController: NSViewController {
     }
     @IBAction func button7(_ sender: NSButton) {
         if sender.image?.name() == "Build-simple Icon" {
-            print("************")
+            
+            
+            for button in buttons {
+                if button == sender {
+                    button2.image = NSImage(named: "Town-hall Icon")
+                } else {
+                    button.image = NSImage(named: "Disabled Icon")
+                }
+            }
         }
     }
     @IBAction func button8(_ sender: NSButton) {
     }
     @IBAction func button9(_ sender: NSButton) {
     }
+    
     
     
     
@@ -186,6 +197,8 @@ class GameViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         menuSound.stop()
+        
+        buttons = [button1, button2, button3, button4, button5, button6, button7, button8, button9]
         
         midiPlayer.prepareToPlay()
         midiPlayer.play()

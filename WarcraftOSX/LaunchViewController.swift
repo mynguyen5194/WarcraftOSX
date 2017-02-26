@@ -54,7 +54,7 @@ class LaunchViewController: NSViewController {
 //        menuSoundURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/snd/music/menu", ofType: "mid"))!)
 //        menuSoundBankURL = Bundle.main.url(forResource: "data/snd/generalsoundfont", withExtension: "sf2")
         
-        menuSoundURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/snd/misc/thunk", ofType: "wav"))!)
+        menuSoundURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/snd/music/menu", ofType: "wav"))!)
         
         do {
             try menuSound = AVAudioPlayer(contentsOf: menuSoundURL!)

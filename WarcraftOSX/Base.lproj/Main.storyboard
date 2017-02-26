@@ -728,22 +728,30 @@
         <scene sceneID="K4H-QS-TcK">
             <objects>
                 <viewController title="Game View Controller" storyboardIdentifier="gameViewController" id="NXk-fe-dIt" customClass="GameViewController" customModule="WarcraftOSX" customModuleProvider="target" sceneMemberID="viewController">
-                    <customView key="view" id="HWH-5L-yR1">
+                    <customView key="view" misplaced="YES" id="HWH-5L-yR1">
                         <rect key="frame" x="0.0" y="0.0" width="658" height="466"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                         <subviews>
-                            <splitView misplaced="YES" arrangesAllSubviews="NO" dividerStyle="thin" translatesAutoresizingMaskIntoConstraints="NO" id="zPT-An-TTW" userLabel="Left Panel Split View">
+                            <splitView arrangesAllSubviews="NO" dividerStyle="thin" translatesAutoresizingMaskIntoConstraints="NO" id="zPT-An-TTW" userLabel="Left Panel Split View">
                                 <rect key="frame" x="20" y="31" width="146" height="365"/>
                                 <subviews>
-                                    <customView fixedFrame="YES" id="Oq0-Zb-3iV">
+                                    <customView id="Oq0-Zb-3iV">
                                         <rect key="frame" x="0.0" y="0.0" width="146" height="117"/>
                                         <autoresizingMask key="autoresizingMask"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="117" id="69t-eT-f2g"/>
+                                            <constraint firstAttribute="width" constant="146" id="LAZ-fk-Cux"/>
+                                        </constraints>
                                     </customView>
-                                    <customView fixedFrame="YES" id="ZX0-yO-ySg" userLabel="Selection Info Panel View">
+                                    <customView id="ZX0-yO-ySg" userLabel="Selection Info Panel View">
                                         <rect key="frame" x="0.0" y="118" width="146" height="122"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="122" id="1XL-bu-nqJ"/>
+                                            <constraint firstAttribute="width" constant="146" id="zCz-cu-RlI"/>
+                                        </constraints>
                                     </customView>
-                                    <customView fixedFrame="YES" id="wKt-hA-keA" customClass="GameOptionPanelView" customModule="WarcraftOSX" customModuleProvider="target">
+                                    <customView id="wKt-hA-keA" customClass="GameOptionPanelView" customModule="WarcraftOSX" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="241" width="146" height="124"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <subviews>
@@ -911,6 +919,10 @@
                                                 </customSpacing>
                                             </stackView>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="146" id="JSO-h6-GPq"/>
+                                            <constraint firstAttribute="height" constant="124" id="nwO-hn-AF9"/>
+                                        </constraints>
                                     </customView>
                                 </subviews>
                                 <holdingPriorities>
@@ -1009,7 +1021,7 @@
                                     <real value="250"/>
                                 </holdingPriorities>
                             </splitView>
-                            <customView misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fcH-AL-lHV">
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="fcH-AL-lHV">
                                 <rect key="frame" x="174" y="31" width="469" height="365"/>
                             </customView>
                             <textField verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UoW-p4-usd">
@@ -1118,7 +1130,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <stackView distribution="equalCentering" orientation="vertical" alignment="centerX" spacing="20" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eP1-DM-t5u">
-                                        <rect key="frame" x="0.0" y="111" width="200" height="145"/>
+                                        <rect key="frame" x="0.0" y="105" width="200" height="145"/>
                                         <subviews>
                                             <button verticalHuggingPriority="750" imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="duJ-dm-GrR">
                                                 <rect key="frame" x="0.0" y="110" width="200" height="35"/>
@@ -1181,7 +1193,7 @@
                                         </customSpacing>
                                     </stackView>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mf2-g4-ohe">
-                                        <rect key="frame" x="0.0" y="6" width="200" height="35"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="200" id="RyI-ve-3XM"/>
                                             <constraint firstAttribute="height" constant="35" id="rXr-v6-xJw"/>
