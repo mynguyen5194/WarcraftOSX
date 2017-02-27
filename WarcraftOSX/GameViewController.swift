@@ -278,8 +278,6 @@ class GameViewController: NSViewController {
             fatalError(error as! String)
         }
         
-        let clickGesture: NSClickGestureRecognizer = NSClickGestureRecognizer(target: self, action: #selector(handlingClick))
-        self.mainMapView.addGestureRecognizer(clickGesture)
     }
     
     // variable that stores the mouse location
@@ -287,46 +285,26 @@ class GameViewController: NSViewController {
         return NSEvent.mouseLocation()
     }
     
-    var gameModel: GameModel!
-    
-    func handlingClick(sender: NSClickGestureRecognizer) {
-        let target = PlayerAsset(playerAssetType: PlayerAssetType())
-        let clickLocation = sender.location(in: mainMapView)
-        
-        let x = (Int(clickLocation.x) - Int(clickLocation.x) % 32) + 16
-        let y = (Int(clickLocation.y) - Int(clickLocation.y) % 32) + 16
-        target.position = Position(x: x, y: y)
-        
-        if selectedPeasant != nil {
-            selectedPeasant!.pushCommand(AssetCommand(action: .walk, capability: .buildPeasant, assetTarget: target, activatedCapability: nil))
-            selectedPeasant = nil
-        } else {
-            for asset in gameModel.actualMap.assets {
-                if asset.assetType.name == "Peasant" && asset.position.distance(position: target.position) < 64 {
-                    selectedPeasant = asset
-                }
-            }
-        }
-    }
+
     
 
-//    override func mouseDown(with event: NSEvent) {
-//        let target = PlayerAsset(playerAssetType: PlayerAssetType())
-//        
-//        // event.locationInWindow is mouse location inside the window with bottom left of window (0,0)
-//        // -mainMapView.frame.origin to offset mainMapView relative to the entire window
-//        let xMouseLoc = event.locationInWindow.x - self.mainMapView.frame.origin.x
-//        let yMouseLoc = event.locationInWindow.y - self.mainMapView.frame.origin.y
-//        
-//        clickedXpos = Int(xMouseLoc + CGFloat(mainMapOffsetX))
-//        clickedYpos = Int(yMouseLoc + CGFloat(mainMapOffsetY))
-//        
-//        let tileXlocation = (clickedXpos - (clickedXpos % 32))
-//        let tileYlocation = (clickedYpos - (clickedYpos % 32))
-//        
-//        let targetAsset = PlayerAsset(playerAssetType: PlayerAssetType())
-//        targetAsset.position = Position(x: Int(tileXlocation), y: Int(tileYlocation))
-//        
+    override func mouseDown(with event: NSEvent) {
+        let target = PlayerAsset(playerAssetType: PlayerAssetType())
+        
+        // event.locationInWindow is mouse location inside the window with bottom left of window (0,0)
+        // -mainMapView.frame.origin to offset mainMapView relative to the entire window
+        let xMouseLoc = event.locationInWindow.x - self.mainMapView.frame.origin.x
+        let yMouseLoc = event.locationInWindow.y - self.mainMapView.frame.origin.y
+        
+        clickedXpos = Int(xMouseLoc + CGFloat(mainMapOffsetX))
+        clickedYpos = Int(yMouseLoc + CGFloat(mainMapOffsetY))
+        
+        let tileXlocation = (clickedXpos - (clickedXpos % 32))
+        let tileYlocation = (clickedYpos - (clickedYpos % 32))
+        
+        let targetAsset = PlayerAsset(playerAssetType: PlayerAssetType())
+        targetAsset.position = Position(x: Int(tileXlocation), y: Int(tileYlocation))
+        
 //        if selectedPeasant != nil {
 //            selectedPeasant!.pushCommand(AssetCommand(action: .walk, capability: .buildPeasant, assetTarget: target, activatedCapability: nil))
 //            print("****** Peasant selected")
@@ -339,17 +317,17 @@ class GameViewController: NSViewController {
 //                }
 //            }
 //        }
-//        
-//        
-//        // store position into the text field for testing purposes
-//        // change String parameter to NSEvent.mouseLocation() to track x and y position concurrently
-//        testXLoc.stringValue = String(describing: xMouseLoc)
-//        testYLoc.stringValue = String(describing: yMouseLoc)
-//        tileXLoc.stringValue = String(describing: clickedXpos)
-//        tileYLoc.stringValue = String(describing: clickedYpos)
-//        
-//        
-//    }
+        
+        
+        // store position into the text field for testing purposes
+        // change String parameter to NSEvent.mouseLocation() to track x and y position concurrently
+        testXLoc.stringValue = String(describing: xMouseLoc)
+        testYLoc.stringValue = String(describing: yMouseLoc)
+        tileXLoc.stringValue = String(describing: clickedXpos)
+        tileYLoc.stringValue = String(describing: clickedYpos)
+        
+        
+    }
     
     func playBackgroundMusic() {
         game1SoundURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/snd/music/game1", ofType: "mid"))!)
