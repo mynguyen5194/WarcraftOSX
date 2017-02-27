@@ -82,6 +82,11 @@ class LaunchViewController: NSViewController {
         
         // Display splash screen for 3 seconds
         perform(#selector(LaunchViewController.showMenu), with: nil, afterDelay: 1)
+        
+        
+        
+        
+        
     }
     
 }

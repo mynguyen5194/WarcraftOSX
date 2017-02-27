@@ -11,6 +11,8 @@ import AVFoundation
 
 var mainMapOffsetX = 0
 var mainMapOffsetY = 0
+var clickedXpos = 0
+var clickedYpos = 0
 
 fileprivate func tileset(_ name: String) throws -> GraphicTileset {
     guard let tilesetURL = Bundle.main.url(forResource: "/data/img/\(name)", withExtension: "dat") else {
@@ -37,6 +39,7 @@ class GameViewController: NSViewController {
     var game1SoundURL: URL?
     var game1SoundBankURL: URL?
     var game1Sound = AVMIDIPlayer()
+    var selectedPeasant: PlayerAsset?
     //var mapType: SelectMapViewController?
     
     @IBOutlet weak var goldMeter: NSTextField!
@@ -105,6 +108,9 @@ class GameViewController: NSViewController {
     
     private lazy var map: AssetDecoratedMap = {
         do {
+            let mapDirectoryURL = Bundle.main.url(forResource: "/data/map", withExtension: nil)!
+            try AssetDecoratedMap.loadMaps(from: FileDataContainer(url: mapDirectoryURL))
+            
             let forResource = "/data/map/" + SelectMapViewController().mapName
             let lowerCase = forResource.lowercased()
             print (lowerCase)
@@ -192,6 +198,16 @@ class GameViewController: NSViewController {
         return ViewportRenderer(mapRenderer: self.mapRenderer, assetRenderer: self.assetRenderer, fogRenderer: self.fogRenderer)
     }()
 
+//    let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+//    return urls.last!
+//    
+//    URL(fileURLWithPath: (Bundle.main.path(forResource: "data", ofType: ))!)
+    
+
+        //var mapDirectory: DataContainer
+//        let mapDirectoryURL = Bundle.main.url(forResource: "/data/map", withExtension: nil)!
+//        try AssetDecoratedMap.loadMaps(from: FileDataContainer(url: mapDirectoryURL))
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -210,30 +226,130 @@ class GameViewController: NSViewController {
         mainMapView.addSubview(OSXCustomViewMap)
         miniView.addSubview(OSXCustomMiniMapViewMap)
     
-
+        
     }
+    
+    
+    override func viewDidAppear() {
+        var loadingPlayerColors: [PlayerColor]
+        
+        loadingPlayerColors = []
+        for pcIndex in 0 ..< PlayerColor.numberOfColors{
+            loadingPlayerColors.append(PlayerColor(index: pcIndex)!)
+        }
+        
+        var playerCommands: [PlayerCommandRequest]
+        playerCommands = []
+
+        let currentPos = Position(x: Int(clickedXpos), y: Int(clickedYpos))
+        let playCap = PlayerCommandRequest(action: .none, actors: self.map.assets, targetColor: .none, targetType: .none, targetLocation: currentPos)
+        
+        for _ in 0 ..< PlayerColor.numberOfColors{
+            playerCommands.append(playCap)
+        }
+        
+        var canHarvest = true
+        
+        for asset in self.map.assets{
+            if !asset.hasCapability(.mine) {
+                canHarvest = false
+                break
+            }
+        }
+        //var pixelType = PixelType
+        
+//        if canHarvest{
+//            if(PixelType.AssetTerrainType.tree == PixelType.t){ //fix seeing if clicked on tree
+//                let tempTilePosition: Position
+//                
+//                playerCommands[PlayerColor.numberOfColors].action = .mine
+//                tempTilePosition.setToTile(currentPos)
+//            }
+//        }
+        
+        
+        //first param should be selectedMapIndex
+        //0x123456789ABCDEFULL is the original
+        let gameModel = GameModel(mapIndex: 0, seed: 0x0123_4567_89ab_cdef, newColors: loadingPlayerColors)
+        
+        do{
+            try gameModel.timestep()
+        } catch {
+            fatalError(error as! String)
+        }
+        
+        let clickGesture: NSClickGestureRecognizer = NSClickGestureRecognizer(target: self, action: #selector(handlingClick))
+        self.mainMapView.addGestureRecognizer(clickGesture)
+    }
+    
     // variable that stores the mouse location
     var mouseLocation: NSPoint {
         return NSEvent.mouseLocation()
     }
     
-
-    override func mouseDown(with event: NSEvent) {
-        // event.locationInWindow is mouse location inside the window with bottom left of window (0,0)
-        // -mainMapView.frame.origin to offset mainMapView relative to the entire window
-        let xMouseLoc = event.locationInWindow.x - self.mainMapView.frame.origin.x
-        let yMouseLoc = event.locationInWindow.y - self.mainMapView.frame.origin.y
+    var gameModel: GameModel!
+    
+    func handlingClick(sender: NSClickGestureRecognizer) {
+        let target = PlayerAsset(playerAssetType: PlayerAssetType())
+        let clickLocation = sender.location(in: mainMapView)
         
-        let xTileLoc = xMouseLoc + CGFloat(mainMapOffsetX)
-        let yTileLoc = yMouseLoc + CGFloat(mainMapOffsetY)
+        let x = (Int(clickLocation.x) - Int(clickLocation.x) % 32) + 16
+        let y = (Int(clickLocation.y) - Int(clickLocation.y) % 32) + 16
+        target.position = Position(x: x, y: y)
         
-        // store position into the text field for testing purposes
-        // change String parameter to NSEvent.mouseLocation() to track x and y position concurrently
-        testXLoc.stringValue = String(describing: xMouseLoc)
-        testYLoc.stringValue = String(describing: yMouseLoc)
-        tileXLoc.stringValue = String(describing: xTileLoc)
-        tileYLoc.stringValue = String(describing: yTileLoc)
+        if selectedPeasant != nil {
+            selectedPeasant!.pushCommand(AssetCommand(action: .walk, capability: .buildPeasant, assetTarget: target, activatedCapability: nil))
+            selectedPeasant = nil
+        } else {
+            for asset in gameModel.actualMap.assets {
+                if asset.assetType.name == "Peasant" && asset.position.distance(position: target.position) < 64 {
+                    selectedPeasant = asset
+                }
+            }
+        }
     }
+    
+
+//    override func mouseDown(with event: NSEvent) {
+//        let target = PlayerAsset(playerAssetType: PlayerAssetType())
+//        
+//        // event.locationInWindow is mouse location inside the window with bottom left of window (0,0)
+//        // -mainMapView.frame.origin to offset mainMapView relative to the entire window
+//        let xMouseLoc = event.locationInWindow.x - self.mainMapView.frame.origin.x
+//        let yMouseLoc = event.locationInWindow.y - self.mainMapView.frame.origin.y
+//        
+//        clickedXpos = Int(xMouseLoc + CGFloat(mainMapOffsetX))
+//        clickedYpos = Int(yMouseLoc + CGFloat(mainMapOffsetY))
+//        
+//        let tileXlocation = (clickedXpos - (clickedXpos % 32))
+//        let tileYlocation = (clickedYpos - (clickedYpos % 32))
+//        
+//        let targetAsset = PlayerAsset(playerAssetType: PlayerAssetType())
+//        targetAsset.position = Position(x: Int(tileXlocation), y: Int(tileYlocation))
+//        
+//        if selectedPeasant != nil {
+//            selectedPeasant!.pushCommand(AssetCommand(action: .walk, capability: .buildPeasant, assetTarget: target, activatedCapability: nil))
+//            print("****** Peasant selected")
+//            selectedPeasant = nil
+//        } else {
+////            var a = gameModel.actualMap.assets
+//            for asset in gameModel.actualMap.assets{
+//                if asset.assetType.name == "Peasant" && asset.position.distance(position: target.position) < 64 {
+//                    selectedPeasant = asset
+//                }
+//            }
+//        }
+//        
+//        
+//        // store position into the text field for testing purposes
+//        // change String parameter to NSEvent.mouseLocation() to track x and y position concurrently
+//        testXLoc.stringValue = String(describing: xMouseLoc)
+//        testYLoc.stringValue = String(describing: yMouseLoc)
+//        tileXLoc.stringValue = String(describing: clickedXpos)
+//        tileYLoc.stringValue = String(describing: clickedYpos)
+//        
+//        
+//    }
     
     func playBackgroundMusic() {
         game1SoundURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/snd/music/game1", ofType: "mid"))!)
@@ -245,8 +361,8 @@ class GameViewController: NSViewController {
         catch {
             NSLog("Error: Can't play sound file menu.mid")
         }
-        game1Sound.prepareToPlay()
-        game1Sound.play()
+//        game1Sound.prepareToPlay()
+//        game1Sound.play()
     }
 
     
