@@ -10,7 +10,7 @@ import Cocoa
 import AVFoundation
 
 
-var northSouthDivide = false
+var northSouthDivide = true
 
 
 class SelectMapViewController: NSViewController {
@@ -18,12 +18,6 @@ class SelectMapViewController: NSViewController {
     var mapName: String = "maze"
     
     @IBOutlet weak var miniMap: NSImageView!
-    
-    
-    @IBOutlet weak var selectButton: NSButton!
-    @IBOutlet weak var cancelButton: NSButton!
-
-
     
     @IBOutlet weak var northSouthDivideButton: NSButton!
     @IBAction func northSouthDivideButton(_ sender: NSButton) {
@@ -41,9 +35,11 @@ class SelectMapViewController: NSViewController {
         menuSupporter.formatButtonTitle(sender: northSouthDivideButton, color: NSColor.yellow, title: northSouthDivideButton.title, fontSize: 16)
         menuSupporter.formatButtonTitle(sender: mazeButton, color: NSColor.white, title: mazeButton.title, fontSize: 16)
         northSouthDivide = false
-
     }
 
+    @IBOutlet weak var selectButton: NSButton!
+    @IBOutlet weak var cancelButton: NSButton!
+    
     @IBAction func selectButton(_ sender: NSButton) {
         thunkSound.play()
         self.performSegue(withIdentifier: "selectSegue", sender: sender)

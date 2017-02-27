@@ -39,6 +39,10 @@ class GameViewController: NSViewController {
     var game1Sound = AVMIDIPlayer()
     //var mapType: SelectMapViewController?
     
+    @IBOutlet weak var goldMeter: NSTextField!
+    @IBOutlet weak var lumberMeter: NSTextField!
+    @IBOutlet weak var foodMeter: NSTextField!
+    
     var buttons = [NSButton]()
     
     @IBOutlet weak var button1: NSButton!
@@ -66,7 +70,6 @@ class GameViewController: NSViewController {
     @IBAction func button7(_ sender: NSButton) {
         if sender.image?.name() == "Build-simple Icon" {
             
-            
             for button in buttons {
                 if button == sender {
                     button2.image = NSImage(named: "Town-hall Icon")
@@ -81,9 +84,6 @@ class GameViewController: NSViewController {
     @IBAction func button9(_ sender: NSButton) {
     }
     
-    
-    
-    
     @IBOutlet weak var miniView: NSView!
     @IBOutlet weak var mainMapView: NSView!
     @IBOutlet weak var testXLoc: NSTextField!
@@ -91,8 +91,6 @@ class GameViewController: NSViewController {
     @IBOutlet weak var tileXLoc: NSTextField!
     @IBOutlet weak var tileYLoc: NSTextField!
     @IBOutlet weak var mini: NSView!
-    
-
     
     private lazy var midiPlayer: AVMIDIPlayer = {
         let gameURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/snd/music/game1", ofType: "mid"))!)
@@ -115,6 +113,7 @@ class GameViewController: NSViewController {
             let mapSource = try FileDataSource(url: mapURL)
             let map = AssetDecoratedMap()
             try map.loadMap(source: mapSource)
+            
             return map
         } catch {
             fatalError(error.localizedDescription) // TODO: Handle Error

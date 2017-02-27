@@ -27,8 +27,6 @@ class MultiPlayerGameOptionsViewController: NSViewController {
         self.performSegue(withIdentifier: "backMultiplayerGameSegue", sender: sender)
     }
     
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         menuSupporter.formatButtonTitle(sender: hostButton, color: NSColor.yellow, title: hostButton.title, fontSize: 18)

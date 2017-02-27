@@ -27,8 +27,6 @@ class SoundOptionViewController: NSViewController {
         fxVolume = Int(fxVolumeTextField.intValue)
         musicVolume = Int(musicVolumeTextField.intValue)
         
-//        let fxVolumeF = Double(fxVolume)*1.0
-        
         thunkSound.volume = Float((Float(fxVolume)*1.0)/100.0)
         menuSound.volume = Float((Float(musicVolume)*1.0)/100.0)
         
@@ -51,8 +49,5 @@ class SoundOptionViewController: NSViewController {
         fxVolumeTextField.stringValue = String(fxVolume)
         musicVolumeTextField.stringValue = String(musicVolume)
         
-        
-        fxVolumeTextField.stringValue = String(fxVolume)
-    
     }
 }

@@ -37,7 +37,6 @@ class SelectColorsViewController: NSViewController {
         } else {
             sender.attributedTitle = NSAttributedString(string: "AI Easy", attributes: attribute)
         }
-        
     }
     
     

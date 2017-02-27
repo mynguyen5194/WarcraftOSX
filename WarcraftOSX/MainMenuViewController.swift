@@ -84,14 +84,7 @@ class MainMenuViewController: NSViewController {
         let a = NSEvent.mouseLocation()
         print("LOCATION A = \(a)")
         
-        
-        
-        
-        
         let b = CGPoint(x: a.x, y: a.y)
-//        print("********* \(singlePlayerGameButton.frame.contains(b))")
-        
-        
         let c = event.trackingArea?.rect.contains(b)
         print("**********\(c)")
         
