@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="jGA-0Y-lOj">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="jGA-0Y-lOj">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
@@ -767,6 +767,9 @@
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
+                                                <connections>
+                                                    <segue destination="zhJ-aD-mQv" kind="custom" identifier="mainMenuSegue" customClass="StoryBoardSegue" id="kJe-fw-ERb"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -793,6 +796,13 @@
                             </splitView>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="fcH-AL-lHV">
                                 <rect key="frame" x="174" y="31" width="440" height="374"/>
+                                <gestureRecognizers>
+                                    <clickGestureRecognizer delaysPrimaryMouseButtonEvents="YES" numberOfClicksRequired="1" id="2Xp-gl-mXq">
+                                        <connections>
+                                            <action selector="mouseClickAction:" target="NXk-fe-dIt" id="Tn5-le-EOY"/>
+                                        </connections>
+                                    </clickGestureRecognizer>
+                                </gestureRecognizers>
                             </customView>
                             <textField verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UoW-p4-usd">
                                 <rect key="frame" x="20" y="444" width="146" height="22"/>
@@ -862,7 +872,7 @@
                 </viewController>
                 <customObject id="PRY-P4-TTK" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4327" y="256"/>
+            <point key="canvasLocation" x="4316" y="256"/>
         </scene>
         <!--Main Menu-->
         <scene sceneID="7mB-XG-Pbd">
@@ -1690,10 +1700,10 @@ Gw
                                         </customSpacing>
                                     </stackView>
                                     <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="20" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lhW-5N-9qP">
-                                        <rect key="frame" x="83" y="0.0" width="250" height="120"/>
+                                        <rect key="frame" x="82" y="0.0" width="250" height="120"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="392-dX-Fr2">
-                                                <rect key="frame" x="106" y="90" width="39" height="30"/>
+                                                <rect key="frame" x="105.5" y="90" width="39" height="30"/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Color" id="Pxg-HH-GTN">
                                                     <font key="font" size="16" name="Apple-Chancery"/>
                                                     <color key="textColor" name="highlightColor" catalog="System" colorSpace="catalog"/>
@@ -1714,7 +1724,7 @@ Gw
                                                         </connections>
                                                     </button>
                                                     <button identifier="a2" translatesAutoresizingMaskIntoConstraints="NO" id="2fL-cH-bZY">
-                                                        <rect key="frame" x="32" y="0.0" width="25" height="25"/>
+                                                        <rect key="frame" x="32" y="0.0" width="25.5" height="25"/>
                                                         <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="ButtonColors1" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="0aY-TD-C9p">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
@@ -1724,7 +1734,7 @@ Gw
                                                         </connections>
                                                     </button>
                                                     <button identifier="a3" translatesAutoresizingMaskIntoConstraints="NO" id="Nqa-Al-Um8">
-                                                        <rect key="frame" x="64" y="0.0" width="25" height="25"/>
+                                                        <rect key="frame" x="64.5" y="0.0" width="25" height="25"/>
                                                         <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="ButtonColors2" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="p36-Bk-rGN">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
@@ -1734,7 +1744,7 @@ Gw
                                                         </connections>
                                                     </button>
                                                     <button identifier="a4" translatesAutoresizingMaskIntoConstraints="NO" id="CZt-cF-FwE">
-                                                        <rect key="frame" x="96" y="0.0" width="26" height="25"/>
+                                                        <rect key="frame" x="96.5" y="0.0" width="25" height="25"/>
                                                         <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="ButtonColors3" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="En6-wD-rvL">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
@@ -1744,7 +1754,7 @@ Gw
                                                         </connections>
                                                     </button>
                                                     <button identifier="a5" translatesAutoresizingMaskIntoConstraints="NO" id="7sO-r3-CD5">
-                                                        <rect key="frame" x="129" y="0.0" width="25" height="25"/>
+                                                        <rect key="frame" x="128.5" y="0.0" width="25" height="25"/>
                                                         <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="ButtonColors4" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="UvX-Vg-PdW">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
@@ -1754,7 +1764,7 @@ Gw
                                                         </connections>
                                                     </button>
                                                     <button identifier="a6" translatesAutoresizingMaskIntoConstraints="NO" id="Q0U-PG-Bx0">
-                                                        <rect key="frame" x="161" y="0.0" width="25" height="25"/>
+                                                        <rect key="frame" x="160.5" y="0.0" width="25.5" height="25"/>
                                                         <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="ButtonColors5" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="eWl-mV-i6Q">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
@@ -1823,7 +1833,7 @@ Gw
                                                         </connections>
                                                     </button>
                                                     <button identifier="b2" translatesAutoresizingMaskIntoConstraints="NO" id="X22-ke-T7l">
-                                                        <rect key="frame" x="32" y="0.0" width="25" height="25"/>
+                                                        <rect key="frame" x="32" y="0.0" width="25.5" height="25"/>
                                                         <buttonCell key="cell" type="square" title="X" bezelStyle="shadowlessSquare" image="ButtonColors1" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="axesIndependently" inset="2" id="Hgu-g8-7ZH">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" size="16" name="Apple-Chancery"/>
@@ -1833,7 +1843,7 @@ Gw
                                                         </connections>
                                                     </button>
                                                     <button identifier="b3" translatesAutoresizingMaskIntoConstraints="NO" id="hSM-SN-xLn">
-                                                        <rect key="frame" x="64" y="0.0" width="25" height="25"/>
+                                                        <rect key="frame" x="64.5" y="0.0" width="25" height="25"/>
                                                         <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="ButtonColors2" imagePosition="only" alignment="center" borderStyle="border" imageScaling="axesIndependently" inset="2" id="NXd-vu-Al4">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
@@ -1843,7 +1853,7 @@ Gw
                                                         </connections>
                                                     </button>
                                                     <button identifier="b4" translatesAutoresizingMaskIntoConstraints="NO" id="9Rq-JS-MVc">
-                                                        <rect key="frame" x="96" y="0.0" width="26" height="25"/>
+                                                        <rect key="frame" x="96.5" y="0.0" width="25" height="25"/>
                                                         <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="ButtonColors3" imagePosition="only" alignment="center" borderStyle="border" imageScaling="axesIndependently" inset="2" id="kqf-FQ-ZS2">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
@@ -1853,7 +1863,7 @@ Gw
                                                         </connections>
                                                     </button>
                                                     <button identifier="b5" translatesAutoresizingMaskIntoConstraints="NO" id="liF-03-7Ns">
-                                                        <rect key="frame" x="129" y="0.0" width="25" height="25"/>
+                                                        <rect key="frame" x="128.5" y="0.0" width="25" height="25"/>
                                                         <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="ButtonColors4" imagePosition="only" alignment="center" borderStyle="border" imageScaling="axesIndependently" inset="2" id="Bhi-ZN-NBv">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
@@ -1863,7 +1873,7 @@ Gw
                                                         </connections>
                                                     </button>
                                                     <button identifier="b6" translatesAutoresizingMaskIntoConstraints="NO" id="fpY-Wt-7Gd">
-                                                        <rect key="frame" x="161" y="0.0" width="25" height="25"/>
+                                                        <rect key="frame" x="160.5" y="0.0" width="25.5" height="25"/>
                                                         <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="ButtonColors5" imagePosition="only" alignment="center" borderStyle="border" imageScaling="axesIndependently" inset="2" id="SQa-1C-cZR">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
@@ -1935,7 +1945,7 @@ Gw
                                         </customSpacing>
                                     </stackView>
                                     <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="55" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t5x-La-60O">
-                                        <rect key="frame" x="338" y="0.0" width="100" height="120"/>
+                                        <rect key="frame" x="337" y="0.0" width="100" height="120"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sBB-fh-38c">
                                                 <rect key="frame" x="16" y="90" width="68" height="30"/>
@@ -2249,8 +2259,8 @@ Gw
         <image name="Texture" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="kJe-fw-ERb"/>
+        <segue reference="TxN-Cz-65k"/>
         <segue reference="yh4-ff-Xsb"/>
-        <segue reference="U08-h1-nky"/>
-        <segue reference="7XN-uL-2B6"/>
     </inferredMetricsTieBreakers>
 </document>

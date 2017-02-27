@@ -25,7 +25,6 @@
 		A93DF60E1E3D78140047BA86 /* data in Resources */ = {isa = PBXBuildFile; fileRef = A93DF60D1E3D78140047BA86 /* data */; };
 		EDF9DFEC1E5C9AB100D73526 /* MenuSupporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF9DFEB1E5C9AB100D73526 /* MenuSupporter.swift */; };
 		FE0B613F1E513A6C00CC5657 /* OSXCustomMiniMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0B613E1E513A6C00CC5657 /* OSXCustomMiniMapView.swift */; };
-		FE0B61411E5142EB00CC5657 /* UIResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0B61401E5142EB00CC5657 /* UIResponder.swift */; };
 		FE36A19B1E51A06100C6DDEF /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE36A19A1E51A06100C6DDEF /* ContainerViewController.swift */; };
 		FE36A19D1E51A2C200C6DDEF /* StoryBoardSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE36A19C1E51A2C200C6DDEF /* StoryBoardSegue.swift */; };
 		FE4D00C61E4C187F0099BE43 /* MiniMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4D00C51E4C187F0099BE43 /* MiniMapView.swift */; };
@@ -106,7 +105,6 @@
 		A93DF60D1E3D78140047BA86 /* data */ = {isa = PBXFileReference; lastKnownFileType = folder; path = data; sourceTree = "<group>"; };
 		EDF9DFEB1E5C9AB100D73526 /* MenuSupporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuSupporter.swift; sourceTree = "<group>"; };
 		FE0B613E1E513A6C00CC5657 /* OSXCustomMiniMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSXCustomMiniMapView.swift; sourceTree = "<group>"; };
-		FE0B61401E5142EB00CC5657 /* UIResponder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIResponder.swift; sourceTree = "<group>"; };
 		FE36A19A1E51A06100C6DDEF /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		FE36A19C1E51A2C200C6DDEF /* StoryBoardSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryBoardSegue.swift; sourceTree = "<group>"; };
 		FE4D00C51E4C187F0099BE43 /* MiniMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniMapView.swift; sourceTree = "<group>"; };
@@ -239,9 +237,6 @@
 				FE4D00D51E4C19390099BE43 /* GraphicResourceContext.swift */,
 				FE4D00D71E4C19400099BE43 /* GraphicSurface.swift */,
 				FE4D00D91E4C19470099BE43 /* GraphicTileset.swift */,
-				FE4D00CB1E4C18DC0099BE43 /* MapRenderer.swift */,
-				FE4D00C71E4C18AE0099BE43 /* AssetRenderer.swift */,
-				FE4D00C91E4C18B90099BE43 /* AssetDecoratedMap.swift */,
 			);
 			name = Graphic;
 			sourceTree = "<group>";
@@ -256,6 +251,9 @@
 				FE4D01071E4CDD920099BE43 /* RouterMap.swift */,
 				8C421ABB1E583C8D00343CC4 /* ViewportRenderer.swift */,
 				8C421ABD1E583D0000343CC4 /* FogRenderer.swift */,
+				FE4D00C91E4C18B90099BE43 /* AssetDecoratedMap.swift */,
+				FE4D00C71E4C18AE0099BE43 /* AssetRenderer.swift */,
+				FE4D00CB1E4C18DC0099BE43 /* MapRenderer.swift */,
 			);
 			name = Map;
 			sourceTree = "<group>";
@@ -314,7 +312,6 @@
 		FE4D01091E4D81520099BE43 /* UXKit */ = {
 			isa = PBXGroup;
 			children = (
-				FE0B61401E5142EB00CC5657 /* UIResponder.swift */,
 				FE4D010A1E4D81740099BE43 /* UIGraphics.swift */,
 				FE4D010C1E4D82C00099BE43 /* UIScreen.swift */,
 			);
@@ -447,7 +444,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A93DF5D81E3D77E80047BA86 /* Build configuration list for PBXProject "WarcraftOSX" */;
+			buildConfigurationList = A93DF5D81E3D77E80047BA86 /* Build configuration list for PBXProject "warcraftosx" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -544,7 +541,6 @@
 				FE4D00FF1E4C45600099BE43 /* PlayerCommand.swift in Sources */,
 				FE4D00E11E4C28770099BE43 /* VisibilityMap.swift in Sources */,
 				FE4D00E51E4C296D0099BE43 /* DataSource.swift in Sources */,
-				FE0B61411E5142EB00CC5657 /* UIResponder.swift in Sources */,
 				FE4D00CA1E4C18B90099BE43 /* AssetDecoratedMap.swift in Sources */,
 				FE4D00EB1E4C29C10099BE43 /* FileDataSource.swift in Sources */,
 				FE4D01021E4C49610099BE43 /* GameModel.swift in Sources */,
@@ -772,7 +768,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A93DF5D81E3D77E80047BA86 /* Build configuration list for PBXProject "WarcraftOSX" */ = {
+		A93DF5D81E3D77E80047BA86 /* Build configuration list for PBXProject "warcraftosx" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A93DF6021E3D77E90047BA86 /* Debug */,

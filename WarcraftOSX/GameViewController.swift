@@ -155,37 +155,60 @@ class GameViewController: NSViewController {
     private lazy var viewportRenderer: ViewportRenderer = {
         return ViewportRenderer(mapRenderer: self.mapRenderer, assetRenderer: self.assetRenderer, fogRenderer: self.fogRenderer)
     }()
-
-//    let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-//    return urls.last!
-//    
-//    URL(fileURLWithPath: (Bundle.main.path(forResource: "data", ofType: ))!)
-    
-
-        //var mapDirectory: DataContainer
-//        let mapDirectoryURL = Bundle.main.url(forResource: "/data/map", withExtension: nil)!
-//        try AssetDecoratedMap.loadMaps(from: FileDataContainer(url: mapDirectoryURL))
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        menuSound.stop()
         
-//        midiPlayer.prepareToPlay()
-//        midiPlayer.play()
-        
-        let OSXCustomViewMap = OSXCustomView(frame: CGRect(origin: .zero, size: CGSize(width: mapRenderer.detailedMapWidth, height: mapRenderer.detailedMapHeight)), viewportRenderer: viewportRenderer)
+        do {
+            menuSound.stop()
+            midiPlayer.prepareToPlay()
+            midiPlayer.play()
+            let terrainGraphicTilesset = try tileset("Terrain")
+            Position.setTileDimensions(width: terrainGraphicTilesset.tileWidth, height: terrainGraphicTilesset.tileHeight)
+        } catch {
+            let nsError = NSError.init(domain: "Failed to initialize Terrain Graphic Tileset", code: 0, userInfo: nil)
+            fatalError(nsError.localizedDescription)
+        }
 
+        let OSXCustomViewMap = OSXCustomView(frame: CGRect(origin: .zero, size: CGSize(width: mapRenderer.detailedMapWidth, height: mapRenderer.detailedMapHeight)), viewportRenderer: viewportRenderer)
         let OSXCustomMiniMapViewMap = OSXCustomMiniMapView(frame: CGRect(origin: .zero, size: CGSize(width: mapRenderer.mapWidth, height: mapRenderer.mapHeight)), mapRenderer: mapRenderer)
         
-        //self.titleVisibility = NSWindowTitleVisibility.Hidden;
+        let clickGestureRecognizer: NSGestureRecognizer = NSGestureRecognizer.init(target: self, action: #selector(mouseClickAction))
+        mainMapView.addGestureRecognizer(clickGestureRecognizer)
+        OSXCustomViewMap.addGestureRecognizer(clickGestureRecognizer)
+        
         mainMapView.addSubview(OSXCustomViewMap)
         miniView.addSubview(OSXCustomMiniMapViewMap)
-    
+        
+        
         
     }
     
+    @IBAction func mouseClickAction(_ sender: NSClickGestureRecognizer) {
+        let gameModel = GameModel(mapIndex: 0, seed: 0x0123_4567_89ab_cdef, newColors: PlayerColor.getAllValues())
+        let target = PlayerAsset(playerAssetType: PlayerAssetType())
+        let touchLocation = sender.location(in: mainMapView)
+        let xLocation = (Int(touchLocation.x) - Int(touchLocation.x) % 32) + 16
+        let yLocation = (Int(touchLocation.y) - Int(touchLocation.y) % 32) + 16
+        target.position = Position(x: xLocation, y: yLocation)
+        if selectedPeasant != nil {
+            selectedPeasant!.pushCommand(AssetCommand(action: .walk, capability: .buildPeasant, assetTarget: target, activatedCapability: nil))
+            selectedPeasant = nil
+        } else {
+            for asset in gameModel.actualMap.assets {
+                if asset.assetType.name == "Peasant" && asset.position.distance(position: target.position) < 64 {
+                    selectedPeasant = asset
+                }
+            }
+        }
+        printDebug("mouseClickAction Triggered")
+    }
+
+    
     override func viewDidAppear() {
+      
+        //In Progress
+        /*
         var loadingPlayerColors: [PlayerColor]
         
         loadingPlayerColors = []
@@ -203,7 +226,7 @@ class GameViewController: NSViewController {
             playerCommands.append(playCap)
         }
         
-        var canHarvest = true
+        //var canHarvest = true
         
         for asset in self.map.assets{
             if !asset.hasCapability(.mine) {
@@ -211,27 +234,17 @@ class GameViewController: NSViewController {
                 break
             }
         }
-        //var pixelType = PixelType
+        var pixelType = PixelType
         
-//        if canHarvest{
-//            if(PixelType.AssetTerrainType.tree == PixelType.t){ //fix seeing if clicked on tree
-//                let tempTilePosition: Position
-//                
-//                playerCommands[PlayerColor.numberOfColors].action = .mine
-//                tempTilePosition.setToTile(currentPos)
-//            }
-//        }
-        
-        
-        //first param should be selectedMapIndex
-        //0x123456789ABCDEFULL is the original
-        let gameModel = GameModel(mapIndex: 0, seed: 0x0123_4567_89ab_cdef, newColors: loadingPlayerColors)
-        
-        do{
-            try gameModel.timestep()
-        } catch {
-            fatalError(error as! String)
+        if canHarvest{
+            if(PixelType.AssetTerrainType.tree == PixelType.t){ //fix seeing if clicked on tree
+                let tempTilePosition: Position
+         
+                playerCommands[PlayerColor.numberOfColors].action = .mine
+                tempTilePosition.setToTile(currentPos)
+            }
         }
+        */
     }
     
     // variable that stores the mouse location
@@ -239,7 +252,8 @@ class GameViewController: NSViewController {
         return NSEvent.mouseLocation()
     }
     
-
+    
+    /*
     override func mouseDown(with event: NSEvent) {
         // event.locationInWindow is mouse location inside the window with bottom left of window (0,0)
         // -mainMapView.frame.origin to offset mainMapView relative to the entire window
@@ -255,16 +269,15 @@ class GameViewController: NSViewController {
         let targetAsset = PlayerAsset(playerAssetType: PlayerAssetType())
         targetAsset.position = Position(x: Int(tileXlocation), y: Int(tileYlocation))
         
-//        if selectedPeasant != nil {
-//            selectedPeasant!.pushCommand(AssetCommand(action: .walk, capability: .buildPeasant, assetTarget: target, activatedCapability: nil)
-//            selectedPeasant = nil
-//        } else {
-//            for asset in gameModel.actualMap.assets{
-//                
-//            }
-//        }
-        
-        
+        if selectedPeasant != nil {
+            selectedPeasant!.pushCommand(AssetCommand(action: .walk, capability: .buildPeasant, assetTarget: target, activatedCapability: nil)
+            selectedPeasant = nil
+        } else {
+            for asset in gameModel.actualMap.assets{
+     
+            }
+        }
+     
         // store position into the text field for testing purposes
         // change String parameter to NSEvent.mouseLocation() to track x and y position concurrently
         testXLoc.stringValue = String(describing: xMouseLoc)
@@ -272,8 +285,7 @@ class GameViewController: NSViewController {
         tileXLoc.stringValue = String(describing: clickedXpos)
         tileYLoc.stringValue = String(describing: clickedYpos)
         
-        
-    }
+    }*/
     
     func playBackgroundMusic() {
         game1SoundURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/snd/music/game1", ofType: "mid"))!)
@@ -285,9 +297,8 @@ class GameViewController: NSViewController {
         catch {
             NSLog("Error: Can't play sound file menu.mid")
         }
-//        game1Sound.prepareToPlay()
-//        game1Sound.play()
+        game1Sound.prepareToPlay()
+        game1Sound.play()
     }
 
-    
 }
