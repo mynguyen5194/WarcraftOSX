@@ -167,9 +167,39 @@ class GameViewController: NSViewController {
         
         OSXCustomViewMap = OSXCustomView(frame: CGRect(origin: .zero, size: CGSize(width: mapRenderer.detailedMapWidth, height: mapRenderer.detailedMapHeight)), viewportRenderer: viewportRenderer)
         let OSXCustomMiniMapViewMap = OSXCustomMiniMapView(frame: CGRect(origin: .zero, size: CGSize(width: mapRenderer.mapWidth, height: mapRenderer.mapHeight)), mapRenderer: mapRenderer)
-        view.addSubview(OSXCustomViewMap)
-        view.addSubview(OSXCustomMiniMapViewMap)
         
+        mainMapView.addSubview(OSXCustomViewMap)
+        miniMapView.addSubview(OSXCustomMiniMapViewMap)
+        
+        let NSGesture = NSClickGestureRecognizer(target: self, action: #selector(gestureRec))
+        self.OSXCustomViewMap.addGestureRecognizer(NSGesture)
+
+    }
+    
+    @IBAction func gestureRec(_ sender: NSClickGestureRecognizer) {
+        let target = PlayerAsset(playerAssetType: PlayerAssetType())
+        let touchLocation = sender.location(in: self.OSXCustomViewMap)
+        let xLocation = (Int(touchLocation.x) - Int(touchLocation.x) % 32) + 16
+        // let xTileLocation = xLocation / 32
+        let yLocation = (Int(touchLocation.y) - Int(touchLocation.y) % 32) + 16
+        // let yTileLocation = yLocation / 32
+        target.position = Position(x: xLocation, y: yLocation)
+        // let tileTargetPosition = Position(x: xTileLocation, y: yTileLocation)
+        print(target.position.x, target.position.y)
+        
+        if selectedPeasant != nil {
+            print("IF PART")
+            selectedPeasant!.pushCommand(AssetCommand(action: .walk, capability: .buildPeasant, assetTarget: target, activatedCapability: nil))
+            selectedPeasant = nil
+            viewDidAppear(animated: true)
+        } else {
+            for asset in self.map.assets {
+                if asset.assetType.name == "Peasant" && asset.position.distance(position: target.position) < 64 {
+                    selectedPeasant = asset
+                    print("ELSE PART")
+                }
+            }
+        }
     }
     
     func viewDidAppear(animated: Bool) {
@@ -185,7 +215,7 @@ class GameViewController: NSViewController {
     }
     
     
-    override func mouseDown(with event: NSEvent) {
+/*    override func mouseDown(with event: NSEvent) {
         let xMouseLoc = event.locationInWindow.x - self.mainMapView.frame.origin.x
         let yMouseLoc = event.locationInWindow.y - self.mainMapView.frame.origin.y
         
@@ -206,9 +236,10 @@ class GameViewController: NSViewController {
             viewDidAppear(animated: true)
         } else {
             for asset in self.map.assets {
-                if asset.assetType.name == "Peasant" && targetAsset.position.x == 9 && targetAsset.position.y == 11 {
+                if asset.assetType.name == "Peasant" && targetAsset.position.x == 10 && targetAsset.position.y == 11 {
                     selectedPeasant = asset
                     print("ELSE PART")
+                    break
                 }
             }
         }
@@ -218,7 +249,7 @@ class GameViewController: NSViewController {
         tileXLoc.stringValue = String(describing: clickedXpos)
         tileYLoc.stringValue = String(describing: clickedYpos)
         
-    }
+    }*/
     
     
     func playBackgroundMusic() {

@@ -515,14 +515,7 @@ class GameModel {
                 lumberAvailable[row][column] = players[0].lumber
             }
         }
-        
-        for i in 0 ..< actualMap.assets.count {
-            if actualMap.assets[i].type == .peasant && actualMap.assets[i].tilePositionX == 10 && actualMap.assets[i].tilePositionY == 10 {
-                print("peasant index \(i)")
-                actualMap.assets[i].pushCommand(AssetCommand(action: .walk, capability: .buildPeasant, assetTarget: actualMap.assets[i], activatedCapability: nil))
-            }
-        }
-    
+            
     }
     
     func isValidAsset(_ playerAsset: PlayerAsset) -> Bool {

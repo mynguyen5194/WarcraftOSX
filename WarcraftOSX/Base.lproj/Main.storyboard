@@ -793,6 +793,13 @@
                             </splitView>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="fcH-AL-lHV">
                                 <rect key="frame" x="174" y="31" width="440" height="374"/>
+                                <gestureRecognizers>
+                                    <clickGestureRecognizer delaysPrimaryMouseButtonEvents="YES" numberOfClicksRequired="1" id="c0F-0G-Taz">
+                                        <connections>
+                                            <action selector="gestureRec:" target="NXk-fe-dIt" id="8C2-kG-L7t"/>
+                                        </connections>
+                                    </clickGestureRecognizer>
+                                </gestureRecognizers>
                             </customView>
                             <textField verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UoW-p4-usd">
                                 <rect key="frame" x="20" y="444" width="146" height="22"/>
@@ -880,7 +887,7 @@
                                 <rect key="frame" x="229" y="77" width="200" height="366"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="guA-q7-ofk">
-                                        <rect key="frame" x="8" y="320" width="184" height="40"/>
+                                        <rect key="frame" x="8" y="326" width="184" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="9gr-wG-I5e"/>
                                             <constraint firstAttribute="width" constant="180" id="HnL-ra-GFe"/>
@@ -2250,7 +2257,7 @@ Gw
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="yh4-ff-Xsb"/>
-        <segue reference="U08-h1-nky"/>
+        <segue reference="gDF-aI-Zhb"/>
         <segue reference="7XN-uL-2B6"/>
     </inferredMetricsTieBreakers>
 </document>
