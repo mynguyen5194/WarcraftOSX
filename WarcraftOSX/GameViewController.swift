@@ -40,6 +40,8 @@ class GameViewController: NSViewController {
     var game1SoundBankURL: URL?
     var game1Sound = AVMIDIPlayer()
     var selectedPeasant: PlayerAsset?
+    var gameModel: GameModel!
+    var OSXCustomViewMap: OSXCustomView!
     //var mapType: SelectMapViewController?
     
     @IBOutlet weak var miniView: NSView!
@@ -63,13 +65,14 @@ class GameViewController: NSViewController {
             fatalError(error.localizedDescription) // TODO: Handle Error
         }
     }()
-    
+    //NOTE: New implementation in progress
+    /*
     private lazy var map: AssetDecoratedMap = {
         do {
             let mapDirectoryURL = Bundle.main.url(forResource: "/data/map", withExtension: nil)!
             try AssetDecoratedMap.loadMaps(from: FileDataContainer(url: mapDirectoryURL))
             
-            let forResource = "/data/map/" + SelectMapViewController().mapName
+            //let forResource = "/data/map/" + SelectMapViewController().mapName
             let lowerCase = forResource.lowercased()
             print (lowerCase)
             let mapURL = Bundle.main.url(forResource: lowerCase, withExtension: "map")!
@@ -78,6 +81,20 @@ class GameViewController: NSViewController {
             let map = AssetDecoratedMap()
             try map.loadMap(source: mapSource)
             
+            return map
+        } catch {
+            fatalError(error.localizedDescription) // TODO: Handle Error
+        }
+    }()
+    */
+    
+    //NOTE: Old implementation
+    private lazy var map: AssetDecoratedMap = {
+        do {
+            let mapURL = Bundle.main.url(forResource: "/data/map/2player", withExtension: "map")!
+            let mapSource = try FileDataSource(url: mapURL)
+            let map = AssetDecoratedMap()
+            try map.loadMap(source: mapSource)
             return map
         } catch {
             fatalError(error.localizedDescription) // TODO: Handle Error
@@ -165,27 +182,27 @@ class GameViewController: NSViewController {
             midiPlayer.play()
             let terrainGraphicTilesset = try tileset("Terrain")
             Position.setTileDimensions(width: terrainGraphicTilesset.tileWidth, height: terrainGraphicTilesset.tileHeight)
+            gameModel = GameModel(mapIndex: 0, seed: 0x0123_4567_89ab_cdef, newColors: PlayerColor.getAllValues())
         } catch {
             let nsError = NSError.init(domain: "Failed to initialize Terrain Graphic Tileset", code: 0, userInfo: nil)
             fatalError(nsError.localizedDescription)
         }
 
-        let OSXCustomViewMap = OSXCustomView(frame: CGRect(origin: .zero, size: CGSize(width: mapRenderer.detailedMapWidth, height: mapRenderer.detailedMapHeight)), viewportRenderer: viewportRenderer)
+        OSXCustomViewMap = OSXCustomView(frame: CGRect(origin: .zero, size: CGSize(width: mapRenderer.detailedMapWidth, height: mapRenderer.detailedMapHeight)), viewportRenderer: viewportRenderer)
         let OSXCustomMiniMapViewMap = OSXCustomMiniMapView(frame: CGRect(origin: .zero, size: CGSize(width: mapRenderer.mapWidth, height: mapRenderer.mapHeight)), mapRenderer: mapRenderer)
         
-        let clickGestureRecognizer: NSGestureRecognizer = NSGestureRecognizer.init(target: self, action: #selector(mouseClickAction))
-        mainMapView.addGestureRecognizer(clickGestureRecognizer)
-        OSXCustomViewMap.addGestureRecognizer(clickGestureRecognizer)
+        //let clickGestureRecognizer: NSGestureRecognizer = NSGestureRecognizer.init(target: self, action: #selector(mouseClickAction))
+        //mainMapView.addGestureRecognizer(clickGestureRecognizer)
+        //OSXCustomViewMap.addGestureRecognizer(clickGestureRecognizer)
         
         mainMapView.addSubview(OSXCustomViewMap)
         miniView.addSubview(OSXCustomMiniMapViewMap)
         
-        
+        //animateFrame()
         
     }
-    
+    /*
     @IBAction func mouseClickAction(_ sender: NSClickGestureRecognizer) {
-        let gameModel = GameModel(mapIndex: 0, seed: 0x0123_4567_89ab_cdef, newColors: PlayerColor.getAllValues())
         let target = PlayerAsset(playerAssetType: PlayerAssetType())
         let touchLocation = sender.location(in: mainMapView)
         let xLocation = (Int(touchLocation.x) - Int(touchLocation.x) % 32) + 16
@@ -203,7 +220,24 @@ class GameViewController: NSViewController {
         }
         printDebug("mouseClickAction Triggered")
     }
-
+     */
+    func animateFrame() {
+        
+        let start = Date()
+        
+        do {
+            try gameModel.timestep()
+        } catch {
+            fatalError("Error Thrown By Timestep")
+        }
+        
+        //Find Function to Redraw frame
+        //OSXCustomViewMap.setNeedsDisplay()
+        let finish = Date()
+        
+        let time = finish.timeIntervalSince(start)
+        print(time)
+    }
     
     override func viewDidAppear() {
       
