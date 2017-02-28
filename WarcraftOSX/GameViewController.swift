@@ -41,6 +41,7 @@ class GameViewController: NSViewController {
     var game1Sound = AVMIDIPlayer()
     
     private let mapIndex = 0
+    var gameModel: GameModel!
     var selectedPeasant: PlayerAsset?
     private var OSXCustomViewMap: OSXCustomView!
     
@@ -168,6 +169,8 @@ class GameViewController: NSViewController {
         OSXCustomViewMap = OSXCustomView(frame: CGRect(origin: .zero, size: CGSize(width: mapRenderer.detailedMapWidth, height: mapRenderer.detailedMapHeight)), viewportRenderer: viewportRenderer)
         let OSXCustomMiniMapViewMap = OSXCustomMiniMapView(frame: CGRect(origin: .zero, size: CGSize(width: mapRenderer.mapWidth, height: mapRenderer.mapHeight)), mapRenderer: mapRenderer)
         
+        gameModel = GameModel(mapIndex: self.mapIndex, seed: 0x123_4567_89ab_cdef, newColors: PlayerColor.getAllValues())
+        
         mainMapView.addSubview(OSXCustomViewMap)
         miniMapView.addSubview(OSXCustomMiniMapViewMap)
         
@@ -193,19 +196,20 @@ class GameViewController: NSViewController {
             selectedPeasant = nil
             viewDidAppear(animated: true)
         } else {
-            for asset in self.map.assets {
+            for asset in gameModel.actualMap.assets { //self.map.assets {
                 if asset.assetType.name == "Peasant" && asset.position.distance(position: target.position) < 64 {
                     selectedPeasant = asset
+                    acknowledgeSound.prepareToPlay()
+                    acknowledgeSound.play()
                     print("ELSE PART")
+                    
+                    break
                 }
             }
         }
     }
     
     func viewDidAppear(animated: Bool) {
-        
-        let gameModel = GameModel(mapIndex: 0, seed: 0x123_4567_89ab_cdef, newColors: PlayerColor.getAllValues())
-        
         do {
             try gameModel.timestep()
             OSXCustomViewMap.needsDisplay = true

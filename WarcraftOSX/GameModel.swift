@@ -496,7 +496,7 @@ class GameModel {
             players.append(PlayerData(map: actualMap, color: PlayerColor(index: playerIndex)!))
         }
         
- /*       assetOccupancyMap = Array(repeating: Array(repeating: nil, count: actualMap.width), count: actualMap.height)
+        assetOccupancyMap = Array(repeating: Array(repeating: nil, count: actualMap.width), count: actualMap.height)
         diagonalOccupancyMap = Array(repeating: Array(repeating: false, count: actualMap.width), count: actualMap.height)
         
         lumberAvailable = Array(repeating: Array(repeating: 0, count: actualMap.width), count: actualMap.height)
@@ -504,18 +504,8 @@ class GameModel {
             for column in 0 ..< actualMap.width where actualMap.tileTypeAt(x: column, y: row) == .tree {
                 lumberAvailable[row][column] = players[0].lumber
             }
-        } */
-        
-        assetOccupancyMap = Array(repeating: Array(repeating: nil, count: 96), count: 64)
-        diagonalOccupancyMap = Array(repeating: Array(repeating: false, count: 96), count: 64)
-        
-        lumberAvailable = Array(repeating: Array(repeating: 0, count: 96), count: 64)
-        for row in 0 ..< 64 {
-            for column in 0 ..< 96 where actualMap.tileTypeAt(x: column, y: row) == .tree {
-                lumberAvailable[row][column] = players[0].lumber
-            }
         }
-            
+        
     }
     
     func isValidAsset(_ playerAsset: PlayerAsset) -> Bool {
