@@ -35,7 +35,7 @@ fileprivate func multicolorTileset(_ name: String) throws -> GraphicMulticolorTi
 }
 
 class GameViewController: NSViewController {
-    
+
     var game1SoundURL: URL?
     var game1SoundBankURL: URL?
     var game1Sound = AVMIDIPlayer()
@@ -111,9 +111,8 @@ class GameViewController: NSViewController {
             let mapDirectoryURL = Bundle.main.url(forResource: "/data/map", withExtension: nil)!
             try AssetDecoratedMap.loadMaps(from: FileDataContainer(url: mapDirectoryURL))
             
-            let forResource = "/data/map/" + SelectMapViewController().mapName
+            let forResource = "/data/map/\(mapName)"// + SelectMapViewController().mapName
             let lowerCase = forResource.lowercased()
-            print (lowerCase)
             let mapURL = Bundle.main.url(forResource: lowerCase, withExtension: "map")!
 
             let mapSource = try FileDataSource(url: mapURL)
@@ -231,53 +230,78 @@ class GameViewController: NSViewController {
     
     
     override func viewDidAppear() {
-        var loadingPlayerColors: [PlayerColor]
-        
-        loadingPlayerColors = []
-        for pcIndex in 0 ..< PlayerColor.numberOfColors{
-            loadingPlayerColors.append(PlayerColor(index: pcIndex)!)
-        }
-        
-        var playerCommands: [PlayerCommandRequest]
-        playerCommands = []
-
-        let currentPos = Position(x: Int(clickedXpos), y: Int(clickedYpos))
-        let playCap = PlayerCommandRequest(action: .none, actors: self.map.assets, targetColor: .none, targetType: .none, targetLocation: currentPos)
-        
-        for _ in 0 ..< PlayerColor.numberOfColors{
-            playerCommands.append(playCap)
-        }
-        
-        var canHarvest = true
-        
-        for asset in self.map.assets{
-            if !asset.hasCapability(.mine) {
-                canHarvest = false
-                break
-            }
-        }
-        //var pixelType = PixelType
-        
-//        if canHarvest{
-//            if(PixelType.AssetTerrainType.tree == PixelType.t){ //fix seeing if clicked on tree
-//                let tempTilePosition: Position
-//                
-//                playerCommands[PlayerColor.numberOfColors].action = .mine
-//                tempTilePosition.setToTile(currentPos)
-//            }
+//        //attempt at resource harvesting
+//        var loadingPlayerColors: [PlayerColor]
+//        
+//        loadingPlayerColors = []
+//        for pcIndex in 0 ..< PlayerColor.numberOfColors{
+//            loadingPlayerColors.append(PlayerColor(index: pcIndex)!)
 //        }
-        
-        
-        //first param should be selectedMapIndex
-        //0x123456789ABCDEFULL is the original
-        let gameModel = GameModel(mapIndex: 0, seed: 0x0123_4567_89ab_cdef, newColors: loadingPlayerColors)
-        
-        do{
-            try gameModel.timestep()
-        } catch {
-            fatalError(error as! String)
-        }
-        
+//        
+//        var playerCommands: [PlayerCommandRequest]
+//        playerCommands = []
+//        
+//        //let currentPos = Position(x: Int(clickedXpos), y: Int(clickedYpos))
+//        let currentPos = Position(x: tileXlocation, y: tileYlocation)
+//        let playCap = PlayerCommandRequest(action: .move, actors: self.map.assets, targetColor: .none, targetType: .none, targetLocation: currentPos)
+//        
+//        for _ in 0 ..< PlayerColor.numberOfColors{
+//            playerCommands.append(playCap)
+//        }
+//        
+//        var canHarvest = true
+//        var canMove = true
+//        let gameModel = GameModel(mapIndex: 0, seed: 0x0123_4567_89ab_cdef, newColors: loadingPlayerColors)
+//        
+//        var counter = 0
+//        for asset in self.map.assets{
+//            if !asset.hasCapability(.mine) {
+//                canHarvest = false
+//                canMove = false
+//                //break
+//            }
+//            
+//            
+//            
+//            //var pixelType = PixelType
+//            
+//            //            if canMove{
+//            //                //asset.action = .walk
+//            //                playerCommands[counter].action = .move
+//            //                playerCommands[counter].actors = [self.map.assets[3]]
+//            //                playerCommands[counter].targetLocation = Position(x: tileXlocation, y: tileYlocation)
+//            //            }
+//            
+//            if canHarvest{
+//                
+//                print (self.map.tileTypeAt(position: currentPos))
+//                let x = 2
+//                let treeType = String(describing: PixelType.AssetTerrainType.tree)
+//                let goldType = String(describing: PixelType.AssetTerrainType.goldMine)
+//                let currType = String(describing: self.map.tileTypeAt(position: currentPos))
+//                if(treeType == "tree"){         //seeing if clicked on tree
+//                    let tempTilePosition = currentPos
+//                    
+//                    playerCommands[counter].action = .mine
+//                    tempTilePosition.setToTile(currentPos)
+//                } else if(goldType == currType){
+//                    playerCommands[counter].action = .mine
+//                    playerCommands[counter].targetType = .goldMine
+//                }
+//            }
+//            counter += 1
+//        }
+//        
+//        // first param should be selectedMapIndex
+//        // 0x123456789ABCDEFULL is the original
+//        let gameModel = GameModel(mapIndex: 0, seed: 0x0123_4567_89ab_cdef, newColors: loadingPlayerColors)
+//        
+//        do{
+//            try gameModel.timestep()
+//        } catch {
+//            fatalError(error as! String)
+//        }
+//        
     }
     
     // variable that stores the mouse location
