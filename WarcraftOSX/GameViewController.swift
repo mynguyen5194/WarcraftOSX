@@ -65,6 +65,7 @@ class GameViewController: NSViewController {
             fatalError(error.localizedDescription) // TODO: Handle Error
         }
     }()
+    
     //NOTE: New implementation in progress
     /*
     private lazy var map: AssetDecoratedMap = {
@@ -91,7 +92,7 @@ class GameViewController: NSViewController {
     //NOTE: Old implementation
     private lazy var map: AssetDecoratedMap = {
         do {
-            let mapURL = Bundle.main.url(forResource: "/data/map/2player", withExtension: "map")!
+            let mapURL = Bundle.main.url(forResource: "/data/map/maze", withExtension: "map")!
             let mapSource = try FileDataSource(url: mapURL)
             let map = AssetDecoratedMap()
             try map.loadMap(source: mapSource)
@@ -183,26 +184,26 @@ class GameViewController: NSViewController {
             let terrainGraphicTilesset = try tileset("Terrain")
             Position.setTileDimensions(width: terrainGraphicTilesset.tileWidth, height: terrainGraphicTilesset.tileHeight)
             gameModel = GameModel(mapIndex: 0, seed: 0x0123_4567_89ab_cdef, newColors: PlayerColor.getAllValues())
+            
         } catch {
-            let nsError = NSError.init(domain: "Failed to initialize Terrain Graphic Tileset", code: 0, userInfo: nil)
+            let nsError = NSError.init(domain: "Failed to initialize Map Data", code: 0, userInfo: nil)
             fatalError(nsError.localizedDescription)
         }
 
         OSXCustomViewMap = OSXCustomView(frame: CGRect(origin: .zero, size: CGSize(width: mapRenderer.detailedMapWidth, height: mapRenderer.detailedMapHeight)), viewportRenderer: viewportRenderer)
         let OSXCustomMiniMapViewMap = OSXCustomMiniMapView(frame: CGRect(origin: .zero, size: CGSize(width: mapRenderer.mapWidth, height: mapRenderer.mapHeight)), mapRenderer: mapRenderer)
         
-        //let clickGestureRecognizer: NSGestureRecognizer = NSGestureRecognizer.init(target: self, action: #selector(mouseClickAction))
-        //mainMapView.addGestureRecognizer(clickGestureRecognizer)
-        //OSXCustomViewMap.addGestureRecognizer(clickGestureRecognizer)
+        //Add click listener to Game Map
+        let clickGestureRecognizer: NSGestureRecognizer = NSGestureRecognizer.init(target: self, action: #selector(mouseClickAction))
+        OSXCustomViewMap.addGestureRecognizer(clickGestureRecognizer)
         
         mainMapView.addSubview(OSXCustomViewMap)
         miniView.addSubview(OSXCustomMiniMapViewMap)
         
-        //animateFrame()
-        
     }
-    /*
+    
     @IBAction func mouseClickAction(_ sender: NSClickGestureRecognizer) {
+        printDebug("mouseClickAction Triggered")
         let target = PlayerAsset(playerAssetType: PlayerAssetType())
         let touchLocation = sender.location(in: mainMapView)
         let xLocation = (Int(touchLocation.x) - Int(touchLocation.x) % 32) + 16
@@ -211,18 +212,24 @@ class GameViewController: NSViewController {
         if selectedPeasant != nil {
             selectedPeasant!.pushCommand(AssetCommand(action: .walk, capability: .buildPeasant, assetTarget: target, activatedCapability: nil))
             selectedPeasant = nil
+            printDebug("mouseClickAction IF")
         } else {
-            for asset in gameModel.actualMap.assets {
+            //for asset in gameModel.actualMap.assets {
+            for asset in self.map.assets {
                 if asset.assetType.name == "Peasant" && asset.position.distance(position: target.position) < 64 {
                     selectedPeasant = asset
                 }
             }
+            printDebug("mouseClickAction ELSE")
         }
-        printDebug("mouseClickAction Triggered")
+        animateFrame()
+        
+        
     }
-     */
+    
     func animateFrame() {
         
+        printDebug("Entering animateFrame()")
         let start = Date()
         
         do {
@@ -233,52 +240,12 @@ class GameViewController: NSViewController {
         
         //Find Function to Redraw frame
         //OSXCustomViewMap.setNeedsDisplay()
+        OSXCustomViewMap.setNeedsDisplay(OSXCustomViewMap.bounds)
         let finish = Date()
         
         let time = finish.timeIntervalSince(start)
         print(time)
-    }
-    
-    override func viewDidAppear() {
-      
-        //In Progress
-        /*
-        var loadingPlayerColors: [PlayerColor]
-        
-        loadingPlayerColors = []
-        for pcIndex in 0 ..< PlayerColor.numberOfColors{
-            loadingPlayerColors.append(PlayerColor(index: pcIndex)!)
-        }
-        
-        var playerCommands: [PlayerCommandRequest]
-        playerCommands = []
-
-        let currentPos = Position(x: Int(clickedXpos), y: Int(clickedYpos))
-        let playCap = PlayerCommandRequest(action: .none, actors: self.map.assets, targetColor: .none, targetType: .none, targetLocation: currentPos)
-        
-        for _ in 0 ..< PlayerColor.numberOfColors{
-            playerCommands.append(playCap)
-        }
-        
-        //var canHarvest = true
-        
-        for asset in self.map.assets{
-            if !asset.hasCapability(.mine) {
-                canHarvest = false
-                break
-            }
-        }
-        var pixelType = PixelType
-        
-        if canHarvest{
-            if(PixelType.AssetTerrainType.tree == PixelType.t){ //fix seeing if clicked on tree
-                let tempTilePosition: Position
-         
-                playerCommands[PlayerColor.numberOfColors].action = .mine
-                tempTilePosition.setToTile(currentPos)
-            }
-        }
-        */
+        printDebug("Exiting animateFrame()")
     }
     
     // variable that stores the mouse location

@@ -496,6 +496,8 @@ class GameModel {
             players.append(PlayerData(map: actualMap, color: PlayerColor(index: playerIndex)!))
         }
         
+        //NOTE: Issues with width and height of actualMap
+        /*
         assetOccupancyMap = Array(repeating: Array(repeating: nil, count: actualMap.width), count: actualMap.height)
         diagonalOccupancyMap = Array(repeating: Array(repeating: false, count: actualMap.width), count: actualMap.height)
         
@@ -505,6 +507,20 @@ class GameModel {
                 lumberAvailable[row][column] = players[0].lumber
             }
         }
+        */
+        
+        //HACK BEGIN
+        assetOccupancyMap = Array(repeating: Array(repeating: nil, count: 96), count: 64)
+        diagonalOccupancyMap = Array(repeating: Array(repeating: false, count: 96), count: 64)
+        
+        lumberAvailable = Array(repeating: Array(repeating: 0, count: 96), count: 64)
+        for row in 0 ..< 64 {
+            for column in 0 ..< 96 where actualMap.tileTypeAt(x: column, y: row) == .tree {
+                lumberAvailable[row][column] = players[0].lumber
+            }
+        }
+        //HACK END
+        
         
         //        for i in 0 ..< actualMap.assets.count {
         //            if actualMap.assets[i].assetType.name == "Peasant" && actualMap.assets[i].tilePosition == Position(x: 10, y: 10) {

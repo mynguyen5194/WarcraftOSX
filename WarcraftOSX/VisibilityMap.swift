@@ -17,7 +17,8 @@ class VisibilityMap {
         let rowCount = height + 2 * maxVisibility
         let columnCount = width + 2 * maxVisibility
         self.maxVisibility = maxVisibility
-        self.map = Array(repeating: Array(repeating: .none, count: columnCount), count: rowCount)
+        //self.map = Array(repeating: Array(repeating: .none, count: columnCount), count: rowCount)
+        self.map = Array(repeating: Array(repeating: .none, count: 0), count: 0)
         self.totalMapTiles = width * height
         self.unseenTiles = totalMapTiles
     }
