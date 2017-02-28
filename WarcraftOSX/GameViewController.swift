@@ -228,8 +228,8 @@ class GameViewController: NSViewController {
         
     }
     
-    
-    override func viewDidAppear() {
+    // MARK: Resource Havesting
+//    override func viewDidAppear() {
 //        //attempt at resource harvesting
 //        var loadingPlayerColors: [PlayerColor]
 //        
@@ -302,7 +302,7 @@ class GameViewController: NSViewController {
 //            fatalError(error as! String)
 //        }
 //        
-    }
+//    }
     
     // variable that stores the mouse location
     var mouseLocation: NSPoint {
