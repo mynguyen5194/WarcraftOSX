@@ -21,12 +21,14 @@ class SelectColorsViewController: NSViewController {
     @IBOutlet weak var miniMap: NSImageView!
     @IBOutlet weak var player2Text: NSTextField!
     
-    
-    
     // MARK: difficutlyButton
     @IBOutlet weak var difficultyButton: NSButton!
     @IBAction func difficultyButton(_ sender: NSButton) {
         let attribute = getAttribute(size: 18)
+        
+        if sender.title == "Human" {
+            player2Text.isHidden = false
+        }
         
         if sender.title == "AI Easy"{
             sender.attributedTitle = NSAttributedString(string: "AI Medium", attributes: attribute)
@@ -35,7 +37,6 @@ class SelectColorsViewController: NSViewController {
         } else {
             sender.attributedTitle = NSAttributedString(string: "AI Easy", attributes: attribute)
         }
-        
     }
     
     
@@ -101,7 +102,11 @@ class SelectColorsViewController: NSViewController {
     @IBOutlet weak var player2ColorButton8: NSButton!
     
     @IBAction func player2ColorButton1(_ sender: NSButton) {
-        modifyButton(sender, firstRow: false)
+//        if difficultyButton.title == "Human" {
+//            sender.isEnabled = false
+//        } else {
+            modifyButton(sender, firstRow: false)
+//        }
     }
     @IBAction func player2ColorButton2(_ sender: NSButton) {
         modifyButton(sender, firstRow: false)
@@ -138,13 +143,14 @@ class SelectColorsViewController: NSViewController {
         
         if singlePlayerGame == true {
             difficultyButton.attributedTitle = NSAttributedString(string: "AI Easy", attributes: attribute)
+            
         } else {
             difficultyButton.attributedTitle = NSAttributedString(string: "Human", attributes: attribute)
-            
+            player2Text.isHidden = true
         }
        
-        youColorButton1.attributedTitle = NSAttributedString(string: "X", attributes: attribute)
-        player2ColorButton2.attributedTitle = NSAttributedString(string: "X", attributes: attribute)
+        youColorButton1.attributedTitle = NSAttributedString(string: "X", attributes: getAttribute(size: 16))
+        player2ColorButton2.attributedTitle = NSAttributedString(string: "X", attributes: getAttribute(size: 16))
         playGameButton.attributedTitle = NSAttributedString(string: playGameButton.title, attributes: attribute)
         cancelButton.attributedTitle = NSAttributedString(string: cancelButton.title, attributes: attribute)
         
@@ -170,8 +176,14 @@ class SelectColorsViewController: NSViewController {
     }
     
     func modifyButton(_ sender: NSButton, firstRow: Bool) {
-        sender.attributedTitle = NSAttributedString(string: "X", attributes: getAttribute(size: 16))
-        clearOtherButtons(sender, firstRow: firstRow)
+        if difficultyButton.title == "Human" && firstRow == false {
+            sender.isEnabled = false
+        } else {
+//            sender.isEnabled = true
+            
+            sender.attributedTitle = NSAttributedString(string: "X", attributes: getAttribute(size: 16))
+            clearOtherButtons(sender, firstRow: firstRow)
+        }
     }
     
     

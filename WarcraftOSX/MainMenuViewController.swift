@@ -18,6 +18,7 @@ class MainMenuViewController: NSViewController {
     
     var menuSupporter = MenuSupporter()
     
+    @IBOutlet weak var menuStackView: NSStackView!
     @IBOutlet weak var singlePlayerGameButton: NSButton!
     @IBOutlet weak var multiPlayerGameButton: NSButton!
     @IBOutlet weak var optionsButton: NSButton!
@@ -53,39 +54,64 @@ class MainMenuViewController: NSViewController {
         menuSupporter.formatButtonTitle(sender: optionsButton, color: NSColor.yellow, title: optionsButton.title, fontSize: 18)
         menuSupporter.formatButtonTitle(sender: exitGameButton, color: NSColor.yellow, title: exitGameButton.title, fontSize: 18)
         
-        let area = NSTrackingArea.init(rect: singlePlayerGameButton.bounds, options: [NSTrackingAreaOptions.mouseEnteredAndExited, NSTrackingAreaOptions.activeAlways], owner: self, userInfo: nil)
+        area = NSTrackingArea.init(rect: singlePlayerGameButton.bounds, options: [NSTrackingAreaOptions.mouseEnteredAndExited, NSTrackingAreaOptions.activeAlways], owner: self, userInfo: nil)
         singlePlayerGameButton.addTrackingArea(area)
         
         
+
+        area2 = NSTrackingArea.init(rect: multiPlayerGameButton.bounds, options: [NSTrackingAreaOptions.mouseEnteredAndExited, NSTrackingAreaOptions.activeAlways], owner: self, userInfo: nil)
+        multiPlayerGameButton.addTrackingArea(area2)
+        
+        
     }
     
-    func mouseHandler(sender: NSButton) {
-//        let pstyle = NSMutableParagraphStyle()
-//        pstyle.alignment = .center
-//        var attributes = [String: AnyObject]()
-//        
-//        attributes[NSFontAttributeName] = NSFonts(name: "Apple Chancery", size: fontSize)
-//        attributes[NSForegroundColorAttributeName] = NSColor.white
-//        attributes[NSParagraphStyleAttributeName] = pstyle
-//        
-//        sender.attributedTitle = NSAttributedString(string: sender.title, attributes: attributes )
-        
-        
-        let buttonArea = NSTrackingArea.init(rect: sender.bounds, options: [NSTrackingAreaOptions.mouseEnteredAndExited, NSTrackingAreaOptions.activeAlways], owner: self, userInfo: nil)
-        sender.addTrackingArea(buttonArea)
-        
-    }
+    var area = NSTrackingArea()
+    var area2 = NSTrackingArea()
+    
+    
     
     override func mouseEntered(with event: NSEvent) {
+        let loc = NSEvent.mouseLocation()
+        let mouseLocation = CGPoint(x: loc.x, y: loc.y)
+//        print("MOUSE LOCATION = \(mouseLocation)")
+
+        print(singlePlayerGameButton.doesContain(loc))
+//        print(area.rect.contains(mouseLocation))
         
-        menuSupporter.formatButtonTitle(sender: singlePlayerGameButton, color: NSColor.white, title: singlePlayerGameButton.title, fontSize: 18)
-        playTickSound()
         
+        if singlePlayerGameButton.frame.contains(mouseLocation) {
+            print("WITHIN SINGLE")
+            menuSupporter.formatButtonTitle(sender: singlePlayerGameButton, color: NSColor.white, title: singlePlayerGameButton.title, fontSize: 18)
+            playTickSound()
+
+        } else if multiPlayerGameButton.frame.contains(mouseLocation) {
+            print("WITHIN MULTI")
+        }
     }
     override func mouseExited(with event: NSEvent) {
         menuSupporter.formatButtonTitle(sender: singlePlayerGameButton, color: NSColor.yellow, title: singlePlayerGameButton.title, fontSize: 18)
     }
     
+    
+    
+    
+//    override func mouseMoved(with event: NSEvent) {
+////        let a = NSEvent.mouseLocation()
+//        let a = event.locationInWindow
+//        print("LOCATION A = \(a)")
+//        print("********* \(singlePlayerGameButton.doesContain(a))")
+//        
+//        if singlePlayerGameButton.doesContain(a) {
+//            print("INSIDE SINGLE")
+//            menuSupporter.formatButtonTitle(sender: singlePlayerGameButton, color: NSColor.white, title: singlePlayerGameButton.title, fontSize: 18)
+//            playTickSound()
+//        }
+//        if multiPlayerGameButton.doesContain(a) {
+//            print("INSIDE 2")
+//            menuSupporter.formatButtonTitle(sender: multiPlayerGameButton, color: NSColor.white, title: multiPlayerGameButton.title, fontSize: 18)
+//            playTickSound()
+//        }
+//    }
     
     func playThunkSound() {
         let thunkURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/snd/misc/thunk", ofType: "wav"))!)

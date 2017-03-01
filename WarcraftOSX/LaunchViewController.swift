@@ -9,7 +9,7 @@
 import Cocoa
 import AVFoundation
 
-var menuSound = AVMIDIPlayer()
+var menuSound = AVAudioPlayer()
 
 class LaunchViewController: NSViewController {
     var menuSoundURL: URL?
@@ -34,8 +34,8 @@ class LaunchViewController: NSViewController {
         return splash
     }()
     
-    // Play midi file
-    func playMidi() {
+
+    func playLoadMusic() {
         //splashScreen sound midi
         splashScreenSoundURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/snd/music/load", ofType: "mid"))!)
         splashScreenSoundBankURL = Bundle.main.url(forResource: "data/snd/generalsoundfont", withExtension: "sf2")
@@ -50,16 +50,15 @@ class LaunchViewController: NSViewController {
         splashScreenSound.play()
     }
     
-    func playMenuMidi() {
-        menuSoundURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/snd/music/menu", ofType: "mid"))!)
-        menuSoundBankURL = Bundle.main.url(forResource: "data/snd/generalsoundfont", withExtension: "sf2")
+    func playMenuMusic() {
+        menuSoundURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/snd/music/menu", ofType: "wav"))!)
         
         do {
-            try menuSound = AVMIDIPlayer(contentsOf: menuSoundURL!, soundBankURL: menuSoundBankURL)
+            try menuSound = AVAudioPlayer(contentsOf: menuSoundURL!)
+        } catch {
+            NSLog("Error: Can't play sound file thunk.wav")
         }
-        catch {
-            NSLog("Error: Can't play sound file menu.mid")
-        }
+        
         menuSound.prepareToPlay()
         menuSound.play()
     }
@@ -69,7 +68,7 @@ class LaunchViewController: NSViewController {
         performSegue(withIdentifier: "showMenuSegue", sender: self)
         splashScreenSound.stop()
         
-        playMenuMidi()
+        playMenuMusic()
     }
     
     override func viewDidLoad() {
@@ -79,10 +78,13 @@ class LaunchViewController: NSViewController {
         splashScreen.image = visualElement
         
         //Play Intro
-        playMidi()
+        playLoadMusic()
         
         // Display splash screen for 3 seconds
         perform(#selector(LaunchViewController.showMenu), with: nil, afterDelay: 1)
+        
+        
+        
         
         
     }

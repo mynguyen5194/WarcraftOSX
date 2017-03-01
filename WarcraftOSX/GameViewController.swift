@@ -35,23 +35,65 @@ fileprivate func multicolorTileset(_ name: String) throws -> GraphicMulticolorTi
 }
 
 class GameViewController: NSViewController {
-    
+
     var game1SoundURL: URL?
     var game1SoundBankURL: URL?
     var game1Sound = AVMIDIPlayer()
     var selectedPeasant: PlayerAsset?
     //var mapType: SelectMapViewController?
     
+    @IBOutlet weak var goldMeter: NSTextField!
+    @IBOutlet weak var lumberMeter: NSTextField!
+    @IBOutlet weak var foodMeter: NSTextField!
+    
+    var buttons = [NSButton]()
+    
+    @IBOutlet weak var button1: NSButton!
+    @IBOutlet weak var button2: NSButton!
+    @IBOutlet weak var button3: NSButton!
+    @IBOutlet weak var button4: NSButton!
+    @IBOutlet weak var button5: NSButton!
+    @IBOutlet weak var button6: NSButton!
+    @IBOutlet weak var button7: NSButton!
+    @IBOutlet weak var button8: NSButton!
+    @IBOutlet weak var button9: NSButton!
+    
+    @IBAction func button1(_ sender: NSButton) {
+    }
+    @IBAction func button2(_ sender: NSButton) {
+    }
+    @IBAction func button3(_ sender: NSButton) {
+    }
+    @IBAction func button4(_ sender: NSButton) {
+    }
+    @IBAction func button5(_ sender: NSButton) {
+    }
+    @IBAction func button6(_ sender: NSButton) {
+    }
+    @IBAction func button7(_ sender: NSButton) {
+        if sender.image?.name() == "Build-simple Icon" {
+            
+            for button in buttons {
+                if button == sender {
+                    button2.image = NSImage(named: "Town-hall Icon")
+                } else {
+                    button.image = NSImage(named: "Disabled Icon")
+                }
+            }
+        }
+    }
+    @IBAction func button8(_ sender: NSButton) {
+    }
+    @IBAction func button9(_ sender: NSButton) {
+    }
+    
     @IBOutlet weak var miniView: NSView!
     @IBOutlet weak var mainMapView: NSView!
-    @IBOutlet weak var miniMapView: NSView!
     @IBOutlet weak var testXLoc: NSTextField!
     @IBOutlet weak var testYLoc: NSTextField!
     @IBOutlet weak var tileXLoc: NSTextField!
     @IBOutlet weak var tileYLoc: NSTextField!
     @IBOutlet weak var mini: NSView!
-    
-
     
     private lazy var midiPlayer: AVMIDIPlayer = {
         let gameURL = URL(fileURLWithPath: (Bundle.main.path(forResource: "data/snd/music/game1", ofType: "mid"))!)
@@ -69,9 +111,8 @@ class GameViewController: NSViewController {
             let mapDirectoryURL = Bundle.main.url(forResource: "/data/map", withExtension: nil)!
             try AssetDecoratedMap.loadMaps(from: FileDataContainer(url: mapDirectoryURL))
             
-            let forResource = "/data/map/" + SelectMapViewController().mapName
+            let forResource = "/data/map/\(mapName)"// + SelectMapViewController().mapName
             let lowerCase = forResource.lowercased()
-            print (lowerCase)
             let mapURL = Bundle.main.url(forResource: lowerCase, withExtension: "map")!
 
             let mapSource = try FileDataSource(url: mapURL)
@@ -171,8 +212,10 @@ class GameViewController: NSViewController {
         super.viewDidLoad()
         menuSound.stop()
         
-//        midiPlayer.prepareToPlay()
-//        midiPlayer.play()
+        buttons = [button1, button2, button3, button4, button5, button6, button7, button8, button9]
+        
+        midiPlayer.prepareToPlay()
+        midiPlayer.play()
         
         let OSXCustomViewMap = OSXCustomView(frame: CGRect(origin: .zero, size: CGSize(width: mapRenderer.detailedMapWidth, height: mapRenderer.detailedMapHeight)), viewportRenderer: viewportRenderer)
 
@@ -185,54 +228,81 @@ class GameViewController: NSViewController {
         
     }
     
-    override func viewDidAppear() {
-        var loadingPlayerColors: [PlayerColor]
-        
-        loadingPlayerColors = []
-        for pcIndex in 0 ..< PlayerColor.numberOfColors{
-            loadingPlayerColors.append(PlayerColor(index: pcIndex)!)
-        }
-        
-        var playerCommands: [PlayerCommandRequest]
-        playerCommands = []
-
-        let currentPos = Position(x: Int(clickedXpos), y: Int(clickedYpos))
-        let playCap = PlayerCommandRequest(action: .none, actors: self.map.assets, targetColor: .none, targetType: .none, targetLocation: currentPos)
-        
-        for _ in 0 ..< PlayerColor.numberOfColors{
-            playerCommands.append(playCap)
-        }
-        
-        var canHarvest = true
-        
-        for asset in self.map.assets{
-            if !asset.hasCapability(.mine) {
-                canHarvest = false
-                break
-            }
-        }
-        //var pixelType = PixelType
-        
-//        if canHarvest{
-//            if(PixelType.AssetTerrainType.tree == PixelType.t){ //fix seeing if clicked on tree
-//                let tempTilePosition: Position
-//                
-//                playerCommands[PlayerColor.numberOfColors].action = .mine
-//                tempTilePosition.setToTile(currentPos)
-//            }
+    // MARK: Resource Havesting
+//    override func viewDidAppear() {
+//        //attempt at resource harvesting
+//        var loadingPlayerColors: [PlayerColor]
+//        
+//        loadingPlayerColors = []
+//        for pcIndex in 0 ..< PlayerColor.numberOfColors{
+//            loadingPlayerColors.append(PlayerColor(index: pcIndex)!)
 //        }
-        
-        
-        //first param should be selectedMapIndex
-        //0x123456789ABCDEFULL is the original
-        let gameModel = GameModel(mapIndex: 0, seed: 0x0123_4567_89ab_cdef, newColors: loadingPlayerColors)
-        
-        do{
-            try gameModel.timestep()
-        } catch {
-            fatalError(error as! String)
-        }
-    }
+//        
+//        var playerCommands: [PlayerCommandRequest]
+//        playerCommands = []
+//        
+//        //let currentPos = Position(x: Int(clickedXpos), y: Int(clickedYpos))
+//        let currentPos = Position(x: tileXlocation, y: tileYlocation)
+//        let playCap = PlayerCommandRequest(action: .move, actors: self.map.assets, targetColor: .none, targetType: .none, targetLocation: currentPos)
+//        
+//        for _ in 0 ..< PlayerColor.numberOfColors{
+//            playerCommands.append(playCap)
+//        }
+//        
+//        var canHarvest = true
+//        var canMove = true
+//        let gameModel = GameModel(mapIndex: 0, seed: 0x0123_4567_89ab_cdef, newColors: loadingPlayerColors)
+//        
+//        var counter = 0
+//        for asset in self.map.assets{
+//            if !asset.hasCapability(.mine) {
+//                canHarvest = false
+//                canMove = false
+//                //break
+//            }
+//            
+//            
+//            
+//            //var pixelType = PixelType
+//            
+//            //            if canMove{
+//            //                //asset.action = .walk
+//            //                playerCommands[counter].action = .move
+//            //                playerCommands[counter].actors = [self.map.assets[3]]
+//            //                playerCommands[counter].targetLocation = Position(x: tileXlocation, y: tileYlocation)
+//            //            }
+//            
+//            if canHarvest{
+//                
+//                print (self.map.tileTypeAt(position: currentPos))
+//                let x = 2
+//                let treeType = String(describing: PixelType.AssetTerrainType.tree)
+//                let goldType = String(describing: PixelType.AssetTerrainType.goldMine)
+//                let currType = String(describing: self.map.tileTypeAt(position: currentPos))
+//                if(treeType == "tree"){         //seeing if clicked on tree
+//                    let tempTilePosition = currentPos
+//                    
+//                    playerCommands[counter].action = .mine
+//                    tempTilePosition.setToTile(currentPos)
+//                } else if(goldType == currType){
+//                    playerCommands[counter].action = .mine
+//                    playerCommands[counter].targetType = .goldMine
+//                }
+//            }
+//            counter += 1
+//        }
+//        
+//        // first param should be selectedMapIndex
+//        // 0x123456789ABCDEFULL is the original
+//        let gameModel = GameModel(mapIndex: 0, seed: 0x0123_4567_89ab_cdef, newColors: loadingPlayerColors)
+//        
+//        do{
+//            try gameModel.timestep()
+//        } catch {
+//            fatalError(error as! String)
+//        }
+//        
+//    }
     
     // variable that stores the mouse location
     var mouseLocation: NSPoint {
@@ -240,7 +310,11 @@ class GameViewController: NSViewController {
     }
     
 
+    
+
     override func mouseDown(with event: NSEvent) {
+        let target = PlayerAsset(playerAssetType: PlayerAssetType())
+        
         // event.locationInWindow is mouse location inside the window with bottom left of window (0,0)
         // -mainMapView.frame.origin to offset mainMapView relative to the entire window
         let xMouseLoc = event.locationInWindow.x - self.mainMapView.frame.origin.x
@@ -256,11 +330,15 @@ class GameViewController: NSViewController {
         targetAsset.position = Position(x: Int(tileXlocation), y: Int(tileYlocation))
         
 //        if selectedPeasant != nil {
-//            selectedPeasant!.pushCommand(AssetCommand(action: .walk, capability: .buildPeasant, assetTarget: target, activatedCapability: nil)
+//            selectedPeasant!.pushCommand(AssetCommand(action: .walk, capability: .buildPeasant, assetTarget: target, activatedCapability: nil))
+//            print("****** Peasant selected")
 //            selectedPeasant = nil
 //        } else {
+////            var a = gameModel.actualMap.assets
 //            for asset in gameModel.actualMap.assets{
-//                
+//                if asset.assetType.name == "Peasant" && asset.position.distance(position: target.position) < 64 {
+//                    selectedPeasant = asset
+//                }
 //            }
 //        }
         

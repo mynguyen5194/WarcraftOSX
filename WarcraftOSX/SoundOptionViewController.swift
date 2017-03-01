@@ -8,10 +8,11 @@
 
 import Cocoa
 
+var fxVolume = 100
+var musicVolume = 100
+
 class SoundOptionViewController: NSViewController {
     var menuSupporter = MenuSupporter()
-    var fxVolume = 100
-    var musicVolume = 100
     
     @IBOutlet weak var fxVolumeTextField: NSTextField!
     @IBOutlet weak var musicVolumeTextField: NSTextField!
@@ -23,8 +24,14 @@ class SoundOptionViewController: NSViewController {
         thunkSound.play()
         self.performSegue(withIdentifier: "okSoundOptionsSegue", sender: sender)
         
-        fxVolume = fxVolumeTextField.integerValue
-        musicVolume = musicVolumeTextField.integerValue
+        fxVolume = Int(fxVolumeTextField.intValue)
+        musicVolume = Int(musicVolumeTextField.intValue)
+        
+        thunkSound.volume = Float((Float(fxVolume)*1.0)/100.0)
+        menuSound.volume = Float((Float(musicVolume)*1.0)/100.0)
+        
+        fxVolumeTextField.stringValue = String(fxVolume)
+        musicVolumeTextField.stringValue = String(musicVolume)
     }
     
     @IBAction func cancelButton(_ sender: NSButton) {
@@ -39,11 +46,8 @@ class SoundOptionViewController: NSViewController {
         menuSupporter.formatButtonTitle(sender: okButton, color: NSColor.yellow, title: okButton.title, fontSize: 18)
         menuSupporter.formatButtonTitle(sender: cancelButton, color: NSColor.yellow, title: cancelButton.title, fontSize: 18)
         
-        fxVolumeTextField.stringValue = "100"
-        musicVolumeTextField.stringValue = "100"
-        
-        thunkSound.volume = Float(fxVolume/100)
         fxVolumeTextField.stringValue = String(fxVolume)
-    
+        musicVolumeTextField.stringValue = String(musicVolume)
+        
     }
 }
