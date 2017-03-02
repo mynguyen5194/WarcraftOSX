@@ -23,7 +23,7 @@ protocol GraphicResourceContext {
     func moveTo(x: Int, y: Int)
     func lineTo(x: Int, y: Int)
     func clip()
-    func maskSurface(surface: GraphicSurface, x: Int, y: Int)
+    func maskSurface(clipSurface: GraphicSurface, surface: GraphicSurface, x: Int, y: Int, rgb: UInt32)
     func getTarget() -> GraphicSurface
     func save()
     func restore()
@@ -34,6 +34,7 @@ protocol GraphicResourceContext {
 extension CGContext: GraphicResourceContext {
 
     func setSourceRGB(_ rgb: UInt32) {
+        print ("setSource")
         setSourceRGBA(0xff00_0000 | rgb)
     }
 
@@ -50,6 +51,7 @@ extension CGContext: GraphicResourceContext {
     }
 
     func setSourceRGBA(r: Double, g: Double, b: Double, a: Double) {
+        print("red:", r,"green:",g, "blue:",b)
         setStrokeColor(red: CGFloat(r), green: CGFloat(g), blue: CGFloat(b), alpha: CGFloat(a))
         setFillColor(red: CGFloat(r), green: CGFloat(g), blue: CGFloat(b), alpha: CGFloat(a))
     }
@@ -98,8 +100,32 @@ extension CGContext: GraphicResourceContext {
         clip(using: .winding)
     }
 
-    func maskSurface(surface: GraphicSurface, x: Int, y: Int) {
-        fatalError("This method is not yet implemented.")
+    func maskSurface(clipSurface: GraphicSurface, surface: GraphicSurface, x: Int, y: Int, rgb: UInt32) {
+        print (rgb)
+        print("x:", x, "y:", y)
+        let size = CGSize(width: 32, height: 32)
+        let rect = CGRect(origin: .zero, size: size)
+//        UIGraphicsBeginImageContext(size: size)
+//        guard let newContext = UIGraphicsGetCurrentContext(), let layer = CGLayer(newContext, size: size, auxiliaryInfo: nil) else {
+//            return
+//        }
+//        layer.context!.saveGState()
+//        layer.context!.fill(rect)
+//        layer.context!.draw(surface as! CGLayer, in: rect)
+//        layer.context!.restoreGState()
+//        UIGraphicsEndImageContext()
+//        layer.context!.draw(clipSurface as! CGLayer, at: CGPoint(x:x, y:y))
+        
+        let clipContext = clipSurface.resourceContext as! CGContext
+        clipContext.setSourceRGB(rgb)
+        
+        //clipContext.saveGState()
+        clipContext.fill(rect)
+        clipContext.draw(surface as! CGLayer, in: rect)
+        //clipContext.restoreGState()
+
+        clipContext.draw(clipSurface as! CGLayer, at: CGPoint(x:x, y:y))
+        //clipContext.draw(clipSurface as! CGLayer, in: self.bounds)
     }
 
     func getTarget() -> GraphicSurface {

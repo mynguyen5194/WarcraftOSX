@@ -11,8 +11,8 @@ import AVFoundation
 
 var mainMapOffsetX = 0
 var mainMapOffsetY = 0
-var clickedXpos = 0
-var clickedYpos = 0
+var tileXlocation = 0
+var tileYlocation = 0
 
 fileprivate func tileset(_ name: String) throws -> GraphicTileset {
     guard let tilesetURL = Bundle.main.url(forResource: "/data/img/\(name)", withExtension: "dat") else {
@@ -40,7 +40,7 @@ class GameViewController: NSViewController {
     var game1SoundBankURL: URL?
     var game1Sound = AVMIDIPlayer()
     var selectedPeasant: PlayerAsset?
-    //var mapType: SelectMapViewController?
+    
     
     @IBOutlet weak var miniView: NSView!
     @IBOutlet weak var mainMapView: NSView!
@@ -89,6 +89,8 @@ class GameViewController: NSViewController {
             let configurationURL = Bundle.main.url(forResource: "/data/img/MapRendering", withExtension: "dat")!
             let configuration = try FileDataSource(url: configurationURL)
             let terrainTileset = try tileset("Terrain")
+            //michelle added
+            try terrainTileset.createClippingMasks()
             Position.setTileDimensions(width: terrainTileset.tileWidth, height: terrainTileset.tileHeight)
             return try MapRenderer(configuration: configuration, tileset: terrainTileset, map: self.map)
         } catch {
@@ -174,6 +176,14 @@ class GameViewController: NSViewController {
 //        midiPlayer.prepareToPlay()
 //        midiPlayer.play()
         
+//        print(self.view.bounds.width)
+//        print(self.view.bounds.height)
+//        print(self.mainMapView.bounds.width)
+//        print(self.mainMapView.bounds.height)
+//        print(self.mapRenderer.detailedMapWidth)
+//        print(self.mapRenderer.detailedMapHeight)
+        
+        //origin should be at pan offset. size should be bounds of viewport window
         let OSXCustomViewMap = OSXCustomView(frame: CGRect(origin: .zero, size: CGSize(width: mapRenderer.detailedMapWidth, height: mapRenderer.detailedMapHeight)), viewportRenderer: viewportRenderer)
 
         let OSXCustomMiniMapViewMap = OSXCustomMiniMapView(frame: CGRect(origin: .zero, size: CGSize(width: mapRenderer.mapWidth, height: mapRenderer.mapHeight)), mapRenderer: mapRenderer)
@@ -185,54 +195,79 @@ class GameViewController: NSViewController {
         
     }
     
-    override func viewDidAppear() {
-        var loadingPlayerColors: [PlayerColor]
-        
-        loadingPlayerColors = []
-        for pcIndex in 0 ..< PlayerColor.numberOfColors{
-            loadingPlayerColors.append(PlayerColor(index: pcIndex)!)
-        }
-        
-        var playerCommands: [PlayerCommandRequest]
-        playerCommands = []
-
-        let currentPos = Position(x: Int(clickedXpos), y: Int(clickedYpos))
-        let playCap = PlayerCommandRequest(action: .none, actors: self.map.assets, targetColor: .none, targetType: .none, targetLocation: currentPos)
-        
-        for _ in 0 ..< PlayerColor.numberOfColors{
-            playerCommands.append(playCap)
-        }
-        
-        var canHarvest = true
-        
-        for asset in self.map.assets{
-            if !asset.hasCapability(.mine) {
-                canHarvest = false
-                break
-            }
-        }
-        //var pixelType = PixelType
-        
-//        if canHarvest{
-//            if(PixelType.AssetTerrainType.tree == PixelType.t){ //fix seeing if clicked on tree
-//                let tempTilePosition: Position
-//                
-//                playerCommands[PlayerColor.numberOfColors].action = .mine
-//                tempTilePosition.setToTile(currentPos)
-//            }
+//    override func viewDidAppear() {
+//        var loadingPlayerColors: [PlayerColor]
+//        
+//        loadingPlayerColors = []
+//        for pcIndex in 0 ..< PlayerColor.numberOfColors{
+//            loadingPlayerColors.append(PlayerColor(index: pcIndex)!)
 //        }
-        
-        
-        //first param should be selectedMapIndex
-        //0x123456789ABCDEFULL is the original
-        let gameModel = GameModel(mapIndex: 0, seed: 0x0123_4567_89ab_cdef, newColors: loadingPlayerColors)
-        
-        do{
-            try gameModel.timestep()
-        } catch {
-            fatalError(error as! String)
-        }
-    }
+//        
+//        var playerCommands: [PlayerCommandRequest]
+//        playerCommands = []
+//
+//        //let currentPos = Position(x: Int(clickedXpos), y: Int(clickedYpos))
+//        let currentPos = Position(x: tileXlocation, y: tileYlocation)
+//        let playCap = PlayerCommandRequest(action: .move, actors: self.map.assets, targetColor: .none, targetType: .none, targetLocation: currentPos)
+//        
+//        for _ in 0 ..< PlayerColor.numberOfColors{
+//            playerCommands.append(playCap)
+//        }
+//        
+//        var canHarvest = true
+//        var canMove = true
+//        let gameModel = GameModel(mapIndex: 0, seed: 0x0123_4567_89ab_cdef, newColors: loadingPlayerColors)
+//        
+//        var counter = 0
+//        for asset in self.map.assets{
+//            if !asset.hasCapability(.mine) {
+//                canHarvest = false
+//                canMove = false
+//                //break
+//            }
+//            
+//            
+//        
+//        //var pixelType = PixelType
+//        
+////            if canMove{
+////                //asset.action = .walk
+////                playerCommands[counter].action = .move
+////                playerCommands[counter].actors = [self.map.assets[3]]
+////                playerCommands[counter].targetLocation = Position(x: tileXlocation, y: tileYlocation)
+////            }
+//        
+//            if canHarvest{
+//
+//                print (self.map.tileTypeAt(position: currentPos))
+//                let x = 2
+//                let treeType = String(describing: PixelType.AssetTerrainType.tree)
+//                let goldType = String(describing: PixelType.AssetTerrainType.goldMine)
+//                let currType = String(describing: self.map.tileTypeAt(position: currentPos))
+//                if(treeType == "tree"){         //seeing if clicked on tree
+//                    let tempTilePosition = currentPos
+//                
+//                    playerCommands[counter].action = .mine
+//                    tempTilePosition.setToTile(currentPos)
+//                } else if(goldType == currType){
+//                    playerCommands[counter].action = .mine
+//                    playerCommands[counter].targetType = .goldMine
+//                }
+//            }
+//            counter += 1
+//        }
+//        
+//        
+//        //first param should be selectedMapIndex
+//        //0x123456789ABCDEFULL is the original
+////        let gameModel = GameModel(mapIndex: 0, seed: 0x0123_4567_89ab_cdef, newColors: loadingPlayerColors)
+//        
+//        do{
+//            try gameModel.timestep()
+//        } catch {
+//            fatalError(error as! String)
+//        }
+//    }
     
     // variable that stores the mouse location
     var mouseLocation: NSPoint {
@@ -246,29 +281,40 @@ class GameViewController: NSViewController {
         let xMouseLoc = event.locationInWindow.x - self.mainMapView.frame.origin.x
         let yMouseLoc = event.locationInWindow.y - self.mainMapView.frame.origin.y
         
-        clickedXpos = Int(xMouseLoc + CGFloat(mainMapOffsetX))
-        clickedYpos = Int(yMouseLoc + CGFloat(mainMapOffsetY))
+        let clickedXpos = Int(xMouseLoc + CGFloat(mainMapOffsetX))
+        let clickedYpos = Int(yMouseLoc + CGFloat(mainMapOffsetY))
         
-        let tileXlocation = (clickedXpos - (clickedXpos % 32))
-        let tileYlocation = (clickedYpos - (clickedYpos % 32))
+        tileXlocation = (clickedXpos - (clickedXpos % 32))/32
+        tileYlocation = (clickedYpos - (clickedYpos % 32))/32
+        
+        tileYlocation = 64 - tileYlocation
+        
         
         let targetAsset = PlayerAsset(playerAssetType: PlayerAssetType())
         targetAsset.position = Position(x: Int(tileXlocation), y: Int(tileYlocation))
         
+        
 //        if selectedPeasant != nil {
-//            selectedPeasant!.pushCommand(AssetCommand(action: .walk, capability: .buildPeasant, assetTarget: target, activatedCapability: nil)
+//            print("selected peasant")
+//            selectedPeasant!.pushCommand(AssetCommand(action: .walk, capability: .buildPeasant, assetTarget: targetAsset, activatedCapability: nil))
 //            selectedPeasant = nil
+//            viewDidAppear()
 //        } else {
-//            for asset in gameModel.actualMap.assets{
-//                
+//            for asset in self.map.assets {
+//                if asset.assetType.name == "Peasant" && targetAsset.position.x == 10 && targetAsset.position.y == 10{ //&& asset.position.distance(position: targetAsset.position) < 64 {
+//                    selectedPeasant = asset
+//                    print("PEASANT SELECTED!!")
+//                    break
+//                }
 //            }
 //        }
         
+        //print(self.map.tileTypeAt(x: 10, y: 14))
         
         // store position into the text field for testing purposes
         // change String parameter to NSEvent.mouseLocation() to track x and y position concurrently
-        testXLoc.stringValue = String(describing: xMouseLoc)
-        testYLoc.stringValue = String(describing: yMouseLoc)
+        testXLoc.stringValue = String(describing: tileXlocation)
+        testYLoc.stringValue = String(describing: tileYlocation)
         tileXLoc.stringValue = String(describing: clickedXpos)
         tileYLoc.stringValue = String(describing: clickedYpos)
         

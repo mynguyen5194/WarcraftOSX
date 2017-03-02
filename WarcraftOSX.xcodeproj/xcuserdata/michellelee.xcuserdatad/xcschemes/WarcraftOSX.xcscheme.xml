@@ -28,6 +28,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "A93DF5EF1E3D77E90047BA86"
+               BuildableName = "WarcraftOSXTests.xctest"
+               BlueprintName = "WarcraftOSXTests"
+               ReferencedContainer = "container:WarcraftOSX.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "A93DF5FA1E3D77E90047BA86"
+               BuildableName = "WarcraftOSXUITests.xctest"
+               BlueprintName = "WarcraftOSXUITests"
+               ReferencedContainer = "container:WarcraftOSX.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

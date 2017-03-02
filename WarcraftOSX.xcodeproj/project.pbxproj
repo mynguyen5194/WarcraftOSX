@@ -239,7 +239,6 @@
 				FE4D00D51E4C19390099BE43 /* GraphicResourceContext.swift */,
 				FE4D00D71E4C19400099BE43 /* GraphicSurface.swift */,
 				FE4D00D91E4C19470099BE43 /* GraphicTileset.swift */,
-				FE4D00CB1E4C18DC0099BE43 /* MapRenderer.swift */,
 				FE4D00C71E4C18AE0099BE43 /* AssetRenderer.swift */,
 				FE4D00C91E4C18B90099BE43 /* AssetDecoratedMap.swift */,
 			);
@@ -249,6 +248,7 @@
 		FE4D00DF1E4C28450099BE43 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				FE4D00CB1E4C18DC0099BE43 /* MapRenderer.swift */,
 				FE4D00C51E4C187F0099BE43 /* MiniMapView.swift */,
 				FE4D00CD1E4C18F00099BE43 /* MapView.swift */,
 				FE4D00E01E4C28770099BE43 /* VisibilityMap.swift */,

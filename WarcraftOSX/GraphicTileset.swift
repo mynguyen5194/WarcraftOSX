@@ -410,18 +410,18 @@ class GraphicTileset {
     
     func drawClippedTile(on surface: GraphicSurface, x: Int, y: Int, index: Int, rgb: UInt32) throws {
         // FIXME: MAKE DRAW CLIPPED TILE GREAT AGAIN
-        // HACK - BEGIN
-        //
-        // HACK - END
-        // ORIGINAL - BEGIN
-        //        guard let mask = clippingMasks[index] else {
-        //            throw GameError.indexOutOfBound(index: index)
-        //        }
-        //        let resourceContext = surface.createResourceContext()
-        //        resourceContext.setSourceRGB(rgb)
-        //        resourceContext.maskSurface(surface: mask, xPosition: x, yPosition: y)
-        //        resourceContext.fill()
-        // ORIGINAL - END
+
+        guard let mask = clippingMasks[index] else {
+            throw GameError.indexOutOfBound(index: index)
+        }
+        let resourceContext = surface.resourceContext
+        let size = CGSize(width: 32, height: 32)
+        let rect = CGRect(origin: .zero, size: size)
+        //let resourceContext = CGContext(data: nil, width: surface.width, height: surface.height, bitsPerComponent: 1, bytesPerRow: 0, space: CGColorSpace(name: CGColorSpace.sRGB)!, bitmapInfo: CGBitmapInfo(rawValue: 0).rawValue)
+        //resourceContext.setSourceRGB(rgb)
+        resourceContext.maskSurface(clipSurface: surface, surface: mask, x: x, y: y, rgb: rgb)
+        //resourceContext.fill()
+
     }
     
     func clearTile(at index: Int) throws {
@@ -512,6 +512,7 @@ class GraphicTileset {
         guard let surfaceTileset = surfaceTileset else {
             throw GameError.missingTileset
         }
+        
         for i in 0 ..< tileCount {
             clippingMasks[i] = GraphicFactory.createSurface(width: tileWidth, height: tileHeight, format: .a1)
             try clippingMasks[i]?.copy(from: surfaceTileset, dx: 0, dy: 0, width: tileWidth, height: tileHeight, sx: 0, sy: i * tileHeight)

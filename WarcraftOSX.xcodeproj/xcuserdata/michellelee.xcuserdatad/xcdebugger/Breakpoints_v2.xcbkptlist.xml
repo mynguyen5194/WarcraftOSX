@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WarcraftOSX/AssetRenderer.swift"
+            timestampString = "509781450.530923"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "293"
+            endingLineNumber = "293"
+            landmarkName = "drawAssets(on:typeSurface:in:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WarcraftOSX/GameModel.swift"
+            timestampString = "509929259.384751"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "499"
+            endingLineNumber = "499"
+            landmarkName = "init(mapIndex:seed:newColors:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WarcraftOSX/OSXCustomView.swift"
+            timestampString = "510092113.821616"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "draw(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WarcraftOSX/MapRenderer.swift"
+            timestampString = "510092319.200947"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "502"
+            endingLineNumber = "502"
+            landmarkName = "drawMap(on:typeSurface:in:level:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WarcraftOSX.MapRenderer.drawMap (on : WarcraftOSX.GraphicSurface, typeSurface : WarcraftOSX.GraphicSurface, in : WarcraftOSX.Rectangle, level : Swift.Int) throws -&gt; ()"
+                  moduleName = "WarcraftOSX"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/michellelee/Documents/FourthYear/WQ2017/mapecs160/ECS160OSX/WarcraftOSX/MapRenderer.swift"
+                  timestampString = "510133707.289229"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "502"
+                  endingLineNumber = "502"
+                  offsetFromSymbolStart = "47618">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WarcraftOSX.MapRenderer.drawMap (on : WarcraftOSX.GraphicSurface, typeSurface : WarcraftOSX.GraphicSurface, in : WarcraftOSX.Rectangle, level : Swift.Int) throws -&gt; ()"
+                  moduleName = "WarcraftOSX"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/michellelee/Documents/FourthYear/WQ2017/mapecs160/ECS160OSX/WarcraftOSX/MapRenderer.swift"
+                  timestampString = "510133707.291516"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "502"
+                  endingLineNumber = "502"
+                  offsetFromSymbolStart = "48093">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WarcraftOSX.MapRenderer.drawMap (on : WarcraftOSX.GraphicSurface, typeSurface : WarcraftOSX.GraphicSurface, in : WarcraftOSX.Rectangle, level : Swift.Int) throws -&gt; ()"
+                  moduleName = "WarcraftOSX"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/michellelee/Documents/FourthYear/WQ2017/mapecs160/ECS160OSX/WarcraftOSX/MapRenderer.swift"
+                  timestampString = "510133707.294047"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "502"
+                  endingLineNumber = "502"
+                  offsetFromSymbolStart = "48592">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WarcraftOSX.MapRenderer.drawMap (on : WarcraftOSX.GraphicSurface, typeSurface : WarcraftOSX.GraphicSurface, in : WarcraftOSX.Rectangle, level : Swift.Int) throws -&gt; ()"
+                  moduleName = "WarcraftOSX"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/michellelee/Documents/FourthYear/WQ2017/mapecs160/ECS160OSX/WarcraftOSX/MapRenderer.swift"
+                  timestampString = "510133707.296427"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "502"
+                  endingLineNumber = "502"
+                  offsetFromSymbolStart = "49614">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WarcraftOSX.MapRenderer.drawMap (on : WarcraftOSX.GraphicSurface, typeSurface : WarcraftOSX.GraphicSurface, in : WarcraftOSX.Rectangle, level : Swift.Int) throws -&gt; ()"
+                  moduleName = "WarcraftOSX"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/michellelee/Documents/FourthYear/WQ2017/mapecs160/ECS160OSX/WarcraftOSX/MapRenderer.swift"
+                  timestampString = "510133707.298409"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "502"
+                  endingLineNumber = "502"
+                  offsetFromSymbolStart = "50636">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WarcraftOSX.MapRenderer.drawMap (on : WarcraftOSX.GraphicSurface, typeSurface : WarcraftOSX.GraphicSurface, in : WarcraftOSX.Rectangle, level : Swift.Int) throws -&gt; ()"
+                  moduleName = "WarcraftOSX"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/michellelee/Documents/FourthYear/WQ2017/mapecs160/ECS160OSX/WarcraftOSX/MapRenderer.swift"
+                  timestampString = "510133707.300273"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "502"
+                  endingLineNumber = "502"
+                  offsetFromSymbolStart = "52680">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WarcraftOSX.MapRenderer.drawMap (on : WarcraftOSX.GraphicSurface, typeSurface : WarcraftOSX.GraphicSurface, in : WarcraftOSX.Rectangle, level : Swift.Int) throws -&gt; ()"
+                  moduleName = "WarcraftOSX"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/michellelee/Documents/FourthYear/WQ2017/mapecs160/ECS160OSX/WarcraftOSX/MapRenderer.swift"
+                  timestampString = "510133707.303041"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "502"
+                  endingLineNumber = "502"
+                  offsetFromSymbolStart = "53702">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WarcraftOSX.MapRenderer.drawMap (on : WarcraftOSX.GraphicSurface, typeSurface : WarcraftOSX.GraphicSurface, in : WarcraftOSX.Rectangle, level : Swift.Int) throws -&gt; ()"
+                  moduleName = "WarcraftOSX"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/michellelee/Documents/FourthYear/WQ2017/mapecs160/ECS160OSX/WarcraftOSX/MapRenderer.swift"
+                  timestampString = "510133707.305689"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "502"
+                  endingLineNumber = "502"
+                  offsetFromSymbolStart = "54772">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WarcraftOSX.MapRenderer.drawMap (on : WarcraftOSX.GraphicSurface, typeSurface : WarcraftOSX.GraphicSurface, in : WarcraftOSX.Rectangle, level : Swift.Int) throws -&gt; ()"
+                  moduleName = "WarcraftOSX"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/michellelee/Documents/FourthYear/WQ2017/mapecs160/ECS160OSX/WarcraftOSX/MapRenderer.swift"
+                  timestampString = "510133707.307775"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "502"
+                  endingLineNumber = "502"
+                  offsetFromSymbolStart = "63970">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WarcraftOSX/GraphicTileset.swift"
+            timestampString = "510095454.840879"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "414"
+            endingLineNumber = "414"
+            landmarkName = "drawClippedTile(on:x:y:index:rgb:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

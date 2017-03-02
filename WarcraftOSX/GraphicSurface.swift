@@ -1,3 +1,4 @@
+import Cocoa
 import CoreGraphics
 
 typealias GraphicSurfaceTransformCallback = () -> UInt32
@@ -19,6 +20,7 @@ protocol GraphicSurface {
     var format: GraphicSurfaceFormat { get }
     var resourceContext: GraphicResourceContext { get }
     
+    func createResourceContext() -> CGContext
     func duplicate() -> GraphicSurface
     
     func pixelColorAt(x: Int, y: Int) -> UInt32
@@ -47,6 +49,20 @@ extension CGLayer: GraphicSurface {
     
     var resourceContext: GraphicResourceContext {
         return context!
+    }
+    
+    func createResourceContext() -> CGContext{
+
+        let context = CGContext(data: nil, width: width, height: height, bitsPerComponent: 1, bytesPerRow: 0, space: CGColorSpace(name: CGColorSpace.sRGB)!, bitmapInfo: CGBitmapInfo(rawValue: 0).rawValue)
+        
+        //let testURL = Bundle.main.url(forResource: "/data/img/Texture", withExtension: "png")!
+        
+        return context!
+        
+        
+        //return CGContext.init(data: nil, width: 96, height: 64, bitsPerComponent: 1, bytesPerRow: 12, space: CGColorSpace.default, bitmapInfo: <#T##UInt32#>)
+        
+        //return CGImage.init(maskWidth: 96, height: 64, bitsPerComponent: 1, bitsPerPixel: 1, bytesPerRow: 12, provider: CGDataProvider.init(url: testURL as CFURL)!, decode: nil, shouldInterpolate: false)!
     }
     
     func duplicate() -> GraphicSurface {

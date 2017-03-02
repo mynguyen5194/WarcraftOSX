@@ -55,11 +55,11 @@ class OSXCustomView: NSView {
             frame.origin.x = max(min(frame.origin.x, 0), -frame.size.width + NSScreen.main()!.frame.width)
             
             mainMapOffsetX -= Int(myCGFloat)
-            if mainMapOffsetX < 0{
-                mainMapOffsetX = 0
-            } else if mainMapOffsetX > Int(frame.width){
-                mainMapOffsetX = Int(frame.width)
-            }
+//            if mainMapOffsetX < 0{
+//                mainMapOffsetX = 0
+//            } else if mainMapOffsetX > Int(frame.width){
+//                mainMapOffsetX = Int(frame.width)
+//            }
         }
             //right arrow
         else if event.keyCode == 124 {
@@ -67,11 +67,11 @@ class OSXCustomView: NSView {
             frame.origin.x = max(min(frame.origin.x, 0), -frame.size.width + NSScreen.main()!.frame.width)
 
             mainMapOffsetX += Int(myCGFloat)
-            if mainMapOffsetX < 0{
-                mainMapOffsetX = 0
-            } else if mainMapOffsetX > Int(frame.width){
-                mainMapOffsetX = Int(frame.width)
-            }
+//            if mainMapOffsetX < 0{
+//                mainMapOffsetX = 0
+//            } else if mainMapOffsetX > Int(frame.width){
+//                mainMapOffsetX = Int(frame.width)
+//            }
         }
             //down arrow
         else if event.keyCode == 125 {
@@ -98,8 +98,12 @@ class OSXCustomView: NSView {
             let typeLayer = GraphicFactory.createSurface(width: viewportRenderer.lastViewportWidth, height: viewportRenderer.lastViewportHeight, format: .a1)!
             try viewportRenderer.drawViewport(on: layer, typeSurface: typeLayer, selectionMarkerList: [], selectRect: rectangle, currentCapability: .none)
             let context = UIGraphicsGetCurrentContext()!
-            context.draw(layer as! CGLayer, in: self.bounds)
-            context.draw(typeLayer as! CGLayer, in: dirtyRect)
+            //original
+//            context.draw(layer as! CGLayer, in: self.bounds)
+//            context.draw(typeLayer as! CGLayer, in: dirtyRect)
+            //testing clipping mask
+            context.draw(typeLayer as! CGLayer, in: self.bounds)
+            
         } catch {
             let error = NSError.init(domain: "Failed in draw function of OSXCustomView", code: 0, userInfo: nil)
             fatalError(error.localizedDescription)
