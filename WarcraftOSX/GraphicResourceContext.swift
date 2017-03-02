@@ -5,7 +5,8 @@ typealias GraphicResourceContextLineCap = CGLineCap
 typealias GraphicResourceContextLineJoin = CGLineJoin
 
 protocol GraphicResourceContext {
-
+    
+    var findTree: CGFloat {get}
     func setSourceRGB(_ rgb: UInt32)
     func setSourceRGB(r: Double, g: Double, b: Double)
     func setSourceRGBA(_ rgba: UInt32)
@@ -33,6 +34,14 @@ protocol GraphicResourceContext {
 
 extension CGContext: GraphicResourceContext {
 
+    var findTree: CGFloat{
+        let pixelType = PixelType(tileType: .tree)
+        let rgba = pixelType.pixelColor
+        let r = Double(rgba >> 16 & 0xff) / 255.0
+        return CGFloat(r)
+        
+    }
+    
     func setSourceRGB(_ rgb: UInt32) {
         print ("setSource")
         setSourceRGBA(0xff00_0000 | rgb)
@@ -57,7 +66,9 @@ extension CGContext: GraphicResourceContext {
     }
 
     func setSourceSurface(_ surface: GraphicSurface, x: Int, y: Int) {
-        fatalError("This method is not yet implemented.")
+        let surfaceContext = surface.resourceContext
+        //surfaceContext.findTree
+        
     }
 
     func setLineWidth(_ width: Double) {

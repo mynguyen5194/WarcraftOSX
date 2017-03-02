@@ -19,10 +19,10 @@
 		8C421AC01E58718B00343CC4 /* FileDataContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C421ABF1E58718B00343CC4 /* FileDataContainer.swift */; };
 		A93DF5E11E3D77E90047BA86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93DF5E01E3D77E90047BA86 /* AppDelegate.swift */; };
 		A93DF5E71E3D77E90047BA86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A93DF5E61E3D77E90047BA86 /* Assets.xcassets */; };
-		A93DF5EA1E3D77E90047BA86 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A93DF5E81E3D77E90047BA86 /* Main.storyboard */; };
 		A93DF5F51E3D77E90047BA86 /* WarcraftOSXTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93DF5F41E3D77E90047BA86 /* WarcraftOSXTests.swift */; };
 		A93DF6001E3D77E90047BA86 /* WarcraftOSXUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93DF5FF1E3D77E90047BA86 /* WarcraftOSXUITests.swift */; };
 		A93DF60E1E3D78140047BA86 /* data in Resources */ = {isa = PBXBuildFile; fileRef = A93DF60D1E3D78140047BA86 /* data */; };
+		ED2CD5891E68E2AD005413BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED2CD5871E68E2AD005413BF /* Main.storyboard */; };
 		EDF9DFEC1E5C9AB100D73526 /* MenuSupporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF9DFEB1E5C9AB100D73526 /* MenuSupporter.swift */; };
 		FE0B613F1E513A6C00CC5657 /* OSXCustomMiniMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0B613E1E513A6C00CC5657 /* OSXCustomMiniMapView.swift */; };
 		FE0B61411E5142EB00CC5657 /* UIResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0B61401E5142EB00CC5657 /* UIResponder.swift */; };
@@ -95,7 +95,6 @@
 		A93DF5DD1E3D77E90047BA86 /* WarcraftOSX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WarcraftOSX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A93DF5E01E3D77E90047BA86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A93DF5E61E3D77E90047BA86 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		A93DF5E91E3D77E90047BA86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A93DF5EB1E3D77E90047BA86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A93DF5F01E3D77E90047BA86 /* WarcraftOSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WarcraftOSXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A93DF5F41E3D77E90047BA86 /* WarcraftOSXTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarcraftOSXTests.swift; sourceTree = "<group>"; };
@@ -104,6 +103,7 @@
 		A93DF5FF1E3D77E90047BA86 /* WarcraftOSXUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarcraftOSXUITests.swift; sourceTree = "<group>"; };
 		A93DF6011E3D77E90047BA86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A93DF60D1E3D78140047BA86 /* data */ = {isa = PBXFileReference; lastKnownFileType = folder; path = data; sourceTree = "<group>"; };
+		ED2CD5881E68E2AD005413BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "../../ECS160OSX-master_2/WarcraftOSX/Base.lproj/Main.storyboard"; sourceTree = "<group>"; };
 		EDF9DFEB1E5C9AB100D73526 /* MenuSupporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuSupporter.swift; sourceTree = "<group>"; };
 		FE0B613E1E513A6C00CC5657 /* OSXCustomMiniMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSXCustomMiniMapView.swift; sourceTree = "<group>"; };
 		FE0B61401E5142EB00CC5657 /* UIResponder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIResponder.swift; sourceTree = "<group>"; };
@@ -351,7 +351,7 @@
 		FE7C9F741E4A46AE00A32B85 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A93DF5E81E3D77E90047BA86 /* Main.storyboard */,
+				ED2CD5871E68E2AD005413BF /* Main.storyboard */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -472,9 +472,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED2CD5891E68E2AD005413BF /* Main.storyboard in Resources */,
 				A93DF5E71E3D77E90047BA86 /* Assets.xcassets in Resources */,
 				A93DF60E1E3D78140047BA86 /* data in Resources */,
-				A93DF5EA1E3D77E90047BA86 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -584,10 +584,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		A93DF5E81E3D77E90047BA86 /* Main.storyboard */ = {
+		ED2CD5871E68E2AD005413BF /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				A93DF5E91E3D77E90047BA86 /* Base */,
+				ED2CD5881E68E2AD005413BF /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
